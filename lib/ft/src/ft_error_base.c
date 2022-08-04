@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:12:50 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/06/08 22:26:34 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:46:12 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
+#include "ft.h"
 
 int	ft_error_base(char *base)
 {

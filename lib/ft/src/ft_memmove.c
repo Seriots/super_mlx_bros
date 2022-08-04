@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:54:16 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/06 09:21:43 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:46:12 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
+#include "ft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

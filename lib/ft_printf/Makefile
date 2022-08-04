@@ -6,7 +6,9 @@ MAKE		= /bin/make
 NAME		= libft_printf.a
 
 HEADER_NAMES= conversion \
-			  ft_printf
+			  ft_printf \
+			  ft
+
 SRC_NAMES	= ft_printf \
 			  ft_printf_utils \
 			  ft_printf_utils2 \

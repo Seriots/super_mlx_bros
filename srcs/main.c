@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/02 20:16:28 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 17:46:12 by lgiband          ###   ########.fr       */
+/*   Created: 2022/08/04 17:53:30 by lgiband           #+#    #+#             */
+/*   Updated: 2022/08/04 22:50:17 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
 #include "ft.h"
+#include "smb_struct.h"
 
-void	ft_putendl_fd(char *s, int fd)
+#include <unistd.h>
+
+int	main(int argc, char **argv)
 {
-	if (!s)
-		return ;
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	t_game	game;
+
+	mlx = mlx_init();
+	
+	mlx_destroy_display(mlx);
 }

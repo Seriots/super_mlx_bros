@@ -6,12 +6,12 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 19:16:08 by lgiband           #+#    #+#             */
-/*   Updated: 2022/06/08 22:50:00 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:48:17 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dict.h"
-#include "libft.h"
+#include "ft.h"
 
 t_dict	*dict_getelem_value(t_dict *dict, void *value)
 {

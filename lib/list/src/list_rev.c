@@ -6,12 +6,12 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 17:48:26 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/06/16 10:24:34 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/04 17:50:21 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "../include/list.h"
+#include "list.h"
 
 void	list_change_next(t_list **lst, size_t size)
 {

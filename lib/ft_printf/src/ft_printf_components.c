@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 00:44:28 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/12 15:32:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/04 17:48:17 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include "conversions.h"
 #include "ft_printf.h"
-#include "libft.h"
+#include "ft.h"
 
 t_arg	ft_check_precision(const char *s, int *i, t_arg elem)
 {

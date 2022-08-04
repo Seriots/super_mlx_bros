@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_quoted.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:50:42 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/07/13 20:41:06 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:46:12 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "ft.h"
 
 static void	skip_word(const char **str, const char *sep)
 {

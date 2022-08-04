@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:48:32 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/06/08 22:27:48 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:46:12 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
-#include "libft.h"
+#include "ft.h"
 
 static int	size_u_int(unsigned int n, size_t len_base)
 {

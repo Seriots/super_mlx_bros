@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   smb.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/02 20:16:28 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/04 17:46:12 by lgiband          ###   ########.fr       */
+/*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
+/*   Updated: 2022/08/04 22:46:24 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#ifndef SMB_H
+# define SMB_H
 
-void	ft_putendl_fd(char *s, int fd)
-{
-	if (!s)
-		return ;
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
-}
+
+
+#endif
