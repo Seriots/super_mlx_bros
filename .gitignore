@@ -1,0 +1,6 @@
+*.o
+*.d
+.vscode
+*Zone.Identifier
+a.out
+
