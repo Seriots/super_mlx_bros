@@ -5,7 +5,12 @@ MAKE = /bin/make
 
 define SRCS :=
 	main.c
-
+	smb_display.c
+	smb_error.c
+	smb_event.c
+	smb_free.c
+	smb_init_game.c
+	smb_init_image.c
 endef
 SRCS := $(strip $(SRCS))
 
