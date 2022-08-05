@@ -14,11 +14,13 @@ SRC_NAMES	= ft_error_base \
 			  ft_calloc \
 			  ft_free_tab \
 			  ft_get_empty \
+			  ft_get_next_line \
 			  ft_isalpha \
 			  ft_isdigit \
 			  ft_isalnum \
 			  ft_isascii \
 			  ft_isdouble \
+			  ft_isinset \
 			  ft_isint \
 			  ft_islong \
 			  ft_isprint \
@@ -28,6 +30,7 @@ SRC_NAMES	= ft_error_base \
 			  ft_memcpy \
 			  ft_memmove \
 			  ft_memset \
+			  ft_printarray \
 			  ft_putchar_fd \
 			  ft_putstr_fd \
 			  ft_putendl_fd \

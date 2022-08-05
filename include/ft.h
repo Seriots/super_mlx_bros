@@ -6,13 +6,15 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 20:33:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/05 01:23:18 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:53:34 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_H
 # define FT_H
-
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif 
 # include <stddef.h>
 
 size_t	ft_arraylen(char **array);
@@ -31,6 +33,8 @@ int		ft_isdouble(const char *str);
 int		ft_isint(const char *str);
 int		ft_islong(const char *str);
 int		ft_isprint(int c);
+int		ft_isinset(char c, char *set);
+void	ft_printarray(char **array, int is_n);
 char	*ft_itoa(int n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -63,5 +67,6 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_ultoa_base(unsigned long int nbr, char *base);
 char	*ft_utoa_base(unsigned int nbr, char *base);
+char 	*get_next_line(int fd);
 
 #endif

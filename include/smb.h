@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 01:23:44 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:56:36 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include "smb_struct.h"
 
 # include <X11/X.h>
+
+/*smb_parsing.c*/
+int		set_map(t_map *map, char *filename);
+int		check_map_format(char *filename);
+int		parsing(int argc, char **argv, t_map *map);
 
 /*smb_event.c*/
 int		key_pressed(KeySym keycode, t_game *game);

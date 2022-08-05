@@ -11,6 +11,9 @@ define SRCS :=
 	smb_free.c
 	smb_init_game.c
 	smb_init_image.c
+	smb_parsing_checker.c
+	smb_parsing_setter.c
+	smb_parsing.c
 endef
 SRCS := $(strip $(SRCS))
 
@@ -62,9 +65,9 @@ HDR_FILES := $(addprefix $(INCS_DIR)/,$(HDRS))
 CFLAGS := $(CFLAGS) -Wall -Wextra
 
 ifdef DEBUG
-	CFLAGS := $(CFLAGS) -g3 -D DEBUG
+	CFLAGS := $(CFLAGS) -g3 -D DEBUG=1
 else
-	CFLAGS := $(CFLAGS) -Werror
+	CFLAGS := $(CFLAGS) -Werror -D DEBUG=0
 endif
 
 # ============================================================================ #

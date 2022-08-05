@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 17:53:30 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 01:24:53 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:57:11 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ int	main(int argc, char **argv)
 	t_game	game;
 	int		error;
 
-	(void)argc;
-	(void)argv;
+	error = parsing(argc, argv, &game.map);
+	if (error)
+		return (smb_print_error(error), 1);
 	error = init_game(&game);
 	if (error)
 		return (smb_print_error(error), 1);

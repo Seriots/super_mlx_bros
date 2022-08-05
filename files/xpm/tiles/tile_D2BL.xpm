@@ -1,0 +1,29 @@
+/* XPM */
+static char *dGlsZV9EMkJM[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1 ",
+"  c #B2696F",
+". c #288177",
+"X c #5DAA6C",
+"o c #E08379",
+"O c #AFD07C",
+"+ c #FFB482",
+"@ c #FFE3AE",
+/* pixels */
+"ooooooooo.XXXXO@",
+"ooooo+++o.XXXXXO",
+"+ooo+++++o.XXXXX",
+"+++++++++++...XX",
+"++++++++++++++.X",
+"++++++o+++++++o.",
+"+++++ooo+++++oo.",
+"++o+++o+++o+++o+",
+"+ooo+++++ooo++++",
+"++o+++++++o+++++",
+"++++++++++++++++",
+"+++++ooo+++++ooo",
+"o+++ooooo+++oooo",
+"oooooo ooooooo o",
+"ooooo   ooooo   ",
+"oooooo ooooooo o"
+};

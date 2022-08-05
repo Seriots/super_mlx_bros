@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 01:26:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/05 18:30:23 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ int	init_game(t_game *game)
 	if (!game->mlx.display)
 		return (1);
 	game->mlx.window = mlx_new_window(game->mlx.display,
-			SCREEN_WIDTH, SCREEN_HEIGHT, "Super Mlx Bros");
+			SCREEN_WIDTH, SCREEN_HEIGHT, GAME_NAME);
 	if (!game->mlx.window)
 		return (mlx_destroy_display(game->mlx.display),
 			free(game->mlx.display), 2);
-	error = init_xpm_image(game, &game->background,
-			"files/xpm/Infinite_sky_background.xpm");
+	error = init_xpm_image(game, &game->background, BACKGROUND_NAME);
 	if (error)
 		return (mlx_destroy_window(game->mlx.display, game->mlx.window),
 			mlx_destroy_display(game->mlx.display),
