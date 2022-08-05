@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 19:56:36 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/05 21:03:47 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,11 @@ void	free_game(t_game *game);
 
 /*smb_error.c*/
 void	smb_print_error(int code);
+
+/*smb_wall_constructor.c*/
+void	convert_plateformer_map(char **map, int x, int y, int max_y);
+void	convert_outdoor_map(char **map, int x, int y, int max_y);
+void	convert_indoor_map(char **map, int x, int y, int max_y);
+void	wall_constructor(char **map, int max_y,
+					void (*convert_function)(char **, int, int, int));
 #endif

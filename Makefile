@@ -14,6 +14,7 @@ define SRCS :=
 	smb_parsing_checker.c
 	smb_parsing_setter.c
 	smb_parsing.c
+	smb_wall_constructor.c
 endef
 SRCS := $(strip $(SRCS))
 
