@@ -6,15 +6,16 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 20:55:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 21:05:21 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 01:08:47 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define RESULT_INCREMENT 1
 /*
-* Take a map of 0 and 1, (0 empty space, 1 wall) and output a map where everyone 1 are replace by 
-* a different character corresponding to 1 of 16 tiles to put in the map. you can play with this plage
-* of value with the macro RESULT_INCREMENT. Default: value are between 'A' and 'O'.
+* Take a map of 0 and 1, (0 empty space, 1 wall) and output a map where
+* every 1 are replace by a different character corresponding to 1 of 16 tiles
+* to put in the map. you can play with this plage of value with
+* the macro RESULT_INCREMENT. Default: value are between 'A' and 'O'.
 * This can work on a Non-rectangular map.
 */
 void	convert_outdoor_map(char **map, int x, int y, int max_y)
@@ -74,7 +75,8 @@ void	convert_plateformer_map(char **map, int x, int y, int max_y)
 }
 
 /*
-* You can pass different convert_function to apply a different placement of your tiles onthe map
+* You can pass different convert_function to apply a different
+* placement of your tiles onthe map
 * outdoor map: border tiles are straight line.
 * indoor map: border tiles are considering wall everywhere outside the map.
 */

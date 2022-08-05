@@ -6,13 +6,9 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:41:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 21:05:34 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 01:09:32 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef DEBUG
-# define DEBUG 0
-#endif
 
 #include "ft.h"
 
@@ -23,6 +19,11 @@
 #include <stdlib.h>
 
 #include <stdio.h>
+
+#ifndef DEBUG
+# define DEBUG 0
+#endif
+
 /*
 * Map rules:
 * -> 45 lines
@@ -36,17 +37,17 @@ static int	check_map_extension(char *arg)
 	if (!ft_strncmp(arg, MAP_EXTENSION, ft_strlen(MAP_EXTENSION) + 1))
 		return (7);
 	if (!ft_strncmp(&arg[ft_strlen(arg) - ft_strlen(MAP_EXTENSION_ERROR)],
-		MAP_EXTENSION_ERROR, ft_strlen(MAP_EXTENSION_ERROR) + 1))
+			MAP_EXTENSION_ERROR, ft_strlen(MAP_EXTENSION_ERROR) + 1))
 		return (7);
 	if (ft_strncmp(&arg[ft_strlen(arg) - ft_strlen(MAP_EXTENSION)],
-		MAP_EXTENSION, ft_strlen(MAP_EXTENSION) + 1))
+			MAP_EXTENSION, ft_strlen(MAP_EXTENSION) + 1))
 		return (7);
 	return (0);
 }
 
 int	parsing(int argc, char **argv, t_map *map)
 {
-	int error;
+	int	error;
 
 	if (argc != 2)
 		return (4);

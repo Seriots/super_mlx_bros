@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 19:27:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 20:42:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 01:07:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 */
 int	set_map(t_map *map, char *filename)
 {
-	int fd;
+	int	fd;
 	int	i;
 
 	fd = open(filename, O_RDONLY);

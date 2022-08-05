@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:59:16 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 20:42:02 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 01:09:53 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static int	check_line_value(char *line, char *set)
 
 static void	clear_gnl_buffer(int fd)
 {
-	char *line;
-	
+	char	*line;
+
 	line = get_next_line(fd);
 	while (line)
 	{
