@@ -44,6 +44,7 @@ typedef struct s_object
 	bool		is_collide;
 	int		start_frame;
 	int		nb_image;
+	int		animation_duration;
 	//fonction associe a la collision
 }	t_object;
 
@@ -85,7 +86,7 @@ typedef struct s_game
 	t_all_images	all_images;
 	t_player		player;
 	float			x_position;
-	int			current_frame; //#define TAUX_RAFRAICHISSEMENT 
+	int			current_frame; 
 }	t_game;
 
 #endif
