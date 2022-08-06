@@ -13,6 +13,8 @@ DEMAIN:
 -> Parsing des objets, et affichage des objest et collisions des objets
 -> faire les ennemis
 -> Initialisation de toutes les images du jeu.
+-> List chainee de tout mes elements a redner: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet, is_collide, fonction a applique sur la collision
+-> List chainee de tout mes monstr a render: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet,  is_collide, fonction a applique sur la collision
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions
