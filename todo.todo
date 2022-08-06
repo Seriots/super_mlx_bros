@@ -1,5 +1,9 @@
 DEMAIN:
 -> Collisions player map.
+-> Jump
+-> Parsing map objects
+-> Display objects
+-> collisions objects
 
 ----------------------------------
 -> Initialisations des images du joueur
