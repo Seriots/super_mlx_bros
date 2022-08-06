@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:59:16 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 01:09:53 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 15:29:40 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,11 @@ int	check_map_format(char *filename)
 		count ++;
 		free(line);
 		line = get_next_line(fd);
-		if (!line)
-			return (close(fd), 9);
 	}
 	free(line);
 	clear_gnl_buffer(fd);
 	close(fd);
-	if (count != MAP_HEIGHT_TILES)
+	if (count != MAP_HEIGHT_TILES || size < MAP_WIDTH_TILES)
 		return (6);
 	return (0);
 }

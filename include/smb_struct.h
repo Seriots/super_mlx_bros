@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 23:52:38 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 19:35:31 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct s_object
 typedef struct s_map
 {
 	char		**map_data;
+	int			width;
+	int			height;
 	t_object	*object_data;
 	t_img_data	*map_img;
 }	t_map;
@@ -53,6 +55,21 @@ typedef struct	s_all_images
 	t_img_data	*all_tiles;
 }	t_all_images;
 
+typedef struct	s_player
+{
+	t_img_data	*all_player_img;
+	t_img_data	img_player;
+	float		x_pos;
+	float		y_pos;
+	int			width;
+	int			height;
+	bool		left;
+	bool		right;
+	bool		top;
+	bool		bottom;
+	int			jump_speed;
+}	t_player;
+
 typedef struct s_game
 {
 	t_mlx			mlx;
@@ -60,8 +77,8 @@ typedef struct s_game
 	t_img_data		window_image;
 	t_map			map;
 	t_all_images	all_images;
+	t_player		player;
 	float			x_position;
-	bool			refresh;
 }	t_game;
 
 #endif

@@ -18,22 +18,8 @@
 
 #include <math.h>
 
-static t_img_data	get_tile(t_game *game, char c)
+static t_img_data	get_tile_next(t_game *game, char c)
 {
-	if (c == 'P')
-		return (game->all_images.all_tiles[0]);
-	if (c == 'N')
-		return (game->all_images.all_tiles[4]);
-	if (c == 'O')
-		return (game->all_images.all_tiles[12]);
-	if (c == 'L')
-		return (game->all_images.all_tiles[11]);
-	if (c == 'M')
-		return (game->all_images.all_tiles[5]);
-	if (c == 'J')
-		return (game->all_images.all_tiles[3]);
-	if (c == 'K')
-		return (game->all_images.all_tiles[10]);
 	if (c == 'I')
 		return (game->all_images.all_tiles[2]);
 	if (c == 'E')
@@ -55,6 +41,25 @@ static t_img_data	get_tile(t_game *game, char c)
 	return (game->all_images.all_tiles[0]);
 }
 
+static t_img_data	get_tile(t_game *game, char c)
+{
+	if (c == 'P')
+		return (game->all_images.all_tiles[0]);
+	if (c == 'N')
+		return (game->all_images.all_tiles[4]);
+	if (c == 'O')
+		return (game->all_images.all_tiles[12]);
+	if (c == 'L')
+		return (game->all_images.all_tiles[11]);
+	if (c == 'M')
+		return (game->all_images.all_tiles[5]);
+	if (c == 'J')
+		return (game->all_images.all_tiles[3]);
+	if (c == 'K')
+		return (game->all_images.all_tiles[10]);
+	return (get_tile_next(game, c));
+}
+
 static void	put_tile(t_game *game, int x, int y, int position)
 {
 	unsigned int	color;
@@ -69,7 +74,7 @@ static void	put_tile(t_game *game, int x, int y, int position)
 		while (++x_tile < TILES_SIZE)
 		{
 			if (x * TILES_SIZE + x_tile - position >= 0
-				&& x * TILES_SIZE + x_tile - position <= SCREEN_WIDTH)
+				&& x * TILES_SIZE + x_tile - position < SCREEN_WIDTH)
 			{
 				dst = game->window_image.addr + ((y * TILES_SIZE + y_tile)
 						* game->window_image.line_length

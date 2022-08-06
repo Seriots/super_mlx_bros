@@ -9,14 +9,19 @@ define SRCS :=
 	smb_error.c
 	smb_event.c
 	smb_free.c
+	smb_game_loop.c
 	smb_init_game.c
 	smb_init_image.c
 	smb_init_tiles.c
+	smb_move_left.c
+	smb_move_right.c
 	smb_parsing_checker.c
 	smb_parsing_setter.c
 	smb_parsing.c
 	smb_put_background_to_img.c
 	smb_put_map_to_img.c
+	smb_put_player_to_img.c
+	smb_update.c
 	smb_wall_constructor.c
 endef
 SRCS := $(strip $(SRCS))

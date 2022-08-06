@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 23:16:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 19:44:49 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include "mlx.h"
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 static void	init_game_variable(t_game *game)
 {
-	game->refresh = true;
 	game->x_position = 0;
 	game->all_images.all_tiles = 0;
 }
@@ -32,6 +32,27 @@ static int	init_game_images(t_game *game)
 	error = init_all_tiles(game);
 	if (error)
 		return (error);
+	return (0);
+}
+
+static int	init_player(t_game *game)
+{
+	int	error;
+
+	game->player.all_player_img = 0;
+	error = init_xpm_image(game, &game->player.img_player,
+			"files/xpm/objects/flower.xpm");
+	if (error)
+		return (error);
+	game->player.height = game->player.img_player.height;
+	game->player.width = game->player.img_player.width;
+	game->player.x_pos = 0;
+	game->player.y_pos = 624;
+	game->player.top = false;
+	game->player.bottom = false;
+	game->player.right = false;
+	game->player.left = false;
+	game->player.jump_speed = 0;
 	return (0);
 }
 
@@ -62,6 +83,15 @@ int	init_game(t_game *game)
 	error = init_game_images(game);
 	if (error)
 		return (mlx_destroy_image(game->mlx.display, game->background.img),
+			mlx_destroy_image(game->mlx.display, game->window_image.img),
+			mlx_destroy_window(game->mlx.display, game->mlx.window),
+			mlx_destroy_display(game->mlx.display),
+			free(game->mlx.display), error);
+	error = init_player(game);
+	if (error)
+		return (free_all_image(game),
+			mlx_destroy_image(game->mlx.display, game->background.img),
+			mlx_destroy_image(game->mlx.display, game->window_image.img),
 			mlx_destroy_window(game->mlx.display, game->mlx.window),
 			mlx_destroy_display(game->mlx.display),
 			free(game->mlx.display), error);

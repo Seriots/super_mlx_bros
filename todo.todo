@@ -1,2 +1,14 @@
--> Gestion du Ctr+l pour no leak
+DEMAIN:
+-> Collisions player map.
+
+----------------------------------
+-> Initialisations des images du joueur
+-> Gestion du Ctr+l pour no leak et keyautorepeat
 -> Gestion jolie des free a l'initialisation si fail
+-> Wall Jump
+-> Parsing des objets, et affichage des objest et collisions des objets
+-> faire les ennemis
+-> Initialisation de toutes les images du jeu.
+
+CHECK collisions
+-> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions

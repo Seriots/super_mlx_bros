@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 00:45:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 19:41:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define BACKGROUND_NAME "files/xpm/background/Infinite_sky_background.xpm"
 
 /*Moving Speed*/
-# define BACKGROUND_SPEED 10
+# define PLAYER_SPEED 1.3f
 
 /*SCREEN_HEIGHT / 16*/
 # define MAP_HEIGHT_TILES 45
