@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 01:09:59 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/06 23:41:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	free_all_image(t_game *game)
 {
 	if (game->all_images.all_tiles)
 		free_img_array(game, game->all_images.all_tiles, TILES_NUMBER);
+	mlx_destroy_image(game->mlx.display, game->player.img_player.img);
 }
 
 void	free_game(t_game *game)

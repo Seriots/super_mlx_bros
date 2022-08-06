@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 19:41:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 00:02:57 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
 # define EXE_NAME "super_mlx_bros"
 
 /*Screen dimension*/
-# define SCREEN_HEIGHT 720
-# define SCREEN_WIDTH 1280
+# define SCREEN_HEIGHT 544
+# define SCREEN_WIDTH 960
 
 /*Path to the background file*/
 # define BACKGROUND_NAME "files/xpm/background/Infinite_sky_background.xpm"
 
 /*Moving Speed*/
-# define PLAYER_SPEED 1.3f
+# define PLAYER_SPEED 1.0f
 
 /*SCREEN_HEIGHT / 16*/
-# define MAP_HEIGHT_TILES 45
-# define MAP_WIDTH_TILES 80
+# define MAP_HEIGHT_TILES 34
+# define MAP_WIDTH_TILES 60
 /*Value allowed in the map file*/ 
 # define MAP_SET "01"
 /*Extension allowed for map file*/

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 19:44:49 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 00:02:01 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ static int	init_player(t_game *game)
 
 	game->player.all_player_img = 0;
 	error = init_xpm_image(game, &game->player.img_player,
-			"files/xpm/objects/flower.xpm");
+			"files/xpm/objects/crate.xpm");
 	if (error)
 		return (error);
 	game->player.height = game->player.img_player.height;
 	game->player.width = game->player.img_player.width;
 	game->player.x_pos = 0;
-	game->player.y_pos = 624;
+	game->player.y_pos = (MAP_HEIGHT_TILES - 7) * TILES_SIZE;
 	game->player.top = false;
 	game->player.bottom = false;
 	game->player.right = false;

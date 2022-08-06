@@ -1,6 +1,7 @@
 DEMAIN:
 -> Collisions player map.
--> Jump
+-> Jump // application de la gravite en permanence
+-> Smooth fin de movement avec variable speed par direction
 -> Parsing map objects
 -> Display objects
 -> collisions objects
