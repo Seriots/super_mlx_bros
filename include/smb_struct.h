@@ -36,12 +36,14 @@ typedef struct s_img_data
 
 typedef struct s_object
 {
-	t_img_data	*img
+	t_img_data	*img;
 	float		x;
 	float		y;
 	int		width;
 	int		height;
 	bool		is_collide;
+	int		start_frame;
+	int		nb_image;
 	//fonction associe a la collision
 }	t_object;
 
@@ -83,6 +85,7 @@ typedef struct s_game
 	t_all_images	all_images;
 	t_player		player;
 	float			x_position;
+	int			current_frame; //#define TAUX_RAFRAICHISSEMENT 
 }	t_game;
 
 #endif
