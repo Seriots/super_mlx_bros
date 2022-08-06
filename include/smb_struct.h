@@ -36,9 +36,13 @@ typedef struct s_img_data
 
 typedef struct s_object
 {
-	t_dict *object;
-	int		x;
-	int		y;
+	t_img_data	*img
+	float		x;
+	float		y;
+	int		width;
+	int		height;
+	bool		is_collide;
+	//fonction associe a la collision
 }	t_object;
 
 typedef struct s_map
