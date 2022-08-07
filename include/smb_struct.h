@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 19:35:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:41:00 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ typedef struct s_object
 	t_img_data	*img;
 	float		x;
 	float		y;
-	int		width;
-	int		height;
+	int			width;
+	int			height;
 	bool		is_collide;
-	int		start_frame;
-	int		nb_image;
-	int		animation_duration;
+	int			start_frame;
+	int			nb_image;
+	int			animation_duration;
 	//fonction associe a la collision
 }	t_object;
 
@@ -70,11 +70,12 @@ typedef struct	s_player
 	float		y_pos;
 	int			width;
 	int			height;
-	bool		left;
-	bool		right;
+	int			left;
+	int			right;
 	bool		top;
 	bool		bottom;
-	int			jump_speed;
+	float		y_speed;
+	float		y_acceleration;
 }	t_player;
 
 typedef struct s_game

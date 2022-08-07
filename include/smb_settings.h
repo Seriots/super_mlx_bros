@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 00:02:57 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:56:56 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,18 @@
 # define BACKGROUND_NAME "files/xpm/background/Infinite_sky_background.xpm"
 
 /*Moving Speed*/
-# define PLAYER_SPEED 1.0f
+# define PLAYER_SPEED 1.5f
+
+/*Start base speed for jump*/
+# define JUMP_SPEED 4.0f
+# define REJUMP_SPEED 4.0f
+
+# define V_DOWN_MAX -3.0f
+
+/*Gravity power*/
+# define GRAVITY_UP 0.016f
+
+# define GRAVITY_DOWN 0.006f
 
 /*SCREEN_HEIGHT / 16*/
 # define MAP_HEIGHT_TILES 34

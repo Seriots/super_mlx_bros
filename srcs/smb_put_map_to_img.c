@@ -20,6 +20,8 @@
 
 static t_img_data	get_tile_next(t_game *game, char c)
 {
+	/*static struct {char c, int i} = {
+		{'I', 2}*/
 	if (c == 'I')
 		return (game->all_images.all_tiles[2]);
 	if (c == 'E')

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 19:42:27 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:44:38 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 
 int	update_movement(t_game *game, t_player *player)
 {
-	if (player->left == true)
+	apply_gravity(game, player);
+	if (player->left == 1)
 		move_left(game, player);
-	if (player->right == true)
+	if (player->right == 1)
 		move_right(game, player);
 	return (0);
 }

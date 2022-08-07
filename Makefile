@@ -1,10 +1,11 @@
 NAME := super_mlx_bros
-CFLAGS :=
+CFLAGS := -O3
 CC := cc
 MAKE = /bin/make
 
 define SRCS :=
 	main.c
+	smb_collisions.c
 	smb_display.c
 	smb_error.c
 	smb_event.c
@@ -15,6 +16,7 @@ define SRCS :=
 	smb_init_tiles.c
 	smb_move_left.c
 	smb_move_right.c
+	smb_move_up.c
 	smb_parsing_checker.c
 	smb_parsing_setter.c
 	smb_parsing.c

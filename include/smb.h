@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 19:37:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 18:54:56 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,14 @@ void			put_bg_to_image(t_game *game, int position, t_img_data *img);
 unsigned int	get_pxl_color(t_img_data img, int x, int y);
 int				display(t_game *game);
 
+/*smb_collisions.c*/
+int				check_collisions_bottom(t_game *game, float x_pos, float y_pos, float position);
+int				check_collisions(t_game *game, float x_pos, float y_pos, float position);
+
 /*smb_move*.c*/
 int				move_right(t_game *game, t_player *player);
 int				move_left(t_game *game, t_player *player);
+int				apply_gravity(t_game *game, t_player *player);
 
 /*smb_update.c*/
 int				update(t_game *game);

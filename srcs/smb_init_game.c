@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 00:02:01 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 18:54:38 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,14 @@ static int	init_player(t_game *game)
 		return (error);
 	game->player.height = game->player.img_player.height;
 	game->player.width = game->player.img_player.width;
-	game->player.x_pos = 0;
-	game->player.y_pos = (MAP_HEIGHT_TILES - 7) * TILES_SIZE;
+	game->player.x_pos = 464;
+	game->player.y_pos = (MAP_HEIGHT_TILES - 7) * TILES_SIZE - 56;
 	game->player.top = false;
 	game->player.bottom = false;
 	game->player.right = false;
 	game->player.left = false;
-	game->player.jump_speed = 0;
+	game->player.y_speed = 0.0;
+	game->player.y_acceleration = 0.0;
 	return (0);
 }
 
