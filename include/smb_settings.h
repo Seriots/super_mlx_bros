@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 20:56:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 21:32:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@
 /*Gravity power*/
 # define GRAVITY_UP 0.016f
 
-# define GRAVITY_DOWN 0.006f
+# define GRAVITY_DOWN 0.008f
 
 /*SCREEN_HEIGHT / 16*/
 # define MAP_HEIGHT_TILES 34
 # define MAP_WIDTH_TILES 60
-/*Value allowed in the map file*/ 
+/*Value allowed in the map file*/
 # define MAP_SET "01"
 /*Extension allowed for map file*/
 # define MAP_EXTENSION ".map"

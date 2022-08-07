@@ -1,17 +1,18 @@
 DEMAIN:
 -> Collisions player map. OK
 -> Jump // application de la gravite en permanence OK
--> collage au mur
+-> collage au mur OK
 -> collage au sol OK
--> deplacement continu , pas de stoquand gquch droite qppuyer en meme temps
--> Smooth fin de movement avec variable speed par direction
+-> deplacement continu , pas de stoquand gquch droite qppuyer en meme temps OK
 -> Parsing map objects
+-> Initialisation Objects
 -> Display objects
 -> collisions objects
 
 ----------------------------------
 -> Initialisations des images du joueur
 -> Gestion du Ctr+l pour no leak et keyautorepeat
+-> Smooth fin de movement avec variable speed par direction
 -> Gestion jolie des free a l'initialisation si fail
 -> Wall Jump
 -> Parsing des objets, et affichage des objest et collisions des objets

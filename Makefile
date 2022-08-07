@@ -9,6 +9,7 @@ define SRCS :=
 	smb_display.c
 	smb_error.c
 	smb_event.c
+	smb_free_init.c
 	smb_free.c
 	smb_game_loop.c
 	smb_init_game.c

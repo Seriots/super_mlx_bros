@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 20:33:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/05 19:53:34 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 21:32:27 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_ultoa_base(unsigned long int nbr, char *base);
 char	*ft_utoa_base(unsigned int nbr, char *base);
-char 	*get_next_line(int fd);
+char	*get_next_line(int fd);
 
 #endif

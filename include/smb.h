@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 18:54:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 21:33:05 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int				key_pressed(KeySym keycode, t_game *game);
 int				close_request(t_game *game);
 
 /*smb_put_player_to_img.c*/
-void			put_player_to_image(t_game *game, t_player *player, t_img_data *img);
+void			put_player_to_image(t_game *game,
+					t_player *player, t_img_data *img);
 
 /*smb_put_map_to_image.c*/
 void			put_map_to_image(t_game *game, char **map, int position);
@@ -41,8 +42,10 @@ unsigned int	get_pxl_color(t_img_data img, int x, int y);
 int				display(t_game *game);
 
 /*smb_collisions.c*/
-int				check_collisions_bottom(t_game *game, float x_pos, float y_pos, float position);
-int				check_collisions(t_game *game, float x_pos, float y_pos, float position);
+int				check_collisions_bottom(t_game *game, float x_pos,
+					float y_pos, float position);
+int				check_collisions(t_game *game, float x_pos,
+					float y_pos, float position);
 
 /*smb_move*.c*/
 int				move_right(t_game *game, t_player *player);
@@ -59,11 +62,18 @@ int				game_loop(t_game *game);
 int				init_all_tiles(t_game *game);
 
 /*smb_init_image.c*/
-int				init_image(t_game *game, int width, int height, t_img_data *img);
+int				init_image(t_game *game, int width,
+					int height, t_img_data *img);
 int				init_xpm_image(t_game *game, t_img_data *img, char *name);
 
 /*smb_init_game.c*/
 int				init_game(t_game *game);
+
+/*smb_free_init.c*/
+void			window_fail(t_game *game);
+void			background_fail(t_game *game);
+void			map_image_fail(t_game *game);
+void			all_image_fail(t_game *game);
 
 /*smb_free.c*/
 void			free_img_array(t_game *game, t_img_data *imgs, int number);

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 18:54:38 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 21:12:34 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,34 +67,17 @@ int	init_game(t_game *game)
 	game->mlx.window = mlx_new_window(game->mlx.display,
 			SCREEN_WIDTH, SCREEN_HEIGHT, GAME_NAME);
 	if (!game->mlx.window)
-		return (mlx_destroy_display(game->mlx.display),
-			free(game->mlx.display), 2);
+		return (window_fail(game), 2);
 	error = init_xpm_image(game, &game->background, BACKGROUND_NAME);
 	if (error)
-		return (mlx_destroy_window(game->mlx.display, game->mlx.window),
-			mlx_destroy_display(game->mlx.display),
-			free(game->mlx.display), error);
+		return (background_fail(game), error);
 	error = init_image(game, SCREEN_WIDTH, SCREEN_HEIGHT, &game->window_image);
 	if (error)
-		return (mlx_destroy_image(game->mlx.display, game->background.img),
-			mlx_destroy_window(game->mlx.display, game->mlx.window),
-			mlx_destroy_display(game->mlx.display),
-			free(game->mlx.display), error);
+		return (map_image_fail(game), error);
 	init_game_variable(game);
 	error = init_game_images(game);
 	if (error)
-		return (mlx_destroy_image(game->mlx.display, game->background.img),
-			mlx_destroy_image(game->mlx.display, game->window_image.img),
-			mlx_destroy_window(game->mlx.display, game->mlx.window),
-			mlx_destroy_display(game->mlx.display),
-			free(game->mlx.display), error);
-	error = init_player(game);
-	if (error)
-		return (free_all_image(game),
-			mlx_destroy_image(game->mlx.display, game->background.img),
-			mlx_destroy_image(game->mlx.display, game->window_image.img),
-			mlx_destroy_window(game->mlx.display, game->mlx.window),
-			mlx_destroy_display(game->mlx.display),
-			free(game->mlx.display), error);
+		return (all_image_fail(game), error);
+	init_player(game);
 	return (0);
 }

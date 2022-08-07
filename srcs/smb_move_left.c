@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 19:35:08 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 20:37:09 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 21:19:13 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 
 static int	first_part(t_game *game, t_player *player)
 {
-	if (check_collisions(game, player->x_pos - PLAYER_SPEED, player->y_pos, game->x_position))
+	if (check_collisions(game, player->x_pos - PLAYER_SPEED,
+			player->y_pos, game->x_position))
 	{
 		if ((int)floor(player->x_pos) % TILES_SIZE != 0)
 			player->x_pos -= (int)floor(player->x_pos) % TILES_SIZE;
 	}
-	else if (player->x_pos - PLAYER_SPEED < SCREEN_WIDTH / 2 - player->width / 2)
+	else if (player->x_pos - PLAYER_SPEED
+		< SCREEN_WIDTH / 2 - player->width / 2)
 	{
 		game->x_position -= (player->x_pos - PLAYER_SPEED)
 			- (SCREEN_WIDTH / 2 - player->width / 2);
@@ -36,7 +38,8 @@ static int	first_part(t_game *game, t_player *player)
 
 static int	second_part(t_game *game, t_player *player)
 {
-	if (check_collisions(game, player->x_pos - PLAYER_SPEED, player->y_pos,	game->x_position))
+	if (check_collisions(game, player->x_pos - PLAYER_SPEED,
+			player->y_pos, game->x_position))
 	{
 		if ((int)floor(player->x_pos) % TILES_SIZE != 0)
 			player->x_pos -= (int)floor(player->x_pos) % TILES_SIZE;
@@ -50,10 +53,12 @@ static int	second_part(t_game *game, t_player *player)
 
 static int	third_part(t_game *game, t_player *player)
 {
-	if (check_collisions(game, player->x_pos, player->y_pos, game->x_position - PLAYER_SPEED))
+	if (check_collisions(game, player->x_pos, player->y_pos,
+			game->x_position - PLAYER_SPEED))
 	{
 		if ((int)floor(player->x_pos + game->x_position) % TILES_SIZE != 0)
-			game->x_position -= (int)floor(player->x_pos + game->x_position) % TILES_SIZE;
+			game->x_position -= (int)floor(player->x_pos
+					+ game->x_position) % TILES_SIZE;
 	}
 	else if (game->x_position - PLAYER_SPEED >= 0)
 		game->x_position -= PLAYER_SPEED;
