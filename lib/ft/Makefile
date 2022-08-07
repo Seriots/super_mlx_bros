@@ -51,6 +51,7 @@ SRC_NAMES	= ft_error_base \
 			  ft_strndup \
 			  ft_strnstr \
 			  ft_strrchr \
+			  ft_strreduc \
 			  ft_strtrim \
 			  ft_substr \
 			  ft_toupper \

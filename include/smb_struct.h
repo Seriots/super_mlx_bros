@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 21:33:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 23:37:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,19 @@ typedef struct s_collisions
 
 typedef struct s_object
 {
+	t_img_data	*all_img;
 	t_img_data	*img;
+	char		*tag;
 	float		x;
 	float		y;
 	int			width;
 	int			height;
 	bool		is_collide;
+	bool		is_visible;
 	int			start_frame;
 	int			nb_image;
 	int			animation_duration;
+	struct s_object *next;
 	//fonction associe a la collision
 }	t_object;
 
@@ -61,8 +65,7 @@ typedef struct s_map
 	char		**map_data;
 	int			width;
 	int			height;
-	t_object	*object_data;
-	t_img_data	*map_img;
+	t_object	*all_object;
 }	t_map;
 
 typedef struct s_all_images
@@ -86,6 +89,15 @@ typedef struct s_player
 	float		y_acceleration;
 }	t_player;
 
+
+typedef struct s_end
+{
+	int	x;
+	int	y;
+	int	width;
+	int	height;
+}	t_end;
+
 typedef struct s_game
 {
 	t_mlx			mlx;
@@ -94,6 +106,8 @@ typedef struct s_game
 	t_map			map;
 	t_all_images	all_images;
 	t_player		player;
+	t_dict			*all_objects;
+	t_end			end;
 	float			x_position;
 	int				current_frame;
 }	t_game;

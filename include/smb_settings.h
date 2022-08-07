@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 21:32:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/07 23:56:04 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@
 # define PLAYER_SPEED 1.5f
 
 /*Start base speed for jump*/
-# define JUMP_SPEED 4.0f
-# define REJUMP_SPEED 4.0f
+# define JUMP_SPEED 3.5f
+# define REJUMP_SPEED 3.5f
 
-# define V_DOWN_MAX -3.0f
+# define V_DOWN_MAX -2.5f
 
 /*Gravity power*/
-# define GRAVITY_UP 0.016f
+# define GRAVITY_UP 0.012f
 
-# define GRAVITY_DOWN 0.008f
+# define GRAVITY_DOWN 0.006f
 
 /*SCREEN_HEIGHT / 16*/
 # define MAP_HEIGHT_TILES 34
