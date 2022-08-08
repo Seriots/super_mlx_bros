@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 23:56:04 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 14:59:01 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 /*Moving Speed*/
 # define PLAYER_SPEED 1.5f
+# define BG_PARALLAX_FACTOR 0.5f
 
 /*Start base speed for jump*/
 # define JUMP_SPEED 3.5f

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 15:37:13 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/04 17:48:17 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 14:37:39 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_dict	*dict_copy(t_dict *dict)
 		new = dict_new(key, value);
 		if (!new)
 			return (clear_copy(copy, key, value));
-		dict_add_back(&copy, new, free, free);
+		dict_add_back(&copy, new);
 		dict = dict->next;
 	}
 	return (copy);

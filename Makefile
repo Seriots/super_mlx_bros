@@ -14,11 +14,13 @@ define SRCS :=
 	smb_game_loop.c
 	smb_init_game.c
 	smb_init_image.c
+	smb_init_object.c
 	smb_init_tiles.c
 	smb_move_left.c
 	smb_move_right.c
 	smb_move_up.c
 	smb_parsing_checker.c
+	smb_parsing_object.c
 	smb_parsing_setter.c
 	smb_parsing.c
 	smb_put_background_to_img.c

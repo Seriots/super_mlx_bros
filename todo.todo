@@ -5,7 +5,6 @@ DEMAIN:
 -> collage au sol OK
 -> deplacement continu , pas de stoquand gquch droite qppuyer en meme temps OK
 -> Parsing map objects OK
--> Lib object
 -> Initialisation Objects
 -> Display objects
 -> collisions objects

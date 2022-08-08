@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 21:33:05 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 14:51:32 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@
 
 # include <X11/X.h>
 
+/*smb_init_object.c*/
+t_dict			*get_dict_new(char *tag, t_object *object);
+t_object		*obj_new(char *tag, float x, float y);
+
 /*smb_parsing.c*/
+t_dict			*get_all_object(int fd);
 int				set_map(t_map *map, char *filename);
 int				check_map_format(char *filename);
 int				parsing(int argc, char **argv, t_map *map);

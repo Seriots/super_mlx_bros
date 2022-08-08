@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 23:37:06 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 14:24:48 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ typedef struct s_object
 {
 	t_img_data	*all_img;
 	t_img_data	*img;
-	char		*tag;
 	float		x;
 	float		y;
 	int			width;
@@ -56,7 +55,6 @@ typedef struct s_object
 	int			start_frame;
 	int			nb_image;
 	int			animation_duration;
-	struct s_object *next;
 	//fonction associe a la collision
 }	t_object;
 
@@ -65,7 +63,7 @@ typedef struct s_map
 	char		**map_data;
 	int			width;
 	int			height;
-	t_object	*all_object;
+	t_dict		*all_object;
 }	t_map;
 
 typedef struct s_all_images
