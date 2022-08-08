@@ -5,9 +5,13 @@ DEMAIN:
 -> collage au sol OK
 -> deplacement continu , pas de stoquand gquch droite qppuyer en meme temps OK
 -> Parsing map objects OK
+-> Modification systeme de collision OK
+-> Make fps OK
+-> Collisions pas seulemnt sur la position futur de player mais sur le chemin pour arriver a la position
 -> Initialisation Objects
 -> Display objects
 -> collisions objects
+
 
 ----------------------------------
 -> Initialisations des images du joueur

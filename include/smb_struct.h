@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 19:35:04 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 21:06:03 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ typedef struct s_game
 	t_collisions	collide_obj;
 	t_dict			*all_objects;
 	t_end			end;
+	long			last_time_frame;
+	long			delay_between_frame;
 	float			x_position;
 	int				current_frame;
 }	t_game;

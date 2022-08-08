@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 20:42:02 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 21:36:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,17 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <sys/time.h>
 
 static void	init_game_variable(t_game *game)
 {
+	struct timeval time;
+
 	game->x_position = 0;
 	game->all_images.all_tiles = 0;
+	gettimeofday(&time, 0);
+	game->last_time_frame = time.tv_sec * 1000 + time.tv_usec / 1000;
+	game->delay_between_frame = 0; 
 }
 
 static int	init_game_images(t_game *game)
@@ -46,11 +52,11 @@ static int	init_player(t_game *game)
 		return (error);
 	game->player.height = game->player.img_player.height;
 	game->player.width = game->player.img_player.width;
-	game->x_position = 100 - SCREEN_WIDTH / 2;
+	game->x_position = 450 - SCREEN_WIDTH / 2;
 	if (game->x_position < 0)
 		game->x_position = 0;
-	game->player.x_pos = 100 - game->x_position;
-	game->player.y_pos = (MAP_HEIGHT_TILES - 7) * TILES_SIZE - 56;
+	game->player.x_pos = 450 - game->x_position;
+	game->player.y_pos = 16;
 	game->player.top = false;
 	game->player.bottom = false;
 	game->player.right = false;
