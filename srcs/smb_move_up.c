@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:09:02 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 21:28:38 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:59:13 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,14 @@ static void	position(t_game *game, t_player *player)
 	{
 		if (player->y_speed < 0)
 		{
-			if ((int)floor(player->y_pos) % TILES_SIZE != 0)
-				player->y_pos += TILES_SIZE
-					- (int)floor(player->y_pos) % TILES_SIZE;
+			player->y_pos = game->collide_obj.y - player->height;
+			player->y_acceleration = 0;
 			if (player->top == true)
-			{
 				player->y_speed = REJUMP_SPEED;
-				player->y_acceleration = 0;
-			}
 		}
 		else
 		{
-			if ((int)floor(player->y_pos) % TILES_SIZE != 0)
-				player->y_pos -= (int)floor(player->y_pos) % TILES_SIZE;
+			player->y_pos = game->collide_obj.y + game->collide_obj.height;
 			player->y_speed = 0;
 			player->y_acceleration = 0;
 		}

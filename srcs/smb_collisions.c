@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 15:05:42 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 21:27:53 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:56:08 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,43 +31,46 @@ static int	check_collisions_player_map(t_game *game, float x_pos,
 
 	col.x = (int)floor(x_pos) + (int)floor(position);
 	col.y = (int)floor(y_pos);
-	col.width_tile = ((col.x + game->player.width - 1)
+	col.width = ((col.x + game->player.width - 1)
 			/ TILES_SIZE) - (col.x / TILES_SIZE) + 1;
-	col.height_tile = ((col.y + game->player.height - 1)
+	col.height = ((col.y + game->player.height - 1)
 			/ TILES_SIZE) - (col.y / TILES_SIZE) + 1;
-	col.x = col.x / TILES_SIZE;
-	col.y = col.y / TILES_SIZE;
+	col.x /= TILES_SIZE;
+	col.y /= TILES_SIZE;
 	i = -1;
-	while (++i < col.height_tile)
+	while (++i < col.height)
 	{
 		j = -1;
-		while (++j < col.width_tile)
+		while (++j < col.width)
 		{
 			if (game->map.map_data[col.y + i][col.x + j] != '0')
+			{
+				game->collide_obj = (t_collisions){.width = TILES_SIZE, .height = TILES_SIZE,
+						.x = (col.x + j) * TILES_SIZE, .y = (col.y + i) * TILES_SIZE};
 				return (1);
+			}
 		}
 	}
 	return (0);
 }
 
-int	check_collisions_bottom(t_game *game, float x_pos,
-		float y_pos, float position)
+int	check_collisions_bottom(t_game *game, float x_pos, float y_pos, float pos)
 {
 	t_collisions	col;
 	int				j;
 
-	col.x = (int)floor(x_pos) + (int)floor(position);
+	col.x = (int)floor(x_pos) + (int)floor(pos);
 	col.y = (int)floor(y_pos + 1);
-	col.width_tile = ((col.x + game->player.width - 1) / TILES_SIZE)
+	col.width = ((col.x + game->player.width - 1) / TILES_SIZE)
 		- (col.x / TILES_SIZE) + 1;
-	col.height_tile = ((col.y + game->player.height - 1) / TILES_SIZE)
+	col.height = ((col.y + game->player.height - 1) / TILES_SIZE)
 		- (col.y / TILES_SIZE) + 1;
 	col.x = col.x / TILES_SIZE;
 	col.y = col.y / TILES_SIZE;
 	j = 0;
-	while (j < col.width_tile)
+	while (j < col.width)
 	{
-		if (game->map.map_data[col.y + col.height_tile - 1][col.x + j] != '0')
+		if (game->map.map_data[col.y + col.height - 1][col.x + j] != '0')
 			return (1);
 		j++;
 	}

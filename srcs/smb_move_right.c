@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 19:36:26 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 21:21:52 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 20:36:42 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ static int	first_part(t_game *game, t_player *player)
 {
 	if (check_collisions(game, player->x_pos + PLAYER_SPEED,
 			player->y_pos, game->x_position))
-	{
-		if ((int)floor(player->x_pos) % TILES_SIZE != 0)
-			player->x_pos += TILES_SIZE
-				- (int)floor(player->x_pos) % TILES_SIZE;
-	}
+		player->x_pos = game->collide_obj.x - player->width - game->x_position;
 	else if (player->x_pos + PLAYER_SPEED
 		> SCREEN_WIDTH / 2 - player->width / 2)
 	{
@@ -47,11 +43,7 @@ static int	second_part(t_game *game, t_player *player)
 {
 	if (check_collisions(game, player->x_pos + PLAYER_SPEED,
 			player->y_pos, game->x_position))
-	{
-		if ((int)floor(player->x_pos) % TILES_SIZE != 0)
-			player->x_pos += TILES_SIZE
-				- (int)floor(player->x_pos) % TILES_SIZE;
-	}
+		player->x_pos = game->collide_obj.x - player->width - game->x_position;
 	else if (player->x_pos + PLAYER_SPEED + player->width > SCREEN_WIDTH)
 			player->x_pos = SCREEN_WIDTH - player->width;
 	else
@@ -63,11 +55,7 @@ static int	third_part(t_game *game, t_player *player)
 {
 	if (check_collisions(game, player->x_pos, player->y_pos,
 			game->x_position + PLAYER_SPEED))
-	{
-		if ((int)floor(game->x_position + player->x_pos) % TILES_SIZE != 0)
-			game->x_position += TILES_SIZE
-				- (int)floor(game->x_position + player->x_pos) % TILES_SIZE;
-	}
+		game->x_position = game->collide_obj.x - player->width - player->x_pos;
 	else if (game->x_position + PLAYER_SPEED <= game->map.width - SCREEN_WIDTH)
 		game->x_position += PLAYER_SPEED;
 	else

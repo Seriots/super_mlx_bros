@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 14:24:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:35:04 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct s_collisions
 {
 	int	x;
 	int	y;
-	int	height_tile;
-	int	width_tile;
+	int	height;
+	int	width;
 }	t_collisions;
 
 typedef struct s_object
@@ -104,6 +104,7 @@ typedef struct s_game
 	t_map			map;
 	t_all_images	all_images;
 	t_player		player;
+	t_collisions	collide_obj;
 	t_dict			*all_objects;
 	t_end			end;
 	float			x_position;

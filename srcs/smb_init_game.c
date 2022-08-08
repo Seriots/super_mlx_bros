@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/07 21:12:34 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 20:42:02 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ static int	init_player(t_game *game)
 		return (error);
 	game->player.height = game->player.img_player.height;
 	game->player.width = game->player.img_player.width;
-	game->player.x_pos = 464;
+	game->x_position = 100 - SCREEN_WIDTH / 2;
+	if (game->x_position < 0)
+		game->x_position = 0;
+	game->player.x_pos = 100 - game->x_position;
 	game->player.y_pos = (MAP_HEIGHT_TILES - 7) * TILES_SIZE - 56;
 	game->player.top = false;
 	game->player.bottom = false;
