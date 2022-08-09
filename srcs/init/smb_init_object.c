@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 23:20:04 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 22:54:11 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,17 @@
 
 #include "smb_settings.h"
 #include "smb_struct.h"
+#include "smb.h"
 
 #include <stdlib.h>
+
+static void	choose_obj(t_object **object, char *tag, float x, float y)
+{
+	if (!ft_strcmp(tag, START))
+		init_start(object, x, y);
+	else if (!ft_strcmp(tag, END))
+		init_end(object, x, y);
+}
 
 t_object	*obj_new(char *tag, float x, float y)
 {
@@ -26,7 +35,7 @@ t_object	*obj_new(char *tag, float x, float y)
 	if (!obj)
 		return (0);
 	if (tag)
-		*obj = (t_object){.x = x, .y = y};
+		choose_obj(&obj, tag, x, y);
 	return (obj);
 }
 

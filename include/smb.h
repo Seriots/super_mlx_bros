@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 18:52:38 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 22:59:21 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ int				update(t_game *game);
 
 /*smb_game_loop.c*/
 int				game_loop(t_game *game);
+
+/*smb_init_objects*/
+void			init_start(t_object **obj, float x, float y);
+void			init_end(t_object **obj, float x, float y);
+void			init_coin(t_object **obj, float x, float y);
 
 /*smb_init_tiles.c*/
 int				init_all_tiles(t_game *game);
