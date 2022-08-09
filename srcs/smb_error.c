@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:12:45 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 19:35:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 23:25:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,10 @@ void	smb_print_error(int code)
 		ft_putstr_fd("Open fail\n", 2);
 	else if (code == 9)
 		ft_putstr_fd("Malloc fail\n", 2);
+	else if (code == 11)
+		ft_putstr_fd("Need a start position\n", 2);
+	else if (code == 12)
+		ft_putstr_fd("Need at least an end position\n", 2);
+	else if (code == 10)
+		ft_putstr_fd("No objects\n", 2);
 }

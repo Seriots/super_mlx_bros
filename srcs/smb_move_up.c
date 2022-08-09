@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:09:02 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 21:46:32 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 14:09:52 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	apply_gravity(t_game *game, t_player *player)
 		acceleration(game, player);
 		speed(game, player);
 		position(game, player);
+		//printf(">xpos: %f, ypos: %f, xgame: %f<\n", game->player.x_pos, game->player.y_pos, game->x_position);
 	}
 	return (0);
 }

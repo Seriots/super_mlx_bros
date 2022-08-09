@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 21:36:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 02:57:02 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	init_player(t_game *game)
 	if (game->x_position < 0)
 		game->x_position = 0;
 	game->player.x_pos = 450 - game->x_position;
-	game->player.y_pos = 16;
+	game->player.y_pos = 368;
 	game->player.top = false;
 	game->player.bottom = false;
 	game->player.right = false;

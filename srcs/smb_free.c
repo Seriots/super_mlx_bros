@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 23:41:06 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 23:06:32 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,16 @@ void	free_all_image(t_game *game)
 	mlx_destroy_image(game->mlx.display, game->player.img_player.img);
 }
 
+void	free_all_object(t_game *game)
+{
+	dict_clear(game->map.all_object, 0, free);
+}
+
 void	free_game(t_game *game)
 {
 	ft_free_tab(game->map.map_data);
 	free_all_image(game);
+	free_all_object(game);
 	mlx_destroy_image(game->mlx.display, game->background.img);
 	mlx_destroy_image(game->mlx.display, game->window_image.img);
 	mlx_destroy_window(game->mlx.display, game->mlx.window);

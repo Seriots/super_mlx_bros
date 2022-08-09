@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 19:27:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 14:29:51 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 23:25:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#include <stdio.h>
 
 /*
 * Set map struct and return an error code on error
@@ -46,7 +48,7 @@ int	set_map(t_map *map, char *filename)
 	map->width = ft_strlen(map->map_data[0]) * TILES_SIZE;
 	map->all_object = get_all_object(fd);
 	if (!map->all_object)
-		return (ft_free_tab(map->map_data), close (fd), 9);
+		return (ft_free_tab(map->map_data), close(fd), 10);
 	close(fd);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 21:57:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 15:57:05 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@
 # define BG_PARALLAX_FACTOR 0.5f
 
 /*Start base speed for jump*/
-# define JUMP_SPEED 0.7f
-# define REJUMP_SPEED 0.7f
+# define JUMP_SPEED 0.5f
+# define REJUMP_SPEED 0.5f
 
 # define V_DOWN_MAX -0.3f
 
 /*Gravity power*/
-# define GRAVITY_UP 0.0001f
-# define GRAVITY_DOWN 0.0001f
+# define GRAVITY_UP 0.00003f
+# define GRAVITY_DOWN 0.00003f
 
 /*SCREEN_HEIGHT / 16*/
 # define MAP_HEIGHT_TILES 34
@@ -59,4 +59,9 @@
 /*Number of different tiles*/
 # define TILES_NUMBER 16
 # define TILES_SIZE 16
+
+/*Objects*/
+# define START "START"
+# define END "END"
+
 #endif

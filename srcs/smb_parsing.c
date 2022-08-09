@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:41:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 01:09:32 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 23:16:28 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,16 @@ static int	check_map_extension(char *arg)
 	return (0);
 }
 
+static int	check_obj(t_map *map)
+{
+	if (!dict_getelem_key(map->all_object, START))
+		return (11);
+	if (!dict_getelem_key(map->all_object, END))
+		return (12);
+	return (0);
+}
+
+
 int	parsing(int argc, char **argv, t_map *map)
 {
 	int	error;
@@ -60,6 +70,9 @@ int	parsing(int argc, char **argv, t_map *map)
 	error = set_map(map, argv[argc - 1]);
 	if (error)
 		return (error);
+	error = check_obj(map);
+	if (error)
+		return (ft_free_tab(map->map_data), dict_clear(map->all_object, 0, free), error);
 	wall_constructor(map->map_data, MAP_HEIGHT_TILES, convert_plateformer_map);
 	if (DEBUG)
 		ft_printarray(map->map_data, 0);

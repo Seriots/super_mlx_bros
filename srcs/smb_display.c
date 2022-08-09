@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:55:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 14:59:23 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 15:39:42 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "smb_settings.h"
 #include "smb_struct.h"
 #include "smb.h"
+
+#include <stdio.h>
 
 unsigned int	get_pxl_color(t_img_data img, int x, int y)
 {

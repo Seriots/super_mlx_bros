@@ -5,6 +5,7 @@ MAKE = /bin/make
 
 define SRCS :=
 	main.c
+	smb_collisions_player_map.c
 	smb_collisions.c
 	smb_display.c
 	smb_error.c

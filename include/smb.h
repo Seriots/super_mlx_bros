@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 14:51:32 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 00:23:31 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ unsigned int	get_pxl_color(t_img_data img, int x, int y);
 int				display(t_game *game);
 
 /*smb_collisions.c*/
+int				check_col_player_map(t_game *game, float x_pos,
+					float y_pos, float position);
 int				check_collisions_bottom(t_game *game, float x_pos,
 					float y_pos, float position);
 int				check_collisions(t_game *game, float x_pos,

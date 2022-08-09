@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 21:06:03 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 23:02:00 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,12 @@ typedef struct s_player
 }	t_player;
 
 
-typedef struct s_end
+typedef struct s_start
 {
-	int	x;
-	int	y;
-	int	width;
-	int	height;
-}	t_end;
+	int	player_x;
+	int	player_y;
+	int	game_x;
+}	t_start;
 
 typedef struct s_game
 {
@@ -105,8 +104,7 @@ typedef struct s_game
 	t_all_images	all_images;
 	t_player		player;
 	t_collisions	collide_obj;
-	t_dict			*all_objects;
-	t_end			end;
+	t_start			start;
 	long			last_time_frame;
 	long			delay_between_frame;
 	float			x_position;

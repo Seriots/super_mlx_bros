@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:20:43 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 15:00:03 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/08 23:26:47 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,6 @@ t_dict	*get_object(char *line)
 	line = ft_strreduc(line, " \t\n\r\v\f");
 	if (!line)
 		return (0);
-	object = ft_calloc(sizeof(t_object), 1);
-	if (!object)
-		return(free(line), (void *)0);
 	if (parse_line(line, tag, &x, &y))
 		return(free(line), (void *)0);
 	free(line);
@@ -108,7 +105,7 @@ t_dict	*get_object(char *line)
 
 t_dict	*get_all_object(int fd)
 {
-	char		*line;
+	char	*line;
 	t_dict	*all_objects;
 	t_dict	*new;
 
