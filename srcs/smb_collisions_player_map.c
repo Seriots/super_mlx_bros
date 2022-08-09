@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 00:21:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 15:55:51 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 17:30:48 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	check_col_right(t_game *game, float x_pos, float pos)
 	col.x = (int)floor(game->player.x_pos + game->x_position);
 	col.y = (int)floor(game->player.y_pos);
 	col.height = ((col.y + game->player.height - 1) / TILES_SIZE) - (col.y / TILES_SIZE) + 1;
-	col.width = (((int)ceil(x_pos + pos) / TILES_SIZE - col.x / TILES_SIZE)) + 2;
+	col.width = (((int)ceil(x_pos + pos + game->player.width) / TILES_SIZE - col.x / TILES_SIZE)) + 1;
 	//printf("RIGHT>w: %d, h: %d\n", col.width, col.height);
 	col.x /= TILES_SIZE;
 	col.y /= TILES_SIZE;
@@ -88,9 +88,9 @@ static int	check_col_up(t_game *game, float y_pos)
 	int	i;
 	int	j;
 	
-	col.x = (int)floor(game->player.x_pos) + (int)floor(game->x_position);
-	col.y = (int)floor(game->player.y_pos);
-	col.height = ((col.y + game->player.height - (int)floor(y_pos)) / TILES_SIZE) + 1;
+	col.x = (int)floor(game->player.x_pos + game->x_position);
+	col.y = (int)ceil(game->player.y_pos);
+	col.height = (((col.y) / TILES_SIZE) - ((int)floor(y_pos)  / TILES_SIZE)) + 1;
 	col.width = ((col.x + game->player.width - 1) / TILES_SIZE) - (col.x / TILES_SIZE) + 1;
 	col.x /= TILES_SIZE;
 	col.y = col.y / TILES_SIZE;
@@ -119,7 +119,7 @@ static int	check_col_down(t_game *game, float y_pos)
 	
 	col.x = (int)floor(game->player.x_pos) + (int)floor(game->x_position);
 	col.y = (int)floor(game->player.y_pos);
-	col.height = ((int)ceil(y_pos)/ TILES_SIZE - (col.y) / TILES_SIZE) + 2 ;
+	col.height = (((int)ceil(y_pos)  + game->player.height) / TILES_SIZE - (col.y) / TILES_SIZE) + 1 ;
 	col.width = ((col.x + game->player.width - 1) / TILES_SIZE) - (col.x / TILES_SIZE) + 1;
 	col.x /= TILES_SIZE;
 	col.y = (col.y) / TILES_SIZE;
