@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:20:43 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 23:26:47 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 18:32:03 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_number(char *nptr)
 {
 	int	result;
 	int	i;
-	
+
 	i = 0;
 	result = 0;
 	while (nptr[i] && nptr[i] != ',')
@@ -92,7 +92,7 @@ t_dict	*get_object(char *line)
 	if (!line)
 		return (0);
 	if (parse_line(line, tag, &x, &y))
-		return(free(line), (void *)0);
+		return (free(line), (void *)0);
 	free(line);
 	dict = 0;
 	object = obj_new(tag, x, y);
@@ -100,7 +100,7 @@ t_dict	*get_object(char *line)
 		dict = get_dict_new(tag, object);
 	if (!dict && object)
 		return (free(object), (void *)0);
-	return(dict);
+	return (dict);
 }
 
 t_dict	*get_all_object(int fd)

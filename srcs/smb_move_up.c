@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:09:02 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 14:09:52 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 18:33:35 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,31 @@
 static void	acceleration(t_game *game, t_player *player)
 {
 	if (player->y_speed > 0)
-		player->y_acceleration += (game->delay_between_frame * -GRAVITY_UP);
+		player->y_acceleration += (game->delay * -GRAVITY_UP);
 	else
-		player->y_acceleration += (game->delay_between_frame * -GRAVITY_DOWN);
+		player->y_acceleration += (game->delay * -GRAVITY_DOWN);
 }
 
 static void	speed(t_game *game, t_player *player)
 {
-	if (player->y_speed > 0 && player->y_speed + (player->y_acceleration * game->delay_between_frame) < 0)
+	if (player->y_speed > 0 && player->y_speed
+		+ (player->y_acceleration * game->delay) < 0)
 	{
 		player->y_speed = 0;
 		player->y_acceleration = 0;
 	}
 	else if (player->y_speed < 0 && player->y_speed
-		+ (player->y_acceleration * game->delay_between_frame) < V_DOWN_MAX)
+		+ (player->y_acceleration * game->delay) < V_DOWN_MAX)
 		player->y_speed = V_DOWN_MAX;
 	else
-		player->y_speed += (player->y_acceleration * game->delay_between_frame);
+		player->y_speed += (player->y_acceleration * game->delay);
 }
 
 static void	position(t_game *game, t_player *player)
 {
 	if (!check_collisions(game, player->x_pos,
-			player->y_pos - (player->y_speed * game->delay_between_frame), game->x_position))
-		player->y_pos -= (player->y_speed * game->delay_between_frame);
+			player->y_pos - (player->y_speed * game->delay), game->x_position))
+		player->y_pos -= (player->y_speed * game->delay);
 	else
 	{
 		if (player->y_speed < 0)
@@ -77,7 +78,6 @@ int	apply_gravity(t_game *game, t_player *player)
 		acceleration(game, player);
 		speed(game, player);
 		position(game, player);
-		//printf(">xpos: %f, ypos: %f, xgame: %f<\n", game->player.x_pos, game->player.y_pos, game->x_position);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:10:29 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 04:56:40 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 18:33:01 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 long	timestamp(long start)
 {
 	struct timeval	time;
-	long 			time_value;
+	long			time_value;
 
 	gettimeofday(&time, 0);
 	time_value = time.tv_sec * 1000 + time.tv_usec / 1000;
@@ -33,12 +33,12 @@ long	timestamp(long start)
 
 int	fps(t_game *game)
 {
-	long new_frame;
+	long	new_frame;
 
 	while (timestamp(game->last_time_frame) < 1000 / FPS)
 		usleep(1000);
 	new_frame = timestamp(0);
-	game->delay_between_frame = new_frame - game->last_time_frame;
+	game->delay = new_frame - game->last_time_frame;
 	game->last_time_frame = new_frame;
 	return (0);
 }

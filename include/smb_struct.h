@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 23:02:00 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 18:30:13 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ typedef struct s_player
 	float		y_acceleration;
 }	t_player;
 
-
 typedef struct s_start
 {
 	int	player_x;
@@ -106,7 +105,7 @@ typedef struct s_game
 	t_collisions	collide_obj;
 	t_start			start;
 	long			last_time_frame;
-	long			delay_between_frame;
+	long			delay;
 	float			x_position;
 	int				current_frame;
 }	t_game;

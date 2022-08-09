@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 20:33:36 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/07 22:16:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 18:27:09 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strndup(const char *str, int size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
-char 	*ft_strreduc(char *s, char *set);
+char	*ft_strreduc(char *s, char *set);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);

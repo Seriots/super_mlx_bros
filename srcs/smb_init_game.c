@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 02:57:02 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 18:29:45 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,20 @@
 
 static void	init_game_variable(t_game *game)
 {
-	struct timeval time;
+	struct timeval	time;
+	t_object		*obj;
 
 	game->x_position = 0;
 	game->all_images.all_tiles = 0;
 	gettimeofday(&time, 0);
 	game->last_time_frame = time.tv_sec * 1000 + time.tv_usec / 1000;
-	game->delay_between_frame = 0; 
+	game->delay = 0;
+	obj = dict_getelem_key(game->map.all_object, START)->value;
+	game->start.game_x = obj->x - SCREEN_WIDTH / 2;
+	if (game->start.game_x < 0)
+		game->start.game_x = 0;
+	game->start.player_x = obj->x - game->start.game_x;
+	game->start.player_y = obj->y;
 }
 
 static int	init_game_images(t_game *game)
@@ -52,11 +59,9 @@ static int	init_player(t_game *game)
 		return (error);
 	game->player.height = game->player.img_player.height;
 	game->player.width = game->player.img_player.width;
-	game->x_position = 450 - SCREEN_WIDTH / 2;
-	if (game->x_position < 0)
-		game->x_position = 0;
-	game->player.x_pos = 450 - game->x_position;
-	game->player.y_pos = 368;
+	game->x_position = game->start.game_x;
+	game->player.x_pos = game->start.player_x;
+	game->player.y_pos = game->start.player_y;
 	game->player.top = false;
 	game->player.bottom = false;
 	game->player.right = false;
