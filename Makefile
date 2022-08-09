@@ -5,31 +5,31 @@ MAKE = /bin/make
 
 define SRCS :=
 	main.c
-	smb_collisions_loop.c
-	smb_collisions_player_map.c
-	smb_collisions.c
-	smb_display.c
-	smb_error.c
-	smb_event.c
-	smb_free_init.c
-	smb_free.c
-	smb_game_loop.c
-	smb_init_game.c
-	smb_init_image.c
-	smb_init_object.c
-	smb_init_tiles.c
-	smb_move_left.c
-	smb_move_right.c
-	smb_move_up.c
-	smb_parsing_checker.c
-	smb_parsing_object.c
-	smb_parsing_setter.c
-	smb_parsing.c
-	smb_put_background_to_img.c
-	smb_put_map_to_img.c
-	smb_put_player_to_img.c
-	smb_update.c
-	smb_wall_constructor.c
+	collisions/smb_collisions_loop.c
+	collisions/smb_collisions_player_map.c
+	collisions/smb_collisions.c
+	game/display/smb_display.c
+	game/display/smb_put_background_to_img.c
+	game/display/smb_put_map_to_img.c
+	game/display/smb_put_player_to_img.c
+	game/move/smb_move_left.c
+	game/move/smb_move_right.c
+	game/move/smb_move_up.c
+	game/update/smb_update.c
+	game/smb_event.c
+	game/smb_game_loop.c
+	init/smb_init_game.c
+	init/smb_init_image.c
+	init/smb_init_object.c
+	init/smb_init_tiles.c
+	parsing/smb_parsing_checker.c
+	parsing/smb_parsing_object.c
+	parsing/smb_parsing_setter.c
+	parsing/smb_parsing.c
+	parsing/smb_wall_constructor.c
+	utils/smb_error.c
+	utils/smb_free_init.c
+	utils/smb_free.c
 endef
 SRCS := $(strip $(SRCS))
 
@@ -93,7 +93,7 @@ endif
 all: $(NAME)
 
 start_compiling:
-	@echo "$(_GREEN)Start Compiling $(_NO_COLOR)\n"
+	@echo "$(_GREEN)Start Compiling $(_NO_COLOR)"
 .INTERMEDIATE:	start_compiling
 
 clean:
@@ -144,7 +144,7 @@ $(NAME): $(LIBS) $(OBJ_FILES)
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c  start_compiling
 	@if [ ! -d $(dir $@) ]; then \
 		mkdir -p $(dir $@); \
-		echo "$(_BLUE)$(dir $@): Create$(_NO_COLOR)"; \
+		echo "\n$(_BLUE)$(dir $@): Create$(_NO_COLOR)"; \
 	fi
 	$(CC) $(CFLAGS) -MMD -I $(INCS_DIR) -o $@ -c $<
 

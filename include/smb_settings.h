@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 17:02:30 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/09 20:37:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # define PLAYER_SPEED 0.1875f
 # define BG_PARALLAX_FACTOR 0.5f
 
+/*120fps=0.5f, 30fps=0.58f, 60fps=0.54f, 240fps=0.5f*/
+/*8delay:0.5f, */
 /*Start base speed for jump*/
 # define JUMP_SPEED 0.5f
 # define REJUMP_SPEED 0.5f
