@@ -1,13 +1,13 @@
 DEMAIN:
--> Collisions player map. OK
--> Jump // application de la gravite en permanence OK
--> collage au mur OK
--> collage au sol OK
--> deplacement continu , pas de stoquand gquch droite qppuyer en meme temps OK
--> Parsing map objects OK
--> Modification systeme de collision OK
--> Make fps OK
--> Collisions pas seulemnt sur la position futur de player mais sur le chemin pour arriver a la position
+x -> Collisions player map.
+x -> Jump // application de la gravite en permanence
+x -> collage au mur
+x -> collage au sol
+x -> deplacement continu , pas de stoquand gquch droite qppuyer en meme temps
+x -> Parsing map objects
+x -> Modification systeme de collision
+x -> Make fps
+x -> Collisions pas seulemnt sur la position futur de player mais sur le chemin pour arriver a la position
 -> Initialisation Objects
 -> Display objects
 -> collisions objects
