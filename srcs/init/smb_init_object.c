@@ -6,25 +6,29 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 22:54:11 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 00:13:54 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 #include "dict.h"
 
-#include "smb_settings.h"
+#include "smb_objects.h"
 #include "smb_struct.h"
 #include "smb.h"
 
 #include <stdlib.h>
 
-static void	choose_obj(t_object **object, char *tag, float x, float y)
+void	set_object(t_game *game, char *key, t_object **object)
 {
-	if (!ft_strcmp(tag, START))
-		init_start(object, x, y);
-	else if (!ft_strcmp(tag, END))
-		init_end(object, x, y);
+	if (!ft_strcmp(key, START))
+		init_start(game, object);
+	else if (!ft_strcmp(key, END))
+		init_end(game, object);
+	else if (!ft_strcmp(key, COIN))
+		init_coin(game, object);
+	else if (!ft_strcmp(key, SIGN))
+		init_sign(game, object);
 }
 
 t_object	*obj_new(char *tag, float x, float y)
@@ -35,7 +39,7 @@ t_object	*obj_new(char *tag, float x, float y)
 	if (!obj)
 		return (0);
 	if (tag)
-		choose_obj(&obj, tag, x, y);
+		*obj = (t_object){.x = x, .y = y};
 	return (obj);
 }
 
@@ -45,6 +49,9 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 		return (dict_new(START, object));
 	else if (!ft_strcmp(tag, END))
 		return (dict_new(END, object));
-	else
-		return (dict_new("OBJ", object));
+	else if (!ft_strcmp(tag, COIN))
+		return (dict_new(COIN, object));
+	else if (!ft_strcmp(tag, SIGN))
+		return (dict_new(SIGN, object));
+	return (dict_new("OBJ", object));
 }

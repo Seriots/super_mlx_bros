@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 18:30:13 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 00:10:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "dict.h"
 
 # include <stdbool.h>
+typedef struct s_game t_game;
 
 typedef struct s_mlx
 {
@@ -34,6 +35,15 @@ typedef struct s_img_data
 	int		height;
 }			t_img_data;
 
+typedef struct s_hbox
+{
+	int	x_max;
+	int	y_max;
+	int	x_min;
+	int	y_min;
+	int	direction;
+}	t_hbox;
+
 typedef struct s_collisions
 {
 	int	x;
@@ -50,12 +60,13 @@ typedef struct s_object
 	float		y;
 	int			width;
 	int			height;
+	bool		is_strong;
 	bool		is_collide;
 	bool		is_visible;
 	int			start_frame;
 	int			nb_image;
 	int			animation_duration;
-	//fonction associe a la collision
+	int			(*col_fonction)(t_game *game, struct s_object *obj, int direction);
 }	t_object;
 
 typedef struct s_map
@@ -69,6 +80,8 @@ typedef struct s_map
 typedef struct s_all_images
 {
 	t_img_data	*all_tiles;
+	t_img_data	*all_coins;
+	t_img_data	sign;
 }	t_all_images;
 
 typedef struct s_player

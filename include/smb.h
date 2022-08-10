@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 22:59:21 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 00:18:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int				key_released(KeySym keycode, t_game *game);
 int				key_pressed(KeySym keycode, t_game *game);
 int				close_request(t_game *game);
 
+/*smb_put_objects_to_img.c*/
+void			put_objects_to_image(t_game *game, t_dict *objects, int position, t_img_data *img);
+
 /*smb_put_player_to_img.c*/
 void			put_player_to_image(t_game *game,
 					t_player *player, t_img_data *img);
@@ -53,6 +56,8 @@ int				boucle_col_right(t_collisions col, t_game *game);
 int				boucle_col_left(t_collisions col, t_game *game);
 
 /*smb_collisions.c*/
+int 			check_col_player_obj(t_game *game, float x_pos,
+					float y_pos, float position);
 int				check_col_player_map(t_game *game, float x_pos,
 					float y_pos, float position);
 int				check_collisions_bottom(t_game *game, float x_pos,
@@ -73,9 +78,11 @@ int				update(t_game *game);
 int				game_loop(t_game *game);
 
 /*smb_init_objects*/
-void			init_start(t_object **obj, float x, float y);
-void			init_end(t_object **obj, float x, float y);
-void			init_coin(t_object **obj, float x, float y);
+void			set_object(t_game *game, char *key, t_object **object);
+void			init_start(t_game *game, t_object **obj);
+void			init_end(t_game *game, t_object **obj);
+void			init_coin(t_game *game, t_object **obj);
+void			init_sign(t_game *game, t_object **obj);
 
 /*smb_init_tiles.c*/
 int				init_all_tiles(t_game *game);
@@ -84,6 +91,8 @@ int				init_all_tiles(t_game *game);
 int				init_image(t_game *game, int width,
 					int height, t_img_data *img);
 int				init_xpm_image(t_game *game, t_img_data *img, char *name);
+int				init_images_group(t_game *game, char *path, int nb_of_images,
+					t_img_data **dst_ptr);
 
 /*smb_init_game.c*/
 int				init_game(t_game *game);
@@ -101,6 +110,10 @@ void			free_game(t_game *game);
 
 /*smb_error.c*/
 void			smb_print_error(int code);
+
+/*smb_comp.c*/
+int	max(int a, int b);
+int	min(int a, int b);
 
 /*smb_wall_constructor.c*/
 void			convert_plateformer_map(char **map, int x, int y, int max_y);

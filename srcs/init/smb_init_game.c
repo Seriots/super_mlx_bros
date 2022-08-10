@@ -6,13 +6,16 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 18:29:45 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 00:11:22 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft.h"
 
 #include "smb.h"
 #include "smb_struct.h"
 #include "smb_settings.h"
+#include "smb_objects.h"
 
 #include "mlx.h"
 
@@ -20,13 +23,17 @@
 #include <stdbool.h>
 #include <sys/time.h>
 
+#include <stdio.h>
+
 static void	init_game_variable(t_game *game)
 {
 	struct timeval	time;
 	t_object		*obj;
 
 	game->x_position = 0;
+	game->current_frame = 0;
 	game->all_images.all_tiles = 0;
+	game->all_images.all_coins = 0;
 	gettimeofday(&time, 0);
 	game->last_time_frame = time.tv_sec * 1000 + time.tv_usec / 1000;
 	game->delay = 0;
@@ -43,6 +50,12 @@ static int	init_game_images(t_game *game)
 	int	error;
 
 	error = init_all_tiles(game);
+	if (error)
+		return (error);
+	error = init_images_group(game, COIN_PATH, COIN_NUMBER, &game->all_images.all_coins);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.sign, SIGN_PATH);
 	if (error)
 		return (error);
 	return (0);
@@ -71,6 +84,21 @@ static int	init_player(t_game *game)
 	return (0);
 }
 
+static int	init_objects(t_game *game)
+{
+	t_dict 		*obj;
+	t_object	*value;
+
+	obj = game->map.all_object;
+	while (obj)
+	{
+		value = (t_object *)obj->value;
+		set_object(game, obj->key, &value);
+		obj = obj->next;
+	}
+	return (0);
+}
+
 int	init_game(t_game *game)
 {
 	int	error;
@@ -92,6 +120,7 @@ int	init_game(t_game *game)
 	error = init_game_images(game);
 	if (error)
 		return (all_image_fail(game), error);
+	init_objects(game);
 	init_player(game);
 	return (0);
 }

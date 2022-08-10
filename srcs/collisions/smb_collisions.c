@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 15:05:42 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 00:22:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 00:52:07 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ int	check_collisions_bottom(t_game *game, float x_pos, float y_pos, float pos)
 	j = 0;
 	while (j < col.width)
 	{
-		if (game->map.map_data[col.y + col.height - 1][col.x + j] != '0')
+		if (game->map.map_data[col.y + col.height - 1][col.x + j] != '0' || check_col_player_obj(game, x_pos, y_pos, pos))
 			return (1);
+		
 		j++;
 	}
 	return (0);
@@ -47,7 +48,13 @@ int	check_collisions_bottom(t_game *game, float x_pos, float y_pos, float pos)
 
 int	check_collisions(t_game *game, float x_pos, float y_pos, float position)
 {
-	if (check_col_player_map(game, x_pos, y_pos, position))
-		return (1);
-	return (0);
+	int	collide;
+
+	game->collide_obj = (t_collisions){.x = 0, .y = 0, .width = 0, .height = 0};
+	collide = check_col_player_map(game, x_pos, y_pos, position);
+	if (!collide)
+		collide = check_col_player_obj(game, x_pos, y_pos, position);
+	else
+		check_col_player_obj(game, x_pos, y_pos, position);
+	return (collide);
 }

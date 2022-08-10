@@ -1,4 +1,4 @@
-DEMAIN:
+NEXT STEP:
 x -> Collisions player map.
 x -> Jump // application de la gravite en permanence
 x -> collage au mur
@@ -8,18 +8,25 @@ x -> Parsing map objects
 x -> Modification systeme de collision
 x -> Make fps
 x -> Collisions pas seulemnt sur la position futur de player mais sur le chemin pour arriver a la position
--> Initialisation Objects
--> Display objects
--> collisions objects
+x -> Initialisation Objects
+x -> Display objects
+x-> collisions objects
+	x-> Set la player hitbox
+	x-> Sortir une liste de tout les objets potentiellement collide
+	x-> verifier tout les objets reellement collide
+	x-> applique la fonction de collision pour tout les objets collide
+-> animation objects
+-> fix crash when an image crash
 
 
 ----------------------------------
+-> fix jump when two key are pressed at the same time
 -> Initialisations des images du joueur
--> Gestion du Ctr+l pour no leak et keyautorepeat
+-> Gestion du Ctr+c pour no leak et keyautorepeat
 -> Smooth fin de movement avec variable speed par direction
--> Gestion jolie des free a l'initialisation si fail
+x -> Gestion jolie des free a l'initialisation si fail
 -> Wall Jump
--> Parsing des objets, et affichage des objest et collisions des objets
+x -> Parsing des objets, et affichage des objest et collisions des objets
 -> faire les ennemis
 -> Initialisation de toutes les images du jeu.
 -> List chainee de tout mes elements a redner: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet, is_collide, fonction a applique sur la collision
@@ -30,3 +37,13 @@ x -> Collisions pas seulemnt sur la position futur de player mais sur le chemin 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions
 -> Application le deplacement en y separement/avant du deplacement en x.
+
+
+HOW TO INIT A NEW OBJECT:
+-> smb_objects: add a define for the object tag (<= 5 char)
+-> smb_objects: add some properties utils for the object
+-> Init the object image(s) and add the image in the structure.
+-> go in smb_init_objects and add comp to the new obj
+-> create a init_files with the init fonction and the other associated fonction
+-> add it to the .h
+-> RUN

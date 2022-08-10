@@ -7,10 +7,12 @@ define SRCS :=
 	main.c
 	collisions/smb_collisions_loop.c
 	collisions/smb_collisions_player_map.c
+	collisions/smb_collisions_player_obj.c
 	collisions/smb_collisions.c
 	game/display/smb_display.c
 	game/display/smb_put_background_to_img.c
 	game/display/smb_put_map_to_img.c
+	game/display/smb_put_objects_to_img.c
 	game/display/smb_put_player_to_img.c
 	game/move/smb_move_left.c
 	game/move/smb_move_right.c
@@ -24,12 +26,14 @@ define SRCS :=
 	init/smb_init_tiles.c
 	init/objects/smb_init_coin.c
 	init/objects/smb_init_end.c
+	init/objects/smb_init_sign.c
 	init/objects/smb_init_start.c
 	parsing/smb_parsing_checker.c
 	parsing/smb_parsing_object.c
 	parsing/smb_parsing_setter.c
 	parsing/smb_parsing.c
 	parsing/smb_wall_constructor.c
+	utils/smb_comp.c
 	utils/smb_error.c
 	utils/smb_free_init.c
 	utils/smb_free.c

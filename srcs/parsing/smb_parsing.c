@@ -6,13 +6,14 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:41:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 18:32:35 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/10 20:00:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
 #include "smb_settings.h"
+#include "smb_objects.h"
 #include "smb_struct.h"
 #include "smb.h"
 
@@ -45,8 +46,41 @@ static int	check_map_extension(char *arg)
 	return (0);
 }
 
+static void	remove_invalid_elem(t_map *map)
+{
+	t_dict		*cur;
+	t_dict		*pre;
+	t_object	*obj;
+
+	cur = map->all_object;
+	pre = 0;
+	while (cur)
+	{
+		obj = (t_object *)cur->value;
+		if (obj->x < 0 || obj->y < 0 || obj->x >= map->width || obj->y >= map->height)
+		{
+			ft_putstr_fd("Bad Element: ", 2);
+			ft_putstr_fd((char *)cur->key, 2);
+			ft_putstr_fd("\n", 2);
+			dict_delone(&map->all_object, cur, 0, free);
+			if (pre)
+				cur = pre->next;
+			else
+				cur = map->all_object;
+		}
+		else
+		{
+			pre = cur;
+			cur = cur->next;
+		}
+	}
+}
+
 static int	check_obj(t_map *map)
 {
+	remove_invalid_elem(map);
+	if (!map->all_object)
+		return (10);
 	if (!dict_getelem_key(map->all_object, START))
 		return (11);
 	if (!dict_getelem_key(map->all_object, END))

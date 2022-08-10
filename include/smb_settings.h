@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 22:28:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 00:05:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@
 # define TILES_NUMBER 16
 # define TILES_SIZE 16
 
-/*Objects*/
-# define START "START"
-# define END "END"
-# define COIN "COIN"
+/*direction*/
+# define UP 0
+# define DOWN 1
+# define LEFT 2
+# define RIGHT 3
 
 #endif
