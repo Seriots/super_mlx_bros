@@ -15,6 +15,7 @@ x-> collisions objects
 	x-> Sortir une liste de tout les objets potentiellement collide
 	x-> verifier tout les objets reellement collide
 	x-> applique la fonction de collision pour tout les objets collide
+-> refaire mes pieces
 -> animation objects
 -> fix crash when an image crash
 
