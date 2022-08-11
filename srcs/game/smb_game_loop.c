@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:10:29 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 18:54:01 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:04:04 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int	fps(t_game *game)
 int	game_loop(t_game *game)
 {
 	fps(game);
-	update(game);
-	display(game);
-	if (game->current_frame < MAX_LONG)
-		game->current_frame++;
+	if (game->current_frame + game->delay < MAX_LONG)
+		game->current_frame += game->delay;
 	else
 		game->current_frame = 0;
+	update(game);
+	display(game);
 	return (0);
 }

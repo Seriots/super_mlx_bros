@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:48:01 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:29:38 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int				key_pressed(KeySym keycode, t_game *game);
 int				close_request(t_game *game);
 
 /*smb_put_objects_to_img.c*/
-void			put_objects_to_image(t_game *game, t_dict *objects, int position, t_img_data *img);
+void			put_objects_to_image(t_game *game, t_dict *objects,
+					int position, t_img_data *img);
 
 /*smb_put_player_to_img.c*/
 void			put_player_to_image(t_game *game,
@@ -56,7 +57,7 @@ int				boucle_col_right(t_collisions col, t_game *game);
 int				boucle_col_left(t_collisions col, t_game *game);
 
 /*smb_collisions.c*/
-int 			check_col_player_obj(t_game *game, float x_pos,
+int				check_col_player_obj(t_game *game, float x_pos,
 					float y_pos, float position);
 int				check_col_player_map(t_game *game, float x_pos,
 					float y_pos, float position);
@@ -113,8 +114,8 @@ void			free_game(t_game *game);
 void			smb_print_error(int code);
 
 /*smb_comp.c*/
-int	max(int a, int b);
-int	min(int a, int b);
+int				max(int a, int b);
+int				min(int a, int b);
 
 /*smb_wall_constructor.c*/
 void			convert_plateformer_map(char **map, int x, int y, int max_y);

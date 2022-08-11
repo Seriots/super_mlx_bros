@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:41:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:24:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:28:23 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@
 
 #include <stdio.h>
 
-#ifndef DEBUG
-# define DEBUG 0
-#endif
-
 /*
 * Map rules:
-* -> 45 lines
+* -> 33 lines (TILES_HEIGHT)
 * -> Map only composed of 0 and 1
 * -> Need to be rectangular
 * -> Need a 'START' and an 'END'
@@ -46,6 +42,13 @@ static int	check_map_extension(char *arg)
 	return (0);
 }
 
+static void	print_bad_element(t_dict *cur)
+{
+	ft_putstr_fd("Bad Element: ", 2);
+	ft_putstr_fd((char *)cur->key, 2);
+	ft_putstr_fd("\n", 2);
+}
+
 static void	remove_invalid_elem(t_map *map)
 {
 	t_dict		*cur;
@@ -57,11 +60,10 @@ static void	remove_invalid_elem(t_map *map)
 	while (cur)
 	{
 		obj = (t_object *)cur->value;
-		if (obj->x < 0 || obj->y < 0 || obj->x >= map->width || obj->y >= map->height)
+		if (obj->x < 0 || obj->y < 0
+			|| obj->x >= map->width || obj->y >= map->height)
 		{
-			ft_putstr_fd("Bad Element: ", 2);
-			ft_putstr_fd((char *)cur->key, 2);
-			ft_putstr_fd("\n", 2);
+			print_bad_element(cur);
 			dict_delone(&map->all_object, cur, 0, free);
 			if (pre)
 				cur = pre->next;

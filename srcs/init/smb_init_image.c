@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:03:55 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:52:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:23:47 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ int	init_image(t_game *game, int width, int height, t_img_data *img)
 int	init_xpm_image(t_game *game, t_img_data *img, char *name)
 {
 	img->img = mlx_xpm_file_to_image(game->mlx.display, name,
-		&img->width, &img->height);
+			&img->width, &img->height);
 	if (!img->img)
 		return (3);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
-		&img->line_length, &img->endian);
+			&img->line_length, &img->endian);
 	if (!img->addr)
 		return (mlx_destroy_image(game->mlx.display, img->img), 3);
 	return (0);
 }
 
-static int ft_nbrlen(int num)
+static int	ft_nbrlen(int num)
 {
 	int	result;
 
@@ -65,7 +65,7 @@ static void	make_image_path(char *name, char *path, int number)
 	char	strnum[11];
 	int		i;
 	int		j;
-	
+
 	i = ft_nbrlen(number);
 	strnum[i + 1] = 0;
 	while (i >= 0)
@@ -89,7 +89,8 @@ static void	make_image_path(char *name, char *path, int number)
 	name[i] = 0;
 }
 
-int	init_images_group(t_game *game, char *path, int nb_of_images, t_img_data **dst_ptr)
+int	init_images_group(t_game *game, char *path,
+	int nb_of_images, t_img_data **dst_ptr)
 {
 	int			error;
 	char		name[NAME_BUFFER_SIZE + 1];

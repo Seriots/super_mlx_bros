@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:07:04 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:31:17 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include "dict.h"
 
 # include <stdbool.h>
-typedef struct s_game t_game;
+
+typedef struct s_game	t_game;
 
 typedef struct s_mlx
 {
@@ -66,8 +67,10 @@ typedef struct s_object
 	int			start_frame;
 	int			nb_image;
 	int			animation_duration;
-	int			(*col_fonction)(t_game *game, t_dict *elem, struct s_object *obj, int direction);
-	int			(*update_fonction)(t_game *game, t_dict *elem, struct s_object *obj);
+	int			(*col_fonction)(t_game *game, t_dict *elem,
+			struct s_object *obj, int direction);
+	int			(*update_fonction)(t_game *game, t_dict *elem,
+			struct s_object *obj);
 }	t_object;
 
 typedef struct s_map

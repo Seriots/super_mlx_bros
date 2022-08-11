@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 21:33:58 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:46:59 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:24:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	make_name(char *all_path, const char *name)
 
 int	init_all_tiles(t_game *game)
 {
-	int			error;
+	int			err;
 	char		name[TILES_PATH_SIZE + TILES_MAX_NAME_SIZE];
 	int			i;
 	const char	*all_name[] = {
@@ -61,9 +61,9 @@ int	init_all_tiles(t_game *game)
 	while (i < TILES_NUMBER)
 	{
 		make_name(name, all_name[i]);
-		error = init_xpm_image(game, &game->all_images.all_tiles[i], name);
-		if (error)
-			return (free_img_array(game, &game->all_images.all_tiles, i), error);
+		err = init_xpm_image(game, &game->all_images.all_tiles[i], name);
+		if (err)
+			return (free_img_array(game, &game->all_images.all_tiles, i), err);
 		i++;
 	}
 	return (0);

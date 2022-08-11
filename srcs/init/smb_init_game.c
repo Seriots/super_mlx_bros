@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:53:06 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:24:45 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ static int	init_game_images(t_game *game)
 	error = init_all_tiles(game);
 	if (error)
 		return (error);
-	error = init_images_group(game, COIN_PATH, COIN_NUMBER, &game->all_images.all_coins);
+	error = init_images_group(game, COIN_PATH, COIN_NUMBER,
+			&game->all_images.all_coins);
 	if (error)
 		return (error);
 	error = init_xpm_image(game, &game->all_images.sign, SIGN_PATH);
@@ -88,7 +89,7 @@ static int	init_player(t_game *game)
 
 static int	init_objects(t_game *game)
 {
-	t_dict 		*obj;
+	t_dict		*obj;
 	t_object	*value;
 
 	obj = game->map.all_object;

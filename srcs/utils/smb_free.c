@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:48:40 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:16:52 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 void	free_img_array(t_game *game, t_img_data **imgs_ptr, int number)
 {
-	int	i;
+	int			i;
 	t_img_data	*imgs;
 
 	i = 0;

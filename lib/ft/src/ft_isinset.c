@@ -6,13 +6,13 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 19:19:51 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 19:21:08 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:08:52 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isinset(char c, char *set)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (set[i])

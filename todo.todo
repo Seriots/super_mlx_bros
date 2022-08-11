@@ -17,8 +17,11 @@ x-> collisions objects
 	x-> applique la fonction de collision pour tout les objets collide
 x -> refaire mes pieces
 x -> animation objects
+x -> fix crash when an image crash
 -> animation en fonction des fps
--> fix crash when an image crash
+-> Norm
+-> jump en fonction des fps
+-> fix segfault when player reach the top and the bottom of the map: top juste pas de display, bottom mort
 
 
 ----------------------------------

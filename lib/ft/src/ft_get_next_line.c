@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 19:48:44 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/05 20:46:35 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:10:37 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4096
-# endif 
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 4096
+#endif 
 
-char *ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	int		size;
 	char	*result;
@@ -46,7 +46,7 @@ char *ft_strjoin_gnl(char *s1, char *s2)
 	return (free(s1), result);
 }
 
-char *ft_read(int fd, char *save)
+char	*ft_read(int fd, char *save)
 {
 	char	*buffer;
 	int		readed;
@@ -64,7 +64,7 @@ char *ft_read(int fd, char *save)
 		save[readed] = 0;
 		buffer = ft_strjoin_gnl(buffer, save);
 		if (!buffer)
-			return(0);
+			return (0);
 	}
 	if (ft_strlen(buffer) == 0)
 		return (free(buffer), (char *)0);
@@ -73,8 +73,8 @@ char *ft_read(int fd, char *save)
 
 char	*get_line(char *buffer)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 	char	*line;
 
 	i = 0;
@@ -98,8 +98,8 @@ char	*get_line(char *buffer)
 
 void	remake_save(char *save)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (save[i] && save[i] != '\n')
@@ -116,7 +116,7 @@ void	remake_save(char *save)
 	save[j] = 0;
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	save[1024][BUFFER_SIZE + 1];
 	char		*buffer;

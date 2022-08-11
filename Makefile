@@ -1,5 +1,5 @@
 NAME := super_mlx_bros
-CFLAGS := -O3
+CFLAGS := 
 CC := cc
 MAKE = /bin/make
 

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:29:47 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:14:59 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:26:03 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	coin_update(t_game *game, t_dict *elem, t_object *obj)
 
 	(void)game;
 	(void)elem;
-	cur_frame = (game->current_frame - obj->start_frame) % obj->animation_duration;
+	cur_frame = (game->current_frame - obj->start_frame)
+		% obj->animation_duration;
 	image_value = cur_frame / (obj->animation_duration / obj->nb_image);
 	if (image_value >= obj->nb_image)
 		image_value = obj->nb_image - 1;
