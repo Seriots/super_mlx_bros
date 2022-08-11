@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:31:17 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 22:40:02 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ typedef struct s_player
 	float		y_speed;
 	float		y_acceleration;
 	int			coins;
+	int			state;
 }	t_player;
 
 typedef struct s_start

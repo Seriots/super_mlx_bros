@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 17:53:30 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 17:46:13 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 23:18:19 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@
 
 #include <unistd.h>
 #include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
 
 #include <stdio.h>
+
+int	g_end = 0;
 
 void	call_hook(t_game *game)
 {
@@ -33,11 +37,18 @@ void	call_hook(t_game *game)
 	mlx_loop(game->mlx.display);
 }
 
+void	sig_handler(int sig)
+{
+	(void)sig;
+	g_end = 1;
+}
+
 int	main(int argc, char **argv)
 {
-	t_game	game;
-	int		error;
+	t_game				game;
+	int					error;
 
+	signal(SIGINT, sig_handler);
 	error = parsing(argc, argv, &game.map);
 	if (error)
 		return (smb_print_error(error), 1);

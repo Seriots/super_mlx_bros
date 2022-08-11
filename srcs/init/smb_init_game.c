@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:24:45 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 23:02:30 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	init_game_variable(t_game *game)
 	game->all_images.all_tiles = 0;
 	game->all_images.all_coins = 0;
 	game->all_images.sign.img = 0;
+	game->collide_obj = (t_collisions){.x = 0, .y = 0, .width = 0, .height = 0};
 	gettimeofday(&time, 0);
 	game->last_time_frame = time.tv_sec * 1000 + time.tv_usec / 1000;
 	game->delay = 0;
@@ -84,6 +85,7 @@ static int	init_player(t_game *game)
 	game->player.y_speed = 0.0;
 	game->player.y_acceleration = 0.0;
 	game->player.coins = 0;
+	game->player.state = L_IDLE;
 	return (0);
 }
 

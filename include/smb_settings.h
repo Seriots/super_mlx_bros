@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:07:22 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 22:41:40 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 
 /*Path to the background file*/
 # define BACKGROUND_NAME "files/xpm/background/Infinite_sky_background.xpm"
+
+/*Player state*/
+# define L_IDLE 0
+# define L_RUN 1
+# define L_JUMP 2
+# define L_DEAD 3
 
 /*Moving Speed*/
 # define PLAYER_SPEED 0.1875f

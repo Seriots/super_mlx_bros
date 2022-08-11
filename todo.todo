@@ -10,7 +10,7 @@ x -> Make fps
 x -> Collisions pas seulemnt sur la position futur de player mais sur le chemin pour arriver a la position
 x -> Initialisation Objects
 x -> Display objects
-x-> collisions objects
+x -> collisions objects
 	x-> Set la player hitbox
 	x-> Sortir une liste de tout les objets potentiellement collide
 	x-> verifier tout les objets reellement collide
@@ -18,16 +18,18 @@ x-> collisions objects
 x -> refaire mes pieces
 x -> animation objects
 x -> fix crash when an image crash
--> animation en fonction des fps
--> Norm
--> jump en fonction des fps
--> fix segfault when player reach the top and the bottom of the map: top juste pas de display, bottom mort
-
+x -> animation en fonction des fps
+x -> Norm
+x -> jump en fonction des fps
+x -> fix segfault when player reach the top and the bottom of the map: top juste pas de display, bottom mort
+-> Gestion du Ctr+c pour no leak et keyautorepeat
+-> trouver les images du player
+-> initialiser toutes les images
+-> animer le player
 
 ----------------------------------
 -> fix jump when two key are pressed at the same time
 -> Initialisations des images du joueur
--> Gestion du Ctr+c pour no leak et keyautorepeat
 -> Smooth fin de movement avec variable speed par direction
 x -> Gestion jolie des free a l'initialisation si fail
 -> Wall Jump
@@ -38,6 +40,7 @@ x -> Parsing des objets, et affichage des objest et collisions des objets
 -> List chainee de tout mes monstr a render: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet,  is_collide, fonction a applique sur la collision
 -> ./project || './mlx_keyrepeat_on' in terminal to dodge problem with segfault for the key repetition
 -> Ralentissement de la gravite qaund colle a un mur
+-> Faire en sorte de pouvoir sortir de la map par le haut pour un effet plus smooth
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions

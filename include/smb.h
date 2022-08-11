@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:29:38 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 22:34:48 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int				move_left(t_game *game, t_player *player);
 int				apply_gravity(t_game *game, t_player *player);
 
 /*smb_update.c*/
+int				is_in_map(t_game *game, int x, int y);
 int				i_can_move(t_game *game, t_player *player);
 int				update(t_game *game);
 

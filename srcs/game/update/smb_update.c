@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:08:09 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 23:14:01 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@
 #include <math.h>
 
 #include <stdio.h>
+
+int	is_in_map(t_game *game, int x, int y)
+{
+	if (x < 0 || x >= game->map.width / TILES_SIZE
+		|| y < 0 || y >= game->map.height / TILES_SIZE)
+		return (0);
+	return (1);
+}
 
 int	i_can_move(t_game *game, t_player *player)
 {
@@ -39,13 +47,14 @@ int	i_can_move(t_game *game, t_player *player)
 		x_width -= 1;
 	if ((int)floor(player->y_pos + player->height) % TILES_SIZE == 0)
 		y_height -= 1;
-	if (game->map.map_data[y][x] != '0')
+	if (is_in_map(game, x, y) && game->map.map_data[y][x] != '0')
 		return (0);
-	else if (game->map.map_data[y][x_width] != '0')
+	if (is_in_map(game, x_width, y) && game->map.map_data[y][x_width] != '0')
 		return (0);
-	else if (game->map.map_data[y_height][x] != '0')
+	if (is_in_map(game, x, y_height) && game->map.map_data[y_height][x] != '0')
 		return (0);
-	else if (game->map.map_data[y_height][x_width] != '0')
+	if (is_in_map(game, x_width, y_height)
+		&& game->map.map_data[y_height][x_width] != '0')
 		return (0);
 	return (1);
 }
@@ -80,5 +89,7 @@ int	update(t_game *game)
 {
 	update_objects(game, game->map.all_object);
 	update_movement(game, &game->player);
+	if (game->player.y_pos > game->map.height)
+		game->player.state = L_DEAD;
 	return (0);
 }

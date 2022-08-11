@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 19:03:25 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 19:23:51 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 20:56:58 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,15 @@ void	put_player_to_image(t_game *game, t_player *player, t_img_data *img)
 		x = 0;
 		while (x < player->width)
 		{
-			dst = img->addr + ((int)(y + player->y_pos) * img->line_length
-					+ (int)(x + player->x_pos) * (img->bits_per_pixel / 8));
-			color = get_pxl_color(player->img_player, x, y);
-			if (*(unsigned int *)dst != color && color != 4278190080)
-				*(unsigned int *)dst = color;
+			if (player->x_pos + x >= 0 && player->x_pos + x <= SCREEN_WIDTH
+				&& player->y_pos + y <= SCREEN_HEIGHT && player->y_pos + y >= 0)
+			{
+				dst = img->addr + ((int)(y + player->y_pos) * img->line_length
+						+ (int)(x + player->x_pos) * (img->bits_per_pixel / 8));
+				color = get_pxl_color(player->img_player, x, y);
+				if (*(unsigned int *)dst != color && color != 4278190080)
+					*(unsigned int *)dst = color;
+			}
 			x++;
 		}
 		y ++;
