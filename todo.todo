@@ -22,7 +22,7 @@ x -> animation en fonction des fps
 x -> Norm
 x -> jump en fonction des fps
 x -> fix segfault when player reach the top and the bottom of the map: top juste pas de display, bottom mort
--> Gestion du Ctr+c pour no leak et keyautorepeat
+x -> Gestion du Ctr+c pour no leak et keyautorepeat
 -> trouver les images du player
 -> initialiser toutes les images
 -> animer le player
@@ -41,6 +41,7 @@ x -> Parsing des objets, et affichage des objest et collisions des objets
 -> ./project || './mlx_keyrepeat_on' in terminal to dodge problem with segfault for the key repetition
 -> Ralentissement de la gravite qaund colle a un mur
 -> Faire en sorte de pouvoir sortir de la map par le haut pour un effet plus smooth
+-> faire en sorte que les objects visible mais pas collide ni strong soit derrier le bg;
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions
@@ -48,12 +49,13 @@ CHECK collisions
 
 
 HOW TO INIT A NEW OBJECT:
--> smb_objects: add a define for the object tag (<= 5 char)
--> smb_objects: add some properties utils for the object
+-> smb_objects.h: add a define for the object tag (<= 5 char)
+-> smb_objects.h: add some properties utils for the object
 -> Init the object image(s) and add the image in the structure.
 -> go in smb_init_objects and add comp to the new obj
 -> create a init_files with the init fonction and the other associated fonction
 -> add it to the .h
+-> add it to the Makefile
 -> RUN
 
 HOW TO ANIM A NEW OBJECT:

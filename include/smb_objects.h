@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:04:32 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 23:26:37 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define END "END"
 # define COIN "COIN"
 # define SIGN "SIGN"
+# define BTR "BTR"
 
 /*Coin properties*/
 # define COIN_PATH "files/xpm/objects/coins/coin"
@@ -32,5 +33,8 @@
 
 /*Sign properties*/
 # define SIGN_PATH "files/xpm/objects/sign.xpm"
+
+/*Big TRee properties*/
+# define BTR_PATH "files/xpm/objects/big_tree.xpm"
 
 #endif

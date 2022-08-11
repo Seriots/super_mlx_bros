@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 00:13:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 23:27:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	set_object(t_game *game, char *key, t_object **object)
 		init_coin(game, object);
 	else if (!ft_strcmp(key, SIGN))
 		init_sign(game, object);
+	else if (!ft_strcmp(key, BTR))
+		init_btr(game, object);
 }
 
 t_object	*obj_new(char *tag, float x, float y)
@@ -53,5 +55,7 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 		return (dict_new(COIN, object));
 	else if (!ft_strcmp(tag, SIGN))
 		return (dict_new(SIGN, object));
+	else if (!ft_strcmp(tag, BTR))
+		return (dict_new(BTR, object));
 	return (dict_new("OBJ", object));
 }

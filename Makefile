@@ -24,6 +24,7 @@ define SRCS :=
 	init/smb_init_image.c
 	init/smb_init_object.c
 	init/smb_init_tiles.c
+	init/objects/smb_init_btr.c
 	init/objects/smb_init_coin.c
 	init/objects/smb_init_end.c
 	init/objects/smb_init_sign.c

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 22:34:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 23:29:30 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void			init_start(t_game *game, t_object **obj);
 void			init_end(t_game *game, t_object **obj);
 void			init_coin(t_game *game, t_object **obj);
 void			init_sign(t_game *game, t_object **obj);
+void			init_btr(t_game *game, t_object **obj);
 
 /*smb_init_tiles.c*/
 int				init_all_tiles(t_game *game);
