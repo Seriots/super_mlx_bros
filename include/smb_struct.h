@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 00:10:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:07:04 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ typedef struct s_object
 	int			start_frame;
 	int			nb_image;
 	int			animation_duration;
-	int			(*col_fonction)(t_game *game, struct s_object *obj, int direction);
+	int			(*col_fonction)(t_game *game, t_dict *elem, struct s_object *obj, int direction);
+	int			(*update_fonction)(t_game *game, t_dict *elem, struct s_object *obj);
 }	t_object;
 
 typedef struct s_map
@@ -98,6 +99,7 @@ typedef struct s_player
 	bool		bottom;
 	float		y_speed;
 	float		y_acceleration;
+	int			coins;
 }	t_player;
 
 typedef struct s_start
@@ -120,7 +122,7 @@ typedef struct s_game
 	long			last_time_frame;
 	long			delay;
 	float			x_position;
-	int				current_frame;
+	long int		current_frame;
 }	t_game;
 
 #endif

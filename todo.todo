@@ -15,8 +15,9 @@ x-> collisions objects
 	x-> Sortir une liste de tout les objets potentiellement collide
 	x-> verifier tout les objets reellement collide
 	x-> applique la fonction de collision pour tout les objets collide
--> refaire mes pieces
--> animation objects
+x -> refaire mes pieces
+x -> animation objects
+-> animation en fonction des fps
 -> fix crash when an image crash
 
 
@@ -48,3 +49,14 @@ HOW TO INIT A NEW OBJECT:
 -> create a init_files with the init fonction and the other associated fonction
 -> add it to the .h
 -> RUN
+
+HOW TO ANIM A NEW OBJECT:
+-> define nbr of image, and a time duration 
+```
+Apply this:
+	cur_frame = (game->current_frame - obj->start_frame) % obj->animation_duration;
+	image_value = cur_frame / (obj->animation_duration / obj->nb_image);
+	if (image_value >= obj->nb_image)
+		image_value = obj->nb_image - 1;
+	obj->img = &obj->all_img[image_value];
+```

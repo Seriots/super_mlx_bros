@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:28:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 01:12:18 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:56:44 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,12 @@ int	check_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox)
 void	apply_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox)
 {
 	t_object	*value;
+	t_dict		*next;
 
 	(void)game;
 	while (all_obj)
 	{
+		next = all_obj->next;
 		value = (t_object *)all_obj->value;
 		if (((value->x > p_hbox->x_min && value->x < p_hbox->x_max)
 			|| (value->x + value->width > p_hbox->x_min && value->x + value->width < p_hbox->x_max)
@@ -94,9 +96,9 @@ void	apply_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox)
 			|| (value->y + value->height > p_hbox->y_min && value->y + value->height < p_hbox->y_max)))
 		{
 			if (value->is_collide)
-				value->col_fonction(game, value, p_hbox->direction);
+				value->col_fonction(game, all_obj, value, p_hbox->direction);
 		}
-		all_obj = all_obj->next;
+		all_obj = next;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 18:41:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/10 20:00:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:24:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,5 @@ int	parsing(int argc, char **argv, t_map *map)
 		return (ft_free_tab(map->map_data),
 			dict_clear(map->all_object, 0, free), error);
 	wall_constructor(map->map_data, MAP_HEIGHT_TILES, convert_plateformer_map);
-	if (DEBUG)
-		ft_printarray(map->map_data, 0);
 	return (0);
 }

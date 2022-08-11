@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 21:33:58 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/06 01:10:45 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:46:59 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	init_all_tiles(t_game *game)
 		make_name(name, all_name[i]);
 		error = init_xpm_image(game, &game->all_images.all_tiles[i], name);
 		if (error)
-			return (free_img_array(game, game->all_images.all_tiles, i), error);
+			return (free_img_array(game, &game->all_images.all_tiles, i), error);
 		i++;
 	}
 	return (0);

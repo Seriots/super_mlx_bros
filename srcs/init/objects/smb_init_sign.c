@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 00:15:23 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 00:17:13 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:12:32 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 #include <stdio.h>
 
-int	sign_collisions(t_game *game, t_object *obj, int direction)
+int	sign_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 {
 	(void)game;
 	(void)direction;
+	(void)elem;
 	printf("collisions sign %f %f\n", obj->x, obj->y);
 	return (0);
 }
@@ -31,10 +32,11 @@ void	init_sign(t_game *game, t_object **obj)
 	(*obj)->animation_duration = 0;
 	(*obj)->height = (*obj)->img->height;
 	(*obj)->width = (*obj)->img->width;
-	(*obj)->is_collide = 1;
+	(*obj)->is_collide = 0;
 	(*obj)->is_visible = 1;
 	(*obj)->is_strong = 1;
 	(*obj)->nb_image = 1;
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = sign_collisions;
+	(*obj)->update_fonction = 0;
 }

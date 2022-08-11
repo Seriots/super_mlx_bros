@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 00:11:22 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:53:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	init_game_variable(t_game *game)
 	game->current_frame = 0;
 	game->all_images.all_tiles = 0;
 	game->all_images.all_coins = 0;
+	game->all_images.sign.img = 0;
 	gettimeofday(&time, 0);
 	game->last_time_frame = time.tv_sec * 1000 + time.tv_usec / 1000;
 	game->delay = 0;
@@ -81,6 +82,7 @@ static int	init_player(t_game *game)
 	game->player.left = false;
 	game->player.y_speed = 0.0;
 	game->player.y_acceleration = 0.0;
+	game->player.coins = 0;
 	return (0);
 }
 
@@ -105,7 +107,7 @@ int	init_game(t_game *game)
 
 	game->mlx.display = mlx_init();
 	if (!game->mlx.display)
-		return (1);
+		return (mlx_fail(game), 1);
 	game->mlx.window = mlx_new_window(game->mlx.display,
 			SCREEN_WIDTH, SCREEN_HEIGHT, GAME_NAME);
 	if (!game->mlx.window)

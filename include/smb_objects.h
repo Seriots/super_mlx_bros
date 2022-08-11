@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 00:08:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:49:40 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 /*Coin properties*/
 # define COIN_PATH "files/xpm/objects/coins/coin"
 # define COIN_NUMBER 6
-# define COIN_ANIM_DURATION 100
+/*Must be a multiple of coin number, its better*/
+# define COIN_ANIM_DURATION 84
 
 /*Sign properties*/
 # define SIGN_PATH "files/xpm/objects/sign.xpm"

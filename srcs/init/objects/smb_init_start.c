@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:34:56 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/10 22:19:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 18:46:58 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	init_start(t_game *game, t_object **obj)
 	(*obj)->is_collide = 0;
 	(*obj)->is_visible = 0;
 	(*obj)->nb_image = 0;
-	(*obj)->start_frame = 0;
+	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = 0;
+	(*obj)->update_fonction = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 01:18:40 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:48:40 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@
 
 #include <stdio.h>
 
-void	free_img_array(t_game *game, t_img_data *imgs, int number)
+void	free_img_array(t_game *game, t_img_data **imgs_ptr, int number)
 {
 	int	i;
+	t_img_data	*imgs;
 
 	i = 0;
+	imgs = *imgs_ptr;
 	(void)game;
 	while (i < number)
 	{
@@ -34,14 +36,15 @@ void	free_img_array(t_game *game, t_img_data *imgs, int number)
 		i++;
 	}
 	free(imgs);
+	*imgs_ptr = NULL;
 }
 
 void	free_all_image(t_game *game)
 {
 	if (game->all_images.all_tiles)
-		free_img_array(game, game->all_images.all_tiles, TILES_NUMBER);
+		free_img_array(game, &game->all_images.all_tiles, TILES_NUMBER);
 	if (game->all_images.all_coins)
-		free_img_array(game, game->all_images.all_coins, COIN_NUMBER);
+		free_img_array(game, &game->all_images.all_coins, COIN_NUMBER);
 	mlx_destroy_image(game->mlx.display, game->all_images.sign.img);
 	mlx_destroy_image(game->mlx.display, game->player.img_player.img);
 }

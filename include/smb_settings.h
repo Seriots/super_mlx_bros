@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 00:05:06 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:49:08 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@
 # define DOWN 1
 # define LEFT 2
 # define RIGHT 3
+
+/*Max long*/
+# define MAX_LONG 9223372036854775807
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 00:18:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:48:01 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,14 @@ int				init_images_group(t_game *game, char *path, int nb_of_images,
 int				init_game(t_game *game);
 
 /*smb_free_init.c*/
+void			mlx_fail(t_game *game);
 void			window_fail(t_game *game);
 void			background_fail(t_game *game);
 void			map_image_fail(t_game *game);
 void			all_image_fail(t_game *game);
 
 /*smb_free.c*/
-void			free_img_array(t_game *game, t_img_data *imgs, int number);
+void			free_img_array(t_game *game, t_img_data **imgs, int number);
 void			free_all_image(t_game *game);
 void			free_game(t_game *game);
 

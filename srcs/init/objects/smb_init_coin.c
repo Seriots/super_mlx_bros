@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:29:47 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 00:14:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:14:59 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,31 @@
 #include "smb_objects.h"
 #include "smb_objects_fonction.h"
 
+#include <stdlib.h>
+
 #include <stdio.h>
 
-int	coin_collisions(t_game *game, t_object *obj, int direction)
+int	coin_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 {
-	(void)game;
 	(void)direction;
-	printf("collisions coin %f %f\n", obj->x, obj->y);
+	(void)obj;
+	game->player.coins++;
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
+
+int	coin_update(t_game *game, t_dict *elem, t_object *obj)
+{
+	long int	cur_frame;
+	int			image_value;
+
+	(void)game;
+	(void)elem;
+	cur_frame = (game->current_frame - obj->start_frame) % obj->animation_duration;
+	image_value = cur_frame / (obj->animation_duration / obj->nb_image);
+	if (image_value >= obj->nb_image)
+		image_value = obj->nb_image - 1;
+	obj->img = &obj->all_img[image_value];
 	return (0);
 }
 
@@ -37,4 +55,5 @@ void	init_coin(t_game *game, t_object **obj)
 	(*obj)->nb_image = COIN_NUMBER;
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = coin_collisions;
+	(*obj)->update_fonction = coin_update;
 }
