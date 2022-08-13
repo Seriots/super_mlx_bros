@@ -23,6 +23,7 @@ define SRCS :=
 	init/smb_init_game.c
 	init/smb_init_image.c
 	init/smb_init_object.c
+	init/smb_init_player.c
 	init/smb_init_tiles.c
 	init/objects/smb_init_btr.c
 	init/objects/smb_init_coin.c

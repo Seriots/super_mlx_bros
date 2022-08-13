@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 23:14:01 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/13 17:04:09 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ int	update(t_game *game)
 	update_objects(game, game->map.all_object);
 	update_movement(game, &game->player);
 	if (game->player.y_pos > game->map.height)
-		game->player.state = L_DEAD;
+		game->player.state = DEAD;
 	return (0);
 }

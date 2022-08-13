@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 21:33:58 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:24:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/13 16:18:11 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 #include <stdio.h>
 
-void	make_name(char *all_path, const char *name)
+static void	make_name(char *all_path, const char *name)
 {
 	int	j;
 	int	i;

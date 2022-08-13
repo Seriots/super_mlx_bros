@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:16:52 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/13 17:12:17 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,14 @@ void	free_all_image(t_game *game)
 {
 	if (game->all_images.all_tiles)
 		free_img_array(game, &game->all_images.all_tiles, TILES_NUMBER);
+	if (game->all_images.all_little_players)
+		free_img_array(game, &game->all_images.all_little_players, LPLAYER_NUMBER);
+	if (game->all_images.all_big_players)
+		free_img_array(game, &game->all_images.all_big_players, BPLAYER_NUMBER);
 	if (game->all_images.all_coins)
 		free_img_array(game, &game->all_images.all_coins, COIN_NUMBER);
 	mlx_destroy_image(game->mlx.display, game->all_images.sign.img);
-	mlx_destroy_image(game->mlx.display, game->player.img_player.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.big_tree.img);
 }
 
 void	free_all_object(t_game *game)

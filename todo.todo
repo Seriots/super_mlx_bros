@@ -68,3 +68,8 @@ Apply this:
 		image_value = obj->nb_image - 1;
 	obj->img = &obj->all_img[image_value];
 ```
+```
+PLAYER:
+
+anim duration, anim image start, anim image len
+```

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 23:26:59 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/13 16:28:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ typedef struct s_all_images
 {
 	t_img_data	*all_tiles;
 	t_img_data	*all_coins;
+	t_img_data	*all_little_players;
+	t_img_data	*all_big_players;
 	t_img_data	sign;
 	t_img_data	big_tree;
 }	t_all_images;
@@ -93,6 +95,9 @@ typedef struct s_player
 {
 	t_img_data	*all_player_img;
 	t_img_data	img_player;
+	int			anim_start;
+	int			anim_length;
+	int			anim_duration;
 	float		x_pos;
 	float		y_pos;
 	int			width;

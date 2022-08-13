@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 23:26:40 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/13 16:53:28 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ static int	init_game_images(t_game *game)
 	error = init_all_tiles(game);
 	if (error)
 		return (error);
+	error = init_all_little_player(game);
+	if (error)
+		return (error);
+	error = init_all_big_player(game);
+	if (error)
+		return (error);
 	error = init_images_group(game, COIN_PATH, COIN_NUMBER,
 			&game->all_images.all_coins);
 	if (error)
@@ -64,31 +70,6 @@ static int	init_game_images(t_game *game)
 	error = init_xpm_image(game, &game->all_images.big_tree, BTR_PATH);
 	if (error)
 		return (error);
-	return (0);
-}
-
-static int	init_player(t_game *game)
-{
-	int	error;
-
-	game->player.all_player_img = 0;
-	error = init_xpm_image(game, &game->player.img_player,
-			"files/xpm/objects/crate.xpm");
-	if (error)
-		return (error);
-	game->player.height = game->player.img_player.height;
-	game->player.width = game->player.img_player.width;
-	game->x_position = game->start.game_x;
-	game->player.x_pos = game->start.player_x;
-	game->player.y_pos = game->start.player_y;
-	game->player.top = false;
-	game->player.bottom = false;
-	game->player.right = false;
-	game->player.left = false;
-	game->player.y_speed = 0.0;
-	game->player.y_acceleration = 0.0;
-	game->player.coins = 0;
-	game->player.state = L_IDLE;
 	return (0);
 }
 
