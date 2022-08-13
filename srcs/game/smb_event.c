@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:51:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 00:41:01 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 01:37:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,16 @@ int	key_released(KeySym keycode, t_game *game)
 		game->player.bottom = 0;
 	else if (keycode == XK_Up || keycode == XK_space)
 		game->player.top = false;
+	else if (keycode == 0x0061)
+	{
+		game->player.all_player_img = game->all_images.all_big_players;
+		game->player.evolution = BIG;
+	}
+	else if (keycode == 0x007a)
+	{
+		game->player.all_player_img = game->all_images.all_little_players;
+		game->player.evolution = LITTLE;
+	}
 	if (game->player.right == 0 && game->player.left == 0
 		&& game->player.top == 0 && game->player.bottom == 0)
 	{
