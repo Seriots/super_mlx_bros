@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:10:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/13 17:06:04 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/13 22:46:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ int	init_all_little_player(t_game *game)
 	char		name[LPLAYER_PATH_SIZE + LPLAYER_MAX_NAME_SIZE];
 	int			i;
 	const char	*all_name[] = {
-		"tile_TBRL.xpm", "tile_NONE.xpm", "tile_B.xpm", "tile_BL.xpm",
-		"tile_BLR.xpm", "tile_BR.xpm", "tile_L.xpm", "tile_R.xpm",
-		"tile_RL.xpm", "tile_T.xpm", "tile_TB.xpm", "tile_TBL.xpm",
-		"tile_TBR.xpm", "tile_TL.xpm", "tile_TR.xpm", "tile_TRL.xpm",};
+		"lm_idle_l.xpm", "lm_run_l.xpm", "lm_ujump_l.xpm", "lm_djump_l.xpm",
+		"lm_crouch_l.xpm", "lm_idle_r.xpm", "lm_run_r.xpm", "lm_ujump_r.xpm",
+		"lm_djump_r.xpm", "lm_crouch_r.xpm", "lm_dead_l.xpm", "lm_dead_r.xpm"};
 
 	game->all_images.all_little_players = ft_calloc(sizeof(t_img_data), LPLAYER_NUMBER);
 	if (!game->all_images.all_little_players)
@@ -71,10 +70,9 @@ int	init_all_big_player(t_game *game)
 	char		name[BPLAYER_PATH_SIZE + BPLAYER_MAX_NAME_SIZE];
 	int			i;
 	const char	*all_name[] = {
-		"tile_TBRL.xpm", "tile_NONE.xpm", "tile_B.xpm", "tile_BL.xpm",
-		"tile_BLR.xpm", "tile_BR.xpm", "tile_L.xpm", "tile_R.xpm",
-		"tile_RL.xpm", "tile_T.xpm", "tile_TB.xpm", "tile_TBL.xpm",
-		"tile_TBR.xpm", "tile_TL.xpm", "tile_TR.xpm", "tile_TRL.xpm",};
+		"bm_idle_l.xpm", "bm_run_l1.xpm", "bm_run_l2.xpm", "bm_ujump_l.xpm",
+		"bm_djump_l.xpm", "bm_crouch_l.xpm", "bm_idle_r.xpm", "bm_run_r1.xpm",
+		"bm_run_r2.xpm", "bm_ujump_r.xpm", "bm_djump_r.xpm", "bm_crouch_r.xpm"};
 
 	game->all_images.all_big_players = ft_calloc(sizeof(t_img_data), BPLAYER_NUMBER);
 	if (!game->all_images.all_big_players)
@@ -93,7 +91,7 @@ int	init_all_big_player(t_game *game)
 
 int	init_player(t_game *game)
 {
-	game->player.all_player_img = 0;
+	game->player.all_player_img = game->all_images.all_little_players;
 	game->player.anim_duration = 0;
 	game->player.anim_start = 0;
 	game->player.anim_length = 1;
@@ -111,5 +109,7 @@ int	init_player(t_game *game)
 	game->player.y_acceleration = 0.0;
 	game->player.coins = 0;
 	game->player.state = IDLE;
+	game->player.orientation = O_RIGHT;
+	game->player.evolution = LITTLE;
 	return (0);
 }

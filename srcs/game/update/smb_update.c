@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/13 17:04:09 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 00:08:03 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,10 @@ int	update_objects(t_game *game, t_dict *all_obj)
 
 int	update(t_game *game)
 {
+	//printf("%f %f\n", game->player.y_pos, game->player.x_pos);
 	update_objects(game, game->map.all_object);
+	update_player_state(game, &game->player);
+	update_player_image(game, &game->player);
 	update_movement(game, &game->player);
 	if (game->player.y_pos > game->map.height)
 		game->player.state = DEAD;

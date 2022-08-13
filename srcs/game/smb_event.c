@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:51:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 22:54:20 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 00:41:01 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ int	key_pressed(KeySym keycode, t_game *game)
 		if (game->player.right == 1)
 			game->player.right += 1;
 	}
+	else if (keycode == XK_Down)
+		game->player.bottom = 1;
 	else if ((keycode == XK_Up || keycode == XK_space)
 		&& game->player.top == false
 		&& i_can_move(game, &game->player)
 		&& check_collisions_bottom(game, game->player.x_pos,
-			game->player.y_pos + 1, game->x_position))
+			game->player.y_pos, game->x_position))
 	{
 		game->player.top = true;
 		game->player.y_speed = JUMP_SPEED;
@@ -68,6 +70,8 @@ int	key_released(KeySym keycode, t_game *game)
 			game->player.right -= 1;
 		game->player.left = 0;
 	}
+	else if (keycode == XK_Down)
+		game->player.bottom = 0;
 	else if (keycode == XK_Up || keycode == XK_space)
 		game->player.top = false;
 	if (game->player.right == 0 && game->player.left == 0

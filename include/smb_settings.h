@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/13 17:06:52 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/13 19:04:18 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,14 @@
 /*Player state*/
 # define IDLE 0
 # define RUN 1
-# define JUMP 2
-# define DEAD 3
+# define UJUMP 2
+# define DJUMP 3
+# define CROUCH 4
+# define DEAD 5
+
+/*Player orientation*/
+# define O_LEFT 0
+# define O_RIGHT 1
 
 /*Player evolution*/
 # define LITTLE 0
@@ -74,22 +80,22 @@
 # define TILES_SIZE 16
 
 /*Path to the directory of tiles images*/
-# define LPLAYER_PATH "files/xpm/tiles/"//"files/xpm/player/little/"
+# define LPLAYER_PATH "files/xpm/player/little/"
 /*Size of the path*/
 # define LPLAYER_PATH_SIZE 25
 /*Size max of the player name*/
 # define LPLAYER_MAX_NAME_SIZE 24
 /*Number of different little player*/
-# define LPLAYER_NUMBER 16
+# define LPLAYER_NUMBER 12
 
 /*Path to the directory of tiles images*/
-# define BPLAYER_PATH "files/xpm/tiles/"//"files/xpm/player/big/"
+# define BPLAYER_PATH "files/xpm/player/big/"
 /*Size of the path*/
 # define BPLAYER_PATH_SIZE 22
 /*Size max of the player name*/
 # define BPLAYER_MAX_NAME_SIZE 24
 /*Number of different big player*/
-# define BPLAYER_NUMBER 16
+# define BPLAYER_NUMBER 12
 
 /*direction*/
 # define UP 0
