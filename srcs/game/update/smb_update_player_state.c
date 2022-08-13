@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 19:11:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 01:22:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 01:28:51 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ static void update_orientation(t_player *player)
 
 static void update_state(t_game *game, t_player *player)
 {
-	if (player->bottom == 1 || (player->state == CROUCH
+	if (player->state == DEAD)
+		return ;
+	else if (player->bottom == 1 || (player->state == CROUCH
 		&& check_collisions(game, player->x_pos,
 			player->y_pos - 10, game->x_position))
 		|| (player->state == CROUCH
