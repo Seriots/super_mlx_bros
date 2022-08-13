@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 19:11:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 00:40:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 01:22:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,14 @@ static void update_orientation(t_player *player)
 
 static void update_state(t_game *game, t_player *player)
 {
-	if (player->bottom == 1 || (player->state == CROUCH && check_collisions(game, player->x_pos, player->y_pos - 10, game->x_position)))
+	if (player->bottom == 1 || (player->state == CROUCH
+		&& check_collisions(game, player->x_pos,
+			player->y_pos - 10, game->x_position))
+		|| (player->state == CROUCH
+			&& !check_collisions_bottom(game, player->x_pos,
+				player->y_pos, game->x_position)))
 		player->state = CROUCH;
-	else if (player->top == 1)
+	else if (player->y_speed != 0)
 	{
 		if (player->y_speed > V_DOWN_MAX / 2)
 			player->state = UJUMP;
@@ -36,7 +41,16 @@ static void update_state(t_game *game, t_player *player)
 			player->state = DJUMP;
 	}
 	else if (player->left == 1 || player->right == 1)
+	{
+		if (player->state != RUN)
+			player->anim_frame_start = game->current_frame;
 		player->state = RUN;
+		player->anim_duration = 200;
+		if (player->evolution == LITTLE)
+			player->anim_length = 2;
+		else
+			player->anim_length = 3;
+	}
 	else
 		player->state = IDLE;
 }

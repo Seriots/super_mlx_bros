@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/13 19:05:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 01:03:27 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ typedef struct s_player
 {
 	t_img_data	*all_player_img;
 	t_img_data	img_player;
+	int			anim_frame_start;
 	int			anim_start;
 	int			anim_length;
 	int			anim_duration;

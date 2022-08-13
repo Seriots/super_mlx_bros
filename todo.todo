@@ -43,6 +43,7 @@ x -> Parsing des objets, et affichage des objest et collisions des objets
 -> Faire en sorte de pouvoir sortir de la map par le haut pour un effet plus smooth
 -> faire en sorte que les objects visible mais pas collide ni strong soit derrier le bg;
 -> fix the problem when an object is 1px difference with a map wall
+-> Empecher le deplacement horizontal en mode crouch mais le faire glisser
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions
