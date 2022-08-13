@@ -23,9 +23,12 @@ x -> Norm
 x -> jump en fonction des fps
 x -> fix segfault when player reach the top and the bottom of the map: top juste pas de display, bottom mort
 x -> Gestion du Ctr+c pour no leak et keyautorepeat
--> trouver les images du player
--> initialiser toutes les images
--> animer le player
+x -> trouver les images du player
+x -> initialiser toutes les images
+x -> animer le player
+-> implementer l'end
+-> apres c les ennemis hein
+-> et apres le jeu est jouable
 
 ----------------------------------
 -> fix jump when two key are pressed at the same time
