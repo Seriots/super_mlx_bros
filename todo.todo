@@ -26,6 +26,7 @@ x -> Gestion du Ctr+c pour no leak et keyautorepeat
 x -> trouver les images du player
 x -> initialiser toutes les images
 x -> animer le player
+-> faire une x_speed value pour faire un rendu fluide, implémenter des images de slide si la speedy va pas dans la même direction que l'orientation 
 -> implementer l'end
 -> apres c les ennemis hein
 -> et apres le jeu est jouable
