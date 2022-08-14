@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 17:07:37 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 20:23:25 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	update_objects(t_game *game, t_dict *all_obj)
 
 int	update(t_game *game)
 {
-	//printf("%f %f\n", game->player.x_speed, game->player.x_acceleration);
 	update_objects(game, game->map.all_object);
 	update_player_state(game, &game->player);
 	update_player_image(game, &game->player);

@@ -26,20 +26,25 @@ x -> Gestion du Ctr+c pour no leak et keyautorepeat
 x -> trouver les images du player
 x -> initialiser toutes les images
 x -> animer le player
--> faire une x_speed value pour faire un rendu fluide, implémenter des images de slide si la speedy va pas dans la même direction que l'orientation 
+x -> faire une x_speed value pour faire un rendu fluide, implémenter des images de slide si la speedy va pas dans la même direction que l'orientation 
 -> implementer l'end
+	-> setup game.update_fct
+	-> setup game.display_fct
+	-> setup game.event_fct
+	-> Split la flag bar et la flag base en 2 object init juste avec end
+	-> creer la nouvelle update fonction quand player reach end
 -> apres c les ennemis hein
+-> faire un string put style et facile a exploite pour tout
 -> et apres le jeu est jouable
 
 ----------------------------------
--> fix jump when two key are pressed at the same time
--> Initialisations des images du joueur
--> Smooth fin de movement avec variable speed par direction
+x -> Initialisations des images du joueur
+x -> Smooth fin de movement avec variable speed par direction
 x -> Gestion jolie des free a l'initialisation si fail
--> Wall Jump
 x -> Parsing des objets, et affichage des objest et collisions des objets
+-> fix jump when two key are pressed at the same time
+-> Wall Jump
 -> faire les ennemis
--> Initialisation de toutes les images du jeu.
 -> List chainee de tout mes elements a redner: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet, is_collide, fonction a applique sur la collision
 -> List chainee de tout mes monstr a render: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet,  is_collide, fonction a applique sur la collision
 -> ./project || './mlx_keyrepeat_on' in terminal to dodge problem with segfault for the key repetition
@@ -53,6 +58,9 @@ CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions
 -> Application le deplacement en y separement/avant du deplacement en x.
 
+RULE FOR OBJECT PLACEMENT:
+-> Objects needs to be even size
+-> Objects needs to be placed in event coord 
 
 HOW TO INIT A NEW OBJECT:
 -> smb_objects.h: add a define for the object tag (<= 5 char)
