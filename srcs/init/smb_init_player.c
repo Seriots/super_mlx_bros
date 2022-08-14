@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:10:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 01:21:16 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 16:03:52 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	init_all_little_player(t_game *game)
 	int			i;
 	const char	*all_name[] = {
 		"lm_idle_l.xpm", "lm_run_l.xpm", "lm_ujump_l.xpm", "lm_djump_l.xpm",
-		"lm_crouch_l.xpm", "lm_idle_r.xpm", "lm_run_r.xpm", "lm_ujump_r.xpm",
-		"lm_djump_r.xpm", "lm_crouch_r.xpm", "lm_dead_l.xpm", "lm_dead_r.xpm"};
+		"lm_crouch_l.xpm", "lm_slide_l.xpm", "lm_idle_r.xpm", "lm_run_r.xpm", "lm_ujump_r.xpm",
+		"lm_djump_r.xpm", "lm_crouch_r.xpm", "lm_slide_r.xpm", "lm_dead_l.xpm", "lm_dead_r.xpm"};
 
 	game->all_images.all_little_players = ft_calloc(sizeof(t_img_data), LPLAYER_NUMBER);
 	if (!game->all_images.all_little_players)
@@ -71,8 +71,8 @@ int	init_all_big_player(t_game *game)
 	int			i;
 	const char	*all_name[] = {
 		"bm_idle_l.xpm", "bm_run_l1.xpm", "bm_run_l2.xpm", "bm_ujump_l.xpm",
-		"bm_djump_l.xpm", "bm_crouch_l.xpm", "bm_idle_r.xpm", "bm_run_r1.xpm",
-		"bm_run_r2.xpm", "bm_ujump_r.xpm", "bm_djump_r.xpm", "bm_crouch_r.xpm"};
+		"bm_djump_l.xpm", "bm_crouch_l.xpm", "bm_slide_l.xpm", "bm_idle_r.xpm", "bm_run_r1.xpm",
+		"bm_run_r2.xpm", "bm_ujump_r.xpm", "bm_djump_r.xpm", "bm_crouch_r.xpm", "bm_slide_r.xpm"};
 
 	game->all_images.all_big_players = ft_calloc(sizeof(t_img_data), BPLAYER_NUMBER);
 	if (!game->all_images.all_big_players)
@@ -107,6 +107,8 @@ int	init_player(t_game *game)
 	game->player.left = false;
 	game->player.y_speed = 0.0;
 	game->player.y_acceleration = 0.0;
+	game->player.x_speed = 0.0;
+	game->player.x_acceleration = 0.0;
 	game->player.coins = 0;
 	game->player.state = IDLE;
 	game->player.orientation = O_RIGHT;

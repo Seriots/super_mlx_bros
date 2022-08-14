@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 19:11:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 01:28:51 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 16:02:08 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static void update_state(t_game *game, t_player *player)
 		else
 			player->state = DJUMP;
 	}
+	else if ((player->left == 1 && player->x_speed > 0) || (player->right == 1 && player->x_speed < 0))
+		player->state = SLIDE;
 	else if (player->left == 1 || player->right == 1)
 	{
 		if (player->state != RUN)

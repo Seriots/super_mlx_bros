@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 01:03:27 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 16:01:36 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ typedef struct s_player
 	int			right;
 	bool		top;
 	bool		bottom;
+	float		x_speed;
+	float		x_acceleration;
 	float		y_speed;
 	float		y_acceleration;
 	int			coins;

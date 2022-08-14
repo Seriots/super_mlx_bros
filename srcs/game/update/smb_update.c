@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 00:08:03 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 17:07:37 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ int	update_movement(t_game *game, t_player *player)
 	if (!i_can_move(game, player))
 		return (1);
 	apply_gravity(game, player);
-	if (player->left == 1)
-		move_left(game, player);
-	if (player->right == 1)
-		move_right(game, player);
+	apply_hor_movement(game, player);
 	return (0);
 }
 
@@ -87,7 +84,7 @@ int	update_objects(t_game *game, t_dict *all_obj)
 
 int	update(t_game *game)
 {
-	//printf("%f %f\n", game->player.y_pos, game->player.x_pos);
+	//printf("%f %f\n", game->player.x_speed, game->player.x_acceleration);
 	update_objects(game, game->map.all_object);
 	update_player_state(game, &game->player);
 	update_player_image(game, &game->player);

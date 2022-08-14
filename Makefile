@@ -14,6 +14,7 @@ define SRCS :=
 	game/display/smb_put_map_to_img.c
 	game/display/smb_put_objects_to_img.c
 	game/display/smb_put_player_to_img.c
+	game/move/smb_move_hor.c
 	game/move/smb_move_left.c
 	game/move/smb_move_right.c
 	game/move/smb_move_up.c

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 00:36:14 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 16:48:45 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int				check_collisions(t_game *game, float x_pos,
 /*smb_move*.c*/
 int				move_right(t_game *game, t_player *player);
 int				move_left(t_game *game, t_player *player);
+int				apply_hor_movement(t_game *game, t_player *player);
 int				apply_gravity(t_game *game, t_player *player);
 
 /*smb_update_player.c*/

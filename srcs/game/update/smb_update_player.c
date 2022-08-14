@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:21:31 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 01:12:36 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/14 15:56:22 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static int update_little(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 3);
 	if (player->state == CROUCH)
 		change_image(game, player, value + 4);
+	if (player->state == SLIDE)
+		change_image(game, player, value + 5);
 	return (0);
 }
 
@@ -71,6 +73,8 @@ static int update_big(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 4);
 	if (player->state == CROUCH)
 		change_image(game, player, value + 5);
+	if (player->state == SLIDE)
+		change_image(game, player, value + 6);
 	return (0);
 }
 
@@ -79,11 +83,11 @@ int	update_player_image(t_game *game, t_player *player)
 	int value;
 
 	if (player->evolution == LITTLE)
-		value = player->orientation * 5;
+		value = player->orientation * O_LITTLE;
 	if (player->evolution == BIG)
-		value = player->orientation * 6;
+		value = player->orientation * O_BIG;
 	if (player->evolution == SPECIAL)
-		value = player->orientation * 6;
+		value = player->orientation * O_SPECIAL;
 	if (player->evolution == LITTLE)
 		update_little(game, player, value);
 	else if (player->evolution == BIG)
