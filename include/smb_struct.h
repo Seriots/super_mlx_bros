@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 16:01:36 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 23:02:04 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include "dict.h"
 
-# include <stdbool.h>
+#include <X11/X.h>
+#include <stdbool.h>
+#include <X11/keysym.h>
 
 typedef struct s_game	t_game;
 
@@ -89,6 +91,9 @@ typedef struct s_all_images
 	t_img_data	*all_big_players;
 	t_img_data	sign;
 	t_img_data	big_tree;
+	t_img_data	block;
+	t_img_data	end_bar;
+	t_img_data	flag;
 }	t_all_images;
 
 typedef struct s_player
@@ -138,6 +143,10 @@ typedef struct s_game
 	long			delay;
 	float			x_position;
 	long int		current_frame;
+	int				(*update_fct)(struct s_game *game);
+	int				(*display_fct)(struct s_game *game);
+	int				(*keypressed_fct)(KeySym key, struct s_game *game);
+	int				(*keyreleased_fct)(KeySym key, struct s_game *game);
 }	t_game;
 
 #endif

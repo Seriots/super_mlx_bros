@@ -18,18 +18,23 @@ define SRCS :=
 	game/move/smb_move_left.c
 	game/move/smb_move_right.c
 	game/move/smb_move_up.c
+	game/update/smb_update_end.c
 	game/update/smb_update_player_state.c
 	game/update/smb_update_player.c
 	game/update/smb_update.c
-	game/smb_event.c
+	game/event/smb_event.c
+	game/event/smb_ingame_event.c
 	game/smb_game_loop.c
 	init/smb_init_game.c
 	init/smb_init_image.c
 	init/smb_init_object.c
 	init/smb_init_player.c
 	init/smb_init_tiles.c
+	init/objects/smb_add_obj.c
+	init/objects/smb_init_block.c
 	init/objects/smb_init_btr.c
 	init/objects/smb_init_coin.c
+	init/objects/smb_init_flag.c
 	init/objects/smb_init_end.c
 	init/objects/smb_init_sign.c
 	init/objects/smb_init_start.c

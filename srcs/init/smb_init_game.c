@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/13 16:53:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 23:02:21 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ static void	init_game_variable(t_game *game)
 		game->start.game_x = 0;
 	game->start.player_x = obj->x - game->start.game_x;
 	game->start.player_y = obj->y;
+	game->update_fct = update_ingame;
+	game->display_fct = display_ingame;
+	game->keypressed_fct = key_pressed_ingame;
+	game->keyreleased_fct = key_released_ingame;
 }
 
 static int	init_game_images(t_game *game)
@@ -68,6 +72,15 @@ static int	init_game_images(t_game *game)
 	if (error)
 		return (error);
 	error = init_xpm_image(game, &game->all_images.big_tree, BTR_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.block, BLK_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.end_bar, BAR_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.flag, FLAG_PATH);
 	if (error)
 		return (error);
 	return (0);

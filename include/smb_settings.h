@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 17:00:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 22:57:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define CROUCH 4
 # define DEAD 5
 # define SLIDE 6
+# define BAR 7
 
 /*Player orientation*/
 # define O_LEFT 0
@@ -48,9 +49,9 @@
 # define SPECIAL 2
 
 /*PLayer image in one direction*/
-# define O_LITTLE 6
-# define O_BIG 7
-# define O_SPECIAL 7
+# define O_LITTLE 7
+# define O_BIG 8
+# define O_SPECIAL 8
 
 /*Moving Speed*/
 # define PLAYER_SPEED 0.1875f
@@ -72,6 +73,8 @@
 /*Gravity power*/
 # define GRAVITY_UP 0.00003f
 # define GRAVITY_DOWN 0.00003f
+
+# define END_BAR_GRAVITY 1.0f
 
 /*SCREEN_HEIGHT / 16*/
 # define MAP_HEIGHT_TILES 34
@@ -97,7 +100,7 @@
 /*Size max of the player name*/
 # define LPLAYER_MAX_NAME_SIZE 24
 /*Number of different little player*/
-# define LPLAYER_NUMBER 14
+# define LPLAYER_NUMBER 16
 
 /*Path to the directory of tiles images*/
 # define BPLAYER_PATH "files/xpm/player/big/"
@@ -106,7 +109,7 @@
 /*Size max of the player name*/
 # define BPLAYER_MAX_NAME_SIZE 24
 /*Number of different big player*/
-# define BPLAYER_NUMBER 14
+# define BPLAYER_NUMBER 16
 
 /*direction*/
 # define UP 0

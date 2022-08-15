@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:20:43 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/09 18:32:03 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 21:42:22 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ int	parse_line(char *line, char *tag, int *x, int *y)
 
 t_dict	*get_object(char *line)
 {
-	t_dict		*dict;
-	t_object	*object;
 	char		tag[6];
 	int			x;
 	int			y;
@@ -94,13 +92,7 @@ t_dict	*get_object(char *line)
 	if (parse_line(line, tag, &x, &y))
 		return (free(line), (void *)0);
 	free(line);
-	dict = 0;
-	object = obj_new(tag, x, y);
-	if (object)
-		dict = get_dict_new(tag, object);
-	if (!dict && object)
-		return (free(object), (void *)0);
-	return (dict);
+	return (add_obj(tag, x, y));
 }
 
 t_dict	*get_all_object(int fd)

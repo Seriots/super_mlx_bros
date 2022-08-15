@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 23:27:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 23:23:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include "smb.h"
 
 #include <stdlib.h>
+
+#include <stdio.h>
 
 void	set_object(t_game *game, char *key, t_object **object)
 {
@@ -31,6 +33,10 @@ void	set_object(t_game *game, char *key, t_object **object)
 		init_sign(game, object);
 	else if (!ft_strcmp(key, BTR))
 		init_btr(game, object);
+	else if (!ft_strcmp(key, BLOCK))
+		init_block(game, object);
+	else if (!ft_strcmp(key, FLAG))
+		init_flag(game, object);
 }
 
 t_object	*obj_new(char *tag, float x, float y)
@@ -57,5 +63,9 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 		return (dict_new(SIGN, object));
 	else if (!ft_strcmp(tag, BTR))
 		return (dict_new(BTR, object));
+	else if (!ft_strcmp(tag, BLOCK))
+		return (dict_new(BLOCK, object));
+	else if (!ft_strcmp(tag, FLAG))
+		return (dict_new(FLAG, object));
 	return (dict_new("OBJ", object));
 }

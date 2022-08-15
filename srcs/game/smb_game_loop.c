@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:10:29 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 20:24:18 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 21:56:36 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,12 @@ int	fps(t_game *game)
 	return (0);
 }
 
-int	is_dead(t_game *game)
-{
-	if (game->player.state == DEAD || g_end == 1)
-		mlx_loop_end(game->mlx.display);
-	return (0);
-}
-
 int	game_loop(t_game *game)
 {
 	fps(game);
-	update(game);
-	is_dead(game);
-	display(game);
+	if (game->update_fct)
+		game->update_fct(game);
+	if (game->display_fct)
+		game->display_fct(game);
 	return (0);
 }

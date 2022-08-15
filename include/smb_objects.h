@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 23:26:37 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 23:15:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define COIN "COIN"
 # define SIGN "SIGN"
 # define BTR "BTR"
+# define BLOCK "BLOCK"
+# define FLAG "FLAG"
 
 /*Coin properties*/
 # define COIN_PATH "files/xpm/objects/coins/coin"
@@ -36,5 +38,17 @@
 
 /*Big TRee properties*/
 # define BTR_PATH "files/xpm/objects/big_tree.xpm"
+
+/*Block properties*/
+# define BLK_PATH "files/xpm/objects/block.xpm"
+
+/*End properties*/
+# define BAR_PATH "files/xpm/objects/end_bar.xpm"
+# define END_BAR_HBOX 1
+
+/*Flag properties*/
+# define FLAG_PATH "files/xpm/objects/flag.xpm"
+# define FLAG_MARGE 8
+# define FALG_HEIGHT 19
 
 #endif

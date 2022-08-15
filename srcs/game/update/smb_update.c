@@ -6,13 +6,15 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 20:23:25 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 21:20:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_settings.h"
 #include "smb_struct.h"
 #include "smb.h"
+
+#include "mlx.h"
 
 #include <X11/X.h>
 #include <stdbool.h>
@@ -21,6 +23,8 @@
 #include <math.h>
 
 #include <stdio.h>
+
+extern int g_end;
 
 int	is_in_map(t_game *game, int x, int y)
 {
@@ -82,7 +86,14 @@ int	update_objects(t_game *game, t_dict *all_obj)
 	return (0);
 }
 
-int	update(t_game *game)
+int	is_dead(t_game *game)
+{
+	if (game->player.state == DEAD || g_end == 1)
+		mlx_loop_end(game->mlx.display);
+	return (0);
+}
+
+int	update_ingame(t_game *game)
 {
 	update_objects(game, game->map.all_object);
 	update_player_state(game, &game->player);
@@ -90,5 +101,6 @@ int	update(t_game *game)
 	update_movement(game, &game->player);
 	if (game->player.y_pos > game->map.height)
 		game->player.state = DEAD;
+	is_dead(game);
 	return (0);
 }

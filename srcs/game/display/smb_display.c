@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:55:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:16:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 21:15:14 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ unsigned int	get_pxl_color(t_img_data img, int x, int y)
 	return (*(unsigned int *)dst);
 }
 
-int	display(t_game *game)
+int	display_ingame(t_game *game)
 {
 	put_bg_to_image(game, (int)(game->x_position * BG_PARALLAX_FACTOR),
 		&game->window_image);

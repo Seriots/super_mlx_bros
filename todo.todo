@@ -28,9 +28,9 @@ x -> initialiser toutes les images
 x -> animer le player
 x -> faire une x_speed value pour faire un rendu fluide, implémenter des images de slide si la speedy va pas dans la même direction que l'orientation 
 -> implementer l'end
-	-> setup game.update_fct
-	-> setup game.display_fct
-	-> setup game.event_fct
+	x -> setup game.update_fct
+	x -> setup game.display_fct
+	x -> setup game.event_fct
 	-> Split la flag bar et la flag base en 2 object init juste avec end
 	-> creer la nouvelle update fonction quand player reach end
 -> apres c les ennemis hein
@@ -43,6 +43,7 @@ x -> Smooth fin de movement avec variable speed par direction
 x -> Gestion jolie des free a l'initialisation si fail
 x -> Parsing des objets, et affichage des objest et collisions des objets
 -> fix jump when two key are pressed at the same time
+-> faire une liste pour toutes les images
 -> Wall Jump
 -> faire les ennemis
 -> List chainee de tout mes elements a redner: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet, is_collide, fonction a applique sur la collision

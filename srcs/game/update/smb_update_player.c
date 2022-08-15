@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:21:31 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 15:56:22 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 22:50:22 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static int update_little(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 4);
 	if (player->state == SLIDE)
 		change_image(game, player, value + 5);
+	if (player->state == BAR)
+		change_image(game, player, value + 6);
 	return (0);
 }
 
@@ -75,6 +77,8 @@ static int update_big(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 5);
 	if (player->state == SLIDE)
 		change_image(game, player, value + 6);
+	if (player->state == BAR)
+		change_image(game, player, value + 7);
 	return (0);
 }
 

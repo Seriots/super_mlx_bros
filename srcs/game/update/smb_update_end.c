@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dict_new.c                                         :+:      :+:    :+:   */
+/*   smb_update_end.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 19:10:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 23:24:07 by lgiband          ###   ########.fr       */
+/*   Created: 2022/08/15 22:44:06 by lgiband           #+#    #+#             */
+/*   Updated: 2022/08/15 22:56:53 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dict.h"
-#include <stdlib.h>
+#include "smb_settings.h"
+#include "smb_struct.h"
+#include "smb.h"
 
-t_dict	*dict_new(void *key, void *value)
+#include "mlx.h"
+
+int	update_end(t_game *game)
 {
-	t_dict	*new;
-
-	if (!key)
-		return (0);
-	new = malloc(sizeof(t_dict));
-	if (!new)
-		return (0);
-	new->key = key;
-	new->value = value;
-	new->next = 0;
-	new->previous = 0;
-	return (new);
+	update_objects(game, game->map.all_object);
+	game->player.state = BAR;
+	update_player_image(game, &game->player);
+	if (!check_collisions_bottom(game, game->player.x_pos, game->player.y_pos + END_BAR_GRAVITY, game->x_position))
+		game->player.y_pos += END_BAR_GRAVITY;
+	return (0);
 }

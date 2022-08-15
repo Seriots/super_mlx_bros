@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 16:48:45 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/15 23:12:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,15 @@ t_dict			*get_dict_new(char *tag, t_object *object);
 t_object		*obj_new(char *tag, float x, float y);
 
 /*smb_parsing.c*/
+t_dict 			*add_obj(char *tag, int x, int y);
 t_dict			*get_all_object(int fd);
 int				set_map(t_map *map, char *filename);
 int				check_map_format(char *filename);
 int				parsing(int argc, char **argv, t_map *map);
+
+/*smb_event_ingame.c*/
+int				key_released_ingame(KeySym keycode, t_game *game);
+int				key_pressed_ingame(KeySym keycode, t_game *game);
 
 /*smb_event.c*/
 int				key_released(KeySym keycode, t_game *game);
@@ -48,7 +53,7 @@ void			put_bg_to_image(t_game *game, int position, t_img_data *img);
 
 /*smb_display.c*/
 unsigned int	get_pxl_color(t_img_data img, int x, int y);
-int				display(t_game *game);
+int				display_ingame(t_game *game);
 
 /*smb_collisions_loop.c*/
 int				boucle_col_down(t_collisions col, t_game *game);			
@@ -79,9 +84,12 @@ int				update_player_state(t_game *game, t_player *player);
 int				update_player_image(t_game *game, t_player *player);
 
 /*smb_update.c*/
+int				update_movement(t_game *game, t_player *player);
+int				update_objects(t_game *game, t_dict *all_obj);
 int				is_in_map(t_game *game, int x, int y);
 int				i_can_move(t_game *game, t_player *player);
-int				update(t_game *game);
+int				update_ingame(t_game *game);
+int				update_end(t_game *game);
 
 /*smb_game_loop.c*/
 int				game_loop(t_game *game);
@@ -93,6 +101,8 @@ void			init_end(t_game *game, t_object **obj);
 void			init_coin(t_game *game, t_object **obj);
 void			init_sign(t_game *game, t_object **obj);
 void			init_btr(t_game *game, t_object **obj);
+void			init_block(t_game *game, t_object **obj);
+void			init_flag(t_game *game, t_object **obj);
 
 /*smb_init_player.c*/
 int				init_all_big_player(t_game *game);
