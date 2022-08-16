@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:10:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 22:43:01 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:27:28 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,12 @@ int	init_player(t_game *game)
 	game->player.y_acceleration = 0.0;
 	game->player.x_speed = 0.0;
 	game->player.x_acceleration = 0.0;
+	game->player.x_max_speed = V_HOR_MAX;
 	game->player.coins = 0;
 	game->player.state = IDLE;
 	game->player.orientation = O_RIGHT;
 	game->player.evolution = LITTLE;
+	game->player.score = 0;
+	game->player.time_score = 0;
 	return (0);
 }

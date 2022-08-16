@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:44:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:47:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:46:40 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int	update_end(t_game *game)
 	game->player.top = 0;
 	game->player.bottom = 0;
 	game->player.state = RUN;
+	game->player.orientation = O_RIGHT;
 	game->player.y_speed = JUMP_SPEED_END;
+	game->player.x_max_speed = V_END_MAX;
 	game->update_fct = update_quit_map;
 	return (0);
 }

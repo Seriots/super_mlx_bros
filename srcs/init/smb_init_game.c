@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:26:58 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:59:56 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	init_game_variable(t_game *game)
 	game->display_fct = display_ingame;
 	game->keypressed_fct = key_pressed_ingame;
 	game->keyreleased_fct = key_released_ingame;
+	game->map.start_time = timestamp_sec(0);
 }
 
 static int	init_game_images(t_game *game)

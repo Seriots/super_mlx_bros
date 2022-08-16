@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:43:09 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 03:06:14 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,15 @@ int	is_dead(t_game *game)
 	return (0);
 }
 
+int update_timer(t_game *game, long time)
+{
+	game->map.time = timestamp_sec(time);
+	return (0);
+}
+
 int	update_ingame(t_game *game)
 {
+	update_timer(game, game->map.start_time);
 	update_objects(game, game->map.all_object);
 	update_player_state(game, &game->player);
 	update_player_image(game, &game->player);

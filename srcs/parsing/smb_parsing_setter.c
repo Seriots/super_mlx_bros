@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 19:27:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/08 23:25:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:23:54 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	set_map(t_map *map, char *filename)
 	}
 	map->width = ft_strlen(map->map_data[0]) * TILES_SIZE;
 	map->all_object = get_all_object(fd);
+	map->time = 0;
 	if (!map->all_object)
 		return (ft_free_tab(map->map_data), close(fd), 10);
 	close(fd);

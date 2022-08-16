@@ -48,6 +48,7 @@ define SRCS :=
 	utils/smb_error.c
 	utils/smb_free_init.c
 	utils/smb_free.c
+	utils/smb_time.c
 endef
 SRCS := $(strip $(SRCS))
 

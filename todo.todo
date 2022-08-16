@@ -27,14 +27,18 @@ x -> trouver les images du player
 x -> initialiser toutes les images
 x -> animer le player
 x -> faire une x_speed value pour faire un rendu fluide, implémenter des images de slide si la speedy va pas dans la même direction que l'orientation 
--> implementer l'end
+x -> implementer l'end
 	x -> setup game.update_fct
 	x -> setup game.display_fct
 	x -> setup game.event_fct
-	-> Split la flag bar et la flag base en 2 object init juste avec end
-	-> creer la nouvelle update fonction quand player reach end
--> apres c les ennemis hein
+	x -> Split la flag bar et la flag base en 2 object init juste avec end
+	x -> creer la nouvelle update fonction quand player reach end
 -> faire un string put style et facile a exploite pour tout
+	-> coord
+	-> string
+	-> number
+	-> time
+-> apres c les ennemis hein
 -> et apres le jeu est jouable
 
 ----------------------------------

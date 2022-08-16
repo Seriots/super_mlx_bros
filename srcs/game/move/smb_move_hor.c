@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:46:33 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 17:13:58 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:20:20 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int	update_speed(t_game *game, t_player *player)
 	{
 		player->x_acceleration += ACCEL_HOR;
 		player->x_speed -= player->x_acceleration;
-		if (player->x_speed < -V_HOR_MAX)
-			player->x_speed = -V_HOR_MAX;
+		if (player->x_speed < -player->x_max_speed)
+			player->x_speed = -player->x_max_speed;
 	}
 	else if (player->right == 1)
 	{
 		player->x_acceleration += ACCEL_HOR;
 		player->x_speed += player->x_acceleration;
-		if (player->x_speed > V_HOR_MAX)
-			player->x_speed = V_HOR_MAX;
+		if (player->x_speed > player->x_max_speed)
+			player->x_speed = player->x_max_speed;
 	}
 	else if (player->x_speed != 0)
 	{

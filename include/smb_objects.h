@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:37:24 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:28:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@
 
 /*Castle properties*/
 # define CASTLE_PATH "files/xpm/objects/castle.xpm"
-# define CASTLE_HBOX 4
+# define CASTLE_HBOX 1
 
 #endif

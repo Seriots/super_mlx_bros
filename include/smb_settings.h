@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:47:58 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:29:48 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@
 # define V_DOWN_MAX -0.3f
 
 # define V_HOR_MAX 1.5f
+# define V_END_MAX 0.5f
 
 # define ACCEL_HOR 0.00008f
 # define DECCEL_HOR 0.00008f
@@ -120,5 +121,8 @@
 
 /*Max long*/
 # define MAX_LONG 9223372036854775807
+
+/*Multiplier of the score when the player grab the flag bar*/
+# define SCORE_MULTIPLIER 10
 
 #endif

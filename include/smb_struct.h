@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:26:38 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:56:31 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ typedef struct s_map
 	int			width;
 	int			height;
 	t_dict		*all_object;
+	long		start_time;
+	long		time;
 }	t_map;
 
 typedef struct s_all_images
@@ -115,12 +117,15 @@ typedef struct s_player
 	bool		bottom;
 	float		x_speed;
 	float		x_acceleration;
+	float		x_max_speed;
 	float		y_speed;
 	float		y_acceleration;
 	int			coins;
 	int			state;
 	int			orientation;
 	int			evolution;
+	int			score;
+	int			time_score;
 }	t_player;
 
 typedef struct s_start

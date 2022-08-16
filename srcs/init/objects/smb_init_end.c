@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:40:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:35:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 03:06:07 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@
 #include "smb.h"
 
 #include <stdio.h>
+
+static int get_end_score(t_game *game, t_player *player, t_object *obj)
+{
+	int	diff;
+	
+	(void)game;
+	diff = obj->height - (player->y_pos - obj->y);
+	return (diff);
+}
 
 int	end_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 {
@@ -33,6 +42,7 @@ int	end_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 		game->update_fct = update_end;
 		game->keypressed_fct = key_pressed_default;
 		game->keyreleased_fct = key_released_default;
+		game->player.score = get_end_score(game, &game->player, obj);
 		flag = add_obj(FLAG, (obj->x + obj->width / 2) + END_BAR_HBOX, obj->y + obj->height - FALG_HEIGHT);
 		init_flag(game, (t_object **)&flag->value);
 		dict_add_back(&game->map.all_object, flag);
