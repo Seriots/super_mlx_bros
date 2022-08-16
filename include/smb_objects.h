@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 02:28:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 17:30:00 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,14 @@
 # define FLAG "FLAG"
 # define CASTLE "CATL"
 
+/*Char properties*/
+# define CHAR_PATH "files/xpm/charactere/"
+# define CHAR_NUMBER 26
+
 /*Coin properties*/
 # define COIN_PATH "files/xpm/objects/coins/coin"
 # define COIN_NUMBER 6
+
 /*Must be a multiple of coin number, its better*/
 # define COIN_ANIM_DURATION 672
 

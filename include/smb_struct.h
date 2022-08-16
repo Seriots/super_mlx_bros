@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 02:56:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 18:29:28 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@
 
 typedef struct s_game	t_game;
 
-typedef struct s_mlx
-{
-	void	*display;
-	void	*window;
-}	t_mlx;
 
 typedef struct s_img_data
 {
@@ -46,6 +41,12 @@ typedef struct s_hbox
 	int	y_min;
 	int	direction;
 }	t_hbox;
+
+typedef struct s_coord
+{
+	int	x;
+	int	y;
+}	t_coord;
 
 typedef struct s_collisions
 {
@@ -91,6 +92,7 @@ typedef struct s_all_images
 	t_img_data	*all_coins;
 	t_img_data	*all_little_players;
 	t_img_data	*all_big_players;
+	t_img_data	*all_characters;
 	t_img_data	sign;
 	t_img_data	big_tree;
 	t_img_data	block;
@@ -134,6 +136,12 @@ typedef struct s_start
 	int	player_y;
 	int	game_x;
 }	t_start;
+
+typedef struct s_mlx
+{
+	void		*display;
+	void		*window;
+}	t_mlx;
 
 typedef struct s_game
 {

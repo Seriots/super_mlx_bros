@@ -38,6 +38,8 @@ x -> implementer l'end
 	-> string
 	-> number
 	-> time
+-> Faire la growth animation
+-> faire les objets qui subissent des collisions et qui subissent la gravite
 -> apres c les ennemis hein
 -> et apres le jeu est jouable
 

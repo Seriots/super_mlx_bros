@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:03:55 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 22:43:32 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 18:25:57 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,13 @@ int	init_images_group(t_game *game, char *path,
 	int			i;
 
 	*dst_ptr = ft_calloc(sizeof(t_img_data), nb_of_images);
-	if (!game->all_images.all_tiles)
+	if (!*dst_ptr)
 		return (9);
 	i = 0;
 	while (i < nb_of_images)
 	{
 		make_image_path(name, path, i);
+		printf("path: %s\n", name);
 		error = init_xpm_image(game, &((*dst_ptr)[i]), name);
 		if (error)
 			return (free_img_array(game, dst_ptr, i), error);

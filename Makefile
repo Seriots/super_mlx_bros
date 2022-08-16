@@ -11,6 +11,7 @@ define SRCS :=
 	collisions/smb_collisions.c
 	game/display/smb_display.c
 	game/display/smb_put_background_to_img.c
+	game/display/smb_put_char_to_img.c
 	game/display/smb_put_map_to_img.c
 	game/display/smb_put_objects_to_img.c
 	game/display/smb_put_player_to_img.c
@@ -48,6 +49,7 @@ define SRCS :=
 	utils/smb_error.c
 	utils/smb_free_init.c
 	utils/smb_free.c
+	utils/smb_strdisplay.c
 	utils/smb_time.c
 endef
 SRCS := $(strip $(SRCS))
@@ -100,7 +102,7 @@ HDR_FILES := $(addprefix $(INCS_DIR)/,$(HDRS))
 CFLAGS := $(CFLAGS) -Wall -Wextra
 
 ifdef DEBUG
-	CFLAGS := $(CFLAGS) -g3 -D DEBUG=1
+	CFLAGS := $(CFLAGS) -g3 -fsanitize=address -D DEBUG=1
 else
 	CFLAGS := $(CFLAGS) -Werror -D DEBUG=0
 endif

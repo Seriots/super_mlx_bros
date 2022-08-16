@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/13 17:12:17 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 18:31:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,14 @@ void	free_all_image(t_game *game)
 		free_img_array(game, &game->all_images.all_big_players, BPLAYER_NUMBER);
 	if (game->all_images.all_coins)
 		free_img_array(game, &game->all_images.all_coins, COIN_NUMBER);
+	if (game->all_images.all_characters)
+		free_img_array(game, &game->all_images.all_characters, CHAR_NUMBER);
 	mlx_destroy_image(game->mlx.display, game->all_images.sign.img);
 	mlx_destroy_image(game->mlx.display, game->all_images.big_tree.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.end_bar.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.block.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.castle.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.flag.img);
 }
 
 void	free_all_object(t_game *game)

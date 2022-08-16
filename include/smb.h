@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 02:59:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 18:07:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ int				key_released_default(KeySym keycode, t_game *game);
 int				key_released(KeySym keycode, t_game *game);
 int				key_pressed(KeySym keycode, t_game *game);
 int				close_request(t_game *game);
+
+/*smb_put_char_to_img.c*/
+void			put_char_to_img(t_game *game, int x_start, int y_start, t_img_data *img);
 
 /*smb_put_objects_to_img.c*/
 void			put_objects_to_image(t_game *game, t_dict *objects,
@@ -124,6 +127,9 @@ int				init_images_group(t_game *game, char *path, int nb_of_images,
 
 /*smb_init_game.c*/
 int				init_game(t_game *game);
+
+/*smb_strdisplay.c*/
+int				strdisplay(t_game *game, const char *str, t_coord coord, ...);
 
 /*smb_time.c*/
 long			timestamp_msec(long start);

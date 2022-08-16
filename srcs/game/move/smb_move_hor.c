@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:46:33 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 02:20:20 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 17:45:34 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ int	apply_hor_movement(t_game *game, t_player *player)
 	while (i < game->delay)
 	{
 		update_speed(game, player);
+		if (player->x_speed < 0)
+			move_left(game, player);
+		if (player->x_speed > 0)
+			move_right(game, player);
 		i++;
 	}
-	if (player->x_speed < 0)
-		move_left(game, player);
-	if (player->x_speed > 0)
-		move_right(game, player);
 	return (0);
 }

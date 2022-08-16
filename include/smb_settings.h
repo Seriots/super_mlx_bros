@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 02:29:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 17:48:18 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@
 
 # define V_DOWN_MAX -0.3f
 
-# define V_HOR_MAX 1.5f
-# define V_END_MAX 0.5f
+# define V_HOR_MAX 0.1875f
+# define V_END_MAX 0.0625f
 
-# define ACCEL_HOR 0.00008f
-# define DECCEL_HOR 0.00008f
+# define ACCEL_HOR 0.000015f
+# define DECCEL_HOR 0.000015f
 
 /*Gravity power*/
 # define GRAVITY_UP 0.00003f
