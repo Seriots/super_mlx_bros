@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:51:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 21:14:47 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 01:01:36 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,30 @@ int	close_request(t_game *game)
 	return (0);
 }
 
+int	key_pressed_default(KeySym keycode, t_game *game)
+{
+	(void)keycode;
+	(void)game;
+	return (0);	
+}
+
+int	key_released_default(KeySym keycode, t_game *game)
+{
+	if (keycode == XK_Escape)
+		close_request(game);
+	return (0);	
+}
+
 int	key_pressed(KeySym keycode, t_game *game)
 {
-	game->keypressed_fct(keycode, game);
+	if (game->keypressed_fct)
+		game->keypressed_fct(keycode, game);
 	return (0);
 }
 
 int	key_released(KeySym keycode, t_game *game)
 {
-	game->keyreleased_fct(keycode, game);
+	if (game->keyreleased_fct)
+		game->keyreleased_fct(keycode, game);
 	return (0);
 }

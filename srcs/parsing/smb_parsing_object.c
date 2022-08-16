@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:20:43 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 21:42:22 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 00:41:27 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "dict.h"
 
 #include "smb_struct.h"
+#include "smb_objects.h"
 #include "smb.h"
 
 #include <stdlib.h>
@@ -82,6 +83,7 @@ int	parse_line(char *line, char *tag, int *x, int *y)
 
 t_dict	*get_object(char *line)
 {
+	static int	end;
 	char		tag[6];
 	int			x;
 	int			y;
@@ -92,6 +94,10 @@ t_dict	*get_object(char *line)
 	if (parse_line(line, tag, &x, &y))
 		return (free(line), (void *)0);
 	free(line);
+	if (ft_strcmp(tag, END) == 0 && end != 0)
+		return (0);
+	else if (ft_strcmp(tag, END) == 0)
+		end = 1;
 	return (add_obj(tag, x, y));
 }
 

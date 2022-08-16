@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:40:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 23:31:01 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 01:35:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ int	end_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 	(void)elem;
 	if (game->player.x_pos + game->x_position + game->player.width < (obj->x + obj->width / 2) - END_BAR_HBOX
 	|| game->player.x_pos + game->x_position > (obj->x + obj->width / 2) + END_BAR_HBOX)
-		return (1);
-	game->update_fct = update_end;
+		return (0);
 	if (first == 0)
 	{
+		game->update_fct = update_end;
+		game->keypressed_fct = key_pressed_default;
+		game->keyreleased_fct = key_released_default;
 		flag = add_obj(FLAG, (obj->x + obj->width / 2) + END_BAR_HBOX, obj->y + obj->height - FALG_HEIGHT);
 		init_flag(game, (t_object **)&flag->value);
 		dict_add_back(&game->map.all_object, flag);
-		printf("end reach\n");
 		first++;
 	}
-	
 	return (0);
 }
 

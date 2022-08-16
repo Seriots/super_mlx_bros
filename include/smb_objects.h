@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 23:15:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 01:37:24 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define BTR "BTR"
 # define BLOCK "BLOCK"
 # define FLAG "FLAG"
+# define CASTLE "CATL"
 
 /*Coin properties*/
 # define COIN_PATH "files/xpm/objects/coins/coin"
@@ -50,5 +51,9 @@
 # define FLAG_PATH "files/xpm/objects/flag.xpm"
 # define FLAG_MARGE 8
 # define FALG_HEIGHT 19
+
+/*Castle properties*/
+# define CASTLE_PATH "files/xpm/objects/castle.xpm"
+# define CASTLE_HBOX 4
 
 #endif

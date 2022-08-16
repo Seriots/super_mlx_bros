@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:28:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 00:37:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:04:13 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 
 void	get_new_limit(t_game *game, t_object *val, t_hbox *p_hbox, int *retval)
 {
-	//printf("--------->%f %f %d %d %d\n", val->x, val->y, val->width, val->height, p_hbox->y_max);
 	if (p_hbox->direction == RIGHT && val->x < p_hbox->x_max)
 		p_hbox->x_max = val->x + 1;
 	else if (p_hbox->direction == LEFT && val->x + val->width > p_hbox->x_min)
@@ -150,6 +149,7 @@ int	check_col_player_obj(t_game *game, float x_pos, float y_pos, float pos)
 			(int)floor(y_pos + game->player.height));
 	p_hbox.y_min = min((int)floor(game->player.y_pos), (int)floor(y_pos));
 	p_hbox.direction = DOWN;
+	//printf("%d %d %f %d %f\n", p_hbox.y_min, p_hbox.y_max, game->player.y_pos, game->player.height, y_pos);
 	if (game->player.x_pos > x_pos || game->x_position > pos)
 		p_hbox.direction = LEFT;
 	else if (game->player.x_pos < x_pos || game->x_position < pos)

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 19:11:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/14 16:02:08 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 02:11:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,16 @@ static void update_orientation(t_player *player)
 
 static void update_state(t_game *game, t_player *player)
 {
+	int crouch_check;
+	
+	crouch_check = (TILES_SIZE - player->height + 1) % TILES_SIZE;
+	if (crouch_check < 0)
+		crouch_check = 0;
 	if (player->state == DEAD)
 		return ;
 	else if (player->bottom == 1 || (player->state == CROUCH
 		&& check_collisions(game, player->x_pos,
-			player->y_pos - 10, game->x_position))
+			player->y_pos - crouch_check, game->x_position))
 		|| (player->state == CROUCH
 			&& !check_collisions_bottom(game, player->x_pos,
 				player->y_pos, game->x_position)))

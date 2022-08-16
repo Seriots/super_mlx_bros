@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 22:57:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 01:47:58 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@
 /*Start base speed for jump*/
 # define JUMP_SPEED 0.5f
 # define REJUMP_SPEED 0.5f
+# define JUMP_SPEED_END 0.35f
 
 # define V_DOWN_MAX -0.3f
 

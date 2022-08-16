@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 23:02:21 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 01:26:58 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ static int	init_game_images(t_game *game)
 	if (error)
 		return (error);
 	error = init_xpm_image(game, &game->all_images.flag, FLAG_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.castle, CASTLE_PATH);
 	if (error)
 		return (error);
 	return (0);

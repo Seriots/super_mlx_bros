@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 23:23:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 01:31:37 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	set_object(t_game *game, char *key, t_object **object)
 		init_block(game, object);
 	else if (!ft_strcmp(key, FLAG))
 		init_flag(game, object);
+	else if (!ft_strcmp(key, CASTLE))
+		init_castle(game, object);
 }
 
 t_object	*obj_new(char *tag, float x, float y)
@@ -67,5 +69,7 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 		return (dict_new(BLOCK, object));
 	else if (!ft_strcmp(tag, FLAG))
 		return (dict_new(FLAG, object));
+	else if (!ft_strcmp(tag, CASTLE))
+		return (dict_new(CASTLE, object));
 	return (dict_new("OBJ", object));
 }

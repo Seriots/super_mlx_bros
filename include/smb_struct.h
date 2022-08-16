@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 23:02:04 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 01:26:38 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct s_all_images
 	t_img_data	block;
 	t_img_data	end_bar;
 	t_img_data	flag;
+	t_img_data	castle;
 }	t_all_images;
 
 typedef struct s_player

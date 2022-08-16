@@ -33,6 +33,7 @@ define SRCS :=
 	init/objects/smb_add_obj.c
 	init/objects/smb_init_block.c
 	init/objects/smb_init_btr.c
+	init/objects/smb_init_castle.c
 	init/objects/smb_init_coin.c
 	init/objects/smb_init_flag.c
 	init/objects/smb_init_end.c
