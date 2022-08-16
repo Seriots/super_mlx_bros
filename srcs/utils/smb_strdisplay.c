@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 03:18:10 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 18:31:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 19:05:31 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	char_put(t_game *game, char c, t_coord *coord)
 		value = 0;
 	else
 		value = (c - 32);
-	put_char_to_img(game, coord->x, coord->y, &game->all_images.all_characters[value].img);
-	coord->x += game->all_images.all_characters[value].width;
+	put_char_to_img(game, coord->x, coord->y, &game->all_images.all_characters[value]);
+	coord->x += game->all_images.all_characters[value].width + CHAR_MARGE;
 	return (0);
 }
 

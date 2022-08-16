@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:55:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 18:24:05 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 00:02:25 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	display_ingame(t_game *game)
 	put_map_to_image(game, game->map.map_data, (int)game->x_position);
 	put_objects_to_image(game, game->map.all_object,
 		(int)game->x_position, &game->window_image);
-	strdisplay(game, "%t", get_coord(20, 20), game->map.time);
+	strdisplay(game, "Time: %t<=>;:?@ABCDEFGHIJ  KLMNOPQ RSTUVWXY_Z.,-/+*(ABC)'$&%#\"![]|^`_\\abcdefghijklmnopqrstuvwxyz~{}", get_coord(10, 10), game->map.time);
 	put_player_to_image(game, &game->player, &game->window_image);
 	mlx_put_image_to_window(game->mlx.display,
 		game->mlx.window, game->window_image.img, 0, 0);

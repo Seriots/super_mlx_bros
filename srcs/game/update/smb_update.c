@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 03:06:14 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 00:04:20 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int	is_dead(t_game *game)
 int update_timer(t_game *game, long time)
 {
 	game->map.time = timestamp_sec(time);
+	if (game->map.time >= 6000)
+		game->map.time = 5999;
 	return (0);
 }
 

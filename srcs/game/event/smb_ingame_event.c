@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 21:12:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 21:13:58 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 22:30:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,14 @@ int	key_pressed_ingame(KeySym keycode, t_game *game)
 	}
 	else if (keycode == XK_Down)
 		game->player.bottom = 1;
+	else if (keycode == XK_Up || keycode == XK_space)
+		game->player.top = true;
 	else if ((keycode == XK_Up || keycode == XK_space)
 		&& game->player.top == false
 		&& i_can_move(game, &game->player)
 		&& check_collisions_bottom(game, game->player.x_pos,
 			game->player.y_pos, game->x_position))
-	{
-		game->player.top = true;
 		game->player.y_speed = JUMP_SPEED;
-	}
 	return (0);
 }
 

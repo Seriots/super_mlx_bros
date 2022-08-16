@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 17:30:00 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/16 23:52:14 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@
 
 /*Char properties*/
 # define CHAR_PATH "files/xpm/charactere/"
-# define CHAR_NUMBER 26
+# define CHAR_NUMBER 95
+# define CHAR_MARGE 1
 
 /*Coin properties*/
 # define COIN_PATH "files/xpm/objects/coins/coin"
