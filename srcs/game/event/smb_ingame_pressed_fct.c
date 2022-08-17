@@ -6,13 +6,15 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 02:34:04 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 02:41:06 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:53:55 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_struct.h"
 #include "smb_settings.h"
 #include "smb.h"
+
+#include <stdio.h>
 
 int	ingame_right_pressed(t_game *game)
 {
@@ -49,5 +51,12 @@ int	ingame_top_pressed(t_game *game)
 int	ingame_bottom_pressed(t_game *game)
 {
 	game->player.bottom = 1;
+	return (0);
+}
+
+int		ingame_fireball_pressed(t_game *game)
+{
+	(void)game;
+	printf("fireball pressed\n");
 	return (0);
 }

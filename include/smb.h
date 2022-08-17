@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 23:09:47 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:53:42 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int				key_released_ingame(KeySym keycode, t_game *game);
 int				key_pressed_ingame(KeySym keycode, t_game *game);
 
 /*smb_event.c*/
+int				ingame_fireball_pressed(t_game *game);
 int				key_pressed_default(KeySym keycode, t_game *game);
 int				key_released_default(KeySym keycode, t_game *game);
 int				key_released(KeySym keycode, t_game *game);
@@ -140,6 +141,7 @@ void			init_loot_block(t_game *game, t_object **obj);
 void			init_breakable_block(t_game *game, t_object **obj);
 
 /*smb_init_player.c*/
+int				init_all_fire_player(t_game *game);
 int				init_all_big_player(t_game *game);
 int				init_all_little_player(t_game *game);
 int				init_player(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:04:32 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 00:08:59 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:43:45 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	fire_flower_collisions(t_game *game, t_dict *elem, t_object *obj, int direct
 		< (obj->y + obj->height / 2) - FF_HBOX
 		|| game->player.y_pos > (obj->y + obj->height / 2) + FF_HBOX)
 		return (0);
-	if (game->player.evolution < BIG)
+	if (game->player.evolution < FIRE)
 		growth(game);
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);

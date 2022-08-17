@@ -42,7 +42,7 @@ x -> Faire la growth animation
 x -> Add victory pose
 x -> init image goomba
 x -> init growth obj + object_block + object_block_use + breakable block
--> init flower,  player image, fireball
+x -> init flower,  player image, fireball
 -> init koopa
 x -> modifier dict add front
 -> faire les monstre qui subissent des collisions et qui subissent la gravite
@@ -58,12 +58,11 @@ x -> Gestion jolie des free a l'initialisation si fail
 x -> Parsing des objets, et affichage des objest et collisions des objets
 -> fix jump when two key are pressed at the same time
 x -> Fix l'arrive sur le flag si j'y arrive par au-dessus, replacement du player
--> faire une liste pour toutes les images
 -> trouver une meilleur image du big player sur la end bar
 -> reset la x_speed si collisions avec un wall en face
 -> Wall Jump
 -> faire les ennemis
--> List chainee de tout mes elements a redner: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet, is_collide, fonction a applique sur la collision
+x -> List chainee de tout mes elements a redner: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet, is_collide, fonction a applique sur la collision
 -> List chainee de tout mes monstr a render: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet,  is_collide, fonction a applique sur la collision
 -> ./project || './mlx_keyrepeat_on' in terminal to dodge problem with segfault for the key repetition
 -> Ralentissement de la gravite qaund colle a un mur

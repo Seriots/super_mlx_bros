@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 06:46:05 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:46:05 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@
 /*Player evolution*/
 # define LITTLE 0
 # define BIG 1
-# define SPECIAL 2
+# define FIRE 2
 
 /*PLayer image in one direction*/
 # define O_LITTLE 10
-# define O_BIG 11
-# define O_SPECIAL 11
+# define O_BIG 14
+# define O_FIRE 11
 
 /*Moving Speed*/
 # define PLAYER_SPEED 0.1875f
@@ -115,7 +115,16 @@
 /*Size max of the player name*/
 # define BPLAYER_MAX_NAME_SIZE 24
 /*Number of different big player*/
-# define BPLAYER_NUMBER 23
+# define BPLAYER_NUMBER 29
+
+/*Path to the directory of tiles images*/
+# define FPLAYER_PATH "files/xpm/player/fire/"
+/*Size of the path*/
+# define FPLAYER_PATH_SIZE 23
+/*Size max of the player name*/
+# define FPLAYER_MAX_NAME_SIZE 24
+/*Number of different fire player*/
+# define FPLAYER_NUMBER 23
 
 /*Player animation speed*/
 # define PLAYER_RUN_ANIM_SPEED 200

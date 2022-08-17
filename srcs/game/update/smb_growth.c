@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 04:48:05 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 05:24:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:50:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ static int	get_new_state(t_game *game)
 		game->player.all_player_img = game->all_images.all_little_players;
 		game->player.evolution = LITTLE;
 	}
+	else if (game->player.evolution == BIG && game->player.state == GROWTH)
+	{
+		game->player.all_player_img = game->all_images.all_fire_players;
+		game->player.evolution = FIRE;
+	}
+	else if (game->player.evolution == FIRE && game->player.state == SHRINK)
+	{
+		game->player.all_player_img = game->all_images.all_big_players;
+		game->player.evolution = BIG;
+	}
 	return (0);
 }
 
@@ -43,7 +53,7 @@ int	shrink(t_game *game)
 {
 	game->player.state = SHRINK;
 	game->player.anim_length = 3;
-	game->player.anim_duration = PLAYER_GROWTH_ANIM_SPEED;
+	game->player.anim_duration = PLAYER_GROWTH_ANIM_SPEED / 4;
 	game->player.anim_frame_start = game->current_frame;
 	game->update_fct = update_growth;
 	return (0);

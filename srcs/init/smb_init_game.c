@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 23:03:34 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:29:48 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static int	init_game_images(t_game *game)
 	if (!init_all_tiles(game)
 		&& !init_all_little_player(game)
 		&& !init_all_big_player(game)
+		&& !init_all_fire_player(game)
 		&& !init_images_group(game, COIN_PATH, COIN_NUMBER, &game->all_images.all_coins)
 		&& !init_images_group(game, CHAR_PATH, CHAR_NUMBER, &game->all_images.all_characters)
 		&& !init_all_xpm_image(game))

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:21:31 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 06:43:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:34:03 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,31 @@ static int	update_big(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 7);
 	if (player->state == SHRINK)
 		update_growth_image(game, player, value + 8);
+	if (player->state == GROWTH)
+		update_growth_image(game, player, value + 11);
+	if (player->state == VICTORY)
+		update_victory_image(game, player, value * 2);
+	return (0);
+}
+
+static int	update_fire(t_game *game, t_player *player, int value)
+{
+	if (player->state == IDLE)
+		change_image(game, player, value + 0);
+	if (player->state == RUN)
+		update_running_image(game, player, value + 0);
+	if (player->state == UJUMP)
+		change_image(game, player, value + 3);
+	if (player->state == DJUMP)
+		change_image(game, player, value + 4);
+	if (player->state == CROUCH)
+		change_image(game, player, value + 5);
+	if (player->state == SLIDE)
+		change_image(game, player, value + 6);
+	if (player->state == BAR)
+		change_image(game, player, value + 7);
+	if (player->state == SHRINK)
+		update_growth_image(game, player, value + 8);
 	if (player->state == VICTORY)
 		update_victory_image(game, player, value * 2);
 	return (0);
@@ -139,11 +164,13 @@ int	update_player_image(t_game *game, t_player *player)
 		value = player->orientation * O_LITTLE;
 	if (player->evolution == BIG)
 		value = player->orientation * O_BIG;
-	if (player->evolution == SPECIAL)
-		value = player->orientation * O_SPECIAL;
+	if (player->evolution == FIRE)
+		value = player->orientation * O_FIRE;
 	if (player->evolution == LITTLE)
 		update_little(game, player, value);
 	else if (player->evolution == BIG)
 		update_big(game, player, value);
+	else if (player->evolution == FIRE)
+		update_fire(game, player, value);
 	return (0);
 }

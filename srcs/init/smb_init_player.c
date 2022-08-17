@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:10:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 05:44:57 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:31:05 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,11 @@ int	init_all_big_player(t_game *game)
 	const char	*all_name[] = {
 		"bm_idle_l.xpm", "bm_run_l1.xpm", "bm_run_l2.xpm", "bm_ujump_l.xpm",
 		"bm_djump_l.xpm", "bm_crouch_l.xpm", "bm_slide_l.xpm", "bm_bar_l.xpm",
+		"bm_shrink_l1.xpm", "bm_shrink_l2.xpm", "bm_shrink_l3.xpm",
 		"bm_growth_l1.xpm", "bm_growth_l2.xpm", "bm_growth_l3.xpm",
 		"bm_idle_r.xpm", "bm_run_r1.xpm", "bm_run_r2.xpm", "bm_ujump_r.xpm",
 		"bm_djump_r.xpm", "bm_crouch_r.xpm", "bm_slide_r.xpm", "bm_bar_r.xpm",
+		"bm_shrink_r1.xpm", "bm_shrink_r2.xpm", "bm_shrink_r3.xpm",
 		"bm_growth_r1.xpm", "bm_growth_r2.xpm", "bm_growth_r3.xpm", "bm_victory.xpm"};
 
 	game->all_images.all_big_players = ft_calloc(sizeof(t_img_data),
@@ -94,6 +96,36 @@ int	init_all_big_player(t_game *game)
 		err = init_xpm_image(game, &game->all_images.all_big_players[i], name);
 		if (err)
 			return (free_img_array(game, &game->all_images.all_big_players, i),
+				err);
+		i++;
+	}
+	return (0);
+}
+
+int	init_all_fire_player(t_game *game)
+{
+	int			err;
+	char		name[FPLAYER_PATH_SIZE + FPLAYER_MAX_NAME_SIZE];
+	int			i;
+	const char	*all_name[] = {
+		"fm_idle_l.xpm", "fm_run_l1.xpm", "fm_run_l2.xpm", "fm_ujump_l.xpm",
+		"fm_djump_l.xpm", "fm_crouch_l.xpm", "fm_slide_l.xpm", "fm_bar_l.xpm",
+		"fm_shrink_l1.xpm", "fm_shrink_l2.xpm", "fm_shrink_l3.xpm",
+		"fm_idle_r.xpm", "fm_run_r1.xpm", "fm_run_r2.xpm", "fm_ujump_r.xpm",
+		"fm_djump_r.xpm", "fm_crouch_r.xpm", "fm_slide_r.xpm", "fm_bar_r.xpm",
+		"fm_shrink_r1.xpm", "fm_shrink_r2.xpm", "fm_shrink_r3.xpm", "fm_victory.xpm"};
+
+	game->all_images.all_fire_players = ft_calloc(sizeof(t_img_data),
+			FPLAYER_NUMBER);
+	if (!game->all_images.all_fire_players)
+		return (9);
+	i = 0;
+	while (i < FPLAYER_NUMBER)
+	{
+		make_name_player(name, all_name[i], FPLAYER_PATH, FPLAYER_PATH_SIZE);
+		err = init_xpm_image(game, &game->all_images.all_fire_players[i], name);
+		if (err)
+			return (free_img_array(game, &game->all_images.all_fire_players, i),
 				err);
 		i++;
 	}
