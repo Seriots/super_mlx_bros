@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:40:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:36:00 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 04:10:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,26 @@ static int	get_final_score(t_player *player)
 	return (player->end_score + player->coin_score + player->time_score);
 }
 
+static int	update_player_position(t_game *game, t_object *obj)
+{
+	if (game->player.x_speed > 0)
+		game->player.orientation = O_RIGHT;
+	else
+		game->player.orientation = O_LEFT;
+	if (game->player.orientation == O_RIGHT)
+		game->player.x_pos = obj->x - game->x_position + 4 - game->player.width;
+	else
+		game->player.x_pos = obj->x - game->x_position + 4;
+	return (0);
+}
+
 static int	apply_int_collisions(t_game *game, t_object *obj)
 {
 	t_dict		*flag;
 
 	game->keyreleased_fct = key_released_default;
 	game->keypressed_fct = key_pressed_default;
-	if (game->player.x_speed > 0)
-		game->player.orientation = O_RIGHT;
-	else
-		game->player.orientation = O_LEFT;
+	update_player_position(game, obj);
 	game->update_fct = update_end;
 	game->player.end_score = get_end_score(&game->player, obj);
 	game->player.time_score = get_time_score(game->map.time);

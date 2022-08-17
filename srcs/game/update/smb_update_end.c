@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:44:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:27:09 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 04:09:23 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int	update_end(t_game *game)
 	search = dict_getelem_key(game->map.all_object, END);
 	if (search)
 		end_bar = (t_object *)search->value;
-	if (flag->y > end_bar->y + FLAG_MARGE)
+	if (flag->y > end_bar->y + FLAG_MARGE || !check_collisions_bottom(game,
+			game->player.x_pos, game->player.y_pos + 1, game->x_position))
 		return (0);
 	flag_reach_end(game);
 	return (0);
