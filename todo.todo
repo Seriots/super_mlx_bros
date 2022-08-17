@@ -38,7 +38,8 @@ x -> faire un string put style et facile a exploite pour tout
 	x -> string
 	x -> number
 	x -> time
--> Faire la growth animation
+x -> Faire la growth animation
+-> Add victory pose
 -> faire les objets qui subissent des collisions et qui subissent la gravite
 -> apres c les ennemis hein
 -> et apres le jeu est jouable
@@ -60,7 +61,7 @@ x -> Parsing des objets, et affichage des objest et collisions des objets
 -> faire en sorte que les objects visible mais pas collide ni strong soit derrier le bg;
 -> fix the problem when an object is 1px difference with a map wall
 -> Empecher le deplacement horizontal en mode crouch mais le faire glisser
--> Fix l'arrive sur le flag si j'y arrive par au-dessus, replacement du player
+x -> Fix l'arrive sur le flag si j'y arrive par au-dessus, replacement du player
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions

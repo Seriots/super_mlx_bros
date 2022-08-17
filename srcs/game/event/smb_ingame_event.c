@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 21:12:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 02:58:27 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 05:06:20 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,21 @@ int	key_released_ingame(KeySym keycode, t_game *game)
 		ingame_top_released(game);
 	else if (keycode == XK_Escape)
 		ingame_escape_released(game);
-	else if (keycode == 0x0061)
+	else if (keycode == 0x0061 && game->player.evolution != BIG)
 	{
-		game->player.all_player_img = game->all_images.all_big_players;
-		game->player.evolution = BIG;
+		game->player.state = GROWTH;
+		game->player.anim_length = 3;
+		game->player.anim_duration = 1000;
+		game->player.anim_frame_start = game->current_frame;
+		game->update_fct = update_growth;
 	}
-	else if (keycode == 0x007a)
+	else if (keycode == 0x007a && game->player.evolution != LITTLE)
 	{
-		game->player.all_player_img = game->all_images.all_little_players;
-		game->player.evolution = LITTLE;
+		game->player.state = SHRINK;
+		game->player.anim_length = 3;
+		game->player.anim_duration = 1000;
+		game->player.anim_frame_start = game->current_frame;
+		game->update_fct = update_growth;
 	}
 	return (0);
 }

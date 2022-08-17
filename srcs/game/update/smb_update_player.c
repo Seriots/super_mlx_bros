@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:21:31 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:06:18 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 04:58:02 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,23 @@ static int	update_running_image(t_game *game, t_player *player, int value)
 	return (0);
 }
 
+static int	update_growth_image(t_game *game, t_player *player, int value)
+{
+	int	cur_frame;
+	int	image_value;
+
+	cur_frame = (game->current_frame - player->anim_frame_start)
+		% player->anim_duration;
+	image_value = cur_frame / (player->anim_duration / player->anim_length);
+	if (image_value >= player->anim_length)
+		image_value = player->anim_length - 1;
+	if ((game->current_frame - player->anim_frame_start) > player->anim_duration)
+		game->update_fct = update_ingame;
+	else
+		change_image(game, player, value + image_value);
+	return (0);
+}
+
 static int	update_little(t_game *game, t_player *player, int value)
 {
 	if (player->state == IDLE)
@@ -61,6 +78,8 @@ static int	update_little(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 5);
 	if (player->state == BAR)
 		change_image(game, player, value + 6);
+	if (player->state == GROWTH)
+		update_growth_image(game, player, value + 7);
 	return (0);
 }
 
@@ -80,6 +99,8 @@ static int	update_big(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 6);
 	if (player->state == BAR)
 		change_image(game, player, value + 7);
+	if (player->state == SHRINK)
+		update_growth_image(game, player, value + 8);
 	return (0);
 }
 

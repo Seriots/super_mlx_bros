@@ -20,6 +20,7 @@ define SRCS :=
 	game/move/smb_move_left.c
 	game/move/smb_move_right.c
 	game/move/smb_move_up.c
+	game/update/smb_growth.c
 	game/update/smb_update_end.c
 	game/update/smb_update_player_state.c
 	game/update/smb_update_player.c

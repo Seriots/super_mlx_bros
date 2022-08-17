@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:40:24 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 04:56:54 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ int				apply_gravity(t_game *game, t_player *player);
 /*smb_update_player.c*/
 int				update_player_state(t_game *game, t_player *player);
 int				update_player_image(t_game *game, t_player *player);
+
+/*smb_update_growth.c*/
+int				update_growth(t_game *game);
 
 /*smb_update.c*/
 int				update_movement(t_game *game, t_player *player);

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 01:43:45 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 04:44:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 # define DEAD 5
 # define SLIDE 6
 # define BAR 7
+# define GROWTH 8
+# define SHRINK 9
 
 /*Player orientation*/
 # define O_LEFT 0
@@ -49,9 +51,9 @@
 # define SPECIAL 2
 
 /*PLayer image in one direction*/
-# define O_LITTLE 7
-# define O_BIG 8
-# define O_SPECIAL 8
+# define O_LITTLE 10
+# define O_BIG 11
+# define O_SPECIAL 11
 
 /*Moving Speed*/
 # define PLAYER_SPEED 0.1875f
@@ -102,7 +104,7 @@
 /*Size max of the player name*/
 # define LPLAYER_MAX_NAME_SIZE 24
 /*Number of different little player*/
-# define LPLAYER_NUMBER 16
+# define LPLAYER_NUMBER 22
 
 /*Path to the directory of tiles images*/
 # define BPLAYER_PATH "files/xpm/player/big/"
@@ -111,7 +113,7 @@
 /*Size max of the player name*/
 # define BPLAYER_MAX_NAME_SIZE 24
 /*Number of different big player*/
-# define BPLAYER_NUMBER 16
+# define BPLAYER_NUMBER 22
 
 /*direction*/
 # define UP 0
