@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:40:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 04:10:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 06:58:18 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ static int	apply_int_collisions(t_game *game, t_object *obj)
 	game->keypressed_fct = key_pressed_default;
 	update_player_position(game, obj);
 	game->update_fct = update_end;
+	game->player.x_speed = 0;
+	game->player.right = 0;
+	game->player.left = 0;
 	game->player.end_score = get_end_score(&game->player, obj);
 	game->player.time_score = get_time_score(game->map.time);
 	game->player.coin_score = get_coin_score(game->player.coins);

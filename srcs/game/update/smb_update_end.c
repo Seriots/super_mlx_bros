@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:44:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 04:09:23 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 06:59:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,33 @@
 
 #include "mlx.h"
 
+#include <stdio.h>
+
 int	update_quit_map(t_game *game)
 {
 	update_objects(game, game->map.all_object);
-	update_movement(game, &game->player);
 	update_player_image(game, &game->player);
+	update_movement(game, &game->player);
 	if (check_collisions(game, game->player.x_pos + 1,
 			game->player.y_pos, game->x_position)
 		|| game->player.x_pos + game->player.width >= SCREEN_WIDTH)
 		close_request(game);
+	return (0);
+}
+
+static int	update_victory_pose(t_game *game)
+{
+	update_objects(game, game->map.all_object);
+	update_movement(game, &game->player);
+	update_player_image(game, &game->player);
+	if (check_collisions_bottom(game, game->player.x_pos, game->player.y_pos, game->x_position))
+	{
+		if (game->player.state != VICTORY)
+			game->player.anim_frame_start = game->current_frame;
+		game->player.state = VICTORY;
+		game->player.anim_duration = PLAYER_VICTORY_ANIM_DURATION;
+		game->player.right = 0;
+	}
 	return (0);
 }
 
@@ -37,11 +55,12 @@ static int	flag_reach_end(t_game *game)
 	game->player.left = 0;
 	game->player.top = 0;
 	game->player.bottom = 0;
-	game->player.state = RUN;
+	game->player.state = UJUMP;
+	game->player.x_acceleration = V_HOR_MAX;
 	game->player.orientation = O_RIGHT;
 	game->player.y_speed = JUMP_SPEED_END;
-	game->player.x_max_speed = V_END_MAX;
-	game->update_fct = update_quit_map;
+	game->player.x_max_speed = V_ENDJUMP_MAX;
+	game->update_fct = update_victory_pose;
 	return (0);
 }
 
@@ -54,15 +73,17 @@ int	update_end(t_game *game)
 	update_objects(game, game->map.all_object);
 	game->player.state = BAR;
 	update_player_image(game, &game->player);
-	if (!check_collisions_bottom(game, game->player.x_pos,
-			game->player.y_pos + END_BAR_GRAVITY, game->x_position))
-		game->player.y_pos += END_BAR_GRAVITY;
 	search = dict_getelem_key(game->map.all_object, FLAG);
 	if (search)
 		flag = (t_object *)search->value;
 	search = dict_getelem_key(game->map.all_object, END);
 	if (search)
 		end_bar = (t_object *)search->value;
+	if (!check_collisions_bottom(game, game->player.x_pos,
+			game->player.y_pos + END_BAR_GRAVITY * game->delay, game->x_position))
+		game->player.y_pos += END_BAR_GRAVITY * game->delay;
+	else
+		game->player.y_pos = end_bar->y + end_bar->height - game->player.height - 1;
 	if (flag->y > end_bar->y + FLAG_MARGE || !check_collisions_bottom(game,
 			game->player.x_pos, game->player.y_pos + 1, game->x_position))
 		return (0);

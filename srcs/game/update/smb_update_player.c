@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:21:31 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 04:58:02 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 06:43:56 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static int	update_running_image(t_game *game, t_player *player, int value)
 
 	cur_frame = (game->current_frame - player->anim_frame_start)
 		% player->anim_duration;
+	image_value = 0;
 	image_value = cur_frame / (player->anim_duration / player->anim_length);
 	if (image_value >= player->anim_length)
 		image_value = player->anim_length - 1;
@@ -62,6 +63,28 @@ static int	update_growth_image(t_game *game, t_player *player, int value)
 	return (0);
 }
 
+static int	update_victory_image(t_game *game, t_player *player, int value)
+{
+	if (game->current_frame - player->anim_frame_start > player->anim_duration)
+	{
+		game->player.x_max_speed = V_END_MAX;
+		if (player->state != RUN)
+			player->anim_frame_start = game->current_frame;
+		player->state = RUN;
+		player->anim_duration = PLAYER_RUN_ANIM_SPEED;
+		if (player->evolution == LITTLE)
+			player->anim_length = 2;
+		else
+			player->anim_length = 3;
+		game->player.right = 1;
+		game->player.state = RUN;
+		game->update_fct = update_quit_map;
+	}
+	else
+		change_image(game, player, value);
+	return (0);
+}
+
 static int	update_little(t_game *game, t_player *player, int value)
 {
 	if (player->state == IDLE)
@@ -80,6 +103,8 @@ static int	update_little(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 6);
 	if (player->state == GROWTH)
 		update_growth_image(game, player, value + 7);
+	if (player->state == VICTORY)
+		update_victory_image(game, player, value * 2);
 	return (0);
 }
 
@@ -101,6 +126,8 @@ static int	update_big(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 7);
 	if (player->state == SHRINK)
 		update_growth_image(game, player, value + 8);
+	if (player->state == VICTORY)
+		update_victory_image(game, player, value * 2);
 	return (0);
 }
 

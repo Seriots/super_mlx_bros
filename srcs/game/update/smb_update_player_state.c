@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 19:11:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 04:45:51 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 05:25:11 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	state_run(t_game *game, t_player *player)
 	if (player->state != RUN)
 		player->anim_frame_start = game->current_frame;
 	player->state = RUN;
-	player->anim_duration = 200;
+	player->anim_duration = PLAYER_RUN_ANIM_SPEED;
 	if (player->evolution == LITTLE)
 		player->anim_length = 2;
 	else

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:30:11 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 02:20:05 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 05:22:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	get_coin_score(int coins)
 int	get_end_score(t_player *player, t_object *obj)
 {
 	if (obj->y > player->y_pos)
-		return (10000);
+		return (MAX_SCORE);
 	return ((obj->height - (player->y_pos - obj->y)) * SCORE_MULTIPLIER);
 }

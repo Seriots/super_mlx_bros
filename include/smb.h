@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 04:56:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 06:13:30 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int				boucle_col_right(t_collisions col, t_game *game);
 int				boucle_col_left(t_collisions col, t_game *game);
 
 /*smb_collisions.c*/
+int				check_collisions_bottom_map(t_game *game, float x_pos,
+					float y_pos, float pos);
 int				check_col_player_obj_bottom(t_game *game, float x_pos,
 					float y_pos, float pos);
 int				check_col_player_obj(t_game *game, float x_pos,
@@ -102,7 +104,12 @@ int				apply_gravity(t_game *game, t_player *player);
 int				update_player_state(t_game *game, t_player *player);
 int				update_player_image(t_game *game, t_player *player);
 
+/*smb_update_end.c*/
+int				update_quit_map(t_game *game);
+
 /*smb_update_growth.c*/
+int				growth(t_game *game);
+int				shrink(t_game *game);
 int				update_growth(t_game *game);
 
 /*smb_update.c*/

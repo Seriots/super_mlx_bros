@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 04:44:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 06:46:05 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define BAR 7
 # define GROWTH 8
 # define SHRINK 9
+# define VICTORY 10
 
 /*Player orientation*/
 # define O_LEFT 0
@@ -64,12 +65,13 @@
 /*Start base speed for jump*/
 # define JUMP_SPEED 0.5f
 # define REJUMP_SPEED 0.5f
-# define JUMP_SPEED_END 0.35f
+# define JUMP_SPEED_END 0.4f
 
 # define V_DOWN_MAX -0.3f
 
 # define V_HOR_MAX 0.1875f
 # define V_END_MAX 0.0625f
+# define V_ENDJUMP_MAX 0.1250f
 
 # define ACCEL_HOR 0.000015f
 # define DECCEL_HOR 0.000015f
@@ -78,7 +80,7 @@
 # define GRAVITY_UP 0.00003f
 # define GRAVITY_DOWN 0.00003f
 
-# define END_BAR_GRAVITY 1.0f
+# define END_BAR_GRAVITY 0.125f
 
 /*SCREEN_HEIGHT / 16*/
 # define MAP_HEIGHT_TILES 34
@@ -104,7 +106,7 @@
 /*Size max of the player name*/
 # define LPLAYER_MAX_NAME_SIZE 24
 /*Number of different little player*/
-# define LPLAYER_NUMBER 22
+# define LPLAYER_NUMBER 23
 
 /*Path to the directory of tiles images*/
 # define BPLAYER_PATH "files/xpm/player/big/"
@@ -113,7 +115,12 @@
 /*Size max of the player name*/
 # define BPLAYER_MAX_NAME_SIZE 24
 /*Number of different big player*/
-# define BPLAYER_NUMBER 22
+# define BPLAYER_NUMBER 23
+
+/*Player animation speed*/
+# define PLAYER_RUN_ANIM_SPEED 200
+# define PLAYER_GROWTH_ANIM_SPEED 1000
+# define PLAYER_VICTORY_ANIM_DURATION 800
 
 /*direction*/
 # define UP 0
@@ -125,7 +132,8 @@
 # define MAX_LONG 9223372036854775807
 
 /*Multiplier of the score when the player grab the flag bar*/
-# define SCORE_MULTIPLIER 40
+# define MAX_SCORE 7000
+# define SCORE_MULTIPLIER 30
 # define COIN_MULTIPLIER 50
 # define TIME_MULTIPLIER 2
 

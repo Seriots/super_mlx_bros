@@ -110,7 +110,7 @@ HDR_FILES := $(addprefix $(INCS_DIR)/,$(HDRS))
 CFLAGS := $(CFLAGS) -Wall -Wextra
 
 ifdef DEBUG
-	CFLAGS := $(CFLAGS) -g3 -fsanitize=address -D DEBUG=1
+	CFLAGS := $(CFLAGS) -g3 -D DEBUG=1
 else
 	CFLAGS := $(CFLAGS) -Werror -D DEBUG=0
 endif

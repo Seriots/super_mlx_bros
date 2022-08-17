@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 23:03:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:34:47 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 06:06:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	flag_update(t_game *game, t_dict *elem, t_object *obj)
 	(void)elem;
 	bar = dict_getelem_key(game->map.all_object, END)->value;
 	if (obj->y > bar->y + FLAG_MARGE)
-		obj->y -= END_BAR_GRAVITY;
+		obj->y -= END_BAR_GRAVITY * game->delay;
+	if (obj->y < bar->y + FLAG_MARGE)
+		obj->y = bar->y + FLAG_MARGE;
 	return (0);
 }
 
