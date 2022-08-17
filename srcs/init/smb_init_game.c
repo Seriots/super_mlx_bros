@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:24:24 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 23:03:34 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,51 +55,31 @@ static void	init_game_variable(t_game *game)
 
 static int	init_all_xpm_image(t_game *game)
 {
-	int	error;
-
-	error = init_xpm_image(game, &game->all_images.sign, SIGN_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.big_tree, BTR_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.block, BLK_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.end_bar, BAR_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.flag, FLAG_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.castle, CASTLE_PATH);
-	if (error)
-		return (error);
-	return (0);
+	if (!init_xpm_image(game, &game->all_images.sign, SIGN_PATH)
+		&& !init_xpm_image(game, &game->all_images.big_tree, BTR_PATH)
+		&& !init_xpm_image(game, &game->all_images.block, BLK_PATH)
+		&& !init_xpm_image(game, &game->all_images.end_bar, BAR_PATH)
+		&& !init_xpm_image(game, &game->all_images.flag, FLAG_PATH)
+		&& !init_xpm_image(game, &game->all_images.castle, CASTLE_PATH)
+		&& !init_xpm_image(game, &game->all_images.fire_flower, FF_PATH)
+		&& !init_xpm_image(game, &game->all_images.red_champi, REDC_PATH)
+		&& !init_xpm_image(game, &game->all_images.loot_block, LB_PATH)
+		&& !init_xpm_image(game, &game->all_images.loot_block_use, LBU_PATH)
+		&& !init_xpm_image(game, &game->all_images.breakable_block, BB_PATH))
+		return (0);
+	return (3);
 }
 
 static int	init_game_images(t_game *game)
 {
-	int	error;
-
-	error = init_all_tiles(game);
-	if (error)
-		return (error);
-	error = init_all_little_player(game);
-	if (error)
-		return (error);
-	error = init_all_big_player(game);
-	if (error)
-		return (error);
-	error = init_images_group(game, COIN_PATH, COIN_NUMBER,
-			&game->all_images.all_coins);
-	if (error)
-		return (error);
-	error = init_images_group(game, CHAR_PATH, CHAR_NUMBER,
-			&game->all_images.all_characters);
-	if (error)
-		return (error);
-	return (init_all_xpm_image(game));
+	if (!init_all_tiles(game)
+		&& !init_all_little_player(game)
+		&& !init_all_big_player(game)
+		&& !init_images_group(game, COIN_PATH, COIN_NUMBER, &game->all_images.all_coins)
+		&& !init_images_group(game, CHAR_PATH, CHAR_NUMBER, &game->all_images.all_characters)
+		&& !init_all_xpm_image(game))
+		return (0);
+	return (1);
 }
 
 static int	init_objects(t_game *game)

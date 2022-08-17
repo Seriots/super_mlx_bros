@@ -1,0 +1,28 @@
+/* XPM */
+static char *fire_flower[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1 ",
+"  c black",
+". c #B82800",
+"X c #00B800",
+"o c #00F800",
+"O c #F88800",
+"+ c None",
+/* pixels */
+"+++++++  +++++++",
+"++ +++ OO +++ ++",
+"+ O + OOOO + . +",
+"+ OO OOOOOO OO +",
+" OOOOOOOOOOOOO. ",
+" OOO  OOO  OOO. ",
+" OO OO O OO OO. ",
+" OOOOOOOOOOOO.. ",
+"+ OOOOOOOOOOO. +",
+"++ .OOOOOO... ++",
+"+++  ......  +++",
+"+++++      +++++",
+"++   + oX    +++",
+"+ ooX  oX ooX ++",
+" ooooX o ooooX +",
+" XXXXX   XXXXX +"
+};

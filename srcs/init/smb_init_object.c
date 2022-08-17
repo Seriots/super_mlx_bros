@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 02:07:25 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 23:12:48 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ void	set_object(t_game *game, char *key, t_object **object)
 		init_flag(game, object);
 	else if (!ft_strcmp(key, CASTLE))
 		init_castle(game, object);
+	else if (!ft_strcmp(key, FIRE_FLOWER))
+		init_fire_flower(game, object);
+	else if (!ft_strcmp(key, BREAKABLE_BLOCK))
+		init_breakable_block(game, object);
+	else if (!ft_strcmp(key, LOOT_BLOCK))
+		init_loot_block(game, object);
+	else if (!ft_strcmp(key, RED_CHAMP))
+		init_red_champ(game, object);
 }
 
 t_object	*obj_new(char *tag, float x, float y)
@@ -71,5 +79,13 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 		return (dict_new(FLAG, object));
 	else if (!ft_strcmp(tag, CASTLE))
 		return (dict_new(CASTLE, object));
+	else if (!ft_strcmp(tag, FIRE_FLOWER))
+		return (dict_new(FIRE_FLOWER, object));
+	else if (!ft_strcmp(tag, LOOT_BLOCK))
+		return (dict_new(LOOT_BLOCK, object));
+	else if (!ft_strcmp(tag, BREAKABLE_BLOCK))
+		return (dict_new(BREAKABLE_BLOCK, object));
+	else if (!ft_strcmp(tag, RED_CHAMP))
+		return (dict_new(RED_CHAMP, object));
 	return (dict_new("OBJ", object));
 }

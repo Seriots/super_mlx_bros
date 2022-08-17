@@ -38,11 +38,15 @@ define SRCS :=
 	init/smb_init_tiles.c
 	init/objects/smb_add_obj.c
 	init/objects/smb_init_block.c
+	init/objects/smb_init_breakable_block.c
 	init/objects/smb_init_btr.c
 	init/objects/smb_init_castle.c
 	init/objects/smb_init_coin.c
-	init/objects/smb_init_flag.c
 	init/objects/smb_init_end.c
+	init/objects/smb_init_fire_flower.c
+	init/objects/smb_init_flag.c
+	init/objects/smb_init_loot_block.c
+	init/objects/smb_init_redchamp.c
 	init/objects/smb_init_sign.c
 	init/objects/smb_init_start.c
 	init/objects/smb_init_wincoin.c

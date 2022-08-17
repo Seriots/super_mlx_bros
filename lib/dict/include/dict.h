@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 22:28:52 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/08/08 14:17:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 00:14:29 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ typedef struct s_dict
 }	t_dict;
 
 void	dict_add_back(t_dict **dict, t_dict *new);
-
-void	dict_add_front(t_dict **dict, t_dict *new, void free_key(void *),
-			void free_value(void *));
+void	dict_add_front(t_dict **dict, t_dict *new);
 void	dict_changeval(t_dict **dict, void *key, void *value,
 			void free_value(void *));
 void	dict_clear(t_dict *dict, void free_key(void *),

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:38:57 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 22:50:22 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ typedef struct s_all_images
 	t_img_data	*all_coins;
 	t_img_data	*all_little_players;
 	t_img_data	*all_big_players;
+	t_img_data	*all_fire_players;
+	t_img_data	*all_fireball;
 	t_img_data	*all_characters;
 	t_img_data	sign;
 	t_img_data	big_tree;
@@ -100,6 +102,11 @@ typedef struct s_all_images
 	t_img_data	end_bar;
 	t_img_data	flag;
 	t_img_data	castle;
+	t_img_data	fire_flower;
+	t_img_data	red_champi;
+	t_img_data	loot_block;
+	t_img_data	loot_block_use;
+	t_img_data	breakable_block;
 }	t_all_images;
 
 typedef struct s_player

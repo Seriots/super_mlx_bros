@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:37:19 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 00:06:42 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 # define BLOCK "BLOCK"
 # define FLAG "FLAG"
 # define CASTLE "CATL"
+# define FIRE_FLOWER "FF"
+# define RED_CHAMP "REDC"
+# define LOOT_BLOCK "LB"
+# define LOOT_BLOCK_USE "LBU"
+# define BREAKABLE_BLOCK "BB"
 
 /*Char properties*/
 # define CHAR_PATH "files/xpm/charactere/"
@@ -63,5 +68,26 @@
 /*Castle properties*/
 # define CASTLE_PATH "files/xpm/objects/castle.xpm"
 # define CASTLE_HBOX 1
+
+/*Fire flower properties*/
+# define FF_PATH "files/xpm/objects/fire_flower.xpm"
+# define FF_HBOX 4
+# define FF_SPAWN_SPEED 0.015f
+
+/*Red champi properties*/
+# define REDC_PATH "files/xpm/objects/red_champi.xpm"
+# define REDC_HBOX 4
+# define REDC_SPAWN_SPEED 0.015f
+
+/*Loot block properties*/
+# define LB_PATH "files/xpm/objects/loot_block.xpm"
+# define LB_HBOX 4
+
+/*Loot block use properties*/
+# define LBU_PATH "files/xpm/objects/loot_block_use.xpm"
+
+/*Breakable block properties*/
+# define BB_PATH "files/xpm/objects/breakable_block.xpm"
+# define BB_HBOX 4
 
 #endif

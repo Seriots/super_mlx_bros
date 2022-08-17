@@ -1,0 +1,26 @@
+/* XPM */
+static char *loot_block[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1 ",
+"  c black",
+". c #9C4A00",
+"X c #E79C21",
+"o c None",
+/* pixels */
+"o..............o",
+".XXXXXXXXXXXXXX ",
+".X XXXXXXXXXX X ",
+".XXXX.....XXXXX ",
+".XXX..   ..XXXX ",
+".XXX.. XX.. XXX ",
+".XXX.. XX.. XXX ",
+".XXXX  X... XXX ",
+".XXXXXX..   XXX ",
+".XXXXXX.. XXXXX ",
+".XXXXXXX  XXXXX ",
+".XXXXXX..XXXXXX ",
+".XXXXXX.. XXXXX ",
+".X XXXXX  XXX X ",
+".XXXXXXXXXXXXXX ",
+"                "
+};

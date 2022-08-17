@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   smb_init_btr.c                                     :+:      :+:    :+:   */
+/*   smb_init_breakable_block.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 23:28:01 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 21:06:10 by lgiband          ###   ########.fr       */
+/*   Created: 2022/08/17 23:09:18 by lgiband           #+#    #+#             */
+/*   Updated: 2022/08/17 23:54:09 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_struct.h"
 #include "smb_settings.h"
 #include "smb_objects.h"
-#include "smb.h"
+#include "smb_objects_fonction.h"
 
-int	btr_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+#include <stdlib.h>
+
+int	breakable_block_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 {
-	t_dict		*coin;
-
-	(void)elem;
-	if (obj->col_count == 0 && (direction == LEFT || direction == RIGHT))
-	{
-		coin = add_obj(COIN, obj->x, obj->y - COIN_HEIGHT);
-		init_wincoin(game, (t_object **)&coin->value);
-		dict_add_back(&game->map.all_object, coin);
-		obj->col_count++;
-	}
+	(void)game;
+	(void)obj;
+	if (game->player.x_pos + game->x_position + game->player.width
+		< (obj->x + obj->width / 2) - BB_HBOX
+		|| game->player.x_pos + game->x_position
+		> (obj->x + obj->width / 2) + BB_HBOX)
+		return (0);
+	if (direction == UP)
+		dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
-void	init_btr(t_game *game, t_object **obj)
+void	init_breakable_block(t_game *game, t_object **obj)
 {
 	(*obj)->all_img = 0;
-	(*obj)->img = &game->all_images.big_tree;
+	(*obj)->img = &game->all_images.breakable_block;
 	(*obj)->animation_duration = 0;
 	(*obj)->height = (*obj)->img->height;
 	(*obj)->width = (*obj)->img->width;
 	(*obj)->is_collide = 1;
 	(*obj)->is_visible = 1;
-	(*obj)->is_strong = 0;
+	(*obj)->is_strong = 1;
 	(*obj)->nb_image = 1;
 	(*obj)->start_frame = game->current_frame;
-	(*obj)->col_fonction = btr_collisions;
+	(*obj)->col_fonction = breakable_block_collisions;
 	(*obj)->update_fonction = 0;
 }

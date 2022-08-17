@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 06:13:30 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 23:09:47 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,10 @@ void			init_block(t_game *game, t_object **obj);
 void			init_flag(t_game *game, t_object **obj);
 void			init_castle(t_game *game, t_object **obj);
 void			init_wincoin(t_game *game, t_object **obj);
+void			init_fire_flower(t_game *game, t_object **obj);
+void			init_red_champ(t_game *game, t_object **obj);
+void			init_loot_block(t_game *game, t_object **obj);
+void			init_breakable_block(t_game *game, t_object **obj);
 
 /*smb_init_player.c*/
 int				init_all_big_player(t_game *game);

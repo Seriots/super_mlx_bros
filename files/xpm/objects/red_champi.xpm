@@ -1,0 +1,29 @@
+/* XPM */
+static char *red_champi[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1 ",
+"  c black",
+". c #880000",
+"X c #B80000",
+"o c #F80000",
+"O c #F8F8F8",
+"+ c #F9F9F9",
+"@ c None",
+/* pixels */
+"@@@@@      @@@@@",
+"@@@  OO....  @@@",
+"@@ OOOOXXXXOO @@",
+"@ OOOOoooooXOO @",
+"@ OOOooOOOOoXO @",
+" .XoooOOOOOOoX. ",
+" .OOooOOOOOOoX. ",
+" OOOOoOOOOOOoXO ",
+" OOOOXXOOOOXXOO ",
+" .OO.........OO ",
+" ...        ..O ",
+"@   ++ ++ ++   @",
+"@@ +++ ++ +++ @@",
+"@@ ++++++++++ @@",
+"@@@ ++++++++ @@@",
+"@@@@        @@@@"
+};
