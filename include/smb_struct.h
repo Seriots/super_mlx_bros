@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 18:29:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:38:57 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 # include "dict.h"
 
-#include <X11/X.h>
-#include <stdbool.h>
-#include <X11/keysym.h>
+# include <X11/X.h>
+# include <stdbool.h>
+# include <X11/keysym.h>
 
 typedef struct s_game	t_game;
-
+typedef KeySym			t_key;
 
 typedef struct s_img_data
 {
@@ -70,6 +70,7 @@ typedef struct s_object
 	int			start_frame;
 	int			nb_image;
 	int			animation_duration;
+	int			col_count;
 	int			(*col_fonction)(t_game *game, t_dict *elem,
 			struct s_object *obj, int direction);
 	int			(*update_fonction)(t_game *game, t_dict *elem,
@@ -126,8 +127,10 @@ typedef struct s_player
 	int			state;
 	int			orientation;
 	int			evolution;
-	int			score;
+	int			end_score;
 	int			time_score;
+	int			coin_score;
+	int			final_score;
 }	t_player;
 
 typedef struct s_start
@@ -159,8 +162,8 @@ typedef struct s_game
 	long int		current_frame;
 	int				(*update_fct)(struct s_game *game);
 	int				(*display_fct)(struct s_game *game);
-	int				(*keypressed_fct)(KeySym key, struct s_game *game);
-	int				(*keyreleased_fct)(KeySym key, struct s_game *game);
+	int				(*keypressed_fct)(t_key key, struct s_game *game);
+	int				(*keyreleased_fct)(t_key key, struct s_game *game);
 }	t_game;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:55:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 00:02:25 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 02:29:38 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "smb_settings.h"
 #include "smb_struct.h"
 #include "smb.h"
-
-#include <stdio.h>
 
 unsigned int	get_pxl_color(t_img_data img, int x, int y)
 {
@@ -42,7 +40,10 @@ int	display_ingame(t_game *game)
 	put_map_to_image(game, game->map.map_data, (int)game->x_position);
 	put_objects_to_image(game, game->map.all_object,
 		(int)game->x_position, &game->window_image);
-	strdisplay(game, "Time: %t<=>;:?@ABCDEFGHIJ  KLMNOPQ RSTUVWXY_Z.,-/+*(ABC)'$&%#\"![]|^`_\\abcdefghijklmnopqrstuvwxyz~{}", get_coord(10, 10), game->map.time);
+	strdisplay(game, "Timer: %t", get_coord(10, 4), game->map.time);
+	strdisplay(game, "Coins: %d", get_coord(200, 4), game->player.coins);
+	strdisplay(game, "Final score: %d", get_coord(400, 4),
+		game->player.final_score);
 	put_player_to_image(game, &game->player, &game->window_image);
 	mlx_put_image_to_window(game->mlx.display,
 		game->mlx.window, game->window_image.img, 0, 0);

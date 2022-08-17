@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:31:37 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 02:07:25 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_object	*obj_new(char *tag, float x, float y)
 	if (!obj)
 		return (0);
 	if (tag)
-		*obj = (t_object){.x = x, .y = y};
+		*obj = (t_object){.x = x, .y = y, .col_count = 0};
 	return (obj);
 }
 

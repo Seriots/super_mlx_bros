@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 18:07:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:40:24 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "smb_struct.h"
 
+# include <stdarg.h>
+
 # include <X11/X.h>
 
 /*smb_init_object.c*/
@@ -22,11 +24,22 @@ t_dict			*get_dict_new(char *tag, t_object *object);
 t_object		*obj_new(char *tag, float x, float y);
 
 /*smb_parsing.c*/
-t_dict 			*add_obj(char *tag, int x, int y);
+t_dict			*add_obj(char *tag, int x, int y);
 t_dict			*get_all_object(int fd);
 int				set_map(t_map *map, char *filename);
 int				check_map_format(char *filename);
 int				parsing(int argc, char **argv, t_map *map);
+
+/*smb_ingame_fct*/
+int				ingame_right_pressed(t_game *game);
+int				ingame_left_pressed(t_game *game);
+int				ingame_top_pressed(t_game *game);
+int				ingame_bottom_pressed(t_game *game);
+int				ingame_right_released(t_game *game);
+int				ingame_left_released(t_game *game);
+int				ingame_top_released(t_game *game);
+int				ingame_bottom_released(t_game *game);
+int				ingame_escape_released(t_game *game);
 
 /*smb_event_ingame.c*/
 int				key_released_ingame(KeySym keycode, t_game *game);
@@ -40,7 +53,8 @@ int				key_pressed(KeySym keycode, t_game *game);
 int				close_request(t_game *game);
 
 /*smb_put_char_to_img.c*/
-void			put_char_to_img(t_game *game, int x_start, int y_start, t_img_data *img);
+void			put_char_to_img(t_game *game, int x_start,
+					int y_start, t_img_data *img);
 
 /*smb_put_objects_to_img.c*/
 void			put_objects_to_image(t_game *game, t_dict *objects,
@@ -109,6 +123,7 @@ void			init_btr(t_game *game, t_object **obj);
 void			init_block(t_game *game, t_object **obj);
 void			init_flag(t_game *game, t_object **obj);
 void			init_castle(t_game *game, t_object **obj);
+void			init_wincoin(t_game *game, t_object **obj);
 
 /*smb_init_player.c*/
 int				init_all_big_player(t_game *game);
@@ -128,7 +143,14 @@ int				init_images_group(t_game *game, char *path, int nb_of_images,
 /*smb_init_game.c*/
 int				init_game(t_game *game);
 
+/*smb_get_score.c*/
+int				get_time_score(long time);
+int				get_end_score(t_player *player, t_object *obj);
+int				get_coin_score(int coins);
+
 /*smb_strdisplay.c*/
+int				char_put(t_game *game, char c, t_coord *coord);
+int				convert_put(t_game *game, char c, va_list lst, t_coord *coord);
 int				strdisplay(t_game *game, const char *str, t_coord coord, ...);
 
 /*smb_time.c*/

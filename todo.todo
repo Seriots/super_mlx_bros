@@ -33,11 +33,11 @@ x -> implementer l'end
 	x -> setup game.event_fct
 	x -> Split la flag bar et la flag base en 2 object init juste avec end
 	x -> creer la nouvelle update fonction quand player reach end
--> faire un string put style et facile a exploite pour tout
-	-> coord
-	-> string
-	-> number
-	-> time
+x -> faire un string put style et facile a exploite pour tout
+	x -> coord
+	x -> string
+	x -> number
+	x -> time
 -> Faire la growth animation
 -> faire les objets qui subissent des collisions et qui subissent la gravite
 -> apres c les ennemis hein
@@ -60,6 +60,7 @@ x -> Parsing des objets, et affichage des objest et collisions des objets
 -> faire en sorte que les objects visible mais pas collide ni strong soit derrier le bg;
 -> fix the problem when an object is 1px difference with a map wall
 -> Empecher le deplacement horizontal en mode crouch mais le faire glisser
+-> Fix l'arrive sur le flag si j'y arrive par au-dessus, replacement du player
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions

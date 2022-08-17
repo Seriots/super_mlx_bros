@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   smb_add_obj.c                                      :+:      :+:    :+:   */
+/*   smb_get_score.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 21:38:55 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:24:58 by lgiband          ###   ########.fr       */
+/*   Created: 2022/08/17 01:30:11 by lgiband           #+#    #+#             */
+/*   Updated: 2022/08/17 02:20:05 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_struct.h"
-#include "smb.h"
+#include "smb_settings.h"
 
-#include <stdlib.h>
-
-t_dict	*add_obj(char *tag, int x, int y)
+int	get_time_score(long time)
 {
-	t_dict		*dict;
-	t_object	*object;
+	return ((6000 - time) * TIME_MULTIPLIER);
+}
 
-	dict = 0;
-	object = obj_new(tag, x, y);
-	if (object)
-		dict = get_dict_new(tag, object);
-	if (!dict && object)
-		return (free(object), (void *)0);
-	return (dict);
+int	get_coin_score(int coins)
+{
+	return (coins * COIN_MULTIPLIER);
+}
+
+int	get_end_score(t_player *player, t_object *obj)
+{
+	if (obj->y > player->y_pos)
+		return (10000);
+	return ((obj->height - (player->y_pos - obj->y)) * SCORE_MULTIPLIER);
 }

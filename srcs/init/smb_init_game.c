@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 18:29:13 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:24:24 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,31 @@ static void	init_game_variable(t_game *game)
 	game->map.start_time = timestamp_sec(0);
 }
 
+static int	init_all_xpm_image(t_game *game)
+{
+	int	error;
+
+	error = init_xpm_image(game, &game->all_images.sign, SIGN_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.big_tree, BTR_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.block, BLK_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.end_bar, BAR_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.flag, FLAG_PATH);
+	if (error)
+		return (error);
+	error = init_xpm_image(game, &game->all_images.castle, CASTLE_PATH);
+	if (error)
+		return (error);
+	return (0);
+}
+
 static int	init_game_images(t_game *game)
 {
 	int	error;
@@ -74,25 +99,7 @@ static int	init_game_images(t_game *game)
 			&game->all_images.all_characters);
 	if (error)
 		return (error);
-	error = init_xpm_image(game, &game->all_images.sign, SIGN_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.big_tree, BTR_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.block, BLK_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.end_bar, BAR_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.flag, FLAG_PATH);
-	if (error)
-		return (error);
-	error = init_xpm_image(game, &game->all_images.castle, CASTLE_PATH);
-	if (error)
-		return (error);
-	return (0);
+	return (init_all_xpm_image(game));
 }
 
 static int	init_objects(t_game *game)

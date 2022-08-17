@@ -7,6 +7,7 @@ define SRCS :=
 	main.c
 	collisions/smb_collisions_loop.c
 	collisions/smb_collisions_player_map.c
+	collisions/smb_collisions_player_obj_bottom.c
 	collisions/smb_collisions_player_obj.c
 	collisions/smb_collisions.c
 	game/display/smb_display.c
@@ -22,9 +23,12 @@ define SRCS :=
 	game/update/smb_update_end.c
 	game/update/smb_update_player_state.c
 	game/update/smb_update_player.c
+	game/update/smb_update_utils.c
 	game/update/smb_update.c
 	game/event/smb_event.c
 	game/event/smb_ingame_event.c
+	game/event/smb_ingame_pressed_fct.c
+	game/event/smb_ingame_released_fct.c
 	game/smb_game_loop.c
 	init/smb_init_game.c
 	init/smb_init_image.c
@@ -40,6 +44,7 @@ define SRCS :=
 	init/objects/smb_init_end.c
 	init/objects/smb_init_sign.c
 	init/objects/smb_init_start.c
+	init/objects/smb_init_wincoin.c
 	parsing/smb_parsing_checker.c
 	parsing/smb_parsing_object.c
 	parsing/smb_parsing_setter.c
@@ -49,6 +54,8 @@ define SRCS :=
 	utils/smb_error.c
 	utils/smb_free_init.c
 	utils/smb_free.c
+	utils/smb_get_score.c
+	utils/smb_strdisplay_utils.c
 	utils/smb_strdisplay.c
 	utils/smb_time.c
 endef

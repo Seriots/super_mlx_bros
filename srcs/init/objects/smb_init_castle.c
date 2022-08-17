@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 01:27:23 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 01:38:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:35:12 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int	castle_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 {
 	(void)direction;
 	(void)elem;
-	if (game->player.x_pos + game->x_position + game->player.width < (obj->x + obj->width / 2) - CASTLE_HBOX
-	|| game->player.x_pos + game->x_position > (obj->x + obj->width / 2) + CASTLE_HBOX)
+	if (game->player.x_pos + game->x_position + game->player.width
+		< (obj->x + obj->width / 2) - CASTLE_HBOX
+		|| game->player.x_pos + game->x_position
+		> (obj->x + obj->width / 2) + CASTLE_HBOX)
 		return (0);
 	close_request(game);
 	return (0);

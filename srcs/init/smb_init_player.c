@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:10:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/16 02:27:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:20:18 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include "smb_settings.h"
 #include "smb.h"
 
-static void	make_name_player(char *all_path, const char *name, char *path, int size_path)
+static void	make_name_player(char *all_path, const char *name,
+	char *path, int size_path)
 {
 	size_t	j;
 	size_t	i;
@@ -50,16 +51,19 @@ int	init_all_little_player(t_game *game)
 		"lm_run_r.xpm", "lm_ujump_r.xpm", "lm_djump_r.xpm", "lm_crouch_r.xpm",
 		"lm_slide_r.xpm", "lm_bar_r.xpm", "lm_dead_l.xpm", "lm_dead_r.xpm"};
 
-	game->all_images.all_little_players = ft_calloc(sizeof(t_img_data), LPLAYER_NUMBER);
+	game->all_images.all_little_players = ft_calloc(sizeof(t_img_data),
+			LPLAYER_NUMBER);
 	if (!game->all_images.all_little_players)
 		return (9);
 	i = 0;
 	while (i < LPLAYER_NUMBER)
 	{
 		make_name_player(name, all_name[i], LPLAYER_PATH, LPLAYER_PATH_SIZE);
-		err = init_xpm_image(game, &game->all_images.all_little_players[i], name);
+		err = init_xpm_image(game,
+				&game->all_images.all_little_players[i], name);
 		if (err)
-			return (free_img_array(game, &game->all_images.all_little_players, i), err);
+			return (free_img_array(game,
+					&game->all_images.all_little_players, i), err);
 		i++;
 	}
 	return (0);
@@ -76,7 +80,8 @@ int	init_all_big_player(t_game *game)
 		"bm_idle_r.xpm", "bm_run_r1.xpm", "bm_run_r2.xpm", "bm_ujump_r.xpm",
 		"bm_djump_r.xpm", "bm_crouch_r.xpm", "bm_slide_r.xpm", "bm_bar_r.xpm"};
 
-	game->all_images.all_big_players = ft_calloc(sizeof(t_img_data), BPLAYER_NUMBER);
+	game->all_images.all_big_players = ft_calloc(sizeof(t_img_data),
+			BPLAYER_NUMBER);
 	if (!game->all_images.all_big_players)
 		return (9);
 	i = 0;
@@ -85,9 +90,28 @@ int	init_all_big_player(t_game *game)
 		make_name_player(name, all_name[i], BPLAYER_PATH, BPLAYER_PATH_SIZE);
 		err = init_xpm_image(game, &game->all_images.all_big_players[i], name);
 		if (err)
-			return (free_img_array(game, &game->all_images.all_big_players, i), err);
+			return (free_img_array(game, &game->all_images.all_big_players, i),
+				err);
 		i++;
 	}
+	return (0);
+}
+
+int	init_player_next(t_game *game)
+{
+	game->player.y_speed = 0.0;
+	game->player.y_acceleration = 0.0;
+	game->player.x_speed = 0.0;
+	game->player.x_acceleration = 0.0;
+	game->player.x_max_speed = V_HOR_MAX;
+	game->player.coins = 0;
+	game->player.state = IDLE;
+	game->player.orientation = O_RIGHT;
+	game->player.evolution = LITTLE;
+	game->player.end_score = 0;
+	game->player.time_score = 0;
+	game->player.coin_score = 0;
+	game->player.final_score = 0;
 	return (0);
 }
 
@@ -107,16 +131,5 @@ int	init_player(t_game *game)
 	game->player.bottom = false;
 	game->player.right = false;
 	game->player.left = false;
-	game->player.y_speed = 0.0;
-	game->player.y_acceleration = 0.0;
-	game->player.x_speed = 0.0;
-	game->player.x_acceleration = 0.0;
-	game->player.x_max_speed = V_HOR_MAX;
-	game->player.coins = 0;
-	game->player.state = IDLE;
-	game->player.orientation = O_RIGHT;
-	game->player.evolution = LITTLE;
-	game->player.score = 0;
-	game->player.time_score = 0;
-	return (0);
+	return (init_player_next(game));
 }

@@ -6,10 +6,9 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 23:03:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/15 23:31:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:34:47 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "smb_struct.h"
 #include "smb_settings.h"
@@ -21,7 +20,7 @@
 int	flag_update(t_game *game, t_dict *elem, t_object *obj)
 {
 	t_object	*bar;
-	
+
 	(void)elem;
 	bar = dict_getelem_key(game->map.all_object, END)->value;
 	if (obj->y > bar->y + FLAG_MARGE)
