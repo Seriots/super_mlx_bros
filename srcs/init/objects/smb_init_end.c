@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:40:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 06:58:18 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 07:14:19 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "smb_objects.h"
 #include "smb.h"
 
+#include <stdio.h>
+
 static int	get_final_score(t_player *player)
 {
 	return (player->end_score + player->coin_score + player->time_score);
@@ -24,7 +26,7 @@ static int	get_final_score(t_player *player)
 
 static int	update_player_position(t_game *game, t_object *obj)
 {
-	if (game->player.x_speed > 0)
+	if (game->player.x_pos + game->player.width < obj->x - game->x_position + 4)
 		game->player.orientation = O_RIGHT;
 	else
 		game->player.orientation = O_LEFT;
@@ -44,6 +46,7 @@ static int	apply_int_collisions(t_game *game, t_object *obj)
 	update_player_position(game, obj);
 	game->update_fct = update_end;
 	game->player.x_speed = 0;
+	game->player.x_acceleration = 0;
 	game->player.right = 0;
 	game->player.left = 0;
 	game->player.end_score = get_end_score(&game->player, obj);

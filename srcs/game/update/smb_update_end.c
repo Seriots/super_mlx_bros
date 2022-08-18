@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:44:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 06:59:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 07:15:28 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	flag_reach_end(t_game *game)
 	game->player.top = 0;
 	game->player.bottom = 0;
 	game->player.state = UJUMP;
-	game->player.x_acceleration = V_HOR_MAX;
+	game->player.x_speed = V_ENDJUMP_MAX;
 	game->player.orientation = O_RIGHT;
 	game->player.y_speed = JUMP_SPEED_END;
 	game->player.x_max_speed = V_ENDJUMP_MAX;
