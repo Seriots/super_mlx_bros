@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:16:37 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 06:44:37 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	update_objects(t_game *game, t_dict *all_obj)
 
 int	is_dead(t_game *game)
 {
-	if (g_end == 1)
+	if (g_end == 1 || game->player.y_pos > SCREEN_HEIGHT)
 		mlx_loop_end(game->mlx.display);
 	return (0);
 }
