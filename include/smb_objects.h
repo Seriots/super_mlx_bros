@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:35:49 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 16:56:23 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,8 @@
 /*Fireball properties*/
 # define FB_PATH "files/xpm/objects/fireball/fireball"
 # define FB_NUMBER 4
-# define FB_HBOX 1
-# define FB_ANIM_DURATION 480
+# define FB_HBOX 3
+# define FB_ANIM_DURATION 240
 # define FB_SPEED_DEFAULT 0.05f
 # define FB_SPEED_PLAYER 0.05f
 # define FB_UP_SPEED 0.38f

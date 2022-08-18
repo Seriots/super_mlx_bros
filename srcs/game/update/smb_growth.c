@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 04:48:05 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:19:32 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 16:57:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	shrink(t_game *game)
 	{
 		game->player.state = SHRINK;
 		game->player.anim_length = 3;
-		game->player.anim_duration = PLAYER_GROWTH_ANIM_SPEED / 4;
+		game->player.anim_duration = PLAYER_GROWTH_ANIM_SPEED / 2;
 		game->player.anim_frame_start = game->current_frame;
 		game->update_fct = update_growth;
 	}

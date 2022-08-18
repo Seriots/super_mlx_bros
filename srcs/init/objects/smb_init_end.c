@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:40:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 07:14:19 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 17:02:54 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	get_final_score(t_player *player)
 
 static int	update_player_position(t_game *game, t_object *obj)
 {
-	if (game->player.x_pos + game->player.width < obj->x - game->x_position + 4)
+	if (game->player.x_pos < obj->x - game->x_position)
 		game->player.orientation = O_RIGHT;
 	else
 		game->player.orientation = O_LEFT;

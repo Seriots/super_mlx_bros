@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:12:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:35:07 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 16:56:07 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	plant_pirahna_update(t_game *game, t_dict *elem, t_object *obj)
 		image_value = obj->nb_image - 1;
 	if (image_value == 1 && obj->img != &obj->all_img[image_value])
 	{
-		fireball = add_obj(FIREBALL, obj->x + 4, obj->y);
+		fireball = add_obj(FIREBALL, obj->x + 2, obj->y);
 		init_fireball(game, (t_object **)&fireball->value);
 		dict_add_back(&game->map.all_object, fireball);
 	}
