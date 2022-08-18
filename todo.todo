@@ -43,12 +43,13 @@ x -> Add victory pose
 x -> init image goomba
 x -> init growth obj + object_block + object_block_use + breakable block
 x -> init flower,  player image, fireball
--> init koopa
+x -> init plant piranha
 x -> modifier dict add front
 -> faire les monstre qui subissent des collisions et qui subissent la gravite
--> apres c les ennemis hein
+x -> apres c les ennemis hein
 x -> faire les breakable block
 x -> ajouter les champi, les fleur et les image du flower player
+-> Faire une map
 -> et apres le jeu est jouable
 
 ----------------------------------
@@ -106,3 +107,7 @@ PLAYER:
 
 anim duration, anim image start, anim image len	
 ```
+
+FIREBALL:
+
+Despawn si depasse x temps ou touche un mur de cote

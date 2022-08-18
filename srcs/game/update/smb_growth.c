@@ -6,13 +6,15 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 04:48:05 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 01:50:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 05:19:32 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_settings.h"
 #include "smb_struct.h"
 #include "smb.h"
+
+#include <stdio.h>
 
 static int	get_new_state(t_game *game)
 {
@@ -51,11 +53,27 @@ int	growth(t_game *game)
 
 int	shrink(t_game *game)
 {
-	game->player.state = SHRINK;
-	game->player.anim_length = 3;
-	game->player.anim_duration = PLAYER_GROWTH_ANIM_SPEED / 4;
-	game->player.anim_frame_start = game->current_frame;
-	game->update_fct = update_growth;
+	if (game->player.evolution > LITTLE)
+	{
+		game->player.state = SHRINK;
+		game->player.anim_length = 3;
+		game->player.anim_duration = PLAYER_GROWTH_ANIM_SPEED / 4;
+		game->player.anim_frame_start = game->current_frame;
+		game->update_fct = update_growth;
+	}
+	else
+	{
+		game->player.state = DEAD;
+		game->player.anim_length = 2;
+		game->player.anim_duration = PLAYER_DEAD_ANIM_DURATION;
+		game->player.anim_frame_start = game->current_frame;
+		game->player.y_speed = -START_DEAD_SPEED; 
+		game->player.y_acceleration = 0;
+		game->keypressed_fct = 0;
+		game->keyreleased_fct = 0;
+		game->update_fct = update_death;
+	}
+	game->player.invincible_frame = PLAYER_INVINCIBLE_DURATION;
 	return (0);
 }
 

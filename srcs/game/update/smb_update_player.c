@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:21:31 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 01:34:03 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 05:14:04 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,18 @@ static int	update_victory_image(t_game *game, t_player *player, int value)
 	return (0);
 }
 
+static int	update_dead_image(t_game *game, t_player *player, int value)
+{
+	int	cur_frame;
+	int	image_value;
+
+	cur_frame = (game->current_frame - player->anim_frame_start)
+		% player->anim_duration;
+	image_value = cur_frame / (player->anim_duration / player->anim_length);
+	change_image(game, player, value + image_value);
+	return (0);
+}
+
 static int	update_little(t_game *game, t_player *player, int value)
 {
 	if (player->state == IDLE)
@@ -105,6 +117,8 @@ static int	update_little(t_game *game, t_player *player, int value)
 		update_growth_image(game, player, value + 7);
 	if (player->state == VICTORY)
 		update_victory_image(game, player, value * 2);
+	if (player->state == DEAD)
+		update_dead_image(game, player, LPLAYER_NUMBER - 2);
 	return (0);
 }
 

@@ -1,5 +1,5 @@
 /* XPM */
-static char *goomba_r[] = {
+static char *goomba_l[] = {
 /* columns rows colors chars-per-pixel */
 "16 16 11 1 ",
 "  c #282828",
@@ -26,8 +26,8 @@ static char *goomba_r[] = {
 ".. oo......oo ..",
 "&....@####@....&",
 "&&&&.#%%%%#.&&&&",
-"&&XX.#%%%##.&&&&",
-"&X$$XX####.+X&&&",
-"&   ++X...++X&&&",
-"&&    X&&XXX&&&&"
+"&&&&.##%%%#.XX&&",
+"&&&X+.####XX$$X&",
+"&&&X++...X++   &",
+"&&&&XXX&&X    &&"
 };

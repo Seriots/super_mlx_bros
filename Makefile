@@ -21,6 +21,7 @@ define SRCS :=
 	game/move/smb_move_right.c
 	game/move/smb_move_up.c
 	game/update/smb_growth.c
+	game/update/smb_update_death.c
 	game/update/smb_update_end.c
 	game/update/smb_update_player_state.c
 	game/update/smb_update_player.c
@@ -36,6 +37,8 @@ define SRCS :=
 	init/smb_init_object.c
 	init/smb_init_player.c
 	init/smb_init_tiles.c
+	init/ennemies/smb_init_goomba.c
+	init/ennemies/smb_init_plant_piranha.c
 	init/objects/smb_add_obj.c
 	init/objects/smb_init_block.c
 	init/objects/smb_init_breakable_block.c
@@ -43,6 +46,7 @@ define SRCS :=
 	init/objects/smb_init_castle.c
 	init/objects/smb_init_coin.c
 	init/objects/smb_init_end.c
+	init/objects/smb_init_fireball.c
 	init/objects/smb_init_fire_flower.c
 	init/objects/smb_init_flag.c
 	init/objects/smb_init_loot_block.c

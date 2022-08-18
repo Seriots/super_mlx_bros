@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 06:18:02 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 05:16:37 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	update_objects(t_game *game, t_dict *all_obj)
 
 int	is_dead(t_game *game)
 {
-	if (game->player.state == DEAD || g_end == 1)
+	if (g_end == 1)
 		mlx_loop_end(game->mlx.display);
 	return (0);
 }
@@ -71,8 +71,7 @@ int	update_ingame(t_game *game)
 	update_player_state(game, &game->player);
 	update_player_image(game, &game->player);
 	update_movement(game, &game->player);
-	if (game->player.y_pos > game->map.height)
-		game->player.state = DEAD;
+	check_collisions(game, game->player.x_pos, game->player.y_pos, game->x_position);
 	is_dead(game);
 	return (0);
 }

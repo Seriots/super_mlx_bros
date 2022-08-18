@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 01:46:05 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 05:33:04 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,12 +130,19 @@
 # define PLAYER_RUN_ANIM_SPEED 200
 # define PLAYER_GROWTH_ANIM_SPEED 1000
 # define PLAYER_VICTORY_ANIM_DURATION 800
+# define PLAYER_DEAD_ANIM_DURATION 200
+
+# define START_DEAD_SPEED 0.38f
+# define MAX_DEAD_SPEED 0.25f
+
+# define PLAYER_INVINCIBLE_DURATION 800
 
 /*direction*/
 # define UP 0
 # define DOWN 1
 # define LEFT 2
 # define RIGHT 3
+# define NONE 4
 
 /*Max long*/
 # define MAX_LONG 9223372036854775807

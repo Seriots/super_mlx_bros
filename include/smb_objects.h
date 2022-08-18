@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 00:06:42 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 05:35:49 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@
 # define LOOT_BLOCK "LB"
 # define LOOT_BLOCK_USE "LBU"
 # define BREAKABLE_BLOCK "BB"
+# define GOOMBA "GBA"
+# define PLANT_PIRANHA "PP"
+# define FIREBALL "FB"
 
 /*Char properties*/
 # define CHAR_PATH "files/xpm/charactere/"
@@ -89,5 +92,26 @@
 /*Breakable block properties*/
 # define BB_PATH "files/xpm/objects/breakable_block.xpm"
 # define BB_HBOX 4
+
+/*Goomba properties*/
+# define GBA_PATH "files/xpm/ennemies/goomba/goomba"
+# define GBA_NUMBER 3
+# define GBA_HBOX 4
+# define GBA_ANIM_DURATION 480
+
+/*Plant piranha properties*/
+# define PP_PATH "files/xpm/ennemies/plant_piranha/plant_piranha"
+# define PP_NUMBER 2
+# define PP_HBOX 4
+# define PP_ANIM_DURATION 2000
+
+/*Fireball properties*/
+# define FB_PATH "files/xpm/objects/fireball/fireball"
+# define FB_NUMBER 4
+# define FB_HBOX 1
+# define FB_ANIM_DURATION 480
+# define FB_SPEED_DEFAULT 0.05f
+# define FB_SPEED_PLAYER 0.05f
+# define FB_UP_SPEED 0.38f
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 01:53:42 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 04:54:28 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,9 @@ int				update_player_image(t_game *game, t_player *player);
 /*smb_update_end.c*/
 int				update_quit_map(t_game *game);
 
+/*smb_update_death.c*/
+int				update_death(t_game *game);
+
 /*smb_update_growth.c*/
 int				growth(t_game *game);
 int				shrink(t_game *game);
@@ -124,7 +127,7 @@ int				update_end(t_game *game);
 /*smb_game_loop.c*/
 int				game_loop(t_game *game);
 
-/*smb_init_objects*/
+/*Init Objects*/
 void			set_object(t_game *game, char *key, t_object **object);
 void			init_start(t_game *game, t_object **obj);
 void			init_end(t_game *game, t_object **obj);
@@ -139,6 +142,11 @@ void			init_fire_flower(t_game *game, t_object **obj);
 void			init_red_champ(t_game *game, t_object **obj);
 void			init_loot_block(t_game *game, t_object **obj);
 void			init_breakable_block(t_game *game, t_object **obj);
+void			init_fireball(t_game *game, t_object **obj);
+
+/*Init Ennemies*/
+void			init_plant_pirahna(t_game *game, t_object **obj);
+void			init_goomba(t_game *game, t_object **obj);
 
 /*smb_init_player.c*/
 int				init_all_fire_player(t_game *game);

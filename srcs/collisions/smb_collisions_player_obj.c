@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:28:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 02:28:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 05:33:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int	check_col_player_obj(t_game *game, float x_pos, float y_pos, float pos)
 	p_hbox.y_max = max((int)floor(game->player.y_pos + game->player.height),
 			(int)floor(y_pos + game->player.height));
 	p_hbox.y_min = min((int)floor(game->player.y_pos), (int)floor(y_pos));
-	p_hbox.direction = DOWN;
+	p_hbox.direction = NONE;
 	if (game->player.x_pos > x_pos || game->x_position > pos)
 		p_hbox.direction = LEFT;
 	else if (game->player.x_pos < x_pos || game->x_position < pos)

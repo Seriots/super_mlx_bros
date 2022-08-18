@@ -1,0 +1,19 @@
+/* XPM */
+static char *fireball4[] = {
+/* columns rows colors chars-per-pixel */
+"8 8 5 1 ",
+"  c #B82800",
+". c #F87800",
+"X c #F88800",
+"o c #F8C000",
+"O c None",
+/* pixels */
+"OO   OOO",
+"O XXX OO",
+" XooX OO",
+" Xo.X OO",
+" XX  OOO",
+"O  OOOOO",
+"OO  O OO",
+"OOOOOOOO"
+};

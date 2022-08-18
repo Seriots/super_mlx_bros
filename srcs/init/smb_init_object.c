@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 23:12:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/18 04:29:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ void	set_object(t_game *game, char *key, t_object **object)
 		init_loot_block(game, object);
 	else if (!ft_strcmp(key, RED_CHAMP))
 		init_red_champ(game, object);
+	else if (!ft_strcmp(key, GOOMBA))
+		init_goomba(game, object);
+	else if (!ft_strcmp(key, PLANT_PIRANHA))
+		init_plant_pirahna(game, object);
+	else if (!ft_strcmp(key, FIREBALL))
+		init_fireball(game, object);
 }
 
 t_object	*obj_new(char *tag, float x, float y)
@@ -87,5 +93,11 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 		return (dict_new(BREAKABLE_BLOCK, object));
 	else if (!ft_strcmp(tag, RED_CHAMP))
 		return (dict_new(RED_CHAMP, object));
+	else if (!ft_strcmp(tag, GOOMBA))
+		return (dict_new(GOOMBA, object));
+	else if (!ft_strcmp(tag, PLANT_PIRANHA))
+		return (dict_new(PLANT_PIRANHA, object));
+	else if (!ft_strcmp(tag, FIREBALL))
+		return (dict_new(FIREBALL, object));
 	return (dict_new("OBJ", object));
 }
