@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:05:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 12:32:36 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:52:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 #include <stdio.h>
 
-int	goomba_death_update(t_game *game, t_dict *elem, t_object *obj)
+int	goomba_del(t_game *game, t_dict *elem, t_object *obj)
 {
 	t_dict	*wincoin;
 
@@ -45,19 +45,13 @@ int	goomba_death_update(t_game *game, t_dict *elem, t_object *obj)
 int	goomba_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 {
 	(void)elem;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - GBA_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + GBA_HBOX
-		|| game->player.y_pos + game->player.height
-		< (obj->y + obj->height / 2) - GBA_HBOX
-		|| game->player.y_pos > (obj->y + obj->height / 2) + GBA_HBOX)
+	if (check_hbox(game, obj, GOOMBA_HBOX, GOOMBA_HBOX))
 		return (0);
 	if (!game->player.invincible_frame && direction != DOWN)
 		shrink(game);
 	if (direction == DOWN)
 	{
-		obj->update_fonction = goomba_death_update;
+		obj->update_fonction = obj->del_fonction;
 		obj->is_collide = 0;
 		obj->start_frame = game->current_frame;
 		game->player.y_speed = REJUMP_SPEED;
@@ -100,7 +94,8 @@ void	init_goomba(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = goomba_collisions;
 	(*obj)->update_fonction = goomba_update;
+	(*obj)->del_fonction = goomba_del;
 	(*obj)->y_acceleration = 0.0;
 	(*obj)->y_speed = 0.0;
-	(*obj)->x_speed = GBA_X_SPEED;
+	(*obj)->x_speed = -GBA_X_SPEED;
 }

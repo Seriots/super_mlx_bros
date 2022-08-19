@@ -77,6 +77,8 @@ x -> List chainee de tout mes elements a redner: all_image, current_image, start
 -> les tuyau + sub area
 -> les laucher de fusee
 -> faire les wall en fond qu'on traverse par le dessous mais qu'on reste sur le dessus (avec peut etre invisible lines), refaire le parsing des objets pour pouvoir faire un truc special selon le tag.
+-> fix la mort quand peut pas jump
+
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:07:14 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:10:19 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:36:34 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ int	red_champ_collisions(t_game *game, t_dict *elem, t_object *obj, int dir)
 
 int	red_champ_update(t_game *game, t_dict *elem, t_object *obj)
 {
+	apply_gravity_obj(game, obj, REDC_Y_MAX_SPEED);
+	apply_hor_movement_obj(game, obj);
+	if (obj->y > SCREEN_HEIGHT)
+		dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
+
+int	red_champ_spawn_update(t_game *game, t_dict *elem, t_object *obj)
+{
 	(void)game;
 	(void)elem;
 	if (obj->y > obj->animation_duration - obj->height)
@@ -44,7 +53,7 @@ int	red_champ_update(t_game *game, t_dict *elem, t_object *obj)
 	else
 	{
 		obj->y = obj->animation_duration - obj->height;
-		obj->update_fonction = 0;
+		obj->update_fonction = red_champ_update;
 	}
 	return (0);
 }
@@ -62,5 +71,9 @@ void	init_red_champ(t_game *game, t_object **obj)
 	(*obj)->nb_image = 1;
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = red_champ_collisions;
-	(*obj)->update_fonction = red_champ_update;
+	(*obj)->update_fonction = red_champ_spawn_update;
+	(*obj)->del_fonction = 0;
+	(*obj)->y_acceleration = 0.0;
+	(*obj)->y_speed = 0.0;
+	(*obj)->x_speed = REDC_X_SPEED;
 }

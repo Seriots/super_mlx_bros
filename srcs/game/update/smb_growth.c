@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 04:48:05 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 13:02:44 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:44:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	shrink(t_game *game)
 	}
 	else
 	{
+		game->update_fct = update_death;
 		game->player.state = DEAD;
 		game->player.anim_length = 2;
 		game->player.anim_duration = PLAYER_DEAD_ANIM_DURATION;
@@ -71,7 +72,6 @@ int	shrink(t_game *game)
 		game->player.y_acceleration = 0;
 		game->keypressed_fct = 0;
 		game->keyreleased_fct = 0;
-		game->update_fct = update_death;
 	}
 	game->player.invincible_frame = PLAYER_INVINCIBLE_DURATION;
 	return (0);

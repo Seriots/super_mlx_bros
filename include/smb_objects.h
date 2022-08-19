@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 12:38:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:27:59 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@
 # define REDC_PATH "files/xpm/objects/red_champi.xpm"
 # define REDC_HBOX 4
 # define REDC_SPAWN_SPEED 0.015f
+# define REDC_X_SPEED 0.035f
+# define REDC_Y_MAX_SPEED 0.2f
 
 /*Loot block properties*/
 # define LB_PATH "files/xpm/objects/loot_block.xpm"

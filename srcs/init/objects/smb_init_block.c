@@ -6,13 +6,19 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 21:29:46 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 03:34:19 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:53:52 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_struct.h"
 
 #include <stdio.h>
+
+int	block_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
 
 void	init_block(t_game *game, t_object **obj)
 {
@@ -28,4 +34,5 @@ void	init_block(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = 0;
 	(*obj)->update_fonction = 0;
+	(*obj)->del_fonction = block_del;
 }

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 13:02:50 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:35:13 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ typedef struct s_object
 	int				(*col_fonction)(t_game *game, t_dict *elem,
 			struct s_object *obj, int direction);
 	int				(*update_fonction)(t_game *game, t_dict *elem,
+			struct s_object *obj);
+	int				(*del_fonction)(t_game *game, t_dict *elem,
 			struct s_object *obj);
 }	t_object;
 

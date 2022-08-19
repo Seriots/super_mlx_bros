@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:34:56 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:25:29 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:37:14 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void	init_start(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = 0;
 	(*obj)->update_fonction = 0;
+	(*obj)->del_fonction = 0;
 }

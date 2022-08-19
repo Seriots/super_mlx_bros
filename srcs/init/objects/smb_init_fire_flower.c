@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:04:32 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:10:35 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:57:14 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	fire_flower_collisions(t_game *game, t_dict *elem, t_object *obj, int dir)
 		return (0);
 	if (game->player.evolution < FIRE)
 		growth(game);
-	dict_delone(&game->map.all_object, elem, 0, free);
+	obj->update_fonction = obj->del_fonction;
 	return (0);
 }
 
@@ -50,6 +50,12 @@ int	fire_flower_update(t_game *game, t_dict *elem, t_object *obj)
 	return (0);
 }
 
+int	fire_flower_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
+
 void	init_fire_flower(t_game *game, t_object **obj)
 {
 	(*obj)->all_img = 0;
@@ -64,4 +70,5 @@ void	init_fire_flower(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = fire_flower_collisions;
 	(*obj)->update_fonction = fire_flower_update;
+	(*obj)->del_fonction = fire_flower_del;
 }

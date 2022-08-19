@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 00:15:23 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/12 22:27:21 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:37:11 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void	init_sign(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = sign_collisions;
 	(*obj)->update_fonction = 0;
+	(*obj)->del_fonction = 0;
 }

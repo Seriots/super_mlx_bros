@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:17:48 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:09:33 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:59:19 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,15 @@ int	fireball_default_update(t_game *game, t_dict *elem, t_object *obj)
 	if (obj->y - FB_SPEED_DEFAULT * game->delay + obj->height < 0
 		|| check_collisions_obj(game, obj, obj->x, obj->y
 			- FB_SPEED_DEFAULT * game->delay))
-		dict_delone(&game->map.all_object, elem, 0, free);
+		obj->update_fonction = obj->del_fonction;
 	else
 		obj->y -= FB_SPEED_DEFAULT * game->delay;
+	return (0);
+}
+
+int	fireball_default_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
@@ -66,4 +72,5 @@ void	init_fireball(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = fireball_default_collide;
 	(*obj)->update_fonction = fireball_default_update;
+	(*obj)->del_fonction = fireball_default_del;
 }

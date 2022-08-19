@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:19:48 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:51:39 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,7 @@ int				update_end(t_game *game);
 int				game_loop(t_game *game);
 
 /*Obj utils*/
+int				check_hbox(t_game *game, t_object *obj, int x_hbox, int y_hbox);
 int				update_obj_img(t_game *game, t_object *obj);
 
 /*Init Objects*/

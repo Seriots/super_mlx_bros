@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:29:47 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 20:26:03 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:57:27 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	coin_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 	(void)direction;
 	(void)obj;
 	game->player.coins++;
-	dict_delone(&game->map.all_object, elem, 0, free);
+	obj->update_fonction = obj->del_fonction;
 	return (0);
 }
 
@@ -43,6 +43,12 @@ int	coin_update(t_game *game, t_dict *elem, t_object *obj)
 	return (0);
 }
 
+int	coin_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
+
 void	init_coin(t_game *game, t_object **obj)
 {
 	(*obj)->all_img = game->all_images.all_coins;
@@ -57,4 +63,5 @@ void	init_coin(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = coin_collisions;
 	(*obj)->update_fonction = coin_update;
+	(*obj)->del_fonction = coin_del;
 }

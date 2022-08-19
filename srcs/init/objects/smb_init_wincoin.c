@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:52:32 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 02:03:58 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:37:18 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ void	init_wincoin(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = 0;
 	(*obj)->update_fonction = wincoin_update;
+	(*obj)->del_fonction = 0;
 }

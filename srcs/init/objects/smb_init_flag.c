@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 23:03:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 06:06:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:59:54 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int	flag_update(t_game *game, t_dict *elem, t_object *obj)
 	return (0);
 }
 
+int   flag_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
+
 void	init_flag(t_game *game, t_object **obj)
 {
 	(*obj)->all_img = 0;
@@ -44,4 +50,5 @@ void	init_flag(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = 0;
 	(*obj)->update_fonction = flag_update;
+	(*obj)->del_fonction = flag_del;
 }

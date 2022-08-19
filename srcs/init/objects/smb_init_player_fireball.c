@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:33:59 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:17:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 15:00:56 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 
 #include <stdlib.h>
 #include <math.h>
+
+int	fireball_player_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
 
 void	init_fireball_player(t_game *game, t_object **obj)
 {
@@ -35,6 +41,7 @@ void	init_fireball_player(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = 0;
 	(*obj)->update_fonction = fireball_player_update;
+	(*obj)->del_fonction = fireball_player_del;
 	if (game->player.orientation == O_RIGHT)
 		(*obj)->x_speed = FB_SPEED_PLAYER;
 	else

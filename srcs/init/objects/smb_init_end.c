@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:40:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 17:02:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:56:13 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,12 @@ int	end_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 	return (0);
 }
 
+int	end_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
+
 void	init_end(t_game *game, t_object **obj)
 {
 	(*obj)->all_img = 0;
@@ -89,6 +95,7 @@ void	init_end(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = end_collisions;
 	(*obj)->update_fonction = 0;
+	(*obj)->del_fonction = end_del;
 	dict_add_back(&game->map.all_object,
 		add_obj(BLOCK, (*obj)->x - 4, (*obj)->y + (*obj)->height));
 }

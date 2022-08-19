@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:09:18 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:11:03 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:57:57 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,13 @@ int	breakable_block_collisions(t_game *game, t_dict *elem,
 		> (obj->x + obj->width / 2) + BB_HBOX)
 		return (0);
 	if (direction == UP)
-		dict_delone(&game->map.all_object, elem, 0, free);
+		obj->update_fonction = obj->del_fonction;
+	return (0);
+}
+
+int	breakable_block_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
@@ -46,4 +52,5 @@ void	init_breakable_block(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = breakable_block_collisions;
 	(*obj)->update_fonction = 0;
+	(*obj)->del_fonction = breakable_block_del;
 }

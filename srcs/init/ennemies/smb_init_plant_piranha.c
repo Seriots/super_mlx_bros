@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:12:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:13:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:52:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ int	plant_pirahna_collisions(t_game *game, t_dict *elem, t_object *obj, int dir)
 	(void)dir;
 	(void)obj;
 	(void)elem;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - PP_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + PP_HBOX
-		|| game->player.y_pos + game->player.height
-		< (obj->y + obj->height / 2) - PP_HBOX
-		|| game->player.y_pos > (obj->y + obj->height / 2) + PP_HBOX)
+	if (check_hbox(game, obj, PP_HBOX, PP_HBOX))
 		return (0);
 	if (!game->player.invincible_frame)
 		shrink(game);
+	return (0);
+}
+
+int	plant_pirahna_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
@@ -75,4 +75,5 @@ void	init_plant_pirahna(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = plant_pirahna_collisions;
 	(*obj)->update_fonction = plant_pirahna_update;
+	(*obj)->del_fonction = plant_pirahna_del;
 }

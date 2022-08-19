@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 23:28:01 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 21:06:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:54:35 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int	btr_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 	return (0);
 }
 
+int	btr_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
+
 void	init_btr(t_game *game, t_object **obj)
 {
 	(*obj)->all_img = 0;
@@ -44,4 +50,5 @@ void	init_btr(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = btr_collisions;
 	(*obj)->update_fonction = 0;
+	(*obj)->del_fonction = btr_del;
 }

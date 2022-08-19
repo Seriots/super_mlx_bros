@@ -65,7 +65,7 @@ define SRCS :=
 	init/objects/smb_init_sign.c
 	init/objects/smb_init_start.c
 	init/objects/smb_init_wincoin.c
-	init/objects/smb_update_obj_img.c
+	init/objects/smb_obj_utils.c
 	parsing/smb_parsing_checker.c
 	parsing/smb_parsing_object.c
 	parsing/smb_parsing_setter.c
