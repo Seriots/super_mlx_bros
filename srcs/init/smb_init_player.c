@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:10:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 04:55:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:51:07 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ int	init_player_next(t_game *game)
 	game->player.coin_score = 0;
 	game->player.final_score = 0;
 	game->player.invincible_frame = 0;
+	game->player.fireball_frame = 0;
 	return (0);
 }
 

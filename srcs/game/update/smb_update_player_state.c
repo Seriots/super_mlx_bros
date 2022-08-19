@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 19:11:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 04:57:37 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:53:39 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,9 @@ int	update_player_state(t_game *game, t_player *player)
 		player->invincible_frame -= game->delay;
 	if (player->invincible_frame < 0)
 		player->invincible_frame = 0;
+	if (player->fireball_frame > 0)
+		player->fireball_frame -= game->delay;
+	if (player->fireball_frame < 0)
+		player->fireball_frame = 0;
 	return (0);
 }

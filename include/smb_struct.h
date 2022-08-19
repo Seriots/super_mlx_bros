@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 11:03:52 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:50:40 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ typedef struct s_player
 	int			coin_score;
 	int			final_score;
 	int			invincible_frame;
+	int			fireball_frame;
 }	t_player;
 
 typedef struct s_start
