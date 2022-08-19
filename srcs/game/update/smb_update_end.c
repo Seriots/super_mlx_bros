@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:44:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 07:15:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 08:10:28 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,13 @@ int	update_end(t_game *game)
 	game->player.state = BAR;
 	update_player_image(game, &game->player);
 	search = dict_getelem_key(game->map.all_object, FLAG);
-	if (search)
-		flag = (t_object *)search->value;
+	if (!search)
+		return (0);
+	flag = (t_object *)search->value;
 	search = dict_getelem_key(game->map.all_object, END);
-	if (search)
-		end_bar = (t_object *)search->value;
+	if (!search)
+		return(0);
+	end_bar = (t_object *)search->value;
 	if (!check_collisions_bottom(game, game->player.x_pos,
 			game->player.y_pos + END_BAR_GRAVITY * game->delay, game->x_position))
 		game->player.y_pos += END_BAR_GRAVITY * game->delay;

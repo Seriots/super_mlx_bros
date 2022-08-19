@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 04:45:19 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:03:52 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,31 +50,36 @@ typedef struct s_coord
 
 typedef struct s_collisions
 {
-	int	x;
-	int	y;
-	int	height;
-	int	width;
+	int			x;
+	int			y;
+	int			height;
+	int			width;
+	int 		direction;
 }	t_collisions;
 
 typedef struct s_object
 {
-	t_img_data	*all_img;
-	t_img_data	*img;
-	float		x;
-	float		y;
-	int			width;
-	int			height;
-	bool		is_strong;
-	bool		is_collide;
-	bool		is_visible;
-	int			start_frame;
-	int			nb_image;
-	int			animation_duration;
-	int			col_count;
-	int			(*col_fonction)(t_game *game, t_dict *elem,
-			struct s_object *obj, int direction);
-	int			(*update_fonction)(t_game *game, t_dict *elem,
-			struct s_object *obj);
+	t_img_data		*all_img;
+	t_img_data		*img;
+	float			x;
+	float			y;
+	int				width;
+	int				height;
+	bool			is_strong;
+	bool			is_collide;
+	bool			is_visible;
+	int				start_frame;
+	int				nb_image;
+	int				animation_duration;
+	int				col_count;
+	float			y_speed;
+	float			y_acceleration;
+	float			x_speed;
+	t_collisions	col_object;
+	int				(*col_fonction)(t_game *game, t_dict *elem,
+				struct s_object *obj, int direction);
+	int				(*update_fonction)(t_game *game, t_dict *elem,
+				struct s_object *obj);
 }	t_object;
 
 typedef struct s_map

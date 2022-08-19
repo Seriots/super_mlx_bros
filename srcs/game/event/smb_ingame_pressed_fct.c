@@ -6,12 +6,15 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 02:34:04 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 01:53:55 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 10:43:36 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "dict.h"
+
 #include "smb_struct.h"
 #include "smb_settings.h"
+#include "smb_objects.h"
 #include "smb.h"
 
 #include <stdio.h>
@@ -56,7 +59,11 @@ int	ingame_bottom_pressed(t_game *game)
 
 int		ingame_fireball_pressed(t_game *game)
 {
+	t_dict *fireball;
+	
 	(void)game;
-	printf("fireball pressed\n");
+	fireball = add_obj(FIREBALL_PLAYER, game->player.x_pos + game->x_position, game->player.y_pos + game->player.height / 2);
+	init_fireball_player(game, (t_object **)&fireball->value);
+	dict_add_back(&game->map.all_object, fireball);
 	return (0);
 }

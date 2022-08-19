@@ -6,9 +6,11 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:05:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:34:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 09:31:30 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "dict.h"
 
 #include "smb_struct.h"
 #include "smb_objects.h"
@@ -77,6 +79,10 @@ int	goomba_update(t_game *game, t_dict *elem, t_object *obj)
 	if (image_value >= obj->nb_image)
 		image_value = obj->nb_image - 1;
 	obj->img = &obj->all_img[image_value];
+	apply_gravity_obj(game, obj);
+	apply_hor_movement_obj(game, obj);
+	if (obj->y > SCREEN_HEIGHT)
+		dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
@@ -94,4 +100,7 @@ void	init_goomba(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = goomba_collisions;
 	(*obj)->update_fonction = goomba_update;
+	(*obj)->y_acceleration = 0.0;
+	(*obj)->y_speed = 0.0;
+	(*obj)->x_speed = GBA_X_SPEED;
 }

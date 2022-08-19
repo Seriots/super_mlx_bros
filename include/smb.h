@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 04:54:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:06:55 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,13 @@ int				boucle_col_right(t_collisions col, t_game *game);
 int				boucle_col_left(t_collisions col, t_game *game);
 
 /*smb_collisions.c*/
+int				check_collide_obj(t_game *game, t_object *obj, t_dict *all_obj, t_hbox *p_hbox);
+int				check_col_obj_map(t_game *game, t_object *obj, float x_pos, float y_pos);
+void			get_new_limit_wall(t_collisions value, t_hbox *p_hbox);
+int				check_collisions_obj(t_game *game, t_object *obj,
+					float x_pos, float y_pos);
+int				check_collisions_bottom_obj(t_game *game, t_object *obj,
+					float x_pos, float y_pos);
 int				check_collisions_bottom_map(t_game *game, float x_pos,
 					float y_pos, float pos);
 int				check_col_player_obj_bottom(t_game *game, float x_pos,
@@ -95,7 +102,10 @@ int				check_collisions_bottom(t_game *game, float x_pos,
 int				check_collisions(t_game *game, float x_pos,
 					float y_pos, float position);
 
-/*smb_move*.c*/
+/*smb_move.c*/
+int				apply_gravity_obj(t_game *game, t_object *obj);
+int				apply_hor_movement_obj(t_game *game, t_object *obj);
+
 int				move_right(t_game *game, t_player *player);
 int				move_left(t_game *game, t_player *player);
 int				apply_hor_movement(t_game *game, t_player *player);
@@ -127,6 +137,9 @@ int				update_end(t_game *game);
 /*smb_game_loop.c*/
 int				game_loop(t_game *game);
 
+/*Obj utils*/
+int				update_obj_img(t_game *game, t_object *obj);
+
 /*Init Objects*/
 void			set_object(t_game *game, char *key, t_object **object);
 void			init_start(t_game *game, t_object **obj);
@@ -143,6 +156,7 @@ void			init_red_champ(t_game *game, t_object **obj);
 void			init_loot_block(t_game *game, t_object **obj);
 void			init_breakable_block(t_game *game, t_object **obj);
 void			init_fireball(t_game *game, t_object **obj);
+void			init_fireball_player(t_game *game, t_object **obj);
 
 /*Init Ennemies*/
 void			init_plant_pirahna(t_game *game, t_object **obj);

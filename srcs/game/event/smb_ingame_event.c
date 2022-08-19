@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 21:12:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 01:54:34 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 10:43:05 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	key_pressed_ingame(KeySym keycode, t_game *game)
 		ingame_bottom_pressed(game);
 	else if (keycode == XK_Up || keycode == XK_space)
 		ingame_top_pressed(game);
-	else if (keycode == XK_e && game->player.evolution == FIRE)
+	else if (keycode == XK_e && game->player.evolution == FIRE && game->player.state != CROUCH)
 		ingame_fireball_pressed(game);
 	return (0);
 }

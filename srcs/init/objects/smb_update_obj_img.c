@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   smb_objects_fonction.h                             :+:      :+:    :+:   */
+/*   smb_update_obj_img.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 21:42:55 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 11:30:36 by lgiband          ###   ########.fr       */
+/*   Created: 2022/08/19 09:50:21 by lgiband           #+#    #+#             */
+/*   Updated: 2022/08/19 10:08:25 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SMB_OBJECTS_FONCTION_H
-# define SMB_OBJECTS_FONCTION_H
+#include "smb_struct.h"
 
-# include "smb_struct.h"
+int	update_obj_img(t_game *game, t_object *obj)
+{
+	long int	cur_frame;
+	int			image_value;
 
-/*coin*/
-int	coin_collisions(t_game *game, t_dict *elem, t_object *obj, int direction);
-int	coin_update(t_game *game, t_dict *elem, t_object *obj);
-
-/*PLayer Fireball*/
-int	check_collisions_fireball(t_game *game, t_object *obj, float x_pos, float y_pos);
-
-#endif
+	cur_frame = (game->current_frame - obj->start_frame)
+		% obj->animation_duration;
+	image_value = cur_frame / (obj->animation_duration / obj->nb_image);
+	if (image_value >= obj->nb_image)
+		image_value = obj->nb_image - 1;
+	obj->img = &obj->all_img[image_value];
+	return (0);
+}

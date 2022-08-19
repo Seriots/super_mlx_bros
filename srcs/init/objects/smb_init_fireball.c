@@ -6,9 +6,10 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:17:48 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:35:19 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 09:51:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "smb_struct.h"
 #include "smb_objects.h"
@@ -39,28 +40,13 @@ int	fireball_default_collide(t_game *game, t_dict *elem, t_object *obj, int dire
 	return (0);
 }
 
-int	fireball_player_update(t_game *game, t_dict *elem, t_object *obj)
-{
-	(void)game;
-	(void)elem;
-	(void)obj;
-	return (0);
-}
-
 int	fireball_default_update(t_game *game, t_dict *elem, t_object *obj)
 {
-	long int	cur_frame;
-	int			image_value;
-
-	cur_frame = (game->current_frame - obj->start_frame)
-		% obj->animation_duration;
-	image_value = cur_frame / (obj->animation_duration / obj->nb_image);
-	if (image_value >= obj->nb_image)
-		image_value = obj->nb_image - 1;
-	obj->img = &obj->all_img[image_value];
-	obj->y -= FB_SPEED_DEFAULT * game->delay;
-	if (obj->y + obj->height < 0)
+	update_obj_img(game, obj);
+	if (obj->y - FB_SPEED_DEFAULT * game->delay + obj->height < 0 || check_collisions_obj(game , obj, obj->x, obj->y - FB_SPEED_DEFAULT * game->delay))
 		dict_delone(&game->map.all_object, elem, 0, free);
+	else
+		obj->y -= FB_SPEED_DEFAULT * game->delay;
 	return (0);
 }
 

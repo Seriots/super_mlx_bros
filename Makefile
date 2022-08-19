@@ -5,9 +5,12 @@ MAKE = /bin/make
 
 define SRCS :=
 	main.c
+	collisions/objects/smb_collisions_fireball_player.c
 	collisions/smb_collisions_loop.c
 	collisions/smb_collisions_player_map.c
 	collisions/smb_collisions_player_obj_bottom.c
+	collisions/smb_collisions_obj_bottom.c
+	collisions/smb_collisions_obj.c
 	collisions/smb_collisions_player_obj.c
 	collisions/smb_collisions.c
 	game/display/smb_display.c
@@ -16,6 +19,8 @@ define SRCS :=
 	game/display/smb_put_map_to_img.c
 	game/display/smb_put_objects_to_img.c
 	game/display/smb_put_player_to_img.c
+	game/move/smb_gravity_obj.c
+	game/move/smb_hor_movement_obj.c
 	game/move/smb_move_hor.c
 	game/move/smb_move_left.c
 	game/move/smb_move_right.c
@@ -50,10 +55,12 @@ define SRCS :=
 	init/objects/smb_init_fire_flower.c
 	init/objects/smb_init_flag.c
 	init/objects/smb_init_loot_block.c
+	init/objects/smb_init_player_fireball.c
 	init/objects/smb_init_redchamp.c
 	init/objects/smb_init_sign.c
 	init/objects/smb_init_start.c
 	init/objects/smb_init_wincoin.c
+	init/objects/smb_update_obj_img.c
 	parsing/smb_parsing_checker.c
 	parsing/smb_parsing_object.c
 	parsing/smb_parsing_setter.c

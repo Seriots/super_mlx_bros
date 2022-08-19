@@ -59,6 +59,7 @@ x -> Gestion jolie des free a l'initialisation si fail
 x -> Parsing des objets, et affichage des objest et collisions des objets
 -> fix jump when two key are pressed at the same time
 x -> Fix l'arrive sur le flag si j'y arrive par au-dessus, replacement du player
+-> faire des animations de destruction des objs
 -> trouver une meilleur image du big player sur la end bar
 -> reset la x_speed si collisions avec un wall en face
 -> Wall Jump
@@ -73,6 +74,7 @@ x -> List chainee de tout mes elements a redner: all_image, current_image, start
 -> Empecher le deplacement horizontal en mode crouch mais le faire glisser
 -> les tuyau + sub area
 -> les laucher de fusee
+-> faire les wall en fond qu'on traverse par le dessous mais qu'on reste sur le dessus (avec peut etre invisible lines), refaire le parsing des objets pour pouvoir faire un truc special selon le tag.
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions

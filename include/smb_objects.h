@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 16:56:23 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 10:43:56 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define GOOMBA "GBA"
 # define PLANT_PIRANHA "PP"
 # define FIREBALL "FB"
+# define FIREBALL_PLAYER "FBP"
 
 /*Char properties*/
 # define CHAR_PATH "files/xpm/charactere/"
@@ -98,6 +99,8 @@
 # define GBA_NUMBER 3
 # define GBA_HBOX 4
 # define GBA_ANIM_DURATION 480
+# define GBA_X_SPEED 0.065f
+# define GBA_Y_MAX_SPEED 0.3f
 
 /*Plant piranha properties*/
 # define PP_PATH "files/xpm/ennemies/plant_piranha/plant_piranha"
@@ -110,8 +113,12 @@
 # define FB_NUMBER 4
 # define FB_HBOX 3
 # define FB_ANIM_DURATION 240
+# define FB_LIVE_DURATION 1200
 # define FB_SPEED_DEFAULT 0.05f
-# define FB_SPEED_PLAYER 0.05f
-# define FB_UP_SPEED 0.38f
+# define FB_SPEED_PLAYER 0.3f
+# define FB_UP_SPEED 0.30f
+# define FB_START_UP_SPEED 0.18f
+# define FB_MAX_SPEED 0.5f
+# define FB_GRAVITY 0.00003f
 
 #endif

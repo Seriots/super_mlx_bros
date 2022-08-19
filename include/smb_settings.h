@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:33:04 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 08:50:57 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,11 +138,11 @@
 # define PLAYER_INVINCIBLE_DURATION 800
 
 /*direction*/
-# define UP 0
+# define NONE 0
 # define DOWN 1
 # define LEFT 2
 # define RIGHT 3
-# define NONE 4
+# define UP 4
 
 /*Max long*/
 # define MAX_LONG 9223372036854775807

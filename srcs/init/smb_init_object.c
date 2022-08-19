@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 04:29:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 10:10:31 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	set_object(t_game *game, char *key, t_object **object)
 		init_plant_pirahna(game, object);
 	else if (!ft_strcmp(key, FIREBALL))
 		init_fireball(game, object);
+	else if (!ft_strcmp(key, FIREBALL_PLAYER))
+		init_fireball_player(game, object);
 }
 
 t_object	*obj_new(char *tag, float x, float y)
@@ -63,7 +65,8 @@ t_object	*obj_new(char *tag, float x, float y)
 	if (!obj)
 		return (0);
 	if (tag)
-		*obj = (t_object){.x = x, .y = y, .col_count = 0};
+		*obj = (t_object){.x = x, .y = y, .col_count = 0,
+			.y_speed = 0.0, .y_acceleration = 0.0, .x_speed = 0.0, .col_object = {0}};
 	return (obj);
 }
 
@@ -99,5 +102,7 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 		return (dict_new(PLANT_PIRANHA, object));
 	else if (!ft_strcmp(tag, FIREBALL))
 		return (dict_new(FIREBALL, object));
+	else if (!ft_strcmp(tag, FIREBALL_PLAYER))
+		return (dict_new(FIREBALL_PLAYER, object));
 	return (dict_new("OBJ", object));
 }
