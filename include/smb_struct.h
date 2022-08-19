@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:35:13 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:10:51 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_object
 	float			y_acceleration;
 	float			x_speed;
 	t_collisions	col_object;
-	int				(*col_fonction)(t_game *game, t_dict *elem,
+	int				(*col_fonction)(t_game *game,
 			struct s_object *obj, int direction);
 	int				(*update_fonction)(t_game *game, t_dict *elem,
 			struct s_object *obj);

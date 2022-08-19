@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:07:14 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:36:34 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:25:30 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,15 @@
 
 #include <stdlib.h>
 
-int	red_champ_collisions(t_game *game, t_dict *elem, t_object *obj, int dir)
+int	red_champ_collisions(t_game *game, t_object *obj, int dir)
 {
 	(void)dir;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - REDC_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + REDC_HBOX
-		|| game->player.y_pos + game->player.height
-		< (obj->y + obj->height / 2) - REDC_HBOX
-		|| game->player.y_pos > (obj->y + obj->height / 2) + REDC_HBOX)
+	if (check_hbox(game, obj, REDC_HBOX, REDC_HBOX))
 		return (0);
 	if (game->player.evolution == LITTLE)
 		growth(game);
-	dict_delone(&game->map.all_object, elem, 0, free);
+	obj->is_visible = 0;
+	obj->update_fonction = obj->del_fonction;
 	return (0);
 }
 
@@ -58,6 +53,13 @@ int	red_champ_spawn_update(t_game *game, t_dict *elem, t_object *obj)
 	return (0);
 }
 
+int   red_champ_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	(void)obj;
+	dict_delone(&game->map.all_object, elem, 0, free);
+	return (0);
+}
+
 void	init_red_champ(t_game *game, t_object **obj)
 {
 	(*obj)->all_img = 0;
@@ -72,7 +74,7 @@ void	init_red_champ(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = red_champ_collisions;
 	(*obj)->update_fonction = red_champ_spawn_update;
-	(*obj)->del_fonction = 0;
+	(*obj)->del_fonction = red_champ_del;
 	(*obj)->y_acceleration = 0.0;
 	(*obj)->y_speed = 0.0;
 	(*obj)->x_speed = REDC_X_SPEED;

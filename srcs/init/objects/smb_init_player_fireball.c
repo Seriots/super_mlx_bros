@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:33:59 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 15:00:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:14:31 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 int	fireball_player_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

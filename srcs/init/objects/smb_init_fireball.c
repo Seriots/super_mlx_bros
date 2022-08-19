@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:17:48 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:59:19 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:20:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,10 @@
 
 #include <stdlib.h>
 
-#include <stdio.h>
-
-int	fireball_default_collide(t_game *game, t_dict *elem,
-	t_object *obj, int direction)
+int	fireball_default_collide(t_game *game, t_object *obj, int direction)
 {
 	(void)direction;
-	(void)obj;
-	(void)game;
-	(void)elem;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - FB_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + FB_HBOX
-		|| game->player.y_pos + game->player.height
-		< (obj->y + obj->height / 2) - FB_HBOX
-		|| game->player.y_pos > (obj->y + obj->height / 2) + FB_HBOX)
+	if (!check_hbox(game, obj, FB_HBOX, FB_HBOX))
 		return (0);
 	if (!game->player.invincible_frame)
 		shrink(game);
@@ -42,6 +30,7 @@ int	fireball_default_collide(t_game *game, t_dict *elem,
 
 int	fireball_default_update(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)elem;
 	update_obj_img(game, obj);
 	if (obj->y - FB_SPEED_DEFAULT * game->delay + obj->height < 0
 		|| check_collisions_obj(game, obj, obj->x, obj->y
@@ -54,6 +43,7 @@ int	fireball_default_update(t_game *game, t_dict *elem, t_object *obj)
 
 int	fireball_default_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

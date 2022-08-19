@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 00:15:23 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:37:11 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:16:07 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 #include "smb_objects.h"
 #include "smb_objects_fonction.h"
 
-#include <stdio.h>
+#include <stdlib.h>
 
-int	sign_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+int sign_del(t_game *game, t_dict *elem, t_object *obj)
 {
-	(void)game;
-	(void)direction;
-	(void)elem;
-	printf("collisions sign %f %f\n", obj->x, obj->y);
+	(void)obj;
+	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
@@ -37,7 +35,7 @@ void	init_sign(t_game *game, t_object **obj)
 	(*obj)->is_strong = 1;
 	(*obj)->nb_image = 1;
 	(*obj)->start_frame = game->current_frame;
-	(*obj)->col_fonction = sign_collisions;
+	(*obj)->col_fonction = 0;
 	(*obj)->update_fonction = 0;
-	(*obj)->del_fonction = 0;
+	(*obj)->del_fonction = sign_del;
 }

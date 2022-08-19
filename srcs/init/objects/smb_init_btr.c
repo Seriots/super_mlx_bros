@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 23:28:01 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:54:35 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:08:55 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include "smb_objects.h"
 #include "smb.h"
 
-int	btr_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+#include <stdlib.h>
+
+int	btr_collisions(t_game *game, t_object *obj, int direction)
 {
 	t_dict		*coin;
 
-	(void)elem;
 	if (obj->col_count == 0 && (direction == LEFT || direction == RIGHT))
 	{
 		coin = add_obj(COIN, obj->x, obj->y - COIN_HEIGHT);
@@ -32,6 +33,7 @@ int	btr_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 
 int	btr_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

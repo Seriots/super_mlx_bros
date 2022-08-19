@@ -6,16 +6,17 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 21:29:46 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:53:52 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:05:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_struct.h"
 
-#include <stdio.h>
+#include <stdlib.h>
 
 int	block_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

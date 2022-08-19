@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:40:57 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:56:13 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:22:11 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "smb_objects.h"
 #include "smb.h"
 
-#include <stdio.h>
+#include <stdlib.h>
 
 static int	get_final_score(t_player *player)
 {
@@ -61,14 +61,10 @@ static int	apply_int_collisions(t_game *game, t_object *obj)
 	return (0);
 }
 
-int	end_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+int	end_collisions(t_game *game, t_object *obj, int direction)
 {
-	(void)elem;
 	(void)direction;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - END_BAR_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + END_BAR_HBOX)
+	if (check_hbox(game, obj, END_BAR_HBOX, obj->height / 2))
 		return (0);
 	if (obj->col_count == 0)
 		apply_int_collisions(game, obj);
@@ -77,6 +73,7 @@ int	end_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 
 int	end_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

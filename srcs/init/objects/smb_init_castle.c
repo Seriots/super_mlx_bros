@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 01:27:23 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:54:58 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:21:22 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 #include "smb_objects.h"
 #include "smb.h"
 
-#include <stdio.h>
+#include <stdlib.h>
 
-int	castle_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+int	castle_collisions(t_game *game, t_object *obj, int direction)
 {
 	(void)direction;
-	(void)elem;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - CASTLE_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + CASTLE_HBOX
-		|| game->player.final_score == 0)
+	if (check_hbox(game, obj, CASTLE_HBOX, obj->height / 2))
 		return (0);
 	close_request(game);
 	return (0);
@@ -32,6 +27,7 @@ int	castle_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
 
 int	castle_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

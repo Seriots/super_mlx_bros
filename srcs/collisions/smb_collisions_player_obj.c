@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:28:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:33:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:16:51 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	apply_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox)
 					&& value->y + value->height < p_hbox->y_max)))
 		{
 			if (value->is_collide)
-				value->col_fonction(game, all_obj, value, p_hbox->direction);
+				value->col_fonction(game, value, p_hbox->direction);
 		}
 		all_obj = next;
 	}

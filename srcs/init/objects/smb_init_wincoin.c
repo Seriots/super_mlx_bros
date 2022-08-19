@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:52:32 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:37:18 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 15:59:36 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,15 @@ int	wincoin_update(t_game *game, t_dict *elem, t_object *obj)
 	if (image_value == obj->nb_image - 1)
 	{
 		game->player.coins ++;
-		dict_delone(&game->map.all_object, elem, 0, free);
+		obj->update_fonction = obj->del_fonction;
 	}
+	return (0);
+}
+
+int	wincoin_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	(void)obj;
+	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
@@ -58,5 +65,5 @@ void	init_wincoin(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = 0;
 	(*obj)->update_fonction = wincoin_update;
-	(*obj)->del_fonction = 0;
+	(*obj)->del_fonction = wincoin_del;
 }

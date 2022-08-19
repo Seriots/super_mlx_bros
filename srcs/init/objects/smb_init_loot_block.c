@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:08:10 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 15:00:19 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:20:02 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,9 @@ int	apply_loot_block_collide(t_game *game, t_object *obj)
 	return (0);
 }
 
-int	loot_block_collisions(t_game *game, t_dict *elem,
-	t_object *obj, int direction)
+int	loot_block_collisions(t_game *game, t_object *obj, int direction)
 {
-	(void)elem;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - LB_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + LB_HBOX)
+	if (!check_hbox(game, obj, LB_HBOX, obj->height / 2))
 		return (0);
 	if (direction == UP && obj->col_count == 0)
 		apply_loot_block_collide(game, obj);
@@ -54,6 +49,7 @@ int	loot_block_collisions(t_game *game, t_dict *elem,
 
 int loot_block_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

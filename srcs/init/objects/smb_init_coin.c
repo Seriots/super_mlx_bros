@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:29:47 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:57:27 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:09:23 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 
 #include <stdlib.h>
 
-#include <stdio.h>
-
-int	coin_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+int	coin_collisions(t_game *game, t_object *obj, int direction)
 {
 	(void)direction;
 	(void)obj;
@@ -45,6 +43,7 @@ int	coin_update(t_game *game, t_dict *elem, t_object *obj)
 
 int	coin_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

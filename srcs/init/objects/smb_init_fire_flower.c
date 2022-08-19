@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:04:32 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:57:14 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:26:39 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,15 @@
 
 #include <stdlib.h>
 
-int	fire_flower_collisions(t_game *game, t_dict *elem, t_object *obj, int dir)
+int	fire_flower_collisions(t_game *game, t_object *obj, int dir)
 {
 	(void)dir;
 	(void)obj;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - FF_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + FF_HBOX
-		|| game->player.y_pos + game->player.height
-		< (obj->y + obj->height / 2) - FF_HBOX
-		|| game->player.y_pos > (obj->y + obj->height / 2) + FF_HBOX)
+	if (check_hbox(game, obj, FF_HBOX, FF_HBOX))
 		return (0);
 	if (game->player.evolution < FIRE)
 		growth(game);
+	obj->is_visible = 0;
 	obj->update_fonction = obj->del_fonction;
 	return (0);
 }
@@ -52,6 +47,7 @@ int	fire_flower_update(t_game *game, t_dict *elem, t_object *obj)
 
 int	fire_flower_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

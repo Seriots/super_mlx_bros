@@ -6,26 +6,22 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:09:18 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:57:57 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:21:00 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_struct.h"
 #include "smb_settings.h"
 #include "smb_objects.h"
-#include "smb_objects_fonction.h"
+#include "smb.h"
 
 #include <stdlib.h>
 
-int	breakable_block_collisions(t_game *game, t_dict *elem,
-	t_object *obj, int direction)
+int	breakable_block_collisions(t_game *game, t_object *obj, int direction)
 {
 	(void)game;
 	(void)obj;
-	if (game->player.x_pos + game->x_position + game->player.width
-		< (obj->x + obj->width / 2) - BB_HBOX
-		|| game->player.x_pos + game->x_position
-		> (obj->x + obj->width / 2) + BB_HBOX)
+	if (!check_hbox(game, obj, BB_HBOX, obj->height / 2))
 		return (0);
 	if (direction == UP)
 		obj->update_fonction = obj->del_fonction;
@@ -34,6 +30,7 @@ int	breakable_block_collisions(t_game *game, t_dict *elem,
 
 int	breakable_block_del(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
