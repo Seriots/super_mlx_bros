@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 13:02:44 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 17:01:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,9 @@ void	free_all_image_group(t_game *game)
 	if (game->all_images.all_tiles)
 		free_img_array(game, &game->all_images.all_tiles, TILES_NUMBER);
 	if (game->all_images.all_lplyrs)
-		free_img_array(game, &game->all_images.all_lplyrs,
-			LPLAYER_NUMBER);
+		free_img_array(game, &game->all_images.all_lplyrs, LPLAYER_NUMBER);
 	if (game->all_images.all_fplyrs)
-		free_img_array(game,
-			&game->all_images.all_fplyrs, FPLAYER_NUMBER);
+		free_img_array(game, &game->all_images.all_fplyrs, FPLAYER_NUMBER);
 	if (game->all_images.all_bplyrs)
 		free_img_array(game, &game->all_images.all_bplyrs, BPLAYER_NUMBER);
 	if (game->all_images.all_coins)
@@ -65,17 +63,28 @@ void	free_all_image_group(t_game *game)
 
 void	free_all_image(t_game *game)
 {
-	mlx_destroy_image(game->mlx.display, game->all_images.sign.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.big_tree.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.end_bar.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.block.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.castle.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.flag.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.fire_flower.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.red_champi.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.loot_block.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.loot_block_use.img);
-	mlx_destroy_image(game->mlx.display, game->all_images.breakable_block.img);
+	if (game->all_images.sign.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.sign.img);
+	if (game->all_images.big_tree.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.big_tree.img);
+	if (game->all_images.end_bar.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.end_bar.img);
+	if (game->all_images.block.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.block.img);
+	if (game->all_images.castle.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.castle.img);
+	if (game->all_images.flag.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.flag.img);
+	if (game->all_images.fire_flower.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.fire_flower.img);
+	if (game->all_images.red_champi.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.red_champi.img);
+	if (game->all_images.loot_block.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.loot_block.img);
+	if (game->all_images.loot_block_use.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.loot_block_use.img);
+	if (game->all_images.breakable_block.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.breakable_block.img);
 }
 
 void	free_all_object(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 21:05:49 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/11 19:47:16 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 17:01:45 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,8 @@ void	map_image_fail(t_game *game)
 
 void	all_image_fail(t_game *game)
 {
-	if (game->all_images.all_tiles)
-		free_img_array(game, &game->all_images.all_tiles, TILES_NUMBER);
-	if (game->all_images.all_coins)
-		free_img_array(game, &game->all_images.all_coins, COIN_NUMBER);
-	if (game->all_images.sign.img)
-		mlx_destroy_image(game->mlx.display, game->all_images.sign.img);
 	mlx_destroy_image(game->mlx.display, game->window_image.img);
+	free_all_image(game);
+	free_all_image_group(game);
 	map_image_fail(game);
 }

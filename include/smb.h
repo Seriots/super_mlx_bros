@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:51:39 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:57:00 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,6 +220,7 @@ void			all_image_fail(t_game *game);
 
 /*smb_free.c*/
 void			free_img_array(t_game *game, t_img_data **imgs, int number);
+void			free_all_image_group(t_game *game);
 void			free_all_image(t_game *game);
 void			free_game(t_game *game);
 

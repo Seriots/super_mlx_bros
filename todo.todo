@@ -50,6 +50,7 @@ x -> apres c les ennemis hein
 x -> faire les breakable block
 x -> ajouter les champi, les fleur et les image du flower player
 -> fix leak when image fail
+-> Faire un tableau a la place des if /elseif
 -> ajoouter une update_del_fct a tout mes object que j'qppellle au lieu de faire un dict_del_one tout court
 -> Faire une map
 -> et apres le jeu est jouable

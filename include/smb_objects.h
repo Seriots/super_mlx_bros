@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:27:59 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 17:02:50 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@
 # define PP_ANIM_DURATION 2000
 
 /*Fireball properties*/
-# define FB_PATH "files/xpm/objects/fireball/fireball"
+# define FB_PATH "files/xpm/objects/fireball/firebal"
 # define FB_NUMBER 4
 # define FB_HBOX 3
 # define FB_ANIM_DURATION 240

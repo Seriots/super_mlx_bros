@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:08:24 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:52:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,30 @@
 
 #include <stdio.h>
 
+static void	set_image_to_zero(t_game *game)
+{
+	game->all_images.all_tiles = 0;
+	game->all_images.all_coins = 0;
+	game->all_images.all_lplyrs = 0;
+	game->all_images.all_bplyrs = 0;
+	game->all_images.all_fplyrs = 0;
+	game->all_images.all_fireballs = 0;
+	game->all_images.all_goombas = 0;
+	game->all_images.all_piranhas = 0;
+	game->all_images.all_characters = 0;
+	game->all_images.sign.img = 0;
+	game->all_images.big_tree.img = 0;
+	game->all_images.block.img = 0;
+	game->all_images.end_bar.img = 0;
+	game->all_images.flag.img = 0;
+	game->all_images.castle.img = 0;
+	game->all_images.fire_flower.img = 0;
+	game->all_images.red_champi.img = 0;
+	game->all_images.loot_block.img = 0;
+	game->all_images.loot_block_use.img = 0;
+	game->all_images.breakable_block.img = 0;
+}
+
 static void	init_game_variable(t_game *game)
 {
 	struct timeval	time;
@@ -32,10 +56,7 @@ static void	init_game_variable(t_game *game)
 
 	game->x_position = 0;
 	game->current_frame = 0;
-	game->all_images.all_tiles = 0;
-	game->all_images.all_coins = 0;
-	game->all_images.all_characters = 0;
-	game->all_images.sign.img = 0;
+	set_image_to_zero(game);
 	game->collide_obj = (t_collisions){.x = 0, .y = 0, .width = 0, .height = 0};
 	gettimeofday(&time, 0);
 	game->last_time_frame = time.tv_sec * 1000 + time.tv_usec / 1000;
