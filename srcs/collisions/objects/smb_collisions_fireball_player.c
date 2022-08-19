@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 11:28:40 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 12:56:22 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:38:52 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
 
 #include <math.h>
 
-static int	is_destructable(t_game *game, t_dict *obj, char *key)
+static int	is_destructable(t_game *game, t_object *obj, char *key)
 {
+	(void)game;
 	if (!ft_strcmp(key, PLANT_PIRANHA) || !ft_strcmp(key, GOOMBA))
 	{
-		dict_delone(&game->map.all_object, obj, 0, free);
+		obj->update_fonction = obj->del_fonction;
 		return (1);
 	}
 	return (0);
@@ -51,7 +52,7 @@ int	apply_collide_fireball(t_game *game, t_dict *all_obj, t_hbox *p_hbox)
 				|| (value->y + value->height > p_hbox->y_min
 					&& value->y + value->height < p_hbox->y_max)))
 		{
-			if (is_destructable(game, all_obj, all_obj->key))
+			if (is_destructable(game, value, all_obj->key))
 				return (1);
 		}
 		all_obj = next;

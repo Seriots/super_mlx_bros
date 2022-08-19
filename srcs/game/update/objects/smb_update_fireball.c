@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 14:17:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:20:44 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 16:39:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int	fireball_player_update(t_game *game, t_dict *elem, t_object *obj)
 	int	i;
 	int	retval;
 
+	(void)elem;
 	update_obj_img(game, obj);
 	i = 0;
 	retval = 0;
@@ -120,7 +121,7 @@ int	fireball_player_update(t_game *game, t_dict *elem, t_object *obj)
 	{
 		retval = fireball_player_update_movement(game, obj);
 		if (retval == 1)
-			dict_delone(&game->map.all_object, elem, 0, free);
+			obj->update_fonction = obj->del_fonction;
 		i++;
 	}
 	return (0);
