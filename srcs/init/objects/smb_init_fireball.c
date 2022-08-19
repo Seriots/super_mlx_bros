@@ -6,10 +6,9 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:17:48 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 09:51:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:09:33 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "smb_struct.h"
 #include "smb_objects.h"
@@ -21,7 +20,8 @@
 
 #include <stdio.h>
 
-int	fireball_default_collide(t_game *game, t_dict *elem, t_object *obj, int direction)
+int	fireball_default_collide(t_game *game, t_dict *elem,
+	t_object *obj, int direction)
 {
 	(void)direction;
 	(void)obj;
@@ -43,7 +43,9 @@ int	fireball_default_collide(t_game *game, t_dict *elem, t_object *obj, int dire
 int	fireball_default_update(t_game *game, t_dict *elem, t_object *obj)
 {
 	update_obj_img(game, obj);
-	if (obj->y - FB_SPEED_DEFAULT * game->delay + obj->height < 0 || check_collisions_obj(game , obj, obj->x, obj->y - FB_SPEED_DEFAULT * game->delay))
+	if (obj->y - FB_SPEED_DEFAULT * game->delay + obj->height < 0
+		|| check_collisions_obj(game, obj, obj->x, obj->y
+			- FB_SPEED_DEFAULT * game->delay))
 		dict_delone(&game->map.all_object, elem, 0, free);
 	else
 		obj->y -= FB_SPEED_DEFAULT * game->delay;

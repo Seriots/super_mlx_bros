@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 11:41:11 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 13:02:44 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,18 @@ void	free_img_array(t_game *game, t_img_data **imgs_ptr, int number)
 	*imgs_ptr = NULL;
 }
 
-void	free_all_image(t_game *game)
+void	free_all_image_group(t_game *game)
 {
 	if (game->all_images.all_tiles)
 		free_img_array(game, &game->all_images.all_tiles, TILES_NUMBER);
-	if (game->all_images.all_little_players)
-		free_img_array(game, &game->all_images.all_little_players,
+	if (game->all_images.all_lplyrs)
+		free_img_array(game, &game->all_images.all_lplyrs,
 			LPLAYER_NUMBER);
-	if (game->all_images.all_fire_players)
-		free_img_array(game, &game->all_images.all_fire_players, FPLAYER_NUMBER);
-	if (game->all_images.all_big_players)
-		free_img_array(game, &game->all_images.all_big_players, BPLAYER_NUMBER);
+	if (game->all_images.all_fplyrs)
+		free_img_array(game,
+			&game->all_images.all_fplyrs, FPLAYER_NUMBER);
+	if (game->all_images.all_bplyrs)
+		free_img_array(game, &game->all_images.all_bplyrs, BPLAYER_NUMBER);
 	if (game->all_images.all_coins)
 		free_img_array(game, &game->all_images.all_coins, COIN_NUMBER);
 	if (game->all_images.all_characters)
@@ -60,6 +61,10 @@ void	free_all_image(t_game *game)
 		free_img_array(game, &game->all_images.all_piranhas, PP_NUMBER);
 	if (game->all_images.all_fireballs)
 		free_img_array(game, &game->all_images.all_fireballs, FB_NUMBER);
+}
+
+void	free_all_image(t_game *game)
+{
 	mlx_destroy_image(game->mlx.display, game->all_images.sign.img);
 	mlx_destroy_image(game->mlx.display, game->all_images.big_tree.img);
 	mlx_destroy_image(game->mlx.display, game->all_images.end_bar.img);
@@ -81,6 +86,7 @@ void	free_all_object(t_game *game)
 void	free_game(t_game *game)
 {
 	ft_free_tab(game->map.map_data);
+	free_all_image_group(game);
 	free_all_image(game);
 	free_all_object(game);
 	mlx_destroy_image(game->mlx.display, game->background.img);

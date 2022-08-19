@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 08:35:29 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 10:54:50 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:49:50 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,200 +16,8 @@
 
 #include <math.h>
 
-/**********************************************************************************/
-int	boucle_col_down_obj(t_collisions col, t_game *game, t_object *obj)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < col.height)
-	{
-		j = -1;
-		while (++j < col.width)
-		{
-			if (col.x + j >= 0 && col.x + j < game->map.width / TILES_SIZE
-				&& col.y + i >= 0 && col.y + i < game->map.height / TILES_SIZE)
-			{
-				if (game->map.map_data[col.y + i][col.x + j] != '0')
-				{
-					obj->col_object = (t_collisions){.width = TILES_SIZE,
-						.height = TILES_SIZE, .x = (col.x + j) * TILES_SIZE,
-						.y = (col.y + i) * TILES_SIZE, .direction = col.direction};
-					return (1);
-				}
-			}
-		}
-	}
-	return (0);
-}
-
-int	boucle_col_up_obj(t_collisions col, t_game *game, t_object *obj)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < col.height)
-	{
-		j = -1;
-		while (++j < col.width)
-		{
-			if (col.x + j >= 0 && col.x + j < game->map.width / TILES_SIZE
-				&& col.y - i >= 0 && col.y - i < game->map.height / TILES_SIZE)
-			{
-				if (game->map.map_data[col.y - i][col.x + j] != '0')
-				{
-					obj->col_object = (t_collisions){.width = TILES_SIZE,
-						.height = TILES_SIZE, .x = (col.x + j) * TILES_SIZE,
-						.y = (col.y - i) * TILES_SIZE, .direction = col.direction};
-					return (1);
-				}
-			}
-		}
-	}
-	return (0);
-}
-
-int	boucle_col_right_obj(t_collisions col, t_game *game, t_object *obj)
-{
-	int	i;
-	int	j;
-
-	j = -1;
-	while (++j < col.width)
-	{
-		i = -1;
-		while (++i < col.height)
-		{
-			if (col.x + j >= 0 && col.x + j < game->map.width / TILES_SIZE
-				&& col.y + i >= 0 && col.y + i < game->map.height / TILES_SIZE)
-			{
-				if (game->map.map_data[col.y + i][col.x + j] != '0')
-				{
-					obj->col_object = (t_collisions){.width = TILES_SIZE,
-						.height = TILES_SIZE, .x = (col.x + j) * TILES_SIZE,
-						.y = (col.y + i) * TILES_SIZE, .direction = col.direction};
-					return (1);
-				}
-			}
-		}
-	}
-	return (0);
-}
-
-int	boucle_col_left_obj(t_collisions col, t_game *game, t_object *obj)
-{
-	int	i;
-	int	j;
-
-	j = -1;
-	while (++j < col.width)
-	{
-		i = -1;
-		while (++i < col.height)
-		{
-			if (col.x - j >= 0 && col.x - j < game->map.width / TILES_SIZE
-				&& col.y + i >= 0 && col.y + i < game->map.height / TILES_SIZE)
-			{
-				if (game->map.map_data[col.y + i][col.x - j] != '0')
-				{
-					obj->col_object = (t_collisions){.width = TILES_SIZE,
-						.height = TILES_SIZE, .x = (col.x - j) * TILES_SIZE,
-						.y = (col.y + i) * TILES_SIZE, .direction = col.direction};
-					return (1);
-				}
-			}
-		}
-	}
-	return (0);
-}
-/**********************************************************************************/
-
-/*****************************************************/
-int	check_col_left_obj(t_game *game, t_object *obj, float x_pos)
-{
-	t_collisions	col;
-
-	col.x = (int)ceil(obj->x);
-	col.y = (int)floor(obj->y);
-	col.height = ((col.y + obj->height - 1) / TILES_SIZE)
-		- (col.y / TILES_SIZE) + 1;
-	col.width = (((col.x) / TILES_SIZE)
-			- (int)floor(x_pos) / TILES_SIZE) + 1;
-	col.x = col.x / TILES_SIZE;
-	col.y /= TILES_SIZE;
-	col.direction = LEFT;
-	return (boucle_col_left_obj(col, game, obj));
-}
-
-int	check_col_right_obj(t_game *game, t_object *obj, float x_pos)
-{
-	t_collisions	col;
-
-	col.x = (int)floor(obj->x);
-	col.y = (int)floor(obj->y);
-	col.height = ((col.y + obj->height - 1) / TILES_SIZE)
-		- (col.y / TILES_SIZE) + 1;
-	col.width = (((int)ceil(x_pos + obj->width) / TILES_SIZE
-				- col.x / TILES_SIZE)) + 1;
-	col.x /= TILES_SIZE;
-	col.y /= TILES_SIZE;
-	col.direction = RIGHT;
-	return (boucle_col_right_obj(col, game, obj));
-}
-
-int	check_col_up_obj(t_game *game, t_object *obj, float y_pos)
-{
-	t_collisions	col;
-
-	col.x = (int)floor(obj->x);
-	col.y = (int)ceil(obj->y);
-	col.height = (((col.y) / TILES_SIZE)
-			- ((int)floor(y_pos) / TILES_SIZE)) + 1;
-	col.width = ((col.x + obj->width - 1) / TILES_SIZE)
-		- (col.x / TILES_SIZE) + 1;
-	col.x /= TILES_SIZE;
-	col.y = col.y / TILES_SIZE;
-	col.direction = UP;
-	return (boucle_col_up_obj(col, game, obj));
-}
-
-int	check_col_down_obj(t_game *game, t_object *obj, float y_pos)
-{
-	t_collisions	col;
-
-	col.x = (int)floor(obj->x);
-	col.y = (int)floor(obj->y);
-	col.height = (((int)ceil(y_pos) + obj->height)
-			/ TILES_SIZE - (col.y) / TILES_SIZE) + 1;
-	col.width = ((col.x + obj->width - 1)
-			/ TILES_SIZE) - (col.x / TILES_SIZE) + 1;
-	col.x /= TILES_SIZE;
-	col.y = (col.y) / TILES_SIZE;
-	col.direction = DOWN;
-	return (boucle_col_down_obj(col, game, obj));
-}
-/*****************************************************/
-
-/*****************************************************/
-int	check_col_obj_map(t_game *game, t_object *obj, float x_pos, float y_pos)
-{
-	if (obj->x > x_pos)
-		return (check_col_left_obj(game, obj, x_pos));
-	else if (obj->x < x_pos)
-		return (check_col_right_obj(game, obj, x_pos));
-	else if (obj->y > y_pos)
-		return (check_col_up_obj(game, obj, y_pos));
-	else if (obj->y < y_pos)
-		return (check_col_down_obj(game, obj, y_pos));
-	else
-		return (0);
-}
-/*********************************************************/
-
-/*****************************************************************************************/
-void	get_new_limit_obj(t_object *obj, t_object *val, t_hbox *p_hbox, int *retval)
+void	get_new_limit_obj(t_object *obj, t_object *val,
+	t_hbox *p_hbox, int *retval)
 {
 	if (p_hbox->direction == RIGHT && val->x < p_hbox->x_max)
 		p_hbox->x_max = val->x + 1;
@@ -229,12 +37,11 @@ void	get_new_limit_obj(t_object *obj, t_object *val, t_hbox *p_hbox, int *retval
 	*retval = 1;
 }
 
-int	check_collide_obj(t_game *game, t_object *obj, t_dict *all_obj, t_hbox *p_hbox)
+int	check_collide_obj(t_object *obj, t_dict *all_obj, t_hbox *p_hbox)
 {
 	t_object	*value;
 	int			ret_val;
 
-	(void)game;
 	ret_val = 0;
 	while (all_obj)
 	{
@@ -264,9 +71,11 @@ int	check_col_all_obj(t_game *game, t_object *obj, float x_pos, float y_pos)
 	t_hbox	p_hbox;
 	int		ret_val;
 
-	p_hbox.x_max = max((int)floor(obj->x + obj->width), (int)floor(x_pos + obj->width));
+	p_hbox.x_max = max((int)floor(obj->x + obj->width),
+			(int)floor(x_pos + obj->width));
 	p_hbox.x_min = min((int)floor(obj->x), (int)floor(x_pos));
-	p_hbox.y_max = max((int)floor(obj->y + obj->height), (int)floor(y_pos + obj->height));
+	p_hbox.y_max = max((int)floor(obj->y + obj->height),
+			(int)floor(y_pos + obj->height));
 	p_hbox.y_min = min((int)floor(obj->y), (int)floor(y_pos));
 	p_hbox.direction = NONE;
 	if (obj->x > x_pos)
@@ -279,10 +88,9 @@ int	check_col_all_obj(t_game *game, t_object *obj, float x_pos, float y_pos)
 		p_hbox.direction = DOWN;
 	if (obj->col_object.height != 0)
 		get_new_limit_wall(obj->col_object, &p_hbox);
-	ret_val = check_collide_obj(game, obj, game->map.all_object, &p_hbox);
+	ret_val = check_collide_obj(obj, game->map.all_object, &p_hbox);
 	return (ret_val);
 }
-/*****************************************************************************************/
 
 int	check_collisions_obj(t_game *game, t_object *obj, float x_pos, float y_pos)
 {

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:07:14 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 00:09:04 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:10:19 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 #include <stdlib.h>
 
-int	red_champ_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+int	red_champ_collisions(t_game *game, t_dict *elem, t_object *obj, int dir)
 {
-	(void)direction;
+	(void)dir;
 	if (game->player.x_pos + game->x_position + game->player.width
 		< (obj->x + obj->width / 2) - REDC_HBOX
 		|| game->player.x_pos + game->x_position

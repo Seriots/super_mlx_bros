@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:08:10 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 00:20:42 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:10:55 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int	apply_loot_block_collide(t_game *game, t_object *obj)
 {
-	t_dict *loot;
+	t_dict	*loot;
 
 	if (game->player.evolution == LITTLE)
 	{
@@ -38,7 +38,8 @@ int	apply_loot_block_collide(t_game *game, t_object *obj)
 	return (0);
 }
 
-int	loot_block_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+int	loot_block_collisions(t_game *game, t_dict *elem,
+	t_object *obj, int direction)
 {
 	(void)elem;
 	if (game->player.x_pos + game->x_position + game->player.width

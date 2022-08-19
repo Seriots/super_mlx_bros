@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:05:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 09:31:30 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:32:36 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	goomba_update(t_game *game, t_dict *elem, t_object *obj)
 	if (image_value >= obj->nb_image)
 		image_value = obj->nb_image - 1;
 	obj->img = &obj->all_img[image_value];
-	apply_gravity_obj(game, obj);
+	apply_gravity_obj(game, obj, GBA_Y_MAX_SPEED);
 	apply_hor_movement_obj(game, obj);
 	if (obj->y > SCREEN_HEIGHT)
 		dict_delone(&game->map.all_object, elem, 0, free);

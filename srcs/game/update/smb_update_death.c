@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 05:19:33 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 05:20:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:25:44 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 
 static int	update_death_position(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	game->player.state = DEAD;
 	while (i < game->delay)
 	{
 		game->player.y_acceleration += GRAVITY_DOWN;
-		if (game->player.y_speed < 0 && game->player.y_speed + game->player.y_acceleration > 0)
+		if (game->player.y_speed < 0
+			&& game->player.y_speed + game->player.y_acceleration > 0)
 		{
 			game->player.y_speed += game->player.y_acceleration;
 			game->player.y_acceleration = 0;

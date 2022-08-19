@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 10:43:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:38:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@
 # define GBA_HBOX 4
 # define GBA_ANIM_DURATION 480
 # define GBA_X_SPEED 0.065f
-# define GBA_Y_MAX_SPEED 0.3f
+# define GBA_Y_MAX_SPEED 0.2f
 
 /*Plant piranha properties*/
 # define PP_PATH "files/xpm/ennemies/plant_piranha/plant_piranha"

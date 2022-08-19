@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 11:46:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:25:19 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int	update_ingame(t_game *game)
 	update_player_state(game, &game->player);
 	update_player_image(game, &game->player);
 	update_movement(game, &game->player);
-	check_collisions(game, game->player.x_pos, game->player.y_pos, game->x_position);
+	check_collisions(game, game->player.x_pos,
+		game->player.y_pos, game->x_position);
 	is_dead(game);
 	return (0);
 }

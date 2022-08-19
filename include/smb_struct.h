@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 11:50:40 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 13:02:50 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ typedef struct s_coord
 
 typedef struct s_collisions
 {
-	int			x;
-	int			y;
-	int			height;
-	int			width;
-	int 		direction;
+	int	x;
+	int	y;
+	int	height;
+	int	width;
+	int	direction;
 }	t_collisions;
 
 typedef struct s_object
@@ -77,9 +77,9 @@ typedef struct s_object
 	float			x_speed;
 	t_collisions	col_object;
 	int				(*col_fonction)(t_game *game, t_dict *elem,
-				struct s_object *obj, int direction);
+			struct s_object *obj, int direction);
 	int				(*update_fonction)(t_game *game, t_dict *elem,
-				struct s_object *obj);
+			struct s_object *obj);
 }	t_object;
 
 typedef struct s_map
@@ -96,9 +96,9 @@ typedef struct s_all_images
 {
 	t_img_data	*all_tiles;
 	t_img_data	*all_coins;
-	t_img_data	*all_little_players;
-	t_img_data	*all_big_players;
-	t_img_data	*all_fire_players;
+	t_img_data	*all_lplyrs;
+	t_img_data	*all_bplyrs;
+	t_img_data	*all_fplyrs;
 	t_img_data	*all_fireballs;
 	t_img_data	*all_goombas;
 	t_img_data	*all_piranhas;

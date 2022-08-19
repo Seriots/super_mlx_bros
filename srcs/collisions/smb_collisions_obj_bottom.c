@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   smb_collisions_obj.c                               :+:      :+:    :+:   */
+/*   smb_collisions_obj_bottom.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 08:18:45 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 08:32:18 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:50:30 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 #include <math.h>
 
-int	check_collide_bottom_obj(t_game *game, t_dict *all_obj, t_hbox *p_hbox, t_object *obj)
+int	check_collide_bottom_obj(t_game *game, t_dict *all_obj,
+		t_hbox *p_hbox, t_object *obj)
 {
 	t_object	*value;
 
@@ -24,7 +25,6 @@ int	check_collide_bottom_obj(t_game *game, t_dict *all_obj, t_hbox *p_hbox, t_ob
 	while (all_obj)
 	{
 		value = (t_object *)all_obj->value;
-		
 		if ((value != obj)
 			&& ((value->x > p_hbox->x_min && value->x < p_hbox->x_max)
 				|| (value->x + value->width > p_hbox->x_min
@@ -60,7 +60,8 @@ int	check_col_obj_bottom(t_game *game, t_object *obj, float x_pos, float y_pos)
 	return (check_collide_bottom_obj(game, game->map.all_object, &p_hbox, obj));
 }
 
-int	check_collisions_bottom_obj(t_game *game, t_object *obj, float x_pos, float y_pos)
+int	check_collisions_bottom_obj(t_game *game, t_object *obj,
+		float x_pos, float y_pos)
 {
 	t_collisions	col;
 	int				j;

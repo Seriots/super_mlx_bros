@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:07:13 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 09:20:51 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:34:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,30 @@
 #include "smb_objects.h"
 #include "smb.h"
 
-int	apply_gravity_obj(t_game *game, t_object *obj)
+static int	obj_fall(t_game *game, t_object *obj, float max_speed)
+{
+	(void)game;
+	obj->y_acceleration += GRAVITY_DOWN;
+	obj->y_speed += obj->y_acceleration;
+	if (obj->y_speed > max_speed)
+		obj->y_speed = max_speed;
+	if (obj->y_acceleration > max_speed)
+		obj->y_acceleration = max_speed;
+	if (check_collisions_obj(game, obj, obj->x, obj->y + obj->y_speed))
+	{
+		obj->y_speed = 0;
+		obj->y_acceleration = 0;
+		obj->y = obj->col_object.y - obj->height;
+	}
+	else
+		obj->y += obj->y_speed;
+	return (0);
+}
+
+int	apply_gravity_obj(t_game *game, t_object *obj, float max_speed)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < game->delay)
 	{
@@ -28,22 +48,7 @@ int	apply_gravity_obj(t_game *game, t_object *obj)
 			obj->y_acceleration = 0;
 		}
 		else
-		{
-			obj->y_acceleration += GRAVITY_DOWN;
-			obj->y_speed += obj->y_acceleration;
-			if (obj->y_speed > GBA_Y_MAX_SPEED)
-				obj->y_speed = GBA_Y_MAX_SPEED;
-			if (obj->y_acceleration > GBA_Y_MAX_SPEED)
-				obj->y_acceleration = GBA_Y_MAX_SPEED;
-			if (check_collisions_obj(game, obj, obj->x, obj->y + obj->y_speed))
-			{
-				obj->y_speed = 0;
-				obj->y_acceleration = 0;
-				obj->y = obj->col_object.y - obj->height;
-			}
-			else
-				obj->y += obj->y_speed;
-		}
+			obj_fall(game, obj, max_speed);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 10:10:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:07:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ t_object	*obj_new(char *tag, float x, float y)
 		return (0);
 	if (tag)
 		*obj = (t_object){.x = x, .y = y, .col_count = 0,
-			.y_speed = 0.0, .y_acceleration = 0.0, .x_speed = 0.0, .col_object = {0}};
+			.y_speed = 0.0, .y_acceleration = 0.0,
+			.x_speed = 0.0, .col_object = {0}};
 	return (obj);
 }
 

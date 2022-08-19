@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:44:06 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 08:10:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:27:59 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ static int	update_victory_pose(t_game *game)
 	update_objects(game, game->map.all_object);
 	update_movement(game, &game->player);
 	update_player_image(game, &game->player);
-	if (check_collisions_bottom(game, game->player.x_pos, game->player.y_pos, game->x_position))
+	if (check_collisions_bottom(game, game->player.x_pos,
+			game->player.y_pos, game->x_position))
 	{
 		if (game->player.state != VICTORY)
 			game->player.anim_frame_start = game->current_frame;
@@ -79,16 +80,16 @@ int	update_end(t_game *game)
 	flag = (t_object *)search->value;
 	search = dict_getelem_key(game->map.all_object, END);
 	if (!search)
-		return(0);
+		return (0);
 	end_bar = (t_object *)search->value;
-	if (!check_collisions_bottom(game, game->player.x_pos,
-			game->player.y_pos + END_BAR_GRAVITY * game->delay, game->x_position))
+	if (!check_collisions_bottom(game, game->player.x_pos, game->player.y_pos
+			+ END_BAR_GRAVITY * game->delay, game->x_position))
 		game->player.y_pos += END_BAR_GRAVITY * game->delay;
 	else
-		game->player.y_pos = end_bar->y + end_bar->height - game->player.height - 1;
-	if (flag->y > end_bar->y + FLAG_MARGE || !check_collisions_bottom(game,
-			game->player.x_pos, game->player.y_pos + 1, game->x_position))
-		return (0);
-	flag_reach_end(game);
+		game->player.y_pos = end_bar->y + end_bar->height
+			- game->player.height - 1;
+	if (!(flag->y > end_bar->y + FLAG_MARGE || !check_collisions_bottom(game,
+				game->player.x_pos, game->player.y_pos + 1, game->x_position)))
+		flag_reach_end(game);
 	return (0);
 }

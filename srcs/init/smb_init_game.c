@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 03:59:21 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:08:24 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,16 @@ static int	init_game_images(t_game *game)
 		&& !init_all_little_player(game)
 		&& !init_all_big_player(game)
 		&& !init_all_fire_player(game)
-		&& !init_images_group(game, COIN_PATH, COIN_NUMBER, &game->all_images.all_coins)
-		&& !init_images_group(game, CHAR_PATH, CHAR_NUMBER, &game->all_images.all_characters)
-		&& !init_images_group(game, GBA_PATH, GBA_NUMBER, &game->all_images.all_goombas)
-		&& !init_images_group(game, PP_PATH, PP_NUMBER, &game->all_images.all_piranhas)
-		&& !init_images_group(game, FB_PATH, FB_NUMBER, &game->all_images.all_fireballs)
+		&& !init_images_group(game, COIN_PATH, COIN_NUMBER,
+			&game->all_images.all_coins)
+		&& !init_images_group(game, CHAR_PATH, CHAR_NUMBER,
+			&game->all_images.all_characters)
+		&& !init_images_group(game, GBA_PATH, GBA_NUMBER,
+			&game->all_images.all_goombas)
+		&& !init_images_group(game, PP_PATH, PP_NUMBER,
+			&game->all_images.all_piranhas)
+		&& !init_images_group(game, FB_PATH, FB_NUMBER,
+			&game->all_images.all_fireballs)
 		&& !init_all_xpm_image(game))
 		return (0);
 	return (3);

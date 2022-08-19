@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 02:34:04 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 11:54:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:19:42 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,17 @@ int	ingame_bottom_pressed(t_game *game)
 	return (0);
 }
 
-int		ingame_fireball_pressed(t_game *game)
+int	ingame_fireball_pressed(t_game *game)
 {
-	t_dict *fireball;
-	
+	t_dict	*fb;
+
 	(void)game;
 	if (game->player.fireball_frame == 0)
 	{
-		fireball = add_obj(FIREBALL_PLAYER, game->player.x_pos + game->x_position, game->player.y_pos + game->player.height / 2);
-		init_fireball_player(game, (t_object **)&fireball->value);
-		dict_add_back(&game->map.all_object, fireball);
+		fb = add_obj(FIREBALL_PLAYER, game->player.x_pos + game->x_position,
+				game->player.y_pos + game->player.height / 2);
+		init_fireball_player(game, (t_object **)&fb->value);
+		dict_add_back(&game->map.all_object, fb);
 		game->player.fireball_frame = 240;
 	}
 	return (0);

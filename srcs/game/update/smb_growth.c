@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 04:48:05 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 16:57:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 13:02:44 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@ static int	get_new_state(t_game *game)
 {
 	if (game->player.evolution == LITTLE && game->player.state == GROWTH)
 	{
-		game->player.all_player_img = game->all_images.all_big_players;
+		game->player.all_player_img = game->all_images.all_bplyrs;
 		game->player.evolution = BIG;
 	}
 	else if (game->player.evolution == BIG && game->player.state == SHRINK)
 	{
-		game->player.all_player_img = game->all_images.all_little_players;
+		game->player.all_player_img = game->all_images.all_lplyrs;
 		game->player.evolution = LITTLE;
 	}
 	else if (game->player.evolution == BIG && game->player.state == GROWTH)
 	{
-		game->player.all_player_img = game->all_images.all_fire_players;
+		game->player.all_player_img = game->all_images.all_fplyrs;
 		game->player.evolution = FIRE;
 	}
 	else if (game->player.evolution == FIRE && game->player.state == SHRINK)
 	{
-		game->player.all_player_img = game->all_images.all_big_players;
+		game->player.all_player_img = game->all_images.all_bplyrs;
 		game->player.evolution = BIG;
 	}
 	return (0);
@@ -67,7 +67,7 @@ int	shrink(t_game *game)
 		game->player.anim_length = 2;
 		game->player.anim_duration = PLAYER_DEAD_ANIM_DURATION;
 		game->player.anim_frame_start = game->current_frame;
-		game->player.y_speed = -START_DEAD_SPEED; 
+		game->player.y_speed = -START_DEAD_SPEED;
 		game->player.y_acceleration = 0;
 		game->keypressed_fct = 0;
 		game->keyreleased_fct = 0;

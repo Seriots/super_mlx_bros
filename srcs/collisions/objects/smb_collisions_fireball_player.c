@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 11:28:40 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 11:32:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 12:56:22 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@
 #include <stdlib.h>
 
 #include <math.h>
+
+static int	is_destructable(t_game *game, t_dict *obj, char *key)
+{
+	if (!ft_strcmp(key, PLANT_PIRANHA) || !ft_strcmp(key, GOOMBA))
+	{
+		dict_delone(&game->map.all_object, obj, 0, free);
+		return (1);
+	}
+	return (0);
+}
 
 int	apply_collide_fireball(t_game *game, t_dict *all_obj, t_hbox *p_hbox)
 {
@@ -41,25 +51,25 @@ int	apply_collide_fireball(t_game *game, t_dict *all_obj, t_hbox *p_hbox)
 				|| (value->y + value->height > p_hbox->y_min
 					&& value->y + value->height < p_hbox->y_max)))
 		{
-			if (!ft_strcmp(all_obj->key, PLANT_PIRANHA) || !ft_strcmp(all_obj->key, GOOMBA))
-			{
-				dict_delone(&game->map.all_object, all_obj, 0, free);
+			if (is_destructable(game, all_obj, all_obj->key))
 				return (1);
-			}
 		}
 		all_obj = next;
 	}
 	return (0);
 }
 
-int	check_col_all_obj_fireball(t_game *game, t_object *obj, float x_pos, float y_pos)
+int	check_col_all_obj_fireball(t_game *game, t_object *obj,
+	float x_pos, float y_pos)
 {
 	t_hbox	p_hbox;
 	int		ret_val;
 
-	p_hbox.x_max = max((int)floor(obj->x + obj->width), (int)floor(x_pos + obj->width));
+	p_hbox.x_max = max((int)floor(obj->x + obj->width),
+			(int)floor(x_pos + obj->width));
 	p_hbox.x_min = min((int)floor(obj->x), (int)floor(x_pos));
-	p_hbox.y_max = max((int)floor(obj->y + obj->height), (int)floor(y_pos + obj->height));
+	p_hbox.y_max = max((int)floor(obj->y + obj->height),
+			(int)floor(y_pos + obj->height));
 	p_hbox.y_min = min((int)floor(obj->y), (int)floor(y_pos));
 	p_hbox.direction = NONE;
 	if (obj->x > x_pos)
@@ -72,13 +82,14 @@ int	check_col_all_obj_fireball(t_game *game, t_object *obj, float x_pos, float y
 		p_hbox.direction = DOWN;
 	if (obj->col_object.height != 0)
 		get_new_limit_wall(obj->col_object, &p_hbox);
-	ret_val = check_collide_obj(game, obj, game->map.all_object, &p_hbox);
+	ret_val = check_collide_obj(obj, game->map.all_object, &p_hbox);
 	if (apply_collide_fireball(game, game->map.all_object, &p_hbox))
 		return (2);
 	return (ret_val);
 }
 
-int	check_collisions_fireball(t_game *game, t_object *obj, float x_pos, float y_pos)
+int	check_collisions_fireball(t_game *game, t_object *obj,
+	float x_pos, float y_pos)
 {
 	int	collide;
 

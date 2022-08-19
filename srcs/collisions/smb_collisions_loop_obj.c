@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   smb_collisions_loop.c                              :+:      :+:    :+:   */
+/*   smb_collisions_loop_obj.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 18:45:50 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 12:42:11 by lgiband          ###   ########.fr       */
+/*   Created: 2022/08/19 12:41:53 by lgiband           #+#    #+#             */
+/*   Updated: 2022/08/19 12:43:51 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 
 #include <math.h>
 
-#include <stdio.h>
-
-int	boucle_col_down(t_collisions col, t_game *game)
+int	boucle_col_down_obj(t_collisions col, t_game *game, t_object *obj)
 {
 	int	i;
 	int	j;
@@ -34,9 +32,10 @@ int	boucle_col_down(t_collisions col, t_game *game)
 			{
 				if (game->map.map_data[col.y + i][col.x + j] != '0')
 				{
-					game->collide_obj = (t_collisions){.width = TILES_SIZE,
+					obj->col_object = (t_collisions){.width = TILES_SIZE,
 						.height = TILES_SIZE, .x = (col.x + j) * TILES_SIZE,
-						.y = (col.y + i) * TILES_SIZE};
+						.y = (col.y + i) * TILES_SIZE,
+						.direction = col.direction};
 					return (1);
 				}
 			}
@@ -45,7 +44,7 @@ int	boucle_col_down(t_collisions col, t_game *game)
 	return (0);
 }
 
-int	boucle_col_up(t_collisions col, t_game *game)
+int	boucle_col_up_obj(t_collisions col, t_game *game, t_object *obj)
 {
 	int	i;
 	int	j;
@@ -61,9 +60,10 @@ int	boucle_col_up(t_collisions col, t_game *game)
 			{
 				if (game->map.map_data[col.y - i][col.x + j] != '0')
 				{
-					game->collide_obj = (t_collisions){.width = TILES_SIZE,
+					obj->col_object = (t_collisions){.width = TILES_SIZE,
 						.height = TILES_SIZE, .x = (col.x + j) * TILES_SIZE,
-						.y = (col.y - i) * TILES_SIZE};
+						.y = (col.y - i) * TILES_SIZE,
+						.direction = col.direction};
 					return (1);
 				}
 			}
@@ -72,7 +72,7 @@ int	boucle_col_up(t_collisions col, t_game *game)
 	return (0);
 }
 
-int	boucle_col_right(t_collisions col, t_game *game)
+int	boucle_col_right_obj(t_collisions col, t_game *game, t_object *obj)
 {
 	int	i;
 	int	j;
@@ -88,9 +88,10 @@ int	boucle_col_right(t_collisions col, t_game *game)
 			{
 				if (game->map.map_data[col.y + i][col.x + j] != '0')
 				{
-					game->collide_obj = (t_collisions){.width = TILES_SIZE,
+					obj->col_object = (t_collisions){.width = TILES_SIZE,
 						.height = TILES_SIZE, .x = (col.x + j) * TILES_SIZE,
-						.y = (col.y + i) * TILES_SIZE};
+						.y = (col.y + i) * TILES_SIZE,
+						.direction = col.direction};
 					return (1);
 				}
 			}
@@ -99,7 +100,7 @@ int	boucle_col_right(t_collisions col, t_game *game)
 	return (0);
 }
 
-int	boucle_col_left(t_collisions col, t_game *game)
+int	boucle_col_left_obj(t_collisions col, t_game *game, t_object *obj)
 {
 	int	i;
 	int	j;
@@ -115,9 +116,10 @@ int	boucle_col_left(t_collisions col, t_game *game)
 			{
 				if (game->map.map_data[col.y + i][col.x - j] != '0')
 				{
-					game->collide_obj = (t_collisions){.width = TILES_SIZE,
+					obj->col_object = (t_collisions){.width = TILES_SIZE,
 						.height = TILES_SIZE, .x = (col.x - j) * TILES_SIZE,
-						.y = (col.y + i) * TILES_SIZE};
+						.y = (col.y + i) * TILES_SIZE,
+						.direction = col.direction};
 					return (1);
 				}
 			}

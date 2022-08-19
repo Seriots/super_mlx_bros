@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 11:06:55 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:19:48 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,24 @@ unsigned int	get_pxl_color(t_img_data img, int x, int y);
 int				display_ingame(t_game *game);
 
 /*smb_collisions_loop.c*/
+int				boucle_col_down_obj(t_collisions col,
+					t_game *game, t_object *obj);
+int				boucle_col_up_obj(t_collisions col,
+					t_game *game, t_object *obj);
+int				boucle_col_right_obj(t_collisions col,
+					t_game *game, t_object *obj);
+int				boucle_col_left_obj(t_collisions col,
+					t_game *game, t_object *obj);
 int				boucle_col_down(t_collisions col, t_game *game);			
 int				boucle_col_up(t_collisions col, t_game *game);
 int				boucle_col_right(t_collisions col, t_game *game);
 int				boucle_col_left(t_collisions col, t_game *game);
 
 /*smb_collisions.c*/
-int				check_collide_obj(t_game *game, t_object *obj, t_dict *all_obj, t_hbox *p_hbox);
-int				check_col_obj_map(t_game *game, t_object *obj, float x_pos, float y_pos);
+int				check_collide_obj(t_object *obj, t_dict *all_obj,
+					t_hbox *p_hbox);
+int				check_col_obj_map(t_game *game, t_object *obj,
+					float x_pos, float y_pos);
 void			get_new_limit_wall(t_collisions value, t_hbox *p_hbox);
 int				check_collisions_obj(t_game *game, t_object *obj,
 					float x_pos, float y_pos);
@@ -103,7 +113,7 @@ int				check_collisions(t_game *game, float x_pos,
 					float y_pos, float position);
 
 /*smb_move.c*/
-int				apply_gravity_obj(t_game *game, t_object *obj);
+int				apply_gravity_obj(t_game *game, t_object *obj, float max_speed);
 int				apply_hor_movement_obj(t_game *game, t_object *obj);
 
 int				move_right(t_game *game, t_player *player);
@@ -112,6 +122,11 @@ int				apply_hor_movement(t_game *game, t_player *player);
 int				apply_gravity(t_game *game, t_player *player);
 
 /*smb_update_player.c*/
+void			change_image(t_game *game, t_player *player, int value);
+int				update_running_image(t_game *game, t_player *player, int value);
+int				update_growth_image(t_game *game, t_player *player, int value);
+int				update_victory_image(t_game *game, t_player *player, int value);
+int				update_dead_image(t_game *game, t_player *player, int value);
 int				update_player_state(t_game *game, t_player *player);
 int				update_player_image(t_game *game, t_player *player);
 

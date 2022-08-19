@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:12:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 16:56:07 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:13:15 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 #include <stdio.h>
 
-int	plant_pirahna_collisions(t_game *game, t_dict *elem, t_object *obj, int direction)
+int	plant_pirahna_collisions(t_game *game, t_dict *elem, t_object *obj, int dir)
 {
-	(void)direction;
+	(void)dir;
 	(void)obj;
 	(void)elem;
 	if (game->player.x_pos + game->x_position + game->player.width
