@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 18:07:50 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 20:50:03 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ typedef struct s_all_images
 	t_img_data	*all_piranhas;
 	t_img_data	*all_characters;
 	t_img_data	sign;
+	t_img_data	crate;
 	t_img_data	big_tree;
 	t_img_data	block;
 	t_img_data	end_bar;

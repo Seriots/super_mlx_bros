@@ -55,6 +55,7 @@ define SRCS :=
 	init/objects/smb_init_btr.c
 	init/objects/smb_init_castle.c
 	init/objects/smb_init_coin.c
+	init/objects/smb_init_crate.c
 	init/objects/smb_init_end.c
 	init/objects/smb_init_fireball.c
 	init/objects/smb_init_fire_flower.c

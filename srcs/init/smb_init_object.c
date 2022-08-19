@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 18:08:52 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 20:51:36 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	set_object(t_game *game, char *key, t_object **object)
 					{{FIRE_FLOWER, init_fire_flower}}, {{GOOMBA, init_goomba}},
 					{{BREAKABLE_BLOCK, init_breakable_block}}, 
 					{{BTR, init_btr}}, {{LOOT_BLOCK, init_loot_block}},
-					{{PLANT_PIRANHA, init_plant_pirahna}},
+					{{PLANT_PIRANHA, init_plant_pirahna}}, {{CRATE, init_crate}},
 					{{RED_CHAMP, init_red_champ}}, {{FIREBALL, init_fireball}},
 					{{FIREBALL_PLAYER, init_fireball_player}}};
 	
@@ -63,7 +63,7 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 	long unsigned int	i;
 	static char			all_tag[][6] = {START, END, COIN, SIGN, BTR, BLOCK,
 		FLAG, CASTLE, FIRE_FLOWER, BREAKABLE_BLOCK, LOOT_BLOCK, RED_CHAMP,
-		GOOMBA, PLANT_PIRANHA, FIREBALL, FIREBALL_PLAYER};
+		GOOMBA, PLANT_PIRANHA, FIREBALL, FIREBALL_PLAYER, CRATE};
 
 	i = 0;
 	while (i < sizeof(all_tag) / sizeof(all_tag[0]))

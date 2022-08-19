@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:52:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 20:50:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	set_image_to_zero(t_game *game)
 	game->all_images.loot_block.img = 0;
 	game->all_images.loot_block_use.img = 0;
 	game->all_images.breakable_block.img = 0;
+	game->all_images.crate.img = 0;
 }
 
 static void	init_game_variable(t_game *game)
@@ -86,6 +87,7 @@ static int	init_all_xpm_image(t_game *game)
 		&& !init_xpm_image(game, &game->all_images.red_champi, REDC_PATH)
 		&& !init_xpm_image(game, &game->all_images.loot_block, LB_PATH)
 		&& !init_xpm_image(game, &game->all_images.loot_block_use, LBU_PATH)
+		&& !init_xpm_image(game, &game->all_images.crate, CRATE_PATH)
 		&& !init_xpm_image(game, &game->all_images.breakable_block, BB_PATH))
 		return (0);
 	return (3);

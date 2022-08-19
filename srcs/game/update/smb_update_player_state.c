@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 19:11:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:43:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 19:22:24 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,11 @@ static void	state_jump(t_game *game, t_player *player)
 static void	update_state(t_game *game, t_player *player)
 {
 	int	crouch_check;
-
-	crouch_check = (TILES_SIZE - player->height + 1) % TILES_SIZE;
-	if (crouch_check < 0)
-		crouch_check = 0;
+;
+	if (player->evolution > LITTLE)
+		crouch_check = 13;
+	else
+		crouch_check = 6;
 	if (player->state == DEAD)
 		return ;
 	else if (player->bottom == 1 || (player->state == CROUCH

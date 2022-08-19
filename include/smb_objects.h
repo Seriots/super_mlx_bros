@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 17:42:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 20:53:31 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define PLANT_PIRANHA "PP"
 # define FIREBALL "FB"
 # define FIREBALL_PLAYER "FBP"
+# define CRATE "CRATE"
 
 /*Char properties*/
 # define CHAR_PATH "files/xpm/charactere/"
@@ -83,7 +84,7 @@
 # define REDC_PATH "files/xpm/objects/red_champi.xpm"
 # define REDC_HBOX 4
 # define REDC_SPAWN_SPEED 0.015f
-# define REDC_X_SPEED 0.035f
+# define REDC_X_SPEED 0.05f
 # define REDC_Y_MAX_SPEED 0.2f
 
 /*Loot block properties*/
@@ -100,7 +101,7 @@
 /*Goomba properties*/
 # define GBA_PATH "files/xpm/ennemies/goomba/goomba"
 # define GBA_NUMBER 3
-# define GBA_HBOX 4
+# define GBA_HBOX 6
 # define GBA_ANIM_DURATION 480
 # define GBA_X_SPEED 0.065f
 # define GBA_Y_MAX_SPEED 0.2f
@@ -123,5 +124,8 @@
 # define FB_START_UP_SPEED 0.18f
 # define FB_MAX_SPEED 0.5f
 # define FB_GRAVITY 0.00003f
+
+/*Crate properties*/
+# define CRATE_PATH "files/xpm/objects/crate.xpm"
 
 #endif
