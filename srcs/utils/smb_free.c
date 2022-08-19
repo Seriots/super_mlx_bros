@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 02:19:39 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:41:11 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,31 @@ void	free_all_image(t_game *game)
 	if (game->all_images.all_little_players)
 		free_img_array(game, &game->all_images.all_little_players,
 			LPLAYER_NUMBER);
+	if (game->all_images.all_fire_players)
+		free_img_array(game, &game->all_images.all_fire_players, FPLAYER_NUMBER);
 	if (game->all_images.all_big_players)
 		free_img_array(game, &game->all_images.all_big_players, BPLAYER_NUMBER);
 	if (game->all_images.all_coins)
 		free_img_array(game, &game->all_images.all_coins, COIN_NUMBER);
 	if (game->all_images.all_characters)
 		free_img_array(game, &game->all_images.all_characters, CHAR_NUMBER);
+	if (game->all_images.all_goombas)
+		free_img_array(game, &game->all_images.all_goombas, GBA_NUMBER);
+	if (game->all_images.all_piranhas)
+		free_img_array(game, &game->all_images.all_piranhas, PP_NUMBER);
+	if (game->all_images.all_fireballs)
+		free_img_array(game, &game->all_images.all_fireballs, FB_NUMBER);
 	mlx_destroy_image(game->mlx.display, game->all_images.sign.img);
 	mlx_destroy_image(game->mlx.display, game->all_images.big_tree.img);
 	mlx_destroy_image(game->mlx.display, game->all_images.end_bar.img);
 	mlx_destroy_image(game->mlx.display, game->all_images.block.img);
 	mlx_destroy_image(game->mlx.display, game->all_images.castle.img);
 	mlx_destroy_image(game->mlx.display, game->all_images.flag.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.fire_flower.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.red_champi.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.loot_block.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.loot_block_use.img);
+	mlx_destroy_image(game->mlx.display, game->all_images.breakable_block.img);
 }
 
 void	free_all_object(t_game *game)

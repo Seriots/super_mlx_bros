@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/18 06:44:37 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 11:46:31 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,19 @@ int	update_movement(t_game *game, t_player *player)
 
 int	update_objects(t_game *game, t_dict *all_obj)
 {
+	t_dict		*next;
 	t_object	*value;
 
+	next = all_obj->next;
 	while (all_obj)
 	{
-		value = all_obj->value;
-		if (value->update_fonction)
+		if (all_obj)
+			value = all_obj->value;
+		if (all_obj && value && value->update_fonction)
 			value->update_fonction(game, all_obj, value);
-		all_obj = all_obj->next;
+		all_obj = next;
+		if (all_obj)
+			next = all_obj->next;
 	}
 	return (0);
 }
