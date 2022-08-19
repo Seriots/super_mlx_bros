@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 23:28:01 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:08:55 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 17:45:12 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,9 @@
 
 int	btr_collisions(t_game *game, t_object *obj, int direction)
 {
-	t_dict		*coin;
-
 	if (obj->col_count == 0 && (direction == LEFT || direction == RIGHT))
 	{
-		coin = add_obj(COIN, obj->x, obj->y - COIN_HEIGHT);
-		init_wincoin(game, (t_object **)&coin->value);
-		dict_add_back(&game->map.all_object, coin);
+		generate_wincoin(game, obj);
 		obj->col_count++;
 	}
 	return (0);

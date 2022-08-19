@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:10:51 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 18:07:50 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,12 @@ typedef struct s_object
 	int				(*del_fonction)(t_game *game, t_dict *elem,
 			struct s_object *obj);
 }	t_object;
+
+typedef struct s_init
+{
+	char *tag;
+	void (*fct)(t_game *game, t_object **object);
+}	t_init;
 
 typedef struct s_map
 {

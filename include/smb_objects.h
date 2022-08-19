@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 17:02:50 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 17:42:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # define COIN_PATH "files/xpm/objects/coins/coin"
 # define COIN_NUMBER 6
 # define COIN_HEIGHT 16
+# define COIN_WIDTH 16
 
 /*Must be a multiple of coin number, its better*/
 # define COIN_ANIM_DURATION 672
@@ -111,7 +112,7 @@
 # define PP_ANIM_DURATION 2000
 
 /*Fireball properties*/
-# define FB_PATH "files/xpm/objects/fireball/firebal"
+# define FB_PATH "files/xpm/objects/fireball/fireball"
 # define FB_NUMBER 4
 # define FB_HBOX 3
 # define FB_ANIM_DURATION 240

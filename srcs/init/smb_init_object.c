@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 14:07:46 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 18:08:52 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,38 +23,25 @@
 
 void	set_object(t_game *game, char *key, t_object **object)
 {
-	if (!ft_strcmp(key, START))
-		init_start(game, object);
-	else if (!ft_strcmp(key, END))
-		init_end(game, object);
-	else if (!ft_strcmp(key, COIN))
-		init_coin(game, object);
-	else if (!ft_strcmp(key, SIGN))
-		init_sign(game, object);
-	else if (!ft_strcmp(key, BTR))
-		init_btr(game, object);
-	else if (!ft_strcmp(key, BLOCK))
-		init_block(game, object);
-	else if (!ft_strcmp(key, FLAG))
-		init_flag(game, object);
-	else if (!ft_strcmp(key, CASTLE))
-		init_castle(game, object);
-	else if (!ft_strcmp(key, FIRE_FLOWER))
-		init_fire_flower(game, object);
-	else if (!ft_strcmp(key, BREAKABLE_BLOCK))
-		init_breakable_block(game, object);
-	else if (!ft_strcmp(key, LOOT_BLOCK))
-		init_loot_block(game, object);
-	else if (!ft_strcmp(key, RED_CHAMP))
-		init_red_champ(game, object);
-	else if (!ft_strcmp(key, GOOMBA))
-		init_goomba(game, object);
-	else if (!ft_strcmp(key, PLANT_PIRANHA))
-		init_plant_pirahna(game, object);
-	else if (!ft_strcmp(key, FIREBALL))
-		init_fireball(game, object);
-	else if (!ft_strcmp(key, FIREBALL_PLAYER))
-		init_fireball_player(game, object);
+	long unsigned int	i;
+	static t_init		all_tag[][2] = {{{START, init_start}},
+					{{COIN, init_coin}},{{SIGN, init_sign}},
+					{{BLOCK, init_block}}, {{FLAG, init_flag}},
+					{{CASTLE, init_castle}}, {{END, init_end}},
+					{{FIRE_FLOWER, init_fire_flower}}, {{GOOMBA, init_goomba}},
+					{{BREAKABLE_BLOCK, init_breakable_block}}, 
+					{{BTR, init_btr}}, {{LOOT_BLOCK, init_loot_block}},
+					{{PLANT_PIRANHA, init_plant_pirahna}},
+					{{RED_CHAMP, init_red_champ}}, {{FIREBALL, init_fireball}},
+					{{FIREBALL_PLAYER, init_fireball_player}}};
+	
+	i = 0;
+	while (i < sizeof(all_tag) / sizeof(all_tag[0]))
+	{
+		if (!ft_strcmp(key, all_tag[i]->tag))
+			return (all_tag[i]->fct(game, object));
+		i++;
+	}
 }
 
 t_object	*obj_new(char *tag, float x, float y)
@@ -73,37 +60,17 @@ t_object	*obj_new(char *tag, float x, float y)
 
 t_dict	*get_dict_new(char *tag, t_object *object)
 {
-	if (!ft_strcmp(tag, START))
-		return (dict_new(START, object));
-	else if (!ft_strcmp(tag, END))
-		return (dict_new(END, object));
-	else if (!ft_strcmp(tag, COIN))
-		return (dict_new(COIN, object));
-	else if (!ft_strcmp(tag, SIGN))
-		return (dict_new(SIGN, object));
-	else if (!ft_strcmp(tag, BTR))
-		return (dict_new(BTR, object));
-	else if (!ft_strcmp(tag, BLOCK))
-		return (dict_new(BLOCK, object));
-	else if (!ft_strcmp(tag, FLAG))
-		return (dict_new(FLAG, object));
-	else if (!ft_strcmp(tag, CASTLE))
-		return (dict_new(CASTLE, object));
-	else if (!ft_strcmp(tag, FIRE_FLOWER))
-		return (dict_new(FIRE_FLOWER, object));
-	else if (!ft_strcmp(tag, LOOT_BLOCK))
-		return (dict_new(LOOT_BLOCK, object));
-	else if (!ft_strcmp(tag, BREAKABLE_BLOCK))
-		return (dict_new(BREAKABLE_BLOCK, object));
-	else if (!ft_strcmp(tag, RED_CHAMP))
-		return (dict_new(RED_CHAMP, object));
-	else if (!ft_strcmp(tag, GOOMBA))
-		return (dict_new(GOOMBA, object));
-	else if (!ft_strcmp(tag, PLANT_PIRANHA))
-		return (dict_new(PLANT_PIRANHA, object));
-	else if (!ft_strcmp(tag, FIREBALL))
-		return (dict_new(FIREBALL, object));
-	else if (!ft_strcmp(tag, FIREBALL_PLAYER))
-		return (dict_new(FIREBALL_PLAYER, object));
-	return (dict_new("OBJ", object));
+	long unsigned int	i;
+	static char			all_tag[][6] = {START, END, COIN, SIGN, BTR, BLOCK,
+		FLAG, CASTLE, FIRE_FLOWER, BREAKABLE_BLOCK, LOOT_BLOCK, RED_CHAMP,
+		GOOMBA, PLANT_PIRANHA, FIREBALL, FIREBALL_PLAYER};
+
+	i = 0;
+	while (i < sizeof(all_tag) / sizeof(all_tag[0]))
+	{
+		if (!ft_strcmp(tag, all_tag[i]))
+			return (dict_new(all_tag[i], object));
+		i++;
+	}
+	return (0);
 }

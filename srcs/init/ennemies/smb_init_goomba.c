@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:05:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:17:20 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 17:43:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,9 @@
 
 int	goomba_del(t_game *game, t_dict *elem, t_object *obj)
 {
-	t_dict	*wincoin;
-
-	(void)game;
-	(void)elem;
 	if (obj->img != &obj->all_img[2])
 	{
-		wincoin = add_obj(COIN, obj->x, obj->y - COIN_HEIGHT);
-		init_wincoin(game, (t_object **)&wincoin->value);
-		dict_add_back(&game->map.all_object, wincoin);
+		generate_wincoin(game, obj);
 		obj->y += 8;
 		obj->height = 8;
 		obj->img = &obj->all_img[2];

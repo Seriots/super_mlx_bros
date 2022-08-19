@@ -18,46 +18,22 @@
 
 #include <math.h>
 
-static t_img_data	get_tile_next(t_game *game, char c)
-{
-	if (c == 'I')
-		return (game->all_images.all_tiles[2]);
-	if (c == 'E')
-		return (game->all_images.all_tiles[7]);
-	if (c == 'F')
-		return (game->all_images.all_tiles[8]);
-	if (c == 'B')
-		return (game->all_images.all_tiles[6]);
-	if (c == 'A')
-		return (game->all_images.all_tiles[1]);
-	if (c == 'C')
-		return (game->all_images.all_tiles[9]);
-	if (c == 'D')
-		return (game->all_images.all_tiles[13]);
-	if (c == 'G')
-		return (game->all_images.all_tiles[14]);
-	if (c == 'H')
-		return (game->all_images.all_tiles[15]);
-	return (game->all_images.all_tiles[0]);
-}
+#include <stdio.h>
 
 static t_img_data	get_tile(t_game *game, char c)
 {
-	if (c == 'P')
-		return (game->all_images.all_tiles[0]);
-	if (c == 'N')
-		return (game->all_images.all_tiles[4]);
-	if (c == 'O')
-		return (game->all_images.all_tiles[12]);
-	if (c == 'L')
-		return (game->all_images.all_tiles[11]);
-	if (c == 'M')
-		return (game->all_images.all_tiles[5]);
-	if (c == 'J')
-		return (game->all_images.all_tiles[3]);
-	if (c == 'K')
-		return (game->all_images.all_tiles[10]);
-	return (get_tile_next(game, c));
+	int 			i;
+	static char	set[] = {'P', 'A', 'I', 'J', 'N', 'M', 'B', 'E',
+							'F', 'C', 'K', 'L', 'O', 'D', 'G', 'H'};
+
+	i = 0;
+	while (i < 16)
+	{
+		if (set[i] == c)
+			return (game->all_images.all_tiles[i]);;
+		i++;
+	}
+	return (game->all_images.all_tiles[0]);
 }
 
 static void	put_tile(t_game *game, int x, int y, int position)

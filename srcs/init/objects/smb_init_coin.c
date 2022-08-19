@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:29:47 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:09:23 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 17:38:11 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	coin_collisions(t_game *game, t_object *obj, int direction)
 	(void)obj;
 	game->player.coins++;
 	obj->update_fonction = obj->del_fonction;
+	obj->is_collide = 0;
 	return (0);
 }
 
