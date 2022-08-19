@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:09:18 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 20:35:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 22:56:55 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	breakable_block_collisions(t_game *game, t_object *obj, int direction)
 {
 	(void)game;
 	(void)obj;
-	if (!check_hbox(game, obj, BB_HBOX, obj->height / 2) || game->player.y_speed > 0 || game->player.state == CROUCH)
+	if (!check_hbox(game, obj, BB_HBOX, obj->height / 2) || game->player.y_speed > 0.5 || game->player.state == CROUCH)
 		return (0);
 	if (direction == UP)
 		obj->update_fonction = obj->del_fonction;

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 20:53:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/19 23:08:37 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@
 /*Goomba properties*/
 # define GBA_PATH "files/xpm/ennemies/goomba/goomba"
 # define GBA_NUMBER 3
-# define GBA_HBOX 6
+# define GBA_HBOX 8
 # define GBA_ANIM_DURATION 480
 # define GBA_X_SPEED 0.065f
 # define GBA_Y_MAX_SPEED 0.2f
