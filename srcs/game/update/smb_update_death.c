@@ -6,13 +6,15 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 05:19:33 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 12:25:44 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 11:39:42 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "smb_settings.h"
 #include "smb_struct.h"
 #include "smb.h"
+
+#include <stdio.h>
 
 static int	update_death_position(t_game *game)
 {

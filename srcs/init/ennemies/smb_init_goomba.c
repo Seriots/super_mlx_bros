@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:05:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 17:43:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 11:34:08 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ int	goomba_del(t_game *game, t_dict *elem, t_object *obj)
 
 int	goomba_collisions(t_game *game, t_object *obj, int direction)
 {
-	if (check_hbox(game, obj, GBA_HBOX, GBA_HBOX))
+	(void)direction;
+	if (check_hbox(game, obj, GBA_HBOX_X, GBA_HBOX_Y))
 		return (0);
-	if (!game->player.invincible_frame && direction != DOWN)
-		shrink(game);
-	if (direction == DOWN)
+	if (game->player.y_pos + game->player.height < obj->y + (obj->height / 2))
 	{
 		obj->update_fonction = obj->del_fonction;
 		obj->is_collide = 0;
@@ -50,6 +49,8 @@ int	goomba_collisions(t_game *game, t_object *obj, int direction)
 		game->player.y_speed = REJUMP_SPEED;
 		game->player.y_acceleration = 0;
 	}
+	else if (!game->player.invincible_frame && !check_hbox(game, obj, GBA_HBOX_X / 2, GBA_HBOX_Y / 2))
+		shrink(game);
 	return (0);
 }
 

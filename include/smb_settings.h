@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 17:02:07 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 12:27:26 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,8 +149,8 @@
 
 /*Multiplier of the score when the player grab the flag bar*/
 # define MAX_SCORE 7000
-# define SCORE_MULTIPLIER 30
-# define COIN_MULTIPLIER 50
-# define TIME_MULTIPLIER 2
+# define SCORE_MULTIPLIER 20
+# define COIN_MULTIPLIER 45
+# define TIME_MULTIPLIER 1
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:07:14 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:25:30 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 12:28:57 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,22 @@
 
 #include <stdlib.h>
 
+#include <stdio.h>
+
 int	red_champ_collisions(t_game *game, t_object *obj, int dir)
 {
 	(void)dir;
 	if (check_hbox(game, obj, REDC_HBOX, REDC_HBOX))
 		return (0);
 	if (game->player.evolution == LITTLE)
+	{
+		if ((game->player.state == CROUCH && check_col_player_map(game, game->player.x_pos, game->player.y_pos - 14, game->x_position))
+			|| (game->player.state != CROUCH && check_col_player_map(game, game->player.x_pos, game->player.y_pos - 8, game->x_position)))
+			return (0);
 		growth(game);
-	obj->is_visible = 0;
-	obj->update_fonction = obj->del_fonction;
+		obj->is_visible = 0;
+		obj->update_fonction = obj->del_fonction;
+	}
 	return (0);
 }
 
