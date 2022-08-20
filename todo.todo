@@ -54,34 +54,42 @@ x -> Faire un tableau a la place des if /elseif
 x -> ajoouter une update_del_fct a tout mes object que j'qppellle au lieu de faire un dict_del_one tout court
 x -> Faire une map
 x -> et apres le jeu est jouable
+--END FIRST STEP--
 
 ----------------------------------
+--START SECOND STEP--
+-> Animer la destruction des objets: boule de feu, ennemies..
 -> Refaire le parsing pour pouvoir adapter le contenu de la lignes a l'objet: goomba droite gauche, roquette laucher droite gauche, sub area, map en fond, tuyau, loot box...
+-> Ajouter un menu.
+-> Ajouter un selecteur de map style mario ou tu te balade dans une sub map et tu choisis ta map
+-> Ajouter de la sauvegarde
+
 ----------------------------------
 x -> Initialisations des images du joueur
 x -> Smooth fin de movement avec variable speed par direction
 x -> Gestion jolie des free a l'initialisation si fail
 x -> Parsing des objets, et affichage des objest et collisions des objets
--> fix jump when two key are pressed at the same time
 x -> Fix l'arrive sur le flag si j'y arrive par au-dessus, replacement du player
--> faire des animations de destruction des objs
+x -> List chainee de tout mes elements a redner: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet, is_collide, fonction a applique sur la collision
+-> fix jump when two key are pressed at the same time
 -> trouver une meilleur image du big player sur la end bar
 -> reset la x_speed si collisions avec un wall en face
--> Wall Jump
--> faire les ennemis
-x -> List chainee de tout mes elements a redner: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet, is_collide, fonction a applique sur la collision
--> List chainee de tout mes monstr a render: all_image, current_image, start_frame, position(x/y), fonction a applique sur l'objet,  is_collide, fonction a applique sur la collision
--> ./project || './mlx_keyrepeat_on' in terminal to dodge problem with segfault for the key repetition
 -> Ralentissement de la gravite qaund colle a un mur
+-> Wall Jump
+-> ./project || './mlx_keyrepeat_on' in terminal to dodge problem with segfault for the key repetition
 -> Faire en sorte de pouvoir sortir de la map par le haut pour un effet plus smooth
 -> faire en sorte que les objects visible mais pas collide ni strong soit derrier le bg;
--> fix the problem when an object is 1px difference with a map wall
 -> Empecher le deplacement horizontal en mode crouch mais le faire glisser
+-> fix la mort quand peut pas jump
+-> fix the problem when an object is 1px difference with a map wall
+
+```OBJECT TO ADD
+
 -> les tuyau + sub area
 -> les laucher de fusee
 -> faire les wall en fond qu'on traverse par le dessous mais qu'on reste sur le dessus (avec peut etre invisible lines), refaire le parsing des objets pour pouvoir faire un truc special selon le tag.
--> fix la mort quand peut pas jump
 
+```
 
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions
