@@ -106,7 +106,7 @@ define LIBS :=
 	lib/ft/libft.a
 	lib/list/liblist.a
 	lib/tree/libtree.a
-	lib/mlx_linux/libmlx_Linux.a
+	lib/mlx/libmlx_Linux.a
 endef
 LIBS := $(strip $(LIBS))
 
@@ -116,7 +116,7 @@ define LIB_NAMES :=
 	ft
 	list
 	tree
-	mlx_linux
+	mlx
 endef
 LIB_NAMES := $(strip $(LIB_NAMES))
 
