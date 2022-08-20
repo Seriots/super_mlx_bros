@@ -1,9 +1,11 @@
 # super_mlx_bros
 Do you know it ?
 
+-apt-install git \
+Copy the repositorie 'link'. \
 
-Install git \
-Copy the repositorie link. \
-git clone 'link' in ubuntu/... \
-run make \
-run ./super_mlx_bros maps/map_.map \
+Commande:
+-git clone 'link' in ubuntu/... \
+-cd super_mlx_bros
+-make \
+-./super_mlx_bros maps/map2.map
