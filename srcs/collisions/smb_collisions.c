@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 15:05:42 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 12:23:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 16:38:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ int	check_collisions(t_game *game, float x_pos, float y_pos, float position)
 	game->collide_obj = (t_collisions){.x = 0, .y = 0, .width = 0, .height = 0};
 	collide = check_col_player_map(game, x_pos, y_pos, position);
 	if (!collide)
-		collide = check_col_player_obj(game, x_pos, y_pos, position);
+		collide = check_col_player_obj(game, x_pos + position, y_pos, 0);
 	else
-		check_col_player_obj(game, x_pos, y_pos, position);
+		check_col_player_obj(game, x_pos + position, y_pos, 0);
 	return (collide);
 }

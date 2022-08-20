@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 20:51:57 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 16:39:45 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int				check_collisions_bottom_map(t_game *game, float x_pos,
 int				check_col_player_obj_bottom(t_game *game, float x_pos,
 					float y_pos, float pos);
 int				check_col_player_obj(t_game *game, float x_pos,
-					float y_pos, float position);
+					float y_pos, t_object *obj);
 int				check_col_player_map(t_game *game, float x_pos,
 					float y_pos, float position);
 int				check_collisions_bottom(t_game *game, float x_pos,

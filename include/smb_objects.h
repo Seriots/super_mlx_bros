@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 11:26:14 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 16:18:50 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@
 # define FB_ANIM_DURATION 240
 # define FB_LIVE_DURATION 1200
 # define FB_SPEED_DEFAULT 0.05f
-# define FB_SPEED_PLAYER 0.3f
+# define FB_SPEED_PLAYER 0.22f
 # define FB_UP_SPEED 0.30f
 # define FB_START_UP_SPEED 0.18f
 # define FB_MAX_SPEED 0.5f

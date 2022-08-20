@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:03:39 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 12:27:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 15:57:44 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 # define GROWTH 8
 # define SHRINK 9
 # define VICTORY 10
+# define C_SHRINK 11
+# define C_GROWTH 12
 
 /*Player orientation*/
 # define O_LEFT 0

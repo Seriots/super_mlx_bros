@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:21:31 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 12:23:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 16:14:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static int	update_little(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 6);
 	if (player->state == GROWTH)
 		update_growth_image(game, player, value + 7);
+	if (player->state == C_GROWTH)
+		update_growth_image(game, player, value + 4);
 	if (player->state == VICTORY)
 		update_victory_image(game, player, value * 2);
 	if (player->state == DEAD)
@@ -57,8 +59,12 @@ static int	update_big(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 7);
 	if (player->state == SHRINK)
 		update_growth_image(game, player, value + 8);
+	if (player->state == C_SHRINK)
+		update_growth_image(game, player, value + 5);
 	if (player->state == GROWTH)
 		update_growth_image(game, player, value + 11);
+	if (player->state == C_GROWTH)
+		update_growth_image(game, player, value + 5);
 	if (player->state == VICTORY)
 		update_victory_image(game, player, value * 2);
 	return (0);
@@ -82,6 +88,8 @@ static int	update_fire(t_game *game, t_player *player, int value)
 		change_image(game, player, value + 7);
 	if (player->state == SHRINK)
 		update_growth_image(game, player, value + 8);
+	if (player->state == C_SHRINK)
+		update_growth_image(game, player, value + 5);
 	if (player->state == VICTORY)
 		update_victory_image(game, player, value * 2);
 	return (0);

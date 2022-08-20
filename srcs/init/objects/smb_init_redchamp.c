@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:07:14 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 12:28:57 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/20 16:42:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,38 @@ int	red_champ_collisions(t_game *game, t_object *obj, int dir)
 		return (0);
 	if (game->player.evolution == LITTLE)
 	{
-		if ((game->player.state == CROUCH && check_col_player_map(game, game->player.x_pos, game->player.y_pos - 14, game->x_position))
-			|| (game->player.state != CROUCH && check_col_player_map(game, game->player.x_pos, game->player.y_pos - 8, game->x_position)))
+		if ((game->player.state == CROUCH
+				&& check_col_player_map(game, game->player.x_pos,
+					game->player.y_pos - 14, game->x_position))
+			|| (game->player.state != CROUCH
+				&& check_col_player_map(game, game->player.x_pos,
+					game->player.y_pos - 8, game->x_position))
+			|| (game->player.state == CROUCH
+				&& check_col_player_obj(game, game->player.x_pos + game->x_position,
+					game->player.y_pos - 14, obj))
+			|| (game->player.state != CROUCH
+				&& check_col_player_obj(game, game->player.x_pos + game->x_position,
+					game->player.y_pos - 8, obj)))
 			return (0);
-		growth(game);
 		obj->is_visible = 0;
 		obj->update_fonction = obj->del_fonction;
+		growth(game);
+	}
+	else
+	{
+		obj->is_visible = 0;
+		obj->update_fonction = obj->del_fonction;	
 	}
 	return (0);
 }
 
 int	red_champ_update(t_game *game, t_dict *elem, t_object *obj)
 {
+	(void)elem;
 	apply_gravity_obj(game, obj, REDC_Y_MAX_SPEED);
 	apply_hor_movement_obj(game, obj);
 	if (obj->y > SCREEN_HEIGHT)
-		dict_delone(&game->map.all_object, elem, 0, free);
+		obj->update_fonction = obj->del_fonction;
 	return (0);
 }
 
