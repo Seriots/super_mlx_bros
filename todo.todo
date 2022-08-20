@@ -52,9 +52,11 @@ x -> ajouter les champi, les fleur et les image du flower player
 x -> fix leak when image fail
 x -> Faire un tableau a la place des if /elseif
 x -> ajoouter une update_del_fct a tout mes object que j'qppellle au lieu de faire un dict_del_one tout court
--> Faire une map
--> et apres le jeu est jouable
+x -> Faire une map
+x -> et apres le jeu est jouable
 
+----------------------------------
+-> Refaire le parsing pour pouvoir adapter le contenu de la lignes a l'objet: goomba droite gauche, roquette laucher droite gauche, sub area, map en fond, tuyau, loot box...
 ----------------------------------
 x -> Initialisations des images du joueur
 x -> Smooth fin de movement avec variable speed par direction
