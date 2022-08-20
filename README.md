@@ -3,8 +3,8 @@ Do you know it ?
 
 -apt-install git \
 Copy the repositorie 'link'. \
-
-Commande:
+\
+Commande: \
 -git clone 'link' in ubuntu/... \
 -cd super_mlx_bros \
 -make \
