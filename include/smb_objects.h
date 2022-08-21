@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 16:18:50 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:12:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define FIREBALL "FB"
 # define FIREBALL_PLAYER "FBP"
 # define CRATE "CRATE"
+# define BREAK_MOR "BBM"
 
 /*Char properties*/
 # define CHAR_PATH "files/xpm/charactere/"
@@ -60,7 +61,7 @@
 # define BTR_PATH "files/xpm/objects/big_tree.xpm"
 
 /*Block properties*/
-# define BLK_PATH "files/xpm/objects/block.xpm"
+# define BLK_PATH "files/xpm/block/block.xpm"
 
 /*End properties*/
 # define BAR_PATH "files/xpm/objects/end_bar.xpm"
@@ -88,15 +89,22 @@
 # define REDC_Y_MAX_SPEED 0.2f
 
 /*Loot block properties*/
-# define LB_PATH "files/xpm/objects/loot_block.xpm"
+# define LB_PATH "files/xpm/block/loot_block.xpm"
 # define LB_HBOX 4
 
 /*Loot block use properties*/
-# define LBU_PATH "files/xpm/objects/loot_block_use.xpm"
+# define LBU_PATH "files/xpm/block/loot_block_use.xpm"
 
 /*Breakable block properties*/
-# define BB_PATH "files/xpm/objects/breakable_block.xpm"
+# define BB_PATH "files/xpm/block/breakable_block/breakable_block"
+# define BB_NUMBER 5
 # define BB_HBOX 4
+# define BBM_Y_SPEED1 0.15f
+# define BBM_Y_SPEED2 0.225f
+# define BBM_X_SPEED1 0.15f
+# define BBM_X_SPEED2 0.225f
+# define BBM_GRAVITY 0.00002f
+# define BBM_Y_MAX_SPEED 0.50f
 
 /*Goomba properties*/
 # define GBA_PATH "files/xpm/ennemies/goomba/goomba"
@@ -109,24 +117,30 @@
 
 /*Plant piranha properties*/
 # define PP_PATH "files/xpm/ennemies/plant_piranha/plant_piranha"
-# define PP_NUMBER 2
+# define PP_NUMBER 10
 # define PP_HBOX 4
 # define PP_ANIM_DURATION 2000
+# define PP_ANIM_DEATH_DURATION 360
+# define PP_X_DEATH_SPEED 0.20f
+# define PP_Y_DEATH_SPEED 0.25f
+# define PP_Y_MAX_SPEED 0.50f
+# define PP_GRAVITY 0.00001f
 
 /*Fireball properties*/
 # define FB_PATH "files/xpm/objects/fireball/fireball"
-# define FB_NUMBER 4
+# define FB_NUMBER 7
 # define FB_HBOX 3
 # define FB_ANIM_DURATION 240
-# define FB_LIVE_DURATION 1200
+# define FB_LIVE_DURATION 1800
+# define FB_EXPLOSION_DURATION 120
 # define FB_SPEED_DEFAULT 0.05f
 # define FB_SPEED_PLAYER 0.22f
 # define FB_UP_SPEED 0.30f
 # define FB_START_UP_SPEED 0.18f
-# define FB_MAX_SPEED 0.5f
+# define FB_MAX_SPEED 0.3f
 # define FB_GRAVITY 0.00003f
 
 /*Crate properties*/
-# define CRATE_PATH "files/xpm/objects/crate.xpm"
+# define CRATE_PATH "files/xpm/block/crate.xpm"
 
 #endif

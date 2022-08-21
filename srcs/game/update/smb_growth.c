@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 04:48:05 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 16:11:51 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:23:14 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,6 @@ static int	get_new_state(t_game *game)
 	return (0);
 }
 
-int	update_shrink(t_game *game)
-{
-	if (game->player.state == CROUCH || game->player.state == C_SHRINK)
-		game->player.state = C_SHRINK;
-	else
-		game->player.state = SHRINK;
-	update_player_image(game, &game->player);
-	if (game->update_fct != update_shrink)
-		get_new_state(game);
-	return (0);
-}
-
 int	growth(t_game *game)
 {
 	if (game->player.state == CROUCH)
@@ -83,13 +71,11 @@ int	shrink(t_game *game)
 	{
 		game->update_fct = update_death;
 		game->player.state = DEAD;
+		game->keypressed_fct = 0;
+		game->keyreleased_fct = 0;
 		game->player.anim_length = 2;
 		game->player.anim_duration = PLAYER_DEAD_ANIM_DURATION;
 		game->player.anim_frame_start = game->current_frame;
-		game->player.y_speed = -START_DEAD_SPEED;
-		game->player.y_acceleration = 0;
-		game->keypressed_fct = 0;
-		game->keyreleased_fct = 0;
 	}
 	game->player.invincible_frame = PLAYER_INVINCIBLE_DURATION;
 	return (0);
@@ -107,5 +93,14 @@ int	update_growth(t_game *game)
 	return (0);
 }
 
-
-
+int	update_shrink(t_game *game)
+{
+	if (game->player.state == CROUCH || game->player.state == C_SHRINK)
+		game->player.state = C_SHRINK;
+	else
+		game->player.state = SHRINK;
+	update_player_image(game, &game->player);
+	if (game->update_fct != update_shrink)
+		get_new_state(game);
+	return (0);
+}

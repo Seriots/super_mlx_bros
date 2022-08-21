@@ -1,0 +1,26 @@
+/* XPM */
+static char *fireball6[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1 ",
+"  c #B53120",
+". c #E69C21",
+"X c #FFFEFF",
+"o c None",
+/* pixels */
+"ooo oo    oo ooo",
+"o oo        oo o",
+"oo     ..     oo",
+" o  . .  . .  o ",
+"oo . ...... . oo",
+"o   .X.XX.X.   o",
+"  . .XXXXXX. .  ",
+"   ..XXXXXX..   ",
+"   ..XXXXXX..   ",
+"  . .XXXXXX. .  ",
+"o   .X.XX.X.   o",
+"oo . ...... . oo",
+" o  . .  . .  o ",
+"oo     ..     oo",
+"o oo        oo o",
+"ooo oo    oo ooo"
+};

@@ -90,6 +90,8 @@ x -> List chainee de tout mes elements a redner: all_image, current_image, start
 -> les laucher de fusee
 -> faire les wall en fond qu'on traverse par le dessous mais qu'on reste sur le dessus (avec peut etre invisible lines), refaire le parsing des objets pour pouvoir faire un truc special selon le tag.
 -> Checkpoint
+-> sign clicking open box with some writing
+
 ```
 
 CHECK collisions

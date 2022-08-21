@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:50:21 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 17:44:42 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:25:45 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "smb_objects.h"
 #include "smb.h"
 
-int	update_obj_img(t_game *game, t_object *obj)
+int	update_obj_img(t_game *game, t_object *obj, int start_image)
 {
 	long int	cur_frame;
 	int			image_value;
@@ -24,7 +24,9 @@ int	update_obj_img(t_game *game, t_object *obj)
 	image_value = cur_frame / (obj->animation_duration / obj->nb_image);
 	if (image_value >= obj->nb_image)
 		image_value = obj->nb_image - 1;
-	obj->img = &obj->all_img[image_value];
+	obj->img = &obj->all_img[image_value + start_image];
+	obj->width = obj->img->width;
+	obj->height = obj->img->height;
 	return (0);
 }
 
@@ -48,5 +50,19 @@ int	generate_wincoin(t_game *game, t_object *obj)
 	wincoin = add_obj(COIN, obj->x + ((obj->width - COIN_WIDTH) / 2), obj->y - COIN_HEIGHT);
 	init_wincoin(game, (t_object **)&wincoin->value);
 	dict_add_back(&game->map.all_object, wincoin);
+	return (0);
+}
+
+int	default_movement(t_game *game, t_object *obj, float max_speed)
+{
+	int	i;
+
+	i = 0;
+	while (i < game->delay)
+	{
+		apply_gravity_obj(game, obj, max_speed);
+		apply_hor_movement_obj(game, obj);
+		i++;
+	}
 	return (0);
 }

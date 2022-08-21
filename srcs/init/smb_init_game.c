@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:21:41 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 20:50:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 16:33:35 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void	set_image_to_zero(t_game *game)
 	game->all_images.all_goombas = 0;
 	game->all_images.all_piranhas = 0;
 	game->all_images.all_characters = 0;
+	game->all_images.all_breakable_block = 0;
 	game->all_images.sign.img = 0;
 	game->all_images.big_tree.img = 0;
 	game->all_images.block.img = 0;
@@ -46,7 +47,6 @@ static void	set_image_to_zero(t_game *game)
 	game->all_images.red_champi.img = 0;
 	game->all_images.loot_block.img = 0;
 	game->all_images.loot_block_use.img = 0;
-	game->all_images.breakable_block.img = 0;
 	game->all_images.crate.img = 0;
 }
 
@@ -87,8 +87,7 @@ static int	init_all_xpm_image(t_game *game)
 		&& !init_xpm_image(game, &game->all_images.red_champi, REDC_PATH)
 		&& !init_xpm_image(game, &game->all_images.loot_block, LB_PATH)
 		&& !init_xpm_image(game, &game->all_images.loot_block_use, LBU_PATH)
-		&& !init_xpm_image(game, &game->all_images.crate, CRATE_PATH)
-		&& !init_xpm_image(game, &game->all_images.breakable_block, BB_PATH))
+		&& !init_xpm_image(game, &game->all_images.crate, CRATE_PATH))
 		return (0);
 	return (3);
 }
@@ -109,6 +108,8 @@ static int	init_game_images(t_game *game)
 			&game->all_images.all_piranhas)
 		&& !init_images_group(game, FB_PATH, FB_NUMBER,
 			&game->all_images.all_fireballs)
+		&& !init_images_group(game, BB_PATH, BB_NUMBER,
+			&game->all_images.all_breakable_block)
 		&& !init_all_xpm_image(game))
 		return (0);
 	return (3);

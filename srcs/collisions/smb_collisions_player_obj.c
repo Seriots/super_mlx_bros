@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:28:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 16:37:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:29:00 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,9 @@ int	check_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox, t_object *obj)
 	while (all_obj)
 	{
 		value = (t_object *)all_obj->value;
-		if ((obj != value) &&
-			((value->x > p_hbox->x_min && value->x < p_hbox->x_max)
+		if (obj && (obj == value || obj->all_img == value->all_img))
+			return (0);
+		if (((value->x > p_hbox->x_min && value->x < p_hbox->x_max)
 				|| (value->x + value->width > p_hbox->x_min
 					&& value->x + value->width < p_hbox->x_max)
 				|| (value->x <= p_hbox->x_min
@@ -90,7 +91,9 @@ void	apply_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox, t_object *obj)
 	{
 		next = all_obj->next;
 		value = (t_object *)all_obj->value;
-		if ((obj != value) && ((value->x > p_hbox->x_min && value->x < p_hbox->x_max)
+		if (obj && (obj == value || obj->all_img == value->all_img))
+			return ;
+		if (((value->x > p_hbox->x_min && value->x < p_hbox->x_max)
 				|| (value->x + value->width > p_hbox->x_min
 					&& value->x + value->width < p_hbox->x_max)
 				|| (value->x <= p_hbox->x_min
@@ -107,35 +110,6 @@ void	apply_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox, t_object *obj)
 		all_obj = next;
 	}
 }
-/*
-int	check_col_player_obj(t_game *game, float x_pos, float y_pos, float pos)
-{
-	t_hbox	p_hbox;
-	int		ret_val;
-
-	p_hbox.x_max = max((int)floor(game->player.x_pos + game->x_position
-				+ game->player.width),
-			(int)floor(x_pos + game->player.width + pos));
-	p_hbox.x_min = min((int)floor(game->player.x_pos + game->x_position),
-			(int)floor(x_pos + pos));
-	p_hbox.y_max = max((int)floor(game->player.y_pos + game->player.height),
-			(int)floor(y_pos + game->player.height));
-	p_hbox.y_min = min((int)floor(game->player.y_pos), (int)floor(y_pos));
-	p_hbox.direction = NONE;
-	if (game->player.x_pos > x_pos || game->x_position > pos)
-		p_hbox.direction = LEFT;
-	else if (game->player.x_pos < x_pos || game->x_position < pos)
-		p_hbox.direction = RIGHT;
-	else if (game->player.y_pos > y_pos)
-		p_hbox.direction = UP;
-	else if (game->player.y_pos < y_pos)
-		p_hbox.direction = DOWN;
-	if (game->collide_obj.height != 0)
-		get_new_limit_wall(game->collide_obj, &p_hbox);
-	ret_val = check_collide(game, game->map.all_object, &p_hbox);
-	apply_collide(game, game->map.all_object, &p_hbox);
-	return (ret_val);
-}*/
 
 int	check_col_player_obj(t_game *game, float x_pos, float y_pos, t_object *obj)
 {

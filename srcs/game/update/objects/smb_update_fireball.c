@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 14:17:28 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:39:15 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:53:40 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	fireball_player_update(t_game *game, t_dict *elem, t_object *obj)
 	int	retval;
 
 	(void)elem;
-	update_obj_img(game, obj);
+	update_obj_img(game, obj, 0);
 	i = 0;
 	retval = 0;
 	while (i < game->delay && retval == 0)

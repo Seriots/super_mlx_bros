@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:05:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 11:34:08 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:00:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ int	goomba_del(t_game *game, t_dict *elem, t_object *obj)
 	if (obj->img != &obj->all_img[2])
 	{
 		generate_wincoin(game, obj);
+		game->player.final_score += 100;
+		obj->is_collide = 0;
+		obj->start_frame = game->current_frame;
 		obj->y += 8;
 		obj->height = 8;
 		obj->img = &obj->all_img[2];
@@ -44,8 +47,6 @@ int	goomba_collisions(t_game *game, t_object *obj, int direction)
 	if (game->player.y_pos + game->player.height < obj->y + (obj->height / 2))
 	{
 		obj->update_fonction = obj->del_fonction;
-		obj->is_collide = 0;
-		obj->start_frame = game->current_frame;
 		game->player.y_speed = REJUMP_SPEED;
 		game->player.y_acceleration = 0;
 	}
@@ -67,8 +68,7 @@ int	goomba_update(t_game *game, t_dict *elem, t_object *obj)
 	if (image_value >= obj->nb_image)
 		image_value = obj->nb_image - 1;
 	obj->img = &obj->all_img[image_value];
-	apply_gravity_obj(game, obj, GBA_Y_MAX_SPEED);
-	apply_hor_movement_obj(game, obj);
+	default_movement(game, obj, GBA_Y_MAX_SPEED);
 	if (obj->y > SCREEN_HEIGHT)
 		dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);

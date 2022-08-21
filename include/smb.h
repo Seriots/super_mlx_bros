@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 16:39:45 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:51:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ int				update_death(t_game *game);
 int				growth(t_game *game);
 int				shrink(t_game *game);
 int				update_growth(t_game *game);
+int				update_shrink(t_game *game);
 
 /*smb_update.c*/
 int				update_movement(t_game *game, t_player *player);
@@ -153,9 +154,10 @@ int				update_end(t_game *game);
 int				game_loop(t_game *game);
 
 /*Obj utils*/
+int				default_movement(t_game *game, t_object *obj, float max_speed);
 int				generate_wincoin(t_game *game, t_object *obj);
 int				check_hbox(t_game *game, t_object *obj, int x_hbox, int y_hbox);
-int				update_obj_img(t_game *game, t_object *obj);
+int				update_obj_img(t_game *game, t_object *obj, int start_image);
 
 /*Init Objects*/
 void			set_object(t_game *game, char *key, t_object **object);

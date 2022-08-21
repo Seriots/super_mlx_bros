@@ -1,0 +1,25 @@
+/* XPM */
+static char *fireball4[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 3 1 ",
+"  c #B53120",
+". c #E69C21",
+"X c None",
+/* pixels */
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXX XX XXXXXX",
+"XXXX X    X XXXX",
+"XXXXX  ..  XXXXX",
+"XXXX  ....  XXXX",
+"XXXX  ....  XXXX",
+"XXXXX  ..  XXXXX",
+"XXXX X    X XXXX",
+"XXXXXX XX XXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX"
+};

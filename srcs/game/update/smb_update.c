@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:35 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 16:06:08 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 13:27:57 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,17 @@ extern int	g_end;
 
 int	update_movement(t_game *game, t_player *player)
 {
+	int i;
+
+	i = 0;
 	if (!i_can_move(game, player))
 		return (1);
-	apply_gravity(game, player);
-	apply_hor_movement(game, player);
+	while (i < game->delay)
+	{
+		apply_gravity(game, player);
+		apply_hor_movement(game, player);
+		i++;
+	}
 	return (0);
 }
 

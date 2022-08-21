@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:17:48 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:20:26 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:57:07 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	fireball_default_collide(t_game *game, t_object *obj, int direction)
 int	fireball_default_update(t_game *game, t_dict *elem, t_object *obj)
 {
 	(void)elem;
-	update_obj_img(game, obj);
+	update_obj_img(game, obj, 0);
 	if (obj->y - FB_SPEED_DEFAULT * game->delay + obj->height < 0
 		|| check_collisions_obj(game, obj, obj->x, obj->y
 			- FB_SPEED_DEFAULT * game->delay))
@@ -43,8 +43,17 @@ int	fireball_default_update(t_game *game, t_dict *elem, t_object *obj)
 
 int	fireball_default_del(t_game *game, t_dict *elem, t_object *obj)
 {
-	(void)obj;
-	dict_delone(&game->map.all_object, elem, 0, free);
+	if (obj->col_count != 0)
+	{
+		obj->start_frame = game->current_frame;
+		obj->animation_duration = FB_EXPLOSION_DURATION;
+		obj->nb_image = 3;
+		obj->is_collide = 0;
+		obj->col_count ++;
+	}
+	update_obj_img(game, obj, 3);
+	if (obj->start_frame + FB_EXPLOSION_DURATION < game->current_frame)
+		dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 

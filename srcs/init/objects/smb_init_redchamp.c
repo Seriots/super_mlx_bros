@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:07:14 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/20 16:42:06 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:29:18 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	red_champ_collisions(t_game *game, t_object *obj, int dir)
 		return (0);
 	if (game->player.evolution == LITTLE)
 	{
-		if ((game->player.state == CROUCH
+		if (game->update_fct == update_growth || game->update_fct == update_shrink
+			|| (game->player.state == CROUCH
 				&& check_col_player_map(game, game->player.x_pos,
 					game->player.y_pos - 14, game->x_position))
 			|| (game->player.state != CROUCH
@@ -55,8 +56,7 @@ int	red_champ_collisions(t_game *game, t_object *obj, int dir)
 int	red_champ_update(t_game *game, t_dict *elem, t_object *obj)
 {
 	(void)elem;
-	apply_gravity_obj(game, obj, REDC_Y_MAX_SPEED);
-	apply_hor_movement_obj(game, obj);
+	default_movement(game, obj, REDC_Y_MAX_SPEED);
 	if (obj->y > SCREEN_HEIGHT)
 		obj->update_fonction = obj->del_fonction;
 	return (0);
@@ -79,6 +79,7 @@ int	red_champ_spawn_update(t_game *game, t_dict *elem, t_object *obj)
 int   red_champ_del(t_game *game, t_dict *elem, t_object *obj)
 {
 	(void)obj;
+	game->player.final_score += 300;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

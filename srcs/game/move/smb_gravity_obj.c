@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:07:13 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 12:34:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 13:31:21 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,12 @@ static int	obj_fall(t_game *game, t_object *obj, float max_speed)
 
 int	apply_gravity_obj(t_game *game, t_object *obj, float max_speed)
 {
-	int	i;
-
-	i = 0;
-	while (i < game->delay)
+	if (check_collisions_bottom_obj(game, obj, obj->x, obj->y))
 	{
-		if (check_collisions_bottom_obj(game, obj, obj->x, obj->y))
-		{
-			obj->y_speed = 0;
-			obj->y_acceleration = 0;
-		}
-		else
-			obj_fall(game, obj, max_speed);
-		i++;
+		obj->y_speed = 0;
+		obj->y_acceleration = 0;
 	}
+	else
+		obj_fall(game, obj, max_speed);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:33:59 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:14:31 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 16:01:02 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,23 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include <stdio.h>
+
 int	fireball_player_del(t_game *game, t_dict *elem, t_object *obj)
 {
-	(void)obj;
-	dict_delone(&game->map.all_object, elem, 0, free);
+	if (obj->col_count == 0)
+	{
+		obj->start_frame = game->current_frame;
+		obj->animation_duration = FB_EXPLOSION_DURATION;
+		obj->nb_image = 3;
+		obj->is_collide = 0;
+		obj->col_count ++;
+		obj->x += 2;
+		obj->y += 2;
+	}
+	update_obj_img(game, obj, 3);
+	if (obj->start_frame + obj->animation_duration < game->current_frame)
+		dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:09:02 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/17 06:33:54 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 13:28:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,6 @@ static void	position(t_game *game, t_player *player)
 
 int	apply_gravity(t_game *game, t_player *player)
 {
-	int	i;
-
-	i = 0;
 	if (check_collisions_bottom(game, player->x_pos, player->y_pos,
 			game->x_position)
 		&& player->top == false)
@@ -86,13 +83,9 @@ int	apply_gravity(t_game *game, t_player *player)
 	}
 	else
 	{
-		while (i < game->delay)
-		{
-			acceleration(game, player);
-			speed(game, player);
-			position(game, player);
-			i++;
-		}
+		acceleration(game, player);
+		speed(game, player);
+		position(game, player);
 	}
 	return (0);
 }

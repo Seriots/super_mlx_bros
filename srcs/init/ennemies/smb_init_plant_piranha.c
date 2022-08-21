@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:12:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 17:42:59 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:07:04 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,59 @@ int	plant_pirahna_collisions(t_game *game, t_object *obj, int dir)
 	return (0);
 }
 
-int	plant_pirahna_del(t_game *game, t_dict *elem, t_object *obj)
+int	update_piranha_death_pos(t_game *game, t_object *obj)
+{
+	int i;
+
+	i = 0;
+	while (i < game->delay)
+	{
+		obj->x += obj->x_speed;
+		obj->y_acceleration += PP_GRAVITY;
+		obj->y_speed += obj->y_acceleration;
+		if (obj->y_speed > PP_Y_MAX_SPEED)
+			obj->y_speed = PP_Y_MAX_SPEED;
+		obj->y += obj->y_speed;
+		i++;
+	}
+	return (0);
+}
+
+int	init_piranha_death(t_game *game, t_object *obj)
 {
 	generate_wincoin(game, obj);
-	dict_delone(&game->map.all_object, elem, 0, free);
+	game->player.final_score += 200;
+	obj->animation_duration = PP_ANIM_DEATH_DURATION;
+	obj->start_frame = game->current_frame;
+	obj->nb_image = 8;
+	obj->is_collide = 0;
+	if (game->player.x_pos + game->x_position < obj->x)
+		obj->x_speed = PP_X_DEATH_SPEED;
+	else
+		obj->x_speed = -PP_X_DEATH_SPEED;
+	obj->y_speed = -PP_Y_DEATH_SPEED;
+	obj->col_count ++;
+	return (0);
+}
+
+int	plant_pirahna_del(t_game *game, t_dict *elem, t_object *obj)
+{
+	long int	cur_frame;
+	int			image_value;
+
+	if (obj->col_count == 0)
+		init_piranha_death(game, obj);
+	cur_frame = (game->current_frame - obj->start_frame)
+		% obj->animation_duration;
+	image_value = cur_frame / (obj->animation_duration / obj->nb_image);
+	if (image_value >= obj->nb_image)
+		image_value = obj->nb_image - 1;
+	obj->img = &obj->all_img[2 + image_value];
+	obj->height = obj->img->height;
+	obj->width = obj->img->width;
+	update_piranha_death_pos(game, obj);
+	if (obj->y > SCREEN_HEIGHT)
+		dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
@@ -50,11 +99,13 @@ int	plant_pirahna_update(t_game *game, t_dict *elem, t_object *obj)
 		image_value = obj->nb_image - 1;
 	if (image_value == 1 && obj->img != &obj->all_img[image_value])
 	{
-		fireball = add_obj(FIREBALL, obj->x + 2, obj->y);
+		fireball = add_obj(FIREBALL, obj->x, obj->y);
 		init_fireball(game, (t_object **)&fireball->value);
 		dict_add_back(&game->map.all_object, fireball);
 	}
 	obj->img = &obj->all_img[image_value];
+	obj->height = obj->img->height;
+	obj->width = obj->img->width;
 	return (0);
 }
 

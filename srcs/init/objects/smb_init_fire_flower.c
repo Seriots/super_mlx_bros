@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:04:32 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:26:39 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:03:49 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	fire_flower_update(t_game *game, t_dict *elem, t_object *obj)
 int	fire_flower_del(t_game *game, t_dict *elem, t_object *obj)
 {
 	(void)obj;
+	game->player.final_score += 500;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

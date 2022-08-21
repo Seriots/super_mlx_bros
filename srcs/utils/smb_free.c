@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 17:01:10 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:00:05 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	free_all_image_group(t_game *game)
 		free_img_array(game, &game->all_images.all_piranhas, PP_NUMBER);
 	if (game->all_images.all_fireballs)
 		free_img_array(game, &game->all_images.all_fireballs, FB_NUMBER);
+	if (game->all_images.all_breakable_block)
+		free_img_array(game, &game->all_images.all_breakable_block, BB_NUMBER);
 }
 
 void	free_all_image(t_game *game)
@@ -83,8 +85,8 @@ void	free_all_image(t_game *game)
 		mlx_destroy_image(game->mlx.display, game->all_images.loot_block.img);
 	if (game->all_images.loot_block_use.img)
 		mlx_destroy_image(game->mlx.display, game->all_images.loot_block_use.img);
-	if (game->all_images.breakable_block.img)
-		mlx_destroy_image(game->mlx.display, game->all_images.breakable_block.img);
+	if (game->all_images.crate.img)
+		mlx_destroy_image(game->mlx.display, game->all_images.crate.img);
 }
 
 void	free_all_object(t_game *game)
