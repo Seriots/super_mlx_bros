@@ -94,6 +94,13 @@ x -> List chainee de tout mes elements a redner: all_image, current_image, start
 
 ```
 
+```SIDE PROJECT
+
+-> Map maker
+-> IA aui joue a ma place
+
+```
+
 CHECK collisions
 -> Need: POSITION OBJECT, size object, tout ce qui peut le mettre en collisions
 -> Application le deplacement en y separement/avant du deplacement en x.
