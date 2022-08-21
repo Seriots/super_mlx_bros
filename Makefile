@@ -5,7 +5,6 @@ MAKE = /bin/make
 
 define SRCS :=
 	main.c
-	collisions/objects/smb_collisions_fireball_player.c
 	collisions/smb_collisions_loop_obj.c
 	collisions/smb_collisions_loop.c
 	collisions/smb_collisions_player_map.c
@@ -21,13 +20,10 @@ define SRCS :=
 	game/display/smb_put_map_to_img.c
 	game/display/smb_put_objects_to_img.c
 	game/display/smb_put_player_to_img.c
-	game/move/smb_gravity_obj.c
-	game/move/smb_hor_movement_obj.c
 	game/move/smb_move_hor.c
 	game/move/smb_move_left.c
 	game/move/smb_move_right.c
 	game/move/smb_move_up.c
-	game/update/objects/smb_update_fireball.c
 	game/update/smb_growth.c
 	game/update/smb_update_death.c
 	game/update/smb_update_end.c
@@ -41,32 +37,41 @@ define SRCS :=
 	game/event/smb_ingame_pressed_fct.c
 	game/event/smb_ingame_released_fct.c
 	game/smb_game_loop.c
+	init/smb_init_game_image.c
 	init/smb_init_game.c
 	init/smb_init_image.c
 	init/smb_init_object.c
 	init/smb_init_player_image.c
 	init/smb_init_player.c
 	init/smb_init_tiles.c
-	init/ennemies/smb_init_goomba.c
-	init/ennemies/smb_init_plant_piranha.c
-	init/objects/smb_add_obj.c
-	init/objects/smb_init_block.c
-	init/objects/smb_init_breakable_block.c
-	init/objects/smb_init_btr.c
-	init/objects/smb_init_castle.c
-	init/objects/smb_init_coin.c
-	init/objects/smb_init_crate.c
-	init/objects/smb_init_end.c
-	init/objects/smb_init_fireball.c
-	init/objects/smb_init_fire_flower.c
-	init/objects/smb_init_flag.c
-	init/objects/smb_init_loot_block.c
-	init/objects/smb_init_player_fireball.c
-	init/objects/smb_init_redchamp.c
-	init/objects/smb_init_sign.c
-	init/objects/smb_init_start.c
-	init/objects/smb_init_wincoin.c
-	init/objects/smb_obj_utils.c
+	ennemies/fct/smb_death_plant_piranha.c
+	ennemies/init/smb_init_goomba.c
+	ennemies/init/smb_init_plant_piranha.c
+	objects/fct/smb_break_block.c
+	objects/fct/smb_collisions_fireball_player.c
+	objects/fct/smb_fct_end.c
+	objects/fct/smb_gravity_obj.c
+	objects/fct/smb_hor_movement_obj.c
+	objects/fct/smb_redchamp_check.c
+	objects/fct/smb_update_fireball.c
+	objects/init/smb_init_block.c
+	objects/init/smb_init_breakable_block.c
+	objects/init/smb_init_btr.c
+	objects/init/smb_init_castle.c
+	objects/init/smb_init_coin.c
+	objects/init/smb_init_crate.c
+	objects/init/smb_init_end.c
+	objects/init/smb_init_fireball.c
+	objects/init/smb_init_fire_flower.c
+	objects/init/smb_init_flag.c
+	objects/init/smb_init_loot_block.c
+	objects/init/smb_init_player_fireball.c
+	objects/init/smb_init_redchamp.c
+	objects/init/smb_init_sign.c
+	objects/init/smb_init_start.c
+	objects/init/smb_init_wincoin.c
+	objects/utils/smb_add_obj.c
+	objects/utils/smb_obj_utils.c
 	parsing/smb_parsing_checker.c
 	parsing/smb_parsing_object.c
 	parsing/smb_parsing_setter.c

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:50:21 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 18:25:45 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:05:10 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,22 @@ int	update_obj_img(t_game *game, t_object *obj, int start_image)
 int	check_hbox(t_game *game, t_object *obj, int x_hbox, int y_hbox)
 {
 	if (game->player.x_pos + game->x_position + game->player.width
-			< (obj->x + obj->width / 2) - x_hbox
-			|| game->player.x_pos + game->x_position
-			> (obj->x + obj->width / 2) + x_hbox
-			|| game->player.y_pos + game->player.height
-			< (obj->y + obj->height / 2) - y_hbox
-			|| game->player.y_pos > (obj->y + obj->height / 2) + y_hbox)
+		< (obj->x + obj->width / 2) - x_hbox
+		|| game->player.x_pos + game->x_position
+		> (obj->x + obj->width / 2) + x_hbox
+		|| game->player.y_pos + game->player.height
+		< (obj->y + obj->height / 2) - y_hbox
+		|| game->player.y_pos > (obj->y + obj->height / 2) + y_hbox)
 		return (1);
 	return (0);
 }
 
 int	generate_wincoin(t_game *game, t_object *obj)
 {
-	t_dict *wincoin;
+	t_dict	*wincoin;
 
-	wincoin = add_obj(COIN, obj->x + ((obj->width - COIN_WIDTH) / 2), obj->y - COIN_HEIGHT);
+	wincoin = add_obj(COIN, obj->x + ((obj->width - COIN_WIDTH) / 2),
+			obj->y - COIN_HEIGHT);
 	init_wincoin(game, (t_object **)&wincoin->value);
 	dict_add_back(&game->map.all_object, wincoin);
 	return (0);

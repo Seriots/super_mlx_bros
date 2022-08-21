@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 17:57:11 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:00:53 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,15 @@
 void	set_object(t_game *game, char *key, t_object **object)
 {
 	long unsigned int	i;
-	static t_init		all_tag[][2] = {{{START, init_start}},
-					{{COIN, init_coin}},{{SIGN, init_sign}},
-					{{BLOCK, init_block}}, {{FLAG, init_flag}},
-					{{CASTLE, init_castle}}, {{END, init_end}},
-					{{FIRE_FLOWER, init_fire_flower}}, {{GOOMBA, init_goomba}},
-					{{BREAKABLE_BLOCK, init_breakable_block}}, 
-					{{BTR, init_btr}}, {{LOOT_BLOCK, init_loot_block}},
-					{{PLANT_PIRANHA, init_plant_pirahna}}, {{CRATE, init_crate}},
-					{{RED_CHAMP, init_red_champ}}, {{FIREBALL, init_fireball}},
-					{{FIREBALL_PLAYER, init_fireball_player}}};
-	
+	const t_init		all_tag[][2] = {{{START, init_start}},
+	{{COIN, init_coin}}, {{SIGN, init_sign}}, {{BLOCK, init_block}},
+	{{FLAG, init_flag}}, {{CASTLE, init_castle}}, {{END, init_end}},
+	{{FIRE_FLOWER, init_fire_flower}}, {{GOOMBA, init_goomba}},
+	{{BREAKABLE_BLOCK, init_breakable_block}}, {{BTR, init_btr}},
+	{{LOOT_BLOCK, init_loot_block}}, {{PLANT_PIRANHA, init_plant_pirahna}},
+	{{CRATE, init_crate}}, {{RED_CHAMP, init_red_champ}},
+	{{FIREBALL, init_fireball}}, {{FIREBALL_PLAYER, init_fireball_player}}};
+
 	i = 0;
 	while (i < sizeof(all_tag) / sizeof(all_tag[0]))
 	{

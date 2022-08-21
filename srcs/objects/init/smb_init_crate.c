@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   smb_init_sign.c                                    :+:      :+:    :+:   */
+/*   smb_init_crate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 00:15:23 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/19 16:16:07 by lgiband          ###   ########.fr       */
+/*   Created: 2022/08/19 20:49:12 by lgiband           #+#    #+#             */
+/*   Updated: 2022/08/21 19:05:41 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 
 #include <stdlib.h>
 
-int sign_del(t_game *game, t_dict *elem, t_object *obj)
+int	crate_del(t_game *game, t_dict *elem, t_object *obj)
 {
 	(void)obj;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }
 
-void	init_sign(t_game *game, t_object **obj)
+void	init_crate(t_game *game, t_object **obj)
 {
 	(*obj)->all_img = 0;
-	(*obj)->img = &game->all_images.sign;
+	(*obj)->img = &game->all_images.crate;
 	(*obj)->animation_duration = 0;
 	(*obj)->height = (*obj)->img->height;
 	(*obj)->width = (*obj)->img->width;
@@ -37,5 +37,5 @@ void	init_sign(t_game *game, t_object **obj)
 	(*obj)->start_frame = game->current_frame;
 	(*obj)->col_fonction = 0;
 	(*obj)->update_fonction = 0;
-	(*obj)->del_fonction = sign_del;
+	(*obj)->del_fonction = crate_del;
 }

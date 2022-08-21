@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:05:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 15:00:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:24:08 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ int	goomba_collisions(t_game *game, t_object *obj, int direction)
 	(void)direction;
 	if (check_hbox(game, obj, GBA_HBOX_X, GBA_HBOX_Y))
 		return (0);
-	if (game->player.y_pos + game->player.height < obj->y + (obj->height / 2))
+	if (game->player.y_pos + game->player.height < obj->y + GBA_HEIGHT_SHRINK)
 	{
 		obj->update_fonction = obj->del_fonction;
 		game->player.y_speed = REJUMP_SPEED;
 		game->player.y_acceleration = 0;
 	}
-	else if (!game->player.invincible_frame && !check_hbox(game, obj, GBA_HBOX_X / 2, GBA_HBOX_Y / 2))
+	else if (!game->player.invincible_frame
+		&& !check_hbox(game, obj, GBA_HBOX_X / 2, GBA_HBOX_Y / 2))
 		shrink(game);
 	return (0);
 }

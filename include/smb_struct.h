@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 16:32:28 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:25:53 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ typedef struct s_object
 
 typedef struct s_init
 {
-	char *tag;
-	void (*fct)(t_game *game, t_object **object);
+	char	*tag;
+	void	(*fct)(t_game *game, t_object **object);
 }	t_init;
 
 typedef struct s_map

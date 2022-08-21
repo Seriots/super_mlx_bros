@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:28:09 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 15:29:00 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:37:54 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,10 @@ int	check_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox, t_object *obj)
 	while (all_obj)
 	{
 		value = (t_object *)all_obj->value;
-		if (obj && (obj == value || obj->all_img == value->all_img))
+		if ((obj && (obj == value || obj->all_img == value->all_img)))
 			return (0);
-		if (((value->x > p_hbox->x_min && value->x < p_hbox->x_max)
+		if (value->is_strong
+			&& ((value->x > p_hbox->x_min && value->x < p_hbox->x_max)
 				|| (value->x + value->width > p_hbox->x_min
 					&& value->x + value->width < p_hbox->x_max)
 				|| (value->x <= p_hbox->x_min
@@ -73,16 +74,14 @@ int	check_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox, t_object *obj)
 					&& value->y + value->height < p_hbox->y_max)
 				|| (value->y <= p_hbox->y_min
 					&& value->y + value->height >= p_hbox->y_max)))
-		{
-			if (value->is_strong)
-				get_new_limit(game, value, p_hbox, &ret_val);
-		}
+			get_new_limit(game, value, p_hbox, &ret_val);
 		all_obj = all_obj->next;
 	}
 	return (ret_val);
 }
 
-void	apply_collide(t_game *game, t_dict *all_obj, t_hbox *p_hbox, t_object *obj)
+void	apply_collide(t_game *game, t_dict *all_obj,
+	t_hbox *p_hbox, t_object *obj)
 {
 	t_object	*value;
 	t_dict		*next;

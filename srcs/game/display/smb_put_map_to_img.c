@@ -22,15 +22,15 @@
 
 static t_img_data	get_tile(t_game *game, char c)
 {
-	int 			i;
+	int			i;
 	static char	set[] = {'P', 'A', 'I', 'J', 'N', 'M', 'B', 'E',
-							'F', 'C', 'K', 'L', 'O', 'D', 'G', 'H'};
+		'F', 'C', 'K', 'L', 'O', 'D', 'G', 'H'};
 
 	i = 0;
 	while (i < 16)
 	{
 		if (set[i] == c)
-			return (game->all_images.all_tiles[i]);;
+			return (game->all_images.all_tiles[i]);
 		i++;
 	}
 	return (game->all_images.all_tiles[0]);

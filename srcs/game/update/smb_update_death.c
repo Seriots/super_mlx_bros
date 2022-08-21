@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 05:19:33 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 18:23:30 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:41:13 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	update_death_position(t_game *game)
 int	update_death(t_game *game)
 {
 	static int	first;
-	
+
 	if (first == 0)
 	{
 		first = 1;

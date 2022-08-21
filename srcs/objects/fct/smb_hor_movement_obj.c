@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:23:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 13:31:35 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:40:16 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 int	apply_hor_movement_obj(t_game *game, t_object *obj)
 {
-	if (obj->x + obj->x_speed < 0 || obj->x + obj->x_speed > game->map.width - obj->width)
+	if (obj->x + obj->x_speed < 0
+		|| obj->x + obj->x_speed > game->map.width - obj->width)
 	{
 		if (obj->x_speed > 0)
 			obj->x = game->map.width - obj->width;

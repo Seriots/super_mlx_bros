@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:07:14 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 15:29:18 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 19:20:12 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,7 @@ int	red_champ_collisions(t_game *game, t_object *obj, int dir)
 		return (0);
 	if (game->player.evolution == LITTLE)
 	{
-		if (game->update_fct == update_growth || game->update_fct == update_shrink
-			|| (game->player.state == CROUCH
-				&& check_col_player_map(game, game->player.x_pos,
-					game->player.y_pos - 14, game->x_position))
-			|| (game->player.state != CROUCH
-				&& check_col_player_map(game, game->player.x_pos,
-					game->player.y_pos - 8, game->x_position))
-			|| (game->player.state == CROUCH
-				&& check_col_player_obj(game, game->player.x_pos + game->x_position,
-					game->player.y_pos - 14, obj))
-			|| (game->player.state != CROUCH
-				&& check_col_player_obj(game, game->player.x_pos + game->x_position,
-					game->player.y_pos - 8, obj)))
+		if (check_red_champ_collide(game, obj))
 			return (0);
 		obj->is_visible = 0;
 		obj->update_fonction = obj->del_fonction;
@@ -48,7 +36,7 @@ int	red_champ_collisions(t_game *game, t_object *obj, int dir)
 	else
 	{
 		obj->is_visible = 0;
-		obj->update_fonction = obj->del_fonction;	
+		obj->update_fonction = obj->del_fonction;
 	}
 	return (0);
 }
@@ -76,7 +64,7 @@ int	red_champ_spawn_update(t_game *game, t_dict *elem, t_object *obj)
 	return (0);
 }
 
-int   red_champ_del(t_game *game, t_dict *elem, t_object *obj)
+int	red_champ_del(t_game *game, t_dict *elem, t_object *obj)
 {
 	(void)obj;
 	game->player.final_score += 300;

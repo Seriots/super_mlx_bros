@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 00:06:12 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 18:00:05 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:31:46 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ void	free_all_image(t_game *game)
 	if (game->all_images.loot_block.img)
 		mlx_destroy_image(game->mlx.display, game->all_images.loot_block.img);
 	if (game->all_images.loot_block_use.img)
-		mlx_destroy_image(game->mlx.display, game->all_images.loot_block_use.img);
+		mlx_destroy_image(game->mlx.display,
+			game->all_images.loot_block_use.img);
 	if (game->all_images.crate.img)
 		mlx_destroy_image(game->mlx.display, game->all_images.crate.img);
 }

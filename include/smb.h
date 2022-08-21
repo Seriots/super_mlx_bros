@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 15:51:41 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:45:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,7 @@ int				init_images_group(t_game *game, char *path, int nb_of_images,
 					t_img_data **dst_ptr);
 
 /*smb_init_game.c*/
+int				init_game_images(t_game *game);
 int				init_game(t_game *game);
 
 /*smb_get_score.c*/
