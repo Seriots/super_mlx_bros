@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 04:05:37 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 19:24:08 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:55:38 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	goomba_del(t_game *game, t_dict *elem, t_object *obj)
 {
 	if (obj->img != &obj->all_img[2])
 	{
+		init_point_image(game, obj, 0, 100);
 		generate_wincoin(game, obj);
-		game->player.final_score += 100;
 		obj->is_collide = 0;
 		obj->start_frame = game->current_frame;
 		obj->y += 8;

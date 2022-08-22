@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 19:01:48 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 19:02:56 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:57:28 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	update_piranha_death_pos(t_game *game, t_object *obj)
 int	init_piranha_death(t_game *game, t_object *obj)
 {
 	generate_wincoin(game, obj);
-	game->player.final_score += 200;
+	init_point_image(game, obj, 1, 200);
 	obj->animation_duration = PP_ANIM_DEATH_DURATION;
 	obj->start_frame = game->current_frame;
 	obj->nb_image = 8;

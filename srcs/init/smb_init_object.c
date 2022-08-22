@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/22 12:07:21 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:48:17 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 	static char			all_tag[][6] = {START, END, COIN, SIGN, BTR, BLOCK,
 		FLAG, CASTLE, FIRE_FLOWER, BREAKABLE_BLOCK, LOOT_BLOCK, RED_CHAMP,
 		GOOMBA, PLANT_PIRANHA, FIREBALL, FIREBALL_PLAYER, CRATE, BREAK_MOR,
-		FLOWER, LTR};
+		FLOWER, LTR, POINT};
 
 	i = 0;
 	while (i < sizeof(all_tag) / sizeof(all_tag[0]))

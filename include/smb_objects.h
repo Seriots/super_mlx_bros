@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/22 12:07:06 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:51:58 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define BREAK_MOR "BBM"
 # define FLOWER "FLR"
 # define LTR "LTR"
+# define POINT "PTS"
 
 /*Char properties*/
 # define CHAR_PATH "files/xpm/charactere/"
@@ -151,5 +152,11 @@
 
 /*Little tree properties*/
 # define LTR_PATH "files/xpm/objects/little_tree.xpm"
+
+/*Point properties*/
+# define PTS_PATH "files/xpm/points/point"
+# define PTS_NUMBER 4
+# define PTS_Y_SPEED 0.15f
+# define PTS_GRAVITY 0.000008f
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:07:14 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 19:20:12 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:56:08 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	red_champ_collisions(t_game *game, t_object *obj, int dir)
 	}
 	else
 	{
+		init_point_image(game, obj, 2, 400);
 		obj->is_visible = 0;
 		obj->update_fonction = obj->del_fonction;
 	}
@@ -67,7 +68,6 @@ int	red_champ_spawn_update(t_game *game, t_dict *elem, t_object *obj)
 int	red_champ_del(t_game *game, t_dict *elem, t_object *obj)
 {
 	(void)obj;
-	game->player.final_score += 300;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

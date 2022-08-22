@@ -52,6 +52,7 @@ define SRCS :=
 	objects/fct/smb_fct_end.c
 	objects/fct/smb_gravity_obj.c
 	objects/fct/smb_hor_movement_obj.c
+	objects/fct/smb_init_point_image.c
 	objects/fct/smb_redchamp_check.c
 	objects/fct/smb_update_fireball.c
 	objects/init/smb_init_block.c

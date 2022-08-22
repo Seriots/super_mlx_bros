@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:04:32 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 15:03:49 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 13:01:38 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	fire_flower_collisions(t_game *game, t_object *obj, int dir)
 		return (0);
 	if (game->player.evolution < FIRE)
 		growth(game);
+	else
+		init_point_image(game, obj, 2, 400);
 	obj->is_visible = 0;
+	obj->is_collide = 0;
 	obj->update_fonction = obj->del_fonction;
 	return (0);
 }
@@ -48,7 +51,6 @@ int	fire_flower_update(t_game *game, t_dict *elem, t_object *obj)
 int	fire_flower_del(t_game *game, t_dict *elem, t_object *obj)
 {
 	(void)obj;
-	game->player.final_score += 500;
 	dict_delone(&game->map.all_object, elem, 0, free);
 	return (0);
 }

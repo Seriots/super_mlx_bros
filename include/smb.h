@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/22 12:04:43 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:54:40 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,7 @@ void			init_fireball_player(t_game *game, t_object **obj);
 void			init_crate(t_game *game, t_object **obj);
 void			init_flower(t_game *game, t_object **obj);
 void			init_ltr(t_game *game, t_object **obj);
+int				init_point_image(t_game *game, t_object *obj, int image, int score);
 
 /*Init Ennemies*/
 void			init_plant_pirahna(t_game *game, t_object **obj);

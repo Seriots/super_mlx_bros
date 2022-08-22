@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 18:44:01 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/22 12:05:03 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:37:44 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	init_game_images(t_game *game)
 			&game->all_images.all_fireballs)
 		&& !init_images_group(game, BB_PATH, BB_NUMBER,
 			&game->all_images.all_breakable_block)
+		&& !init_images_group(game, PTS_PATH, PTS_NUMBER,
+			&game->all_images.all_points)
 		&& !init_all_xpm_image(game))
 		return (0);
 	return (3);
