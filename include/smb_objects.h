@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 18:28:07 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 19:23:30 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:07:06 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 # define FIREBALL_PLAYER "FBP"
 # define CRATE "CRATE"
 # define BREAK_MOR "BBM"
+# define FLOWER "FLR"
+# define LTR "LTR"
 
 /*Char properties*/
 # define CHAR_PATH "files/xpm/charactere/"
@@ -143,5 +145,11 @@
 
 /*Crate properties*/
 # define CRATE_PATH "files/xpm/block/crate.xpm"
+
+/*Flower properties*/
+# define FLOWER_PATH "files/xpm/objects/flower.xpm"
+
+/*Little tree properties*/
+# define LTR_PATH "files/xpm/objects/little_tree.xpm"
 
 #endif

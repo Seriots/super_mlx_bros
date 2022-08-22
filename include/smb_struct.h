@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:52 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 19:25:53 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:05:42 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_object
 	float			y_speed;
 	float			y_acceleration;
 	float			x_speed;
+	void			*content;
 	t_collisions	col_object;
 	int				(*col_fonction)(t_game *game,
 			struct s_object *obj, int direction);
@@ -115,9 +116,11 @@ typedef struct s_all_images
 	t_img_data	sign;
 	t_img_data	crate;
 	t_img_data	big_tree;
+	t_img_data	little_tree;
 	t_img_data	block;
 	t_img_data	end_bar;
 	t_img_data	flag;
+	t_img_data	flower;
 	t_img_data	castle;
 	t_img_data	fire_flower;
 	t_img_data	red_champi;

@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 18:44:01 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 18:48:47 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:05:03 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int	init_all_xpm_image(t_game *game)
 		&& !init_xpm_image(game, &game->all_images.red_champi, REDC_PATH)
 		&& !init_xpm_image(game, &game->all_images.loot_block, LB_PATH)
 		&& !init_xpm_image(game, &game->all_images.loot_block_use, LBU_PATH)
+		&& !init_xpm_image(game, &game->all_images.flower, FLOWER_PATH)
+		&& !init_xpm_image(game, &game->all_images.little_tree, LTR_PATH)
 		&& !init_xpm_image(game, &game->all_images.crate, CRATE_PATH))
 		return (0);
 	return (3);

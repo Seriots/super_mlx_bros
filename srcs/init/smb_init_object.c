@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:50:03 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 19:00:53 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:07:21 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	set_object(t_game *game, char *key, t_object **object)
 	{{BREAKABLE_BLOCK, init_breakable_block}}, {{BTR, init_btr}},
 	{{LOOT_BLOCK, init_loot_block}}, {{PLANT_PIRANHA, init_plant_pirahna}},
 	{{CRATE, init_crate}}, {{RED_CHAMP, init_red_champ}},
-	{{FIREBALL, init_fireball}}, {{FIREBALL_PLAYER, init_fireball_player}}};
+	{{FIREBALL, init_fireball}}, {{FIREBALL_PLAYER, init_fireball_player}},
+	{{FLOWER, init_flower}}, {{LTR, init_ltr}}};
 
 	i = 0;
 	while (i < sizeof(all_tag) / sizeof(all_tag[0]))
@@ -61,7 +62,8 @@ t_dict	*get_dict_new(char *tag, t_object *object)
 	long unsigned int	i;
 	static char			all_tag[][6] = {START, END, COIN, SIGN, BTR, BLOCK,
 		FLAG, CASTLE, FIRE_FLOWER, BREAKABLE_BLOCK, LOOT_BLOCK, RED_CHAMP,
-		GOOMBA, PLANT_PIRANHA, FIREBALL, FIREBALL_PLAYER, CRATE, BREAK_MOR};
+		GOOMBA, PLANT_PIRANHA, FIREBALL, FIREBALL_PLAYER, CRATE, BREAK_MOR,
+		FLOWER, LTR};
 
 	i = 0;
 	while (i < sizeof(all_tag) / sizeof(all_tag[0]))

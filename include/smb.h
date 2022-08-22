@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:00 by lgiband           #+#    #+#             */
-/*   Updated: 2022/08/21 18:45:06 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:04:43 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_dict			*get_dict_new(char *tag, t_object *object);
 t_object		*obj_new(char *tag, float x, float y);
 
 /*smb_parsing.c*/
+t_dict			*add_obj_parsing(char *tag, t_object obj);
 t_dict			*add_obj(char *tag, int x, int y);
 t_dict			*get_all_object(int fd);
 int				set_map(t_map *map, char *filename);
@@ -177,6 +178,8 @@ void			init_breakable_block(t_game *game, t_object **obj);
 void			init_fireball(t_game *game, t_object **obj);
 void			init_fireball_player(t_game *game, t_object **obj);
 void			init_crate(t_game *game, t_object **obj);
+void			init_flower(t_game *game, t_object **obj);
+void			init_ltr(t_game *game, t_object **obj);
 
 /*Init Ennemies*/
 void			init_plant_pirahna(t_game *game, t_object **obj);

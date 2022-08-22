@@ -64,6 +64,8 @@ define SRCS :=
 	objects/init/smb_init_fireball.c
 	objects/init/smb_init_fire_flower.c
 	objects/init/smb_init_flag.c
+	objects/init/smb_init_flower.c
+	objects/init/smb_init_ltr.c
 	objects/init/smb_init_loot_block.c
 	objects/init/smb_init_player_fireball.c
 	objects/init/smb_init_redchamp.c

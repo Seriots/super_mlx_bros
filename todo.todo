@@ -58,7 +58,7 @@ x -> et apres le jeu est jouable
 
 ----------------------------------
 --START SECOND STEP--
--> Animer la destruction des objets: boule de feu, ennemies..
+x -> Animer la destruction des objets: boule de feu, ennemies..
 -> Refaire le parsing pour pouvoir adapter le contenu de la lignes a l'objet: goomba droite gauche, roquette laucher droite gauche, sub area, map en fond, tuyau, loot box...
 -> Ajouter un menu.
 -> Ajouter un selecteur de map style mario ou tu te balade dans une sub map et tu choisis ta map
