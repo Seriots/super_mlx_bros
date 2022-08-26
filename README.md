@@ -7,7 +7,7 @@ I don't make my own images, so i use super mario world images and the Dirt-&-Gra
 \
 Actually I have juste one map but if you want to do some map, you can and I'll be happy to add they. \
 \
-Have Fun ! 
+Have Fun ! (PS: press 'e' to launch fireball)
 
 
 ![screen_supermlxbros1](https://user-images.githubusercontent.com/96475943/186989139-9265d14c-e919-4453-a61f-59a4629f2f71.png)
