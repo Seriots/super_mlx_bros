@@ -8,8 +8,8 @@ as game image.
 \
 Actually I have juste one map but if you want to do some map, you can and I'll be happy to add they. \
 \
-Have Fun ! \
+Have Fun ! 
 
-# To lauch: \
+# To lauch:
 make \
 ./super_mlx_bros maps/map1.map
