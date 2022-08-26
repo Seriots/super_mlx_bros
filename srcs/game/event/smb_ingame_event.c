@@ -51,9 +51,9 @@ int	key_released_ingame(KeySym keycode, t_game *game)
 		ingame_top_released(game);
 	else if (keycode == XK_Escape)
 		ingame_escape_released(game);
-	else if (keycode == 0x0061 && game->player.evolution < FIRE)
+	else if (keycode == XK_j && game->player.evolution < FIRE)
 		growth(game);
-	else if (keycode == 0x007a && game->player.evolution != LITTLE)
+	else if (keycode == XK_k && game->player.evolution != LITTLE)
 		shrink(game);
 	return (0);
 }
